@@ -33,17 +33,28 @@ namespace RubiksCube_2x2
         //     corresponds to Color #3.)
         //     
         //
-        public System.Drawing.Color Color1of3;
-        public System.Drawing.Color Color2of3;
-        public System.Drawing.Color Color3of3;
+        public System.Drawing.Color FaceColor1of3;
+        public System.Drawing.Color FaceColor2of3;
+        public System.Drawing.Color FaceColor3of3;
 
-        public FrontClockFace FrontFace;
+        //
+        //          [.N.]   [.N.]
+        //   [.W.] [10:30] [1:30]  [.E.]
+        //   [.W.]  [ 7:30] [3:30]  [.E.]
+        //           [.S.]   [.S.]
+        //
+        // (The [. .] faces are _side_ faces.) 
+        //
+        public FrontClockFace FrontFacePosition;
 
+        public FacePositionNSWE FaceColor1Position;
+        public FacePositionNSWE FaceColor2Position;
+        public FacePositionNSWE FaceColor3Position;
 
-
-
-
-
+        public EnumFaceNum WhichFaceIsN_offront;
+        public EnumFaceNum WhichFaceIsW_offront;
+        public EnumFaceNum WhichFaceIsE_offront;
+        public EnumFaceNum WhichFaceIsS_offront;
 
     }
 }

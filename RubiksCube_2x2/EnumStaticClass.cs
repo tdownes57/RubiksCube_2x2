@@ -19,7 +19,32 @@ namespace RubiksCube_2x2
 
     }
 
+    //
+    //          [.N.]   [.N.]
+    //   [.W.] [10:30] [1:30]  [.E.]
+    //   [.W.]  [ 7:30] [3:30]  [.E.]
+    //           [.S.]   [.S.]
+    // (The [. .] faces are _side_ faces.) 
+    //
     public enum FrontClockFace { one_thirty, four_thirty, seven_thirty, ten_thirty};
+
+    //
+    // A 2x2 Rubik's Cube:   (The [. .] faces are _side_ faces.)  
+    //
+    //            [.N.]   [.N.]
+    //     [.W.] [front] [front]  [.E.]
+    //     [.W.] [front] [front]  [.E.]
+    //            [.S.]   [.S.]
+    //
+    //
+    //          [.N.]   [.N.]
+    //   [.W.] [10:30] [1:30]  [.E.]
+    //   [.W.]  [ 7:30] [3:30]  [.E.]
+    //           [.S.]   [.S.]
+    //
+    public enum FacePositionNSWE { NotSpecified, FrontFacing, N_side_of_front, S_side_of_front, E_side_of_front, W_side_of_front };
+
+    public enum EnumFaceNum { NotSpecified, NotApplicable, Face1, Face2, Face3 };
 
     public class EnumStaticClass
     {

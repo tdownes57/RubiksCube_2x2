@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.labelRotateSimpleClock = new System.Windows.Forms.Label();
             this.buttonRotateClockwise = new System.Windows.Forms.Button();
@@ -41,6 +42,10 @@
             this.labelCountSimpleCW = new System.Windows.Forms.Label();
             this.buttonReplayAllRotation = new System.Windows.Forms.Button();
             this.buttonClearAllRotation = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // progressBar1
@@ -160,11 +165,63 @@
             this.buttonClearAllRotation.Text = "Clear All Rotation";
             this.buttonClearAllRotation.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Location = new System.Drawing.Point(11, 21);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(582, 17);
+            this.label2.TabIndex = 13;
+            this.label2.Text = " We are studying the front half of a 2x2 Rubik\'s Cube:   (The [. .] faces are _si" +
+    "de_ faces.)    ";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Location = new System.Drawing.Point(19, 52);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(170, 153);
+            this.label3.TabIndex = 14;
+            this.label3.Text = resources.GetString("label3.Text");
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Location = new System.Drawing.Point(761, 62);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(170, 153);
+            this.label4.TabIndex = 16;
+            this.label4.Text = resources.GetString("label4.Text");
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label4.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Location = new System.Drawing.Point(753, 31);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(582, 17);
+            this.label5.TabIndex = 15;
+            this.label5.Text = " We are studying the front half of a 2x2 Rubik\'s Cube:   (The [. .] faces are _si" +
+    "de_ faces.)    ";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label5.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(966, 529);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonClearAllRotation);
             this.Controls.Add(this.buttonReplayAllRotation);
             this.Controls.Add(this.labelSimpleCCW);
@@ -179,7 +236,7 @@
             this.Controls.Add(this.labelRotateSimpleClock);
             this.Controls.Add(this.progressBar1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Rubik\'s Cube, Front Half of a 2x2";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.ResumeLayout(false);
@@ -202,6 +259,10 @@
         private System.Windows.Forms.Label labelCountSimpleCW;
         private System.Windows.Forms.Button buttonReplayAllRotation;
         private System.Windows.Forms.Button buttonClearAllRotation;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
 

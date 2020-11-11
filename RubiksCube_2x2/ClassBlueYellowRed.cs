@@ -11,11 +11,16 @@ namespace RubiksCube_2x2
     {
         public BlueYellowRed()
         {
-            base.Color1of3 = Color.Blue; // Green. 
-            base.Color2of3 = Color.Yellow;
-            base.Color3of3 = Color.Red;
+            base.FaceColor1of3 = Color.Blue; // Green. 
+            base.FaceColor2of3 = Color.Yellow;
+            base.FaceColor3of3 = Color.Red;
 
-            base.FrontFace = FrontClockFace.ten_thirty;
+            // Clock position 10:30 pm 
+            base.FrontFacePosition = FrontClockFace.ten_thirty;
+
+            base.FaceColor1Position = FacePositionNSWE.N_side_of_front;
+            base.FaceColor2Position = FacePositionNSWE.FrontFacing;
+            base.FaceColor3Position = FacePositionNSWE.W_side_of_front;
 
         }
     }
