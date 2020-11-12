@@ -16,7 +16,7 @@ namespace RubiksCube_2x2
 
         private BlueOrangeYellow mod_PieceBOY = new BlueOrangeYellow();
         private BlueYellowRed mod_PieceBYR = new BlueYellowRed();
-        private GreenRedYellow mod_PieceGBRY = new GreenRedYellow();
+        private GreenRedYellow mod_PieceGRY = new GreenRedYellow();
         private GreenYellowOrange mod_PieceGYO = new GreenYellowOrange();
 
 
@@ -30,18 +30,21 @@ namespace RubiksCube_2x2
             System.Drawing.SolidBrush a_brush = new SolidBrush(Color.Red);
 
             //center_point_form = new Point(this.Width / 2, this.Height / 2);
-            center_point_form = new Point(this.Width / 2, this.Height / 4);
+            //center_point_form = new Point(this.Width / 2, this.Height / 4);
+            center_point_form = new Point(this.Width / 2, 2 * this.Height / 5);
 
 
-    }
+        }
 
-    private void Form1_Draw_NotInUse(object sender, EventArgs e)
+        private void Form1_Draw_NotInUse(object sender, EventArgs e)
         {
             //System.Drawing.SolidBrush a_brush = new SolidBrush(Color.Red);
 
 
 
         }
+
+        #region Obselete Code
 
         private Rectangle GetRectangle_FrontFace(int whichRect)
         {
@@ -277,13 +280,20 @@ namespace RubiksCube_2x2
 
         private Rectangle GetRectangle_byCenter(Point par_center, int half_width, int half_hght)
         {
+            //
+            // Copied from Form1.cs on 11/12/2020 thomas downes
+            //
             //Point center_point_form = new Point(this.Width / 2, this.Height / 2);
             //Point center_point_rect; //= new Point(this.Width / 2, this.Height / 2);
 
-            return new Rectangle(par_center.X - half_width, par_center.Y - half_hght, 
-                2 * half_width, 2 * half_hght);
+            return new Rectangle(par_center.X - half_width, 
+                par_center.Y - half_hght, 
+                (2 * half_width), 
+                (2 * half_hght));
 
         }
+
+        #endregion
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
@@ -302,29 +312,44 @@ namespace RubiksCube_2x2
             //a_graphics.FillRectangle(a_brush, GetRectangle_FrontFace(2));
             //a_graphics.FillRectangle(a_brush, GetRectangle_FrontFace(3));
 
-            //
-            // Fill the front faces. 
-            //
-            a_graphics.FillRectangle(a_brush_yel, GetRectangle_FrontFace(FrontClockFace.one_thirty));  // 1:30 pm, or 13h30  (top right)
-            a_graphics.FillRectangle(a_brush_orange, GetRectangle_FrontFace(FrontClockFace.four_thirty)); // 3:30 pm, or 15h30   (bottom right) 
-            a_graphics.FillRectangle(a_brush_orange, GetRectangle_FrontFace(FrontClockFace.seven_thirty)); // 7:30 pm, or 19h30  (bottom left) 
-            a_graphics.FillRectangle(a_brush_yel, GetRectangle_FrontFace(FrontClockFace.ten_thirty));   // 10:30 pm, or 22h30  (top left)  
+            const bool c_boolUseObjects = true;
 
-            //
-            // Fill the side faces. 
-            //
-            a_graphics.FillRectangle(a_brush_green, GetRectangle_SideFace(FrontClockFace.one_thirty, true, false)); // 1:30 pm, or 13h30  (top right)
-            a_graphics.FillRectangle(a_brush_red, GetRectangle_SideFace(FrontClockFace.one_thirty, false, true));
-            
-            a_graphics.FillRectangle(a_brush_green, GetRectangle_SideFace(FrontClockFace.four_thirty, true, false)); // 3:30 pm, or 15h30   (bottom right) 
-            a_graphics.FillRectangle(a_brush_yel, GetRectangle_SideFace(FrontClockFace.four_thirty, false, true));
-            
-            a_graphics.FillRectangle(a_brush_yel, GetRectangle_SideFace(FrontClockFace.seven_thirty, true, false)); // 7:30 pm, or 19h30  (bottom left) 
-            a_graphics.FillRectangle(a_brush_blu, GetRectangle_SideFace(FrontClockFace.seven_thirty, false, true));
-            
-            a_graphics.FillRectangle(a_brush_red, GetRectangle_SideFace(FrontClockFace.ten_thirty, true, false));  // 10:30 pm, or 22h30  (top left)  
-            a_graphics.FillRectangle(a_brush_blu, GetRectangle_SideFace(FrontClockFace.ten_thirty, false, true));
+            if (c_boolUseObjects)
+            {
+                //
+                // Added 11/11/2020 Thomas Downes        
+                //
+                mod_PieceBOY.PaintByGraphics(a_graphics, center_point_form);
+                mod_PieceBYR.PaintByGraphics(a_graphics, center_point_form);
+                mod_PieceGRY.PaintByGraphics(a_graphics, center_point_form);
+                mod_PieceGYO.PaintByGraphics(a_graphics, center_point_form);
 
+            }
+            else
+            {
+                //
+                // Fill the front faces. 
+                //
+                a_graphics.FillRectangle(a_brush_yel, GetRectangle_FrontFace(FrontClockFace.one_thirty));  // 1:30 pm, or 13h30  (top right)
+                a_graphics.FillRectangle(a_brush_orange, GetRectangle_FrontFace(FrontClockFace.four_thirty)); // 3:30 pm, or 15h30   (bottom right) 
+                a_graphics.FillRectangle(a_brush_orange, GetRectangle_FrontFace(FrontClockFace.seven_thirty)); // 7:30 pm, or 19h30  (bottom left) 
+                a_graphics.FillRectangle(a_brush_yel, GetRectangle_FrontFace(FrontClockFace.ten_thirty));   // 10:30 pm, or 22h30  (top left)  
+
+                //
+                // Fill the side faces. 
+                //
+                a_graphics.FillRectangle(a_brush_green, GetRectangle_SideFace(FrontClockFace.one_thirty, true, false)); // 1:30 pm, or 13h30  (top right)
+                a_graphics.FillRectangle(a_brush_red, GetRectangle_SideFace(FrontClockFace.one_thirty, false, true));
+
+                a_graphics.FillRectangle(a_brush_green, GetRectangle_SideFace(FrontClockFace.four_thirty, true, false)); // 3:30 pm, or 15h30   (bottom right) 
+                a_graphics.FillRectangle(a_brush_yel, GetRectangle_SideFace(FrontClockFace.four_thirty, false, true));
+
+                a_graphics.FillRectangle(a_brush_yel, GetRectangle_SideFace(FrontClockFace.seven_thirty, true, false)); // 7:30 pm, or 19h30  (bottom left) 
+                a_graphics.FillRectangle(a_brush_blu, GetRectangle_SideFace(FrontClockFace.seven_thirty, false, true));
+
+                a_graphics.FillRectangle(a_brush_red, GetRectangle_SideFace(FrontClockFace.ten_thirty, true, false));  // 10:30 pm, or 22h30  (top left)  
+                a_graphics.FillRectangle(a_brush_blu, GetRectangle_SideFace(FrontClockFace.ten_thirty, false, true));
+            }
         }
 
 

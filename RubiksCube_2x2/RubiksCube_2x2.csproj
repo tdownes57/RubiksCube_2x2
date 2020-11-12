@@ -87,6 +87,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="20201110_140906_1.jpg" />
+    <Content Include="20201110_140914.jpg" />
+    <Content Include="20201110_140918.jpg" />
     <Content Include="Notes.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

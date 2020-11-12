@@ -42,5 +42,54 @@ namespace RubiksCube_2x2
             base.WhichFaceIsE_of_front = EnumFaceNum.Face1;
 
         }
+
+
+        public override void PaintFrontFace(Graphics par_graph, Point p_center_of_form,
+    out Point p_pointNW, out Point p_pointSW,
+    out Point p_pointNE, out Point p_pointSE)
+        {
+            throw new NotImplementedException();
+
+            //
+            // Added 11/11/2020 thomas downes  
+            //
+            Rectangle frontFace = EnumStaticClass.GetRectangle_Front(p_center_of_form, base.FrontFacePosition);
+
+            p_pointNW = new Point(frontFace.X, frontFace.Y);
+            p_pointSW = new Point(frontFace.X, frontFace.Y + frontFace.Height);
+            p_pointNE = new Point(frontFace.X + frontFace.Width, frontFace.Y);
+            p_pointSE = new Point(frontFace.X + frontFace.Width, frontFace.Y + frontFace.Height);
+
+            Brush a_brush = new SolidBrush(base.GetColorOfFrontFace());
+
+            par_graph.FillRectangle(a_brush, frontFace);
+
+
+        }
+
+
+        public override void PaintSideFace_ClockwiseFromFront(Graphics par_graphics,
+         in Point par_pointNW, in Point par_pointSW,
+         in Point par_pointNE, in Point par_pointSE)
+        {
+            //
+            // Added 11/12/2020 thomas downes
+            //
+            throw new NotImplementedException();
+
+        }
+
+        public override void PaintSideFace_CounterClockwise(Graphics par_graphics,
+            in Point par_pointNW, in Point par_pointSW,
+            in Point par_pointNE, in Point par_pointSE)
+        {
+            //
+            // Added 11/12/2020 thomas downes
+            //
+            throw new NotImplementedException();
+
+        }
+
+
     }
 }
