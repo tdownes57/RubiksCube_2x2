@@ -16,13 +16,31 @@ namespace RubiksCube_2x2
             base.FaceColor3of3 = Color.Yellow;
 
             //
-            //Clock position: 
+            // Clock position:
+            //
+            //           [.N.]   [.N.]
+            //   [.W.]  [10:30] [1:30]  [.E.]
+            //   [.W.]  [ 7:30] [3:30]  [.E.]
+            //           [.S.]   [.S.]
+            //
+            // (The [. .] faces are _side_ faces.) 
             //
             base.FrontFacePosition = FrontClockFace.one_thirty;
 
             base.FaceColor1Position = FacePositionNSWE.W_side_of_front;
             base.FaceColor2Position = FacePositionNSWE.FrontFacing;
             base.FaceColor3Position = FacePositionNSWE.S_side_of_front;
+
+            //
+            //
+            // More description, which may or may not be needed (helpful). 
+            //
+            //
+            base.WhichFaceIsN_of_front = EnumFaceNum.Face1;
+            base.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+            base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+            base.WhichFaceIsE_of_front = EnumFaceNum.Face2;
+
 
         }
 

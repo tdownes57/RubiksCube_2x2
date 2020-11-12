@@ -14,6 +14,11 @@ namespace RubiksCube_2x2
     {
         private Point center_point_form; // = new Point(this.Width / 2, this.Height / 2);
 
+        private BlueOrangeYellow mod_PieceBOY = new BlueOrangeYellow();
+        private BlueYellowRed mod_PieceBYR = new BlueYellowRed();
+        private GreenRedYellow mod_PieceGBRY = new GreenRedYellow();
+        private GreenYellowOrange mod_PieceGYO = new GreenYellowOrange();
+
 
         public Form1()
         {

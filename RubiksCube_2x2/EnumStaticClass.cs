@@ -44,7 +44,7 @@ namespace RubiksCube_2x2
     //
     public enum FacePositionNSWE { NotSpecified, FrontFacing, N_side_of_front, S_side_of_front, E_side_of_front, W_side_of_front };
 
-    public enum EnumFaceNum { NotSpecified, NotApplicable, Face1, Face2, Face3 };
+    public enum EnumFaceNum { NotSpecified, NotApplicable_DifferentPiece, Face1, Face2, Face3 };
 
     public class EnumStaticClass
     {

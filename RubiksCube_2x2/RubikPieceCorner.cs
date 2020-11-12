@@ -51,10 +51,15 @@ namespace RubiksCube_2x2
         public FacePositionNSWE FaceColor2Position;
         public FacePositionNSWE FaceColor3Position;
 
-        public EnumFaceNum WhichFaceIsN_offront;
-        public EnumFaceNum WhichFaceIsW_offront;
-        public EnumFaceNum WhichFaceIsE_offront;
-        public EnumFaceNum WhichFaceIsS_offront;
+        //
+        //
+        // More description, which may or may not be needed/helpful. 
+        //
+        //
+        public EnumFaceNum WhichFaceIsN_of_front;
+        public EnumFaceNum WhichFaceIsW_of_front;
+        public EnumFaceNum WhichFaceIsE_of_front;
+        public EnumFaceNum WhichFaceIsS_of_front;
 
     }
 }

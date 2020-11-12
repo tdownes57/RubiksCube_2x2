@@ -8,9 +8,9 @@ namespace RubiksCube_2x2
 {
     class ComplexRotation
     {
-        RubikPieceCorner _cornerNE; 
+        RubikPieceCorner _cornerNE;
         RubikPieceCorner _cornerSE;
-        RubikPieceCorner _cornerSW; 
+        RubikPieceCorner _cornerSW;
         RubikPieceCorner _cornerNW;
 
         public ComplexRotation(RubikPieceCorner cornerNE, RubikPieceCorner cornerSE, 
