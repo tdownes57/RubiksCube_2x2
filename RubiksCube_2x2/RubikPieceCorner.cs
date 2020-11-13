@@ -38,9 +38,9 @@ namespace RubiksCube_2x2
         //     corresponds to Color #3.)
         //     
         //
-        public System.Drawing.Color FaceColor1of3;
-        public System.Drawing.Color FaceColor2of3;
-        public System.Drawing.Color FaceColor3of3;
+        public abstract System.Drawing.Color FaceColor1of3 { get; }
+        public abstract System.Drawing.Color FaceColor2of3 { get; }
+        public abstract System.Drawing.Color FaceColor3of3 { get; }
 
         //
         //          [.N.]   [.N.]

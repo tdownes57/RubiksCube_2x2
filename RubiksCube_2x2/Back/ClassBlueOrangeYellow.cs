@@ -14,6 +14,32 @@ namespace RubiksCube_2x2
     {
         class BlueOrangeYellow : RubikPieceCorner
         {
+            //
+            // Colors must be expressed in partial-alphabetical order,
+            //    i.e. as follows.
+            //    
+            //  Color #1 must be the lowest (closest to A)
+            //    alphabetically: 
+            //         blue, green, orange, red, yellow  
+            //  (Face #1 is the face of the Rubik's piece which 
+            //     corresponds to Color #1.)
+            //
+            //  Color #2 must be the color of the face which is 
+            //     the first face from Face #1, when moving in a 
+            //     clockwise direction. 
+            //  (Face #2 is the face of the Rubik's piece which 
+            //     corresponds to Color #2.)
+            //     
+            //  Color #3 must be the color of the face which is 
+            //     the first face after Face #2, when moving in a 
+            //     clockwise direction. 
+            //  (Face #3 is the face of the Rubik's piece which 
+            //     corresponds to Color #3.)
+            //     
+            public override System.Drawing.Color FaceColor1of3 { get { return Color.Blue;  } }
+            public override System.Drawing.Color FaceColor2of3 { get { return Color.Orange; } }
+            public override System.Drawing.Color FaceColor3of3 { get { return Color.Yellow; } }
+
             public BlueOrangeYellow()
             {
                 //
@@ -38,9 +64,9 @@ namespace RubiksCube_2x2
                 //  (Face #3 is the face of the Rubik's piece which 
                 //     corresponds to Color #3.)
                 //     
-                base.FaceColor1of3 = Color.Blue; // Green. 
-                base.FaceColor2of3 = Color.Orange;
-                base.FaceColor3of3 = Color.Yellow;
+                //--11/13/2020 td--base.FaceColor1of3 = Color.Blue; // Green. 
+                //--11/13/2020 td--base.FaceColor2of3 = Color.Orange;
+                //--11/13/2020 td--base.FaceColor3of3 = Color.Yellow;
 
                 //
                 // Clock position:
@@ -141,6 +167,10 @@ namespace RubiksCube_2x2
                 // Added 11/12/2020 thomas downes
                 //
                 base.Rotate_Clockwise90_base();
+
+                //
+                //
+                //base.FaceColor1of3
 
 
             }
