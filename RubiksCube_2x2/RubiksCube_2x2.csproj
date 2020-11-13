@@ -98,6 +98,11 @@
     <Content Include="20201110_140918.jpg" />
     <Content Include="Notes.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DataLayerNoSQL\DataLayerNoSQL.csproj">
+      <Project>{8ee87d17-fcff-498c-b4ad-6ee1d1ed783e}</Project>
+      <Name>DataLayerNoSQL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
