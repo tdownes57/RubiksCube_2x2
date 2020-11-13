@@ -69,6 +69,9 @@ namespace RubiksCube_2x2
 
         private const int _margin = 3;  // 2;  // 1; // 10;   // Added 11/12/2020 thomas downes
 
+        public abstract void Rotate_Clockwise90();
+        //----public abstract void Rotate_Counterwise90();
+
         public Color GetColorOfFrontFace()
         {
             //

@@ -16,10 +16,6 @@ namespace RubiksCube_2x2
         {
             public BlueOrangeWhite()
             {
-                base.FaceColor1of3 = Color.Blue; // Green. 
-                base.FaceColor2of3 = Color.Orange;
-                base.FaceColor3of3 = Color.Yellow;
-
                 //
                 // Clock position:
                 //
@@ -30,7 +26,33 @@ namespace RubiksCube_2x2
                 //
                 // (The [. .] faces are _side_ faces.) 
                 //
-                base.FrontFacePosition = FrontClockFace.seven_thirty;  // [ 7:30]  in   [.W.] [ 7:30] [3:30]  [.E.] 
+                //
+                // Colors must be expressed in partial-alphabetical order,
+                //    i.e. as follows.
+                //    
+                //  Color #1 must be the lowest (closest to A)
+                //    alphabetically: 
+                //         blue, green, orange, red, yellow  
+                //  (Face #1 is the face of the Rubik's piece which 
+                //     corresponds to Color #1.)
+                //
+                //  Color #2 must be the color of the face which is 
+                //     the first face from Face #1, when moving in a 
+                //     clockwise direction. 
+                //  (Face #2 is the face of the Rubik's piece which 
+                //     corresponds to Color #2.)
+                //     
+                //  Color #3 must be the color of the face which is 
+                //     the first face after Face #2, when moving in a 
+                //     clockwise direction. 
+                //  (Face #3 is the face of the Rubik's piece which 
+                //     corresponds to Color #3.)
+                //     
+                base.FaceColor1of3 = Color.Blue; // Green. 
+                base.FaceColor2of3 = Color.White;  // Orange.
+                base.FaceColor3of3 = Color.Orange;  // White.  // Yellow.
+
+                base.FrontFacePosition = FrontClockFace.seven_thirty;  // Bottom-Left, South-West [ 7:30]  in   [.W.] [ 7:30] [3:30]  [.E.] 
 
                 base.FaceColor1Position = FacePositionNSWE.W_side_of_front;
                 base.FaceColor2Position = FacePositionNSWE.FrontFacing;
@@ -42,12 +64,12 @@ namespace RubiksCube_2x2
                 //
                 //
                 base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
-                base.WhichFaceIsS_of_front = EnumFaceNum.Face3;
+                base.WhichFaceIsS_of_front = EnumFaceNum.Face3;   // Orange.
                 //----base.WhichFaceIsW_of_front = EnumFaceNum.Face2;
-                base.WhichFaceIsW_of_front = EnumFaceNum.Face1;
+                base.WhichFaceIsW_of_front = EnumFaceNum.Face1;   // Blue. 
                 base.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
 
-                base.WhichFaceIsFront = EnumFaceNum.Face2;
+                base.WhichFaceIsFront = EnumFaceNum.Face2;  // White. 
 
             }
 
@@ -113,7 +135,13 @@ namespace RubiksCube_2x2
             //
             //}
 
+            public override void Rotate_Clockwise90()
+            {
+                //
+                // Added 11/12/2020 thomas downes
+                //
 
+            }
         }
     }
 }

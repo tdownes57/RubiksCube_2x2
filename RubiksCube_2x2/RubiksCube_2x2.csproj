@@ -46,10 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackOrFront.cs" />
     <Compile Include="Back\ClassBlueOrangeYellow.cs" />
     <Compile Include="Back\ClassBlueYellowRed.cs" />
     <Compile Include="Back\ClassGreenRedYellow.cs" />
     <Compile Include="Back\ClassGreenYellowOrange.cs" />
+    <Compile Include="Back\ClassRotateRules.cs" />
     <Compile Include="ComplexRotation.cs" />
     <Compile Include="EnumStaticClass.cs" />
     <Compile Include="Form1.cs">
