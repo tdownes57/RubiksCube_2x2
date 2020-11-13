@@ -46,10 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClassBlueOrangeYellow.cs" />
-    <Compile Include="ClassBlueYellowRed.cs" />
-    <Compile Include="ClassGreenRedYellow.cs" />
-    <Compile Include="ClassGreenYellowOrange.cs" />
+    <Compile Include="Back\ClassBlueOrangeYellow.cs" />
+    <Compile Include="Back\ClassBlueYellowRed.cs" />
+    <Compile Include="Back\ClassGreenRedYellow.cs" />
+    <Compile Include="Back\ClassGreenYellowOrange.cs" />
     <Compile Include="ComplexRotation.cs" />
     <Compile Include="EnumStaticClass.cs" />
     <Compile Include="Form1.cs">
@@ -58,6 +58,10 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Front\ClassBlueOrangeWhite.cs" />
+    <Compile Include="Front\ClassBlueRedWhite.cs" />
+    <Compile Include="Front\ClassGreenRedWhite.cs" />
+    <Compile Include="Front\ClassGreenOrangeWhite.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RubikPieceCorner.cs" />
@@ -92,9 +96,6 @@
     <Content Include="20201110_140918.jpg" />
     <Content Include="Notes.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Back\" />
-    <Folder Include="Front\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -15,10 +15,15 @@ namespace RubiksCube_2x2
         private Point center_point_form_FRONT; // = new Point(this.Width / 2, this.Height / 2);
         private Point center_point_form_BACK; // Added 11/12/2020 td
 
-        private BlueOrangeYellow mod_PieceBOY = new BlueOrangeYellow();
-        private BlueYellowRed mod_PieceBYR = new BlueYellowRed();
-        private GreenRedYellow mod_PieceGRY = new GreenRedYellow();
-        private GreenYellowOrange mod_PieceGYO = new GreenYellowOrange();
+        private Back.BlueOrangeYellow mod_BackPieceBOY = new Back.BlueOrangeYellow();
+        private Back.BlueYellowRed mod_BackPieceBYR = new Back.BlueYellowRed();
+        private Back.GreenRedYellow mod_BackPieceGRY = new Back.GreenRedYellow();
+        private Back.GreenYellowOrange mod_BackPieceGYO = new Back.GreenYellowOrange();
+
+        private Front.BlueOrangeWhite mod_FrontPieceBOY = new Front.BlueOrangeWhite();
+        private Front.BlueRedWhite mod_FrontPieceBYR = new Front.BlueRedWhite();
+        private Front.GreenRedWhite mod_FrontPieceGRY = new Front.GreenRedWhite();
+        private Front.GreenOrangeWhite mod_FrontPieceGYO = new Front.GreenOrangeWhite();
 
 
         public Form1()
@@ -51,7 +56,7 @@ namespace RubiksCube_2x2
 
         #region Obselete Code
 
-        private Rectangle GetRectangle_FrontFace(int whichRect)
+        private Rectangle GetRectangle_FrontFace(int whichRect, Point par_center_point_form)
         {
             //Point center_point_form = new Point(this.Width / 2, this.Height / 2);
             Point center_point_rect; //= new Point(this.Width / 2, this.Height / 2);
@@ -63,19 +68,19 @@ namespace RubiksCube_2x2
             {
                case 0:
                     //return new Rectangle(0, 0, 100, 100);
-                    center_point_rect = new Point(center_point_form.X + FaceSize.Front_Half_wdth, center_point_form.Y - FaceSize.Front_Half_hght);
+                    center_point_rect = new Point(par_center_point_form.X + FaceSize.Front_Half_wdth, par_center_point_form.Y - FaceSize.Front_Half_hght);
                     return GetRectangle_byCenter(center_point_rect, 25, 25);
                 case 1:
                     //return new Rectangle(0, 0, 100, 100);
-                    center_point_rect = new Point(center_point_form.X + FaceSize.Front_Half_wdth, center_point_form.Y + FaceSize.Front_Half_hght);
+                    center_point_rect = new Point(par_center_point_form.X + FaceSize.Front_Half_wdth, par_center_point_form.Y + FaceSize.Front_Half_hght);
                     return GetRectangle_byCenter(center_point_rect, 25, 25);
                 case 2:
                     //return new Rectangle(0, 0, 100, 100);
-                    center_point_rect = new Point(center_point_form.X - FaceSize.Front_Half_wdth, center_point_form.Y + FaceSize.Front_Half_hght);
+                    center_point_rect = new Point(par_center_point_form.X - FaceSize.Front_Half_wdth, par_center_point_form.Y + FaceSize.Front_Half_hght);
                     return GetRectangle_byCenter(center_point_rect, 25, 25);
                 case 3:
                     //return new Rectangle(0, 0, 100, 100);
-                    center_point_rect = new Point(center_point_form.X - FaceSize.Front_Half_wdth, center_point_form.Y - FaceSize.Front_Half_hght);
+                    center_point_rect = new Point(par_center_point_form.X - FaceSize.Front_Half_wdth, par_center_point_form.Y - FaceSize.Front_Half_hght);
                     return GetRectangle_byCenter(center_point_rect, 25, 25);
 
                 default: return new Rectangle(0, 0, 100, 100);
@@ -83,7 +88,7 @@ namespace RubiksCube_2x2
         }
 
 
-        private Rectangle GetRectangle_FrontFace(FrontClockFace par_FrontFace)
+        private Rectangle GetRectangle_FrontFace(FrontClockFace par_FrontFace, Point par_center_point_form)
         {
             //
             // Define the rectange which will represent one of four(4) front single-color rectangles. 
@@ -98,26 +103,26 @@ namespace RubiksCube_2x2
             {
                 case FrontClockFace.one_thirty:
                     //return new Rectangle(0, 0, 100, 100);
-                    center_point_rect = new Point(center_point_form.X + FaceSize.Front_Half_wdth, 
-                                                  center_point_form.Y - FaceSize.Front_Half_hght);
+                    center_point_rect = new Point(par_center_point_form.X + FaceSize.Front_Half_wdth,
+                                                  par_center_point_form.Y - FaceSize.Front_Half_hght);
                     return GetRectangle_byCenter(center_point_rect, 25, 25);
 
                 case FrontClockFace.four_thirty:
                     //return new Rectangle(0, 0, 100, 100);
-                    center_point_rect = new Point(center_point_form.X + FaceSize.Front_Half_wdth, 
-                                                  center_point_form.Y + FaceSize.Front_Half_hght);
+                    center_point_rect = new Point(par_center_point_form.X + FaceSize.Front_Half_wdth,
+                                                  par_center_point_form.Y + FaceSize.Front_Half_hght);
                     return GetRectangle_byCenter(center_point_rect, 25, 25);
 
                 case FrontClockFace.seven_thirty:
                     //return new Rectangle(0, 0, 100, 100);
-                    center_point_rect = new Point(center_point_form.X - FaceSize.Front_Half_wdth, 
-                                                  center_point_form.Y + FaceSize.Front_Half_hght);
+                    center_point_rect = new Point(par_center_point_form.X - FaceSize.Front_Half_wdth,
+                                                  par_center_point_form.Y + FaceSize.Front_Half_hght);
                     return GetRectangle_byCenter(center_point_rect, 25, 25);
 
                 case FrontClockFace.ten_thirty:
                     //return new Rectangle(0, 0, 100, 100);
-                    center_point_rect = new Point(center_point_form.X - FaceSize.Front_Half_wdth, 
-                                                  center_point_form.Y - FaceSize.Front_Half_hght);
+                    center_point_rect = new Point(par_center_point_form.X - FaceSize.Front_Half_wdth,
+                                                  par_center_point_form.Y - FaceSize.Front_Half_hght);
                     return GetRectangle_byCenter(center_point_rect, 25, 25);
 
                     //
@@ -128,7 +133,8 @@ namespace RubiksCube_2x2
         }
 
 
-        private Rectangle GetRectangle_SideFace(FrontClockFace par_FrontFace, bool p_clockwise, bool p_counterwise)
+        private Rectangle GetRectangle_SideFace(FrontClockFace par_FrontFace, Point par_center_of_form, 
+                                                   bool p_clockwise, bool p_counterwise)
         {
             //
             // Define the rectange which will represent one of eight(8) side single-color rectangles. 
@@ -137,14 +143,14 @@ namespace RubiksCube_2x2
             Point center_point_frontface; //= new Point(this.Width / 2, this.Height / 2);
             Point center_point_sideface; //= new Point(this.Width / 2, this.Height / 2);
 
-            Point center_point_13h30 = new Point(center_point_form.X + FaceSize.Front_Half_wdth,
-                                                 center_point_form.Y - FaceSize.Front_Half_hght);
-            Point center_point_16h30 = new Point(center_point_form.X + FaceSize.Front_Half_wdth,
-                                                 center_point_form.Y + FaceSize.Front_Half_hght);
-            Point center_point_19h30 = new Point(center_point_form.X - FaceSize.Front_Half_wdth,
-                                                 center_point_form.Y + FaceSize.Front_Half_hght);
-            Point center_point_22h30 = new Point(center_point_form.X - FaceSize.Front_Half_wdth,
-                                                 center_point_form.Y - FaceSize.Front_Half_hght);
+            Point center_point_13h30 = new Point(par_center_of_form.X + FaceSize.Front_Half_wdth,
+                                                 par_center_of_form.Y - FaceSize.Front_Half_hght);
+            Point center_point_16h30 = new Point(par_center_of_form.X + FaceSize.Front_Half_wdth,
+                                                 par_center_of_form.Y + FaceSize.Front_Half_hght);
+            Point center_point_19h30 = new Point(par_center_of_form.X - FaceSize.Front_Half_wdth,
+                                                 par_center_of_form.Y + FaceSize.Front_Half_hght);
+            Point center_point_22h30 = new Point(par_center_of_form.X - FaceSize.Front_Half_wdth,
+                                                 par_center_of_form.Y - FaceSize.Front_Half_hght);
 
             //const int half_wdth_HORI = 30;
             //const int half_wdth_VERT = 20;
@@ -302,6 +308,15 @@ namespace RubiksCube_2x2
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
+            //
+            //Encapsulated 11/12/2020 td
+            //
+            Form1_Paint_BACK(e);
+
+        }
+
+        private void Form1_Paint_BACK(PaintEventArgs e)  //object sender, PaintEventArgs e)
+        {
             System.Drawing.SolidBrush a_brush_blu = new SolidBrush(Color.Blue);
             System.Drawing.SolidBrush a_brush_green = new SolidBrush(Color.Lime);
             System.Drawing.SolidBrush a_brush_orange = new SolidBrush(Color.Orange);
@@ -324,10 +339,10 @@ namespace RubiksCube_2x2
                 //
                 // Added 11/11/2020 Thomas Downes        
                 //
-                mod_PieceBOY.PaintByGraphics(a_graphics, center_point_form);
-                mod_PieceBYR.PaintByGraphics(a_graphics, center_point_form);
-                mod_PieceGRY.PaintByGraphics(a_graphics, center_point_form);
-                mod_PieceGYO.PaintByGraphics(a_graphics, center_point_form);
+                mod_BackPieceBOY.PaintByGraphics(a_graphics, center_point_form_BACK);
+                mod_BackPieceBYR.PaintByGraphics(a_graphics, center_point_form_BACK);
+                mod_BackPieceGRY.PaintByGraphics(a_graphics, center_point_form_BACK);
+                mod_BackPieceGYO.PaintByGraphics(a_graphics, center_point_form_BACK);
 
             }
             else
@@ -335,25 +350,25 @@ namespace RubiksCube_2x2
                 //
                 // Fill the front faces. 
                 //
-                a_graphics.FillRectangle(a_brush_yel, GetRectangle_FrontFace(FrontClockFace.one_thirty));  // 1:30 pm, or 13h30  (top right)
-                a_graphics.FillRectangle(a_brush_orange, GetRectangle_FrontFace(FrontClockFace.four_thirty)); // 3:30 pm, or 15h30   (bottom right) 
-                a_graphics.FillRectangle(a_brush_orange, GetRectangle_FrontFace(FrontClockFace.seven_thirty)); // 7:30 pm, or 19h30  (bottom left) 
-                a_graphics.FillRectangle(a_brush_yel, GetRectangle_FrontFace(FrontClockFace.ten_thirty));   // 10:30 pm, or 22h30  (top left)  
+                a_graphics.FillRectangle(a_brush_yel, GetRectangle_FrontFace(FrontClockFace.one_thirty, center_point_form_BACK));  // 1:30 pm, or 13h30  (top right)
+                a_graphics.FillRectangle(a_brush_orange, GetRectangle_FrontFace(FrontClockFace.four_thirty, center_point_form_BACK)); // 3:30 pm, or 15h30   (bottom right) 
+                a_graphics.FillRectangle(a_brush_orange, GetRectangle_FrontFace(FrontClockFace.seven_thirty, center_point_form_BACK)); // 7:30 pm, or 19h30  (bottom left) 
+                a_graphics.FillRectangle(a_brush_yel, GetRectangle_FrontFace(FrontClockFace.ten_thirty, center_point_form_BACK));   // 10:30 pm, or 22h30  (top left)  
 
                 //
                 // Fill the side faces. 
                 //
-                a_graphics.FillRectangle(a_brush_green, GetRectangle_SideFace(FrontClockFace.one_thirty, true, false)); // 1:30 pm, or 13h30  (top right)
-                a_graphics.FillRectangle(a_brush_red, GetRectangle_SideFace(FrontClockFace.one_thirty, false, true));
+                a_graphics.FillRectangle(a_brush_green, GetRectangle_SideFace(FrontClockFace.one_thirty, center_point_form_BACK, true, false)); // 1:30 pm, or 13h30  (top right)
+                a_graphics.FillRectangle(a_brush_red, GetRectangle_SideFace(FrontClockFace.one_thirty, center_point_form_BACK, false, true));
 
-                a_graphics.FillRectangle(a_brush_green, GetRectangle_SideFace(FrontClockFace.four_thirty, true, false)); // 3:30 pm, or 15h30   (bottom right) 
-                a_graphics.FillRectangle(a_brush_yel, GetRectangle_SideFace(FrontClockFace.four_thirty, false, true));
+                a_graphics.FillRectangle(a_brush_green, GetRectangle_SideFace(FrontClockFace.four_thirty, center_point_form_BACK, true, false)); // 3:30 pm, or 15h30   (bottom right) 
+                a_graphics.FillRectangle(a_brush_yel, GetRectangle_SideFace(FrontClockFace.four_thirty, center_point_form_BACK, false, true));
 
-                a_graphics.FillRectangle(a_brush_yel, GetRectangle_SideFace(FrontClockFace.seven_thirty, true, false)); // 7:30 pm, or 19h30  (bottom left) 
-                a_graphics.FillRectangle(a_brush_blu, GetRectangle_SideFace(FrontClockFace.seven_thirty, false, true));
+                a_graphics.FillRectangle(a_brush_yel, GetRectangle_SideFace(FrontClockFace.seven_thirty, center_point_form_BACK, true, false)); // 7:30 pm, or 19h30  (bottom left) 
+                a_graphics.FillRectangle(a_brush_blu, GetRectangle_SideFace(FrontClockFace.seven_thirty, center_point_form_BACK, false, true));
 
-                a_graphics.FillRectangle(a_brush_red, GetRectangle_SideFace(FrontClockFace.ten_thirty, true, false));  // 10:30 pm, or 22h30  (top left)  
-                a_graphics.FillRectangle(a_brush_blu, GetRectangle_SideFace(FrontClockFace.ten_thirty, false, true));
+                a_graphics.FillRectangle(a_brush_red, GetRectangle_SideFace(FrontClockFace.ten_thirty, center_point_form_BACK, true, false));  // 10:30 pm, or 22h30  (top left)  
+                a_graphics.FillRectangle(a_brush_blu, GetRectangle_SideFace(FrontClockFace.ten_thirty, center_point_form_BACK, false, true));
             }
         }
 
