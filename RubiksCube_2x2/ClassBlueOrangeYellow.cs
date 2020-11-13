@@ -38,52 +38,76 @@ namespace RubiksCube_2x2
             //
             base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
             base.WhichFaceIsS_of_front = EnumFaceNum.Face3;
-            base.WhichFaceIsW_of_front = EnumFaceNum.Face2;
+            //----base.WhichFaceIsW_of_front = EnumFaceNum.Face2;
+            base.WhichFaceIsW_of_front = EnumFaceNum.Face1;
             base.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
 
-        }
-
-        public override void PaintFrontFace(Graphics par_graph, Point p_center_of_form, 
-                    out Point p_pointNW, out Point p_pointSW, 
-                    out Point p_pointNE, out Point p_pointSE)
-        {
-            //
-            // Added 11/11/2020 thomas downes  
-            //
-            Rectangle frontFace = EnumStaticClass.GetRectangle_Front(p_center_of_form, base.FrontFacePosition);
-
-            p_pointNW = new Point(frontFace.X, frontFace.Y);
-            p_pointSW = new Point(frontFace.X, frontFace.Y + frontFace.Height);
-            p_pointNE = new Point(frontFace.X + frontFace.Width, frontFace.Y);
-            p_pointSE = new Point(frontFace.X + frontFace.Width, frontFace.Y + frontFace.Height);
-
-            Brush a_brush = new SolidBrush(base.GetColorOfFrontFace());
-
-            par_graph.FillRectangle(a_brush, frontFace);
-
-
-        }
-
-        public override void PaintSideFace_ClockwiseFromFront(Graphics par_graphics,
-               in Point par_pointNW, in Point par_pointSW,
-               in Point par_pointNE, in Point par_pointSE)
-        { 
-            //
-            // Added 11/12/2020 thomas downes
-            //
-
-        }
-
-        public override void PaintSideFace_CounterClockwise(Graphics par_graphics,
-            in Point par_pointNW, in Point par_pointSW,
-            in Point par_pointNE, in Point par_pointSE)
-        { 
-            //
-            // Added 11/12/2020 thomas downes
-            //
+            base.WhichFaceIsFront = EnumFaceNum.Face2;
 
         }
 
 
-}
+        //public override void PaintFrontFace(Graphics par_graph, Point p_center_of_form, 
+        //            out Point p_pointNW, out Point p_pointSW, 
+        //            out Point p_pointNE, out Point p_pointSE)
+        //{
+        //    //
+        //    // Added 11/11/2020 thomas downes  
+        //    //
+        //    base.PaintFrontFace_Base(par_graph, p_center_of_form,
+        //                 out p_pointNW, out p_pointSW,
+        //                 out p_pointNE, out p_pointSE);
+        //
+        //    //Rectangle frontFace = EnumStaticClass.GetRectangle_Front(p_center_of_form, base.FrontFacePosition);
+        //
+        //    //p_pointNW = new Point(frontFace.X, frontFace.Y);
+        //    //p_pointSW = new Point(frontFace.X, frontFace.Y + frontFace.Height);
+        //    //p_pointNE = new Point(frontFace.X + frontFace.Width, frontFace.Y);
+        //    //p_pointSE = new Point(frontFace.X + frontFace.Width, frontFace.Y + frontFace.Height);
+        //
+        //    //Brush a_brush = new SolidBrush(base.GetColorOfFrontFace());
+        //
+        //    //par_graph.FillRectangle(a_brush, frontFace);
+        //
+        //}
+
+
+        //public override void PaintSideFace_ClockwiseFromFront(Graphics par_graphics,
+        //       Point p_center_of_form,
+        //       in Point par_pointNW, in Point par_pointSW,
+        //       in Point par_pointNE, in Point par_pointSE)
+        //{
+        //    //
+        //    // Added 11/12/2020 thomas downes
+        //    //
+        //    Rectangle sideFace = EnumStaticClass.GetRectangle_Side_ClockwiseFromFront(p_center_of_form,
+        //                 base.FrontFacePosition,
+        //                   in par_pointNW, in par_pointSW,
+        //                   in par_pointNE, in par_pointSE);
+        //
+        //    Brush a_brush = new SolidBrush(base.GetColorOfSideFace_ClockwiseFromFront());
+        //    par_graphics.FillRectangle(a_brush, sideFace);
+        //
+        //}
+
+        //public override void PaintSideFace_CounterClockwise(Graphics par_graphics,
+        //       Point p_center_of_form,
+        //    in Point par_pointNW, in Point par_pointSW,
+        //    in Point par_pointNE, in Point par_pointSE)
+        //{
+        //    //
+        //    // Added 11/12/2020 thomas downes
+        //    //
+        //    Rectangle sideFace = EnumStaticClass.GetRectangle_Side_CounterClockwise(p_center_of_form,
+        //                 base.FrontFacePosition,
+        //                   in par_pointNW, in par_pointSW,
+        //                   in par_pointNE, in par_pointSE);
+        //
+        //    Brush a_brush = new SolidBrush(base.GetColorOfSideFace_CounterClockwise());
+        //    par_graphics.FillRectangle(a_brush, sideFace);
+        //
+        //}
+
+
+    }
 }

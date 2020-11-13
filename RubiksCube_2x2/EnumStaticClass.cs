@@ -50,7 +50,7 @@ namespace RubiksCube_2x2
     public class EnumStaticClass
     {
 
-        public static Rectangle GetRectangle_Front(Point p_centerOfForm, FrontClockFace p_face_position)
+        public static Rectangle GetRectangle_Front(Point p_centerOfForm, FrontClockFace p_face_position, int p_margin)
         {
             //
             // Added 11/11/2020 Thomas Downes  
@@ -69,27 +69,39 @@ namespace RubiksCube_2x2
             {
                 case FrontClockFace.one_thirty:
                     //return new Rectangle(0, 0, 100, 100);
-                    center_point_rect = new Point(center_point_form.X + FaceSize.Front_Half_wdth,
+                    center_point_rect = new Point(center_point_form.X + FaceSize.Front_Half_wdth + p_margin,
                                                   center_point_form.Y - FaceSize.Front_Half_hght);
-                    return GetRectangle_byCenter(center_point_rect, 25, 25);
+                    //---return GetRectangle_byCenter(center_point_rect, 25, 25);
+                    return GetRectangle_byCenter(center_point_rect, 
+                                                    FaceSize.Front_Half_wdth, 
+                                                    FaceSize.Front_Half_hght);
 
                 case FrontClockFace.four_thirty:
                     //return new Rectangle(0, 0, 100, 100);
-                    center_point_rect = new Point(center_point_form.X + FaceSize.Front_Half_wdth,
-                                                  center_point_form.Y + FaceSize.Front_Half_hght);
-                    return GetRectangle_byCenter(center_point_rect, 25, 25);
+                    center_point_rect = new Point(center_point_form.X + FaceSize.Front_Half_wdth + p_margin,
+                                                  center_point_form.Y + FaceSize.Front_Half_hght + p_margin);
+                    //---return GetRectangle_byCenter(center_point_rect, 25, 25);
+                    return GetRectangle_byCenter(center_point_rect, 
+                                                    FaceSize.Front_Half_wdth, 
+                                                    FaceSize.Front_Half_hght);
 
                 case FrontClockFace.seven_thirty:
                     //return new Rectangle(0, 0, 100, 100);
                     center_point_rect = new Point(center_point_form.X - FaceSize.Front_Half_wdth,
-                                                  center_point_form.Y + FaceSize.Front_Half_hght);
-                    return GetRectangle_byCenter(center_point_rect, 25, 25);
+                                                  center_point_form.Y + FaceSize.Front_Half_hght + p_margin);
+                    //---return GetRectangle_byCenter(center_point_rect, 25, 25);
+                    return GetRectangle_byCenter(center_point_rect, 
+                                                    FaceSize.Front_Half_wdth, 
+                                                    FaceSize.Front_Half_hght);
 
                 case FrontClockFace.ten_thirty:
                     //return new Rectangle(0, 0, 100, 100);
                     center_point_rect = new Point(center_point_form.X - FaceSize.Front_Half_wdth,
                                                   center_point_form.Y - FaceSize.Front_Half_hght);
-                    return GetRectangle_byCenter(center_point_rect, 25, 25);
+                    //---return GetRectangle_byCenter(center_point_rect, 25, 25);
+                    return GetRectangle_byCenter(center_point_rect, 
+                                                    FaceSize.Front_Half_wdth, 
+                                                    FaceSize.Front_Half_hght);
 
                 //
                 // Not likely to be used: 
@@ -110,6 +122,168 @@ namespace RubiksCube_2x2
 
         }
 
+
+        public static Rectangle GetRectangle_Side_ClockwiseFromFront(Point p_centerOfForm,
+                          FrontClockFace p_face_position, int par_margin, 
+                          in Point par_pointNW, in Point par_pointSW,
+                          in Point par_pointNE, in Point par_pointSE)
+        {
+            //
+            // Added 11/12/2020 Thomas Downes  
+            //
+            //
+            // Define the rectange which will represent one of eight(8) side single-color rectangles. 
+            //
+            //Point center_point_form = new Point(this.Width / 2, this.Height / 2);
+            //Point center_point_rect; //= new Point(this.Width / 2, this.Height / 2);
+            Point center_point_form = p_centerOfForm;
+            Point corner_point;
+
+            //const int mod_face_half_wdth = 30;
+            //const int mod_face_half_hght = 30;
+
+            switch (p_face_position) // (par_FrontFace)
+            {
+                case FrontClockFace.one_thirty:
+                    //return new Rectangle(0, 0, 100, 100);
+                    //center_point_rect = new Point(center_point_form.X + FaceSize.Front_Half_wdth,
+                    //                              center_point_form.Y - FaceSize.Front_Half_hght);
+                    //return GetRectangle_byBottomLeft(par_pointNW, 20, 25);
+                    corner_point = par_pointNE;
+                    //---return GetRectangle_byBottomRight(corner_point, par_margin, 20, 25);
+                    return GetRectangle_byBottomRight(corner_point, par_margin, 
+                               FaceSize.Side_Half_wdth_VERT * 2,
+                               FaceSize.Side_Half_hght_VERT * 2);
+
+                case FrontClockFace.four_thirty:
+                    //return new Rectangle(0, 0, 100, 100);
+                    //center_point_rect = new Point(center_point_form.X + FaceSize.Front_Half_wdth,
+                    //                              center_point_form.Y + FaceSize.Front_Half_hght);
+                    //return GetRectangle_byCenter(center_point_rect, 25, 25);
+                    //return GetRectangle_byTopLeft(par_pointNE, 25, 20);
+                    corner_point = par_pointSE;
+                    //--return GetRectangle_byBottomLeft(corner_point, par_margin, 20, 25);
+                    return GetRectangle_byBottomLeft(corner_point, par_margin,
+                               FaceSize.Side_Half_wdth_HORI * 2,
+                               FaceSize.Side_Half_hght_HORI * 2);
+
+                case FrontClockFace.seven_thirty:
+                    //return new Rectangle(0, 0, 100, 100);
+                    //center_point_rect = new Point(center_point_form.X - FaceSize.Front_Half_wdth,
+                    //                              center_point_form.Y + FaceSize.Front_Half_hght);
+                    //return GetRectangle_byCenter(center_point_rect, 25, 25);
+                    //return GetRectangle_byTopRight(par_pointSE, 20, 25);
+                    corner_point = par_pointSW;
+                    //---return GetRectangle_byTopLeft(corner_point, par_margin, 20, 25);
+                    return GetRectangle_byTopLeft(corner_point, par_margin,
+                               FaceSize.Side_Half_wdth_VERT * 2,
+                               FaceSize.Side_Half_hght_VERT * 2);
+
+                case FrontClockFace.ten_thirty:
+                    //return new Rectangle(0, 0, 100, 100);
+                    //center_point_rect = new Point(center_point_form.X - FaceSize.Front_Half_wdth,
+                    //                              center_point_form.Y - FaceSize.Front_Half_hght);
+                    //return GetRectangle_byCenter(center_point_rect, 25, 25);
+                    //return GetRectangle_byBottomRight(par_pointSW, 20, 25);
+                    corner_point = par_pointNW;
+                    //---return GetRectangle_byTopRight(corner_point, par_margin, 20, 25);
+                    return GetRectangle_byTopRight(corner_point, par_margin,
+                               FaceSize.Side_Half_wdth_HORI * 2,
+                               FaceSize.Side_Half_hght_HORI * 2);
+
+                //
+                // Not likely to be used: 
+                //
+                default: return new Rectangle(0, 0, 100, 100);
+            }
+        }
+
+
+        public static Rectangle GetRectangle_Side_CounterClockwise(Point p_centerOfForm,
+                  FrontClockFace p_face_position, int par_margin,
+                  in Point par_pointNW, in Point par_pointSW,
+                  in Point par_pointNE, in Point par_pointSE)
+        {
+            //
+            // Added 11/12/2020 Thomas Downes  
+            //
+            //
+            // Define the rectange which will represent one of eight(8) side single-color rectangles. 
+            //
+            //Point center_point_form = new Point(this.Width / 2, this.Height / 2);
+            //Point center_point_rect; //= new Point(this.Width / 2, this.Height / 2);
+            Point center_point_form = p_centerOfForm;
+            Point corner_point;
+
+            switch (p_face_position) // (par_FrontFace)
+            {
+                case FrontClockFace.one_thirty:
+                    corner_point = par_pointNE;
+                    //--return GetRectangle_byTopLeft(corner_point, par_margin, 25, 20);
+                    return GetRectangle_byTopLeft(corner_point, par_margin,
+                               FaceSize.Side_Half_wdth_HORI * 2,
+                               FaceSize.Side_Half_hght_HORI * 2);
+
+                case FrontClockFace.four_thirty:
+                    corner_point = par_pointSE;
+                    //--return GetRectangle_byTopRight(corner_point, par_margin, 20, 25);
+                    return GetRectangle_byTopRight(corner_point, par_margin,
+                               FaceSize.Side_Half_wdth_VERT * 2,
+                               FaceSize.Side_Half_hght_VERT * 2);
+
+                case FrontClockFace.seven_thirty:
+                    corner_point = par_pointSW;
+                    //--return GetRectangle_byBottomRight(corner_point, par_margin, 25, 20);
+                    return GetRectangle_byBottomRight(corner_point, par_margin,
+                               FaceSize.Side_Half_wdth_HORI * 2,
+                               FaceSize.Side_Half_hght_HORI * 2);
+
+                case FrontClockFace.ten_thirty:
+                    corner_point = par_pointNW;
+                    //--return GetRectangle_byBottomLeft(corner_point, par_margin, 20, 25);
+                    return GetRectangle_byBottomLeft(corner_point, par_margin,
+                               FaceSize.Side_Half_wdth_VERT * 2,
+                               FaceSize.Side_Half_hght_VERT * 2);
+
+                //
+                // Not likely to be used: 
+                //
+                default: return new Rectangle(0, 0, 100, 100);
+            }
+        }
+
+
+        private static Rectangle GetRectangle_byBottomRight(Point par_point, int par_margin, int par_width, int par_height)
+        {
+            //
+            // Added 11/12/2020 thomas downes  
+            //
+            return new Rectangle(par_point.X - par_width - par_margin, par_point.Y - par_height, par_width, par_height);
+        }
+
+        private static Rectangle GetRectangle_byBottomLeft(Point par_point, int par_margin, int par_width, int par_height)
+        {
+            //
+            // Added 11/12/2020 thomas downes  
+            //
+            return new Rectangle(par_point.X + par_margin, par_point.Y - par_height, par_width, par_height);
+        }
+
+        private static Rectangle GetRectangle_byTopLeft(Point par_point, int par_margin, int par_width, int par_height)
+        {
+            //
+            // Added 11/12/2020 thomas downes  
+            //
+            return new Rectangle(par_point.X + par_margin, par_point.Y, par_width, par_height);
+        }
+
+        private static Rectangle GetRectangle_byTopRight(Point par_point, int par_margin, int par_width, int par_height)
+        {
+            //
+            // Added 11/12/2020 thomas downes  
+            //
+            return new Rectangle(par_point.X - par_width - par_margin, par_point.Y + par_margin, par_width, par_height);
+        }
 
 
     }

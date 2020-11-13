@@ -50,7 +50,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 287);
+            this.progressBar1.Location = new System.Drawing.Point(12, 324);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(919, 36);
             this.progressBar1.TabIndex = 0;
@@ -59,7 +59,7 @@
             // 
             this.labelRotateSimpleClock.AutoSize = true;
             this.labelRotateSimpleClock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRotateSimpleClock.Location = new System.Drawing.Point(556, 345);
+            this.labelRotateSimpleClock.Location = new System.Drawing.Point(556, 382);
             this.labelRotateSimpleClock.Name = "labelRotateSimpleClock";
             this.labelRotateSimpleClock.Size = new System.Drawing.Size(239, 25);
             this.labelRotateSimpleClock.TabIndex = 1;
@@ -67,7 +67,7 @@
             // 
             // buttonRotateClockwise
             // 
-            this.buttonRotateClockwise.Location = new System.Drawing.Point(557, 385);
+            this.buttonRotateClockwise.Location = new System.Drawing.Point(557, 422);
             this.buttonRotateClockwise.Name = "buttonRotateClockwise";
             this.buttonRotateClockwise.Size = new System.Drawing.Size(153, 36);
             this.buttonRotateClockwise.TabIndex = 2;
@@ -76,7 +76,7 @@
             // 
             // buttonRotateCounter
             // 
-            this.buttonRotateCounter.Location = new System.Drawing.Point(557, 427);
+            this.buttonRotateCounter.Location = new System.Drawing.Point(557, 464);
             this.buttonRotateCounter.Name = "buttonRotateCounter";
             this.buttonRotateCounter.Size = new System.Drawing.Size(234, 36);
             this.buttonRotateCounter.TabIndex = 3;
@@ -85,7 +85,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(45, 427);
+            this.button1.Location = new System.Drawing.Point(45, 464);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(234, 36);
             this.button1.TabIndex = 6;
@@ -94,7 +94,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(45, 385);
+            this.button2.Location = new System.Drawing.Point(45, 422);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(153, 36);
             this.button2.TabIndex = 5;
@@ -105,7 +105,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(44, 345);
+            this.label1.Location = new System.Drawing.Point(44, 382);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(205, 25);
             this.label1.TabIndex = 4;
@@ -114,7 +114,7 @@
             // labelCountCR
             // 
             this.labelCountCR.AutoSize = true;
-            this.labelCountCR.Location = new System.Drawing.Point(204, 395);
+            this.labelCountCR.Location = new System.Drawing.Point(204, 432);
             this.labelCountCR.Name = "labelCountCR";
             this.labelCountCR.Size = new System.Drawing.Size(49, 17);
             this.labelCountCR.TabIndex = 7;
@@ -123,7 +123,7 @@
             // labelCountCRUndo
             // 
             this.labelCountCRUndo.AutoSize = true;
-            this.labelCountCRUndo.Location = new System.Drawing.Point(294, 437);
+            this.labelCountCRUndo.Location = new System.Drawing.Point(294, 474);
             this.labelCountCRUndo.Name = "labelCountCRUndo";
             this.labelCountCRUndo.Size = new System.Drawing.Size(49, 17);
             this.labelCountCRUndo.TabIndex = 8;
@@ -132,7 +132,7 @@
             // labelSimpleCCW
             // 
             this.labelSimpleCCW.AutoSize = true;
-            this.labelSimpleCCW.Location = new System.Drawing.Point(806, 437);
+            this.labelSimpleCCW.Location = new System.Drawing.Point(806, 474);
             this.labelSimpleCCW.Name = "labelSimpleCCW";
             this.labelSimpleCCW.Size = new System.Drawing.Size(49, 17);
             this.labelSimpleCCW.TabIndex = 10;
@@ -141,7 +141,7 @@
             // labelCountSimpleCW
             // 
             this.labelCountSimpleCW.AutoSize = true;
-            this.labelCountSimpleCW.Location = new System.Drawing.Point(716, 395);
+            this.labelCountSimpleCW.Location = new System.Drawing.Point(716, 432);
             this.labelCountSimpleCW.Name = "labelCountSimpleCW";
             this.labelCountSimpleCW.Size = new System.Drawing.Size(49, 17);
             this.labelCountSimpleCW.TabIndex = 9;
@@ -149,7 +149,7 @@
             // 
             // buttonReplayAllRotation
             // 
-            this.buttonReplayAllRotation.Location = new System.Drawing.Point(198, 486);
+            this.buttonReplayAllRotation.Location = new System.Drawing.Point(198, 523);
             this.buttonReplayAllRotation.Name = "buttonReplayAllRotation";
             this.buttonReplayAllRotation.Size = new System.Drawing.Size(191, 31);
             this.buttonReplayAllRotation.TabIndex = 11;
@@ -158,7 +158,7 @@
             // 
             // buttonClearAllRotation
             // 
-            this.buttonClearAllRotation.Location = new System.Drawing.Point(416, 486);
+            this.buttonClearAllRotation.Location = new System.Drawing.Point(416, 523);
             this.buttonClearAllRotation.Name = "buttonClearAllRotation";
             this.buttonClearAllRotation.Size = new System.Drawing.Size(191, 31);
             this.buttonClearAllRotation.TabIndex = 12;
@@ -217,7 +217,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(966, 529);
+            this.ClientSize = new System.Drawing.Size(966, 578);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);

@@ -92,5 +92,9 @@
     <Content Include="20201110_140918.jpg" />
     <Content Include="Notes.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Back\" />
+    <Folder Include="Front\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

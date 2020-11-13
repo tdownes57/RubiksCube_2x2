@@ -12,7 +12,8 @@ namespace RubiksCube_2x2
 {
     public partial class Form1 : Form
     {
-        private Point center_point_form; // = new Point(this.Width / 2, this.Height / 2);
+        private Point center_point_form_FRONT; // = new Point(this.Width / 2, this.Height / 2);
+        private Point center_point_form_BACK; // Added 11/12/2020 td
 
         private BlueOrangeYellow mod_PieceBOY = new BlueOrangeYellow();
         private BlueYellowRed mod_PieceBYR = new BlueYellowRed();
@@ -31,8 +32,12 @@ namespace RubiksCube_2x2
 
             //center_point_form = new Point(this.Width / 2, this.Height / 2);
             //center_point_form = new Point(this.Width / 2, this.Height / 4);
-            center_point_form = new Point(this.Width / 2, 2 * this.Height / 5);
+            //center_point_form = new Point(this.Width / 2, 2 * this.Height / 5);
+            //center_point_form = new Point(this.Width / 2, 1 * this.Height / 4);
+            //center_point_form = new Point(this.Width / 2, 1 * this.Height / 3);
 
+            center_point_form_FRONT = new Point(this.Width / 3, 1 * this.Height / 3);
+            center_point_form_BACK = new Point(this.Width * 2 / 3, 1 * this.Height / 3);
 
         }
 
