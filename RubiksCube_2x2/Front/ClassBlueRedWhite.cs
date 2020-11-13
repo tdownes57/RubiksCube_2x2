@@ -69,6 +69,11 @@ namespace RubiksCube_2x2
                 //base.FaceColor2of3 = Color.Red; // White;  // Yellow. 
                 //base.FaceColor3of3 = Color.White; // Red;
 
+                LoadInitialState();
+
+
+            }
+            public override void LoadInitialState() { 
                 //
                 // Clock position:
                 //
@@ -97,9 +102,6 @@ namespace RubiksCube_2x2
                 base.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
 
                 base.WhichFaceIsFront = EnumFaceNum.Face3;  // White.
-
-
-
 
             }
 

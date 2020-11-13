@@ -78,6 +78,19 @@ namespace RubiksCube_2x2
                 //base.FaceColor2of3 = Color.White;  // Orange.
                 //base.FaceColor3of3 = Color.Orange;  // White.  // Yellow.
 
+
+                //
+                // Encapsulated 11/13/2020 td
+                //
+                LoadInitialState();
+
+
+            }
+            public override void LoadInitialState()
+            {
+                //
+                // Encapsulated 11/13/2020 td
+                //
                 base.FrontFacePosition = FrontClockFace.seven_thirty;  // Bottom-Left, South-West [ 7:30]  in   [.W.] [ 7:30] [3:30]  [.E.] 
 
                 base.FaceColor1Position = FacePositionNSWE.W_side_of_front;

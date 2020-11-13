@@ -42,6 +42,11 @@ namespace RubiksCube_2x2
         public abstract System.Drawing.Color FaceColor2of3 { get; }
         public abstract System.Drawing.Color FaceColor3of3 { get; }
 
+        /// <summary>
+        /// Added 11/13/2020 
+        /// </summary>
+        public abstract void LoadInitialState();
+
         //
         //          [.N.]   [.N.]
         //   [.W.] [10:30] [1:30]  [.E.]

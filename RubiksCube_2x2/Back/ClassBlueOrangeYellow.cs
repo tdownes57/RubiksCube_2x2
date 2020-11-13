@@ -69,6 +69,14 @@ namespace RubiksCube_2x2
                 //--11/13/2020 td--base.FaceColor3of3 = Color.Yellow;
 
                 //
+                // Encapsulated 11/13/2020 td
+                //
+                LoadInitialState(); 
+
+            }
+            public override void LoadInitialState()
+            {
+                //
                 // Clock position:
                 //
                 //          [.N.]   [.N.]
