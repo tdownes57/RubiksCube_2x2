@@ -241,5 +241,26 @@ namespace RubiksCube_2x2
         }
 
 
+        internal void Rotate_Clockwise90_base()
+        {
+            //
+            // Added 11/12/2020 thomas downes
+            //
+            FrontClockFace new_position = FrontClockFace.unassigned; 
+
+            switch (this.FrontFacePosition)
+            {
+                case FrontClockFace.one_thirty: new_position = FrontClockFace.four_thirty; break;
+                case FrontClockFace.four_thirty: new_position = FrontClockFace.seven_thirty; break;
+                case FrontClockFace.seven_thirty: new_position = FrontClockFace.ten_thirty; break;
+                case FrontClockFace.ten_thirty: new_position = FrontClockFace.one_thirty; break;
+                default: break;
+            }
+            this.FrontFacePosition = new_position;
+
+        }
+
+
+
     }
 }

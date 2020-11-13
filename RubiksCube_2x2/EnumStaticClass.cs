@@ -27,7 +27,7 @@ namespace RubiksCube_2x2
     //           [.S.]   [.S.]
     // (The [. .] faces are _side_ faces.) 
     //
-    public enum FrontClockFace { one_thirty, four_thirty, seven_thirty, ten_thirty};
+    public enum FrontClockFace { unassigned, one_thirty, four_thirty, seven_thirty, ten_thirty};
 
     //
     // A 2x2 Rubik's Cube:   (The [. .] faces are _side_ faces.)  
