@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;  //Added 11/13/2020 thomas downes
 
 namespace RubiksCube_2x2
 {
@@ -52,6 +53,20 @@ namespace RubiksCube_2x2
                 // Added 11/12/2020 thomas downes
                 //
 
+
+            }
+
+            //Added 11/13/2020 thomas downes
+            public override bool SideIsASolidColor()
+            {
+                //
+                // Added 11/13/2020 thomas downes
+                //
+                Color colorOfSide = _pieceBOY.GetColorOfFrontFace();
+
+                return (colorOfSide == _pieceBYR.GetColorOfFrontFace()) &&
+                       (colorOfSide == _pieceGRY.GetColorOfFrontFace()) &&
+                       (colorOfSide == _pieceGYO.GetColorOfFrontFace());
 
             }
 

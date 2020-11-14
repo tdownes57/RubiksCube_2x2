@@ -448,5 +448,22 @@ namespace RubiksCube_2x2
             this.Refresh();
 
         }
+
+        private void buttonRotateComplex_Click(object sender, EventArgs e)
+        {
+            //
+            // Added 11/13/2020 thomas downes  
+            //
+            if (mod_RotateBackside.SideIsASolidColor())
+            {
+                // Added 11/13/2020 thomas downes
+                MessageBox.Show("The backside of the Cube is completed, i.e. a solid color.", "Completed", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return; 
+            }
+
+            mod_RotateBackside.ComplexRotation();
+
+        }
     }
 }

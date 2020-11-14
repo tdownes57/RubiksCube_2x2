@@ -34,7 +34,7 @@
             this.buttonRotateClockwise = new System.Windows.Forms.Button();
             this.buttonRotateCounter = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonRotateComplex = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.labelCountCR = new System.Windows.Forms.Label();
             this.labelCountCRUndo = new System.Windows.Forms.Label();
@@ -93,14 +93,15 @@
             this.button1.Text = "Undo";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // buttonRotateComplex
             // 
-            this.button2.Location = new System.Drawing.Point(47, 465);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(153, 36);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Complex Rules";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonRotateComplex.Location = new System.Drawing.Point(47, 465);
+            this.buttonRotateComplex.Name = "buttonRotateComplex";
+            this.buttonRotateComplex.Size = new System.Drawing.Size(153, 36);
+            this.buttonRotateComplex.TabIndex = 5;
+            this.buttonRotateComplex.Text = "Complex Rules";
+            this.buttonRotateComplex.UseVisualStyleBackColor = true;
+            this.buttonRotateComplex.Click += new System.EventHandler(this.buttonRotateComplex_Click);
             // 
             // label1
             // 
@@ -230,7 +231,7 @@
             this.Controls.Add(this.labelCountCRUndo);
             this.Controls.Add(this.labelCountCR);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.buttonRotateComplex);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonRotateCounter);
             this.Controls.Add(this.buttonRotateClockwise);
@@ -252,7 +253,7 @@
         private System.Windows.Forms.Button buttonRotateClockwise;
         private System.Windows.Forms.Button buttonRotateCounter;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonRotateComplex;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelCountCR;
         private System.Windows.Forms.Label labelCountCRUndo;
