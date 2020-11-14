@@ -69,11 +69,11 @@ namespace RubiksCube_2x2
                 //base.FaceColor2of3 = Color.Red; // White;  // Yellow. 
                 //base.FaceColor3of3 = Color.White; // Red;
 
-                LoadInitialState();
+                LoadInitialState_NotInUse();
 
 
             }
-            public override void LoadInitialState() { 
+            public override void LoadInitialState_NotInUse() { 
                 //
                 // Clock position:
                 //
@@ -85,7 +85,7 @@ namespace RubiksCube_2x2
                 // (The [. .] faces are _side_ faces.) 
                 //
                 // Clock position 10:30 pm 
-                base.FrontFacePosition = FrontClockFace.ten_thirty;  // i.e. the TopLeft piece, or NorthWest.
+                base.FrontClockFacePosition = FrontClockFace.ten_thirty;  // i.e. the TopLeft piece, or NorthWest.
 
                 base.FaceColor1Position_NotInUse = FacePositionNSWE.W_side_of_front;
                 base.FaceColor2Position_NotInUse = FacePositionNSWE.N_side_of_front;
@@ -119,7 +119,7 @@ namespace RubiksCube_2x2
             //     out p_pointNW, out p_pointSW,
             //     out p_pointNE, out p_pointSE);
             //
-            //    //Rectangle frontFace = EnumStaticClass.GetRectangle_Front(p_center_of_form, base.FrontFacePosition);
+            //    //Rectangle frontFace = EnumStaticClass.GetRectangle_Front(p_center_of_form, base.FrontClockFacePosition);
             //
             //    //p_pointNW = new Point(frontFace.X, frontFace.Y);
             //    //p_pointSW = new Point(frontFace.X, frontFace.Y + frontFace.Height);
@@ -143,7 +143,7 @@ namespace RubiksCube_2x2
             //    // Added 11/12/2020 thomas downes
             //    //
             //    Rectangle sideFace = EnumStaticClass.GetRectangle_Side_ClockwiseFromFront(p_center_of_form,
-            //                 base.FrontFacePosition,
+            //                 base.FrontClockFacePosition,
             //                   in par_pointNW, in par_pointSW,
             //                   in par_pointNE, in par_pointSE);
             //
@@ -161,7 +161,7 @@ namespace RubiksCube_2x2
             //    // Added 11/12/2020 thomas downes
             //    //
             //    Rectangle sideFace = EnumStaticClass.GetRectangle_Side_CounterClockwise(p_center_of_form,
-            //                 base.FrontFacePosition,
+            //                 base.FrontClockFacePosition,
             //                   in par_pointNW, in par_pointSW,
             //                   in par_pointNE, in par_pointSE);
             //
@@ -177,6 +177,16 @@ namespace RubiksCube_2x2
                 base.Rotate_Clockwise90_base();
 
             }
+
+            public override void ReorientPiece(FrontClockFace par_enum, Color par_frontfacecolor)
+            {
+                //
+                // Added 11/14/2020 thomas downes
+                //
+                throw new NotImplementedException();
+
+            }
+
 
         }
     }

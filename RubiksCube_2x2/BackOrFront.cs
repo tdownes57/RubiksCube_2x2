@@ -20,6 +20,8 @@ namespace RubiksCube_2x2
         public abstract void ComplexRotation();
 
 
+        //Added 11/14/2020 thomas downes
+        public abstract void LoadInitialPositions();
 
 
 

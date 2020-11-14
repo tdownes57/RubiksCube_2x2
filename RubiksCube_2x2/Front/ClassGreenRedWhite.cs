@@ -82,15 +82,15 @@ namespace RubiksCube_2x2
                 //
                 // Encapsulated 11/13/2020 td
                 //
-                LoadInitialState();
+                LoadInitialState_NotInUse();
 
             }
-            public override void LoadInitialState()
+            public override void LoadInitialState_NotInUse()
             {
                 //
                 // Encapsulated 11/13/2020 td
                 //
-                base.FrontFacePosition = FrontClockFace.one_thirty; // Top-Right, or NorthEast.
+                base.FrontClockFacePosition = FrontClockFace.one_thirty; // Top-Right, or NorthEast.
 
                 base.FaceColor1Position_NotInUse = FacePositionNSWE.E_side_of_front;
                 base.FaceColor2Position_NotInUse = FacePositionNSWE.FrontFacing;
@@ -121,7 +121,7 @@ namespace RubiksCube_2x2
             //        //
             //        // Added 11/11/2020 thomas downes  
             //        //
-            //        Rectangle frontFace = EnumStaticClass.GetRectangle_Front(p_center_of_form, base.FrontFacePosition);
+            //        Rectangle frontFace = EnumStaticClass.GetRectangle_Front(p_center_of_form, base.FrontClockFacePosition);
             //
             //        p_pointNW = new Point(frontFace.X, frontFace.Y);
             //        p_pointSW = new Point(frontFace.X, frontFace.Y + frontFace.Height);
@@ -165,6 +165,17 @@ namespace RubiksCube_2x2
                 //
 
             }
+
+            public override void ReorientPiece(FrontClockFace par_enum, Color par_frontfacecolor)
+            {
+                //
+                // Added 11/14/2020 thomas downes
+                //
+                throw new NotImplementedException();
+
+            }
+
+
 
         }
     }

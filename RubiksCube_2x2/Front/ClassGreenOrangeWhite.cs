@@ -78,13 +78,13 @@ namespace RubiksCube_2x2
                 //base.FaceColor2of3 = Color.Orange; // White;
                 //base.FaceColor3of3 = Color.White; // Orange;
 
-                LoadInitialState();
+                LoadInitialState_NotInUse();
 
 
             }
-            public override void LoadInitialState()
+            public override void LoadInitialState_NotInUse()
             {
-                base.FrontFacePosition = FrontClockFace.four_thirty; // i.e. Bottom-Right, or SouthEast.
+                base.FrontClockFacePosition = FrontClockFace.four_thirty; // i.e. Bottom-Right, or SouthEast.
 
                 base.FaceColor1Position_NotInUse = FacePositionNSWE.E_side_of_front;
                 base.FaceColor2Position_NotInUse = FacePositionNSWE.S_side_of_front;
@@ -118,7 +118,7 @@ namespace RubiksCube_2x2
             //              out p_pointNW, out p_pointSW,
             //              out p_pointNE, out p_pointSE);
             //
-            //    //Rectangle frontFace = EnumStaticClass.GetRectangle_Front(p_center_of_form, base.FrontFacePosition);
+            //    //Rectangle frontFace = EnumStaticClass.GetRectangle_Front(p_center_of_form, base.FrontClockFacePosition);
             //
             //    //p_pointNW = new Point(frontFace.X, frontFace.Y);
             //    //p_pointSW = new Point(frontFace.X, frontFace.Y + frontFace.Height);
@@ -173,6 +173,15 @@ namespace RubiksCube_2x2
                 base.WhichFaceIsFront = base.WhichFaceIsS_of_front;
                 base.WhichFaceIsS_of_front = base.WhichFaceIsE_of_front;
                 base.WhichFaceIsE_of_front = temp;
+
+            }
+
+            public override void ReorientPiece(FrontClockFace par_enum, Color par_frontfacecolor)
+            {
+                //
+                // Added 11/14/2020 thomas downes
+                //
+                throw new NotImplementedException();
 
             }
 

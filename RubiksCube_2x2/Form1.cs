@@ -15,13 +15,13 @@ namespace RubiksCube_2x2
         private Point center_point_form_FRONT; // = new Point(this.Width / 2, this.Height / 2);
         private Point center_point_form_BACK; // Added 11/12/2020 td
 
-        private Back.ClassRotateRules mod_RotateBackside; //Added 11/12/2020 thomas downes
+        private Back.ClassRotateRules_Back mod_RotateBackside; //Added 11/12/2020 thomas downes
         private Back.BlueOrangeYellow mod_BackPieceBOY = new Back.BlueOrangeYellow();
         private Back.BlueYellowRed mod_BackPieceBYR = new Back.BlueYellowRed();
         private Back.GreenRedYellow mod_BackPieceGRY = new Back.GreenRedYellow();
         private Back.GreenYellowOrange mod_BackPieceGYO = new Back.GreenYellowOrange();
 
-        private Front.ClassRotateRules mod_RotateFrontside; //Added 11/13/2020 thomas downes
+        private Front.ClassRotateRules_Front mod_RotateFrontside; //Added 11/13/2020 thomas downes
         private Front.BlueOrangeWhite mod_FrontPieceBOW = new Front.BlueOrangeWhite();
         private Front.BlueRedWhite mod_FrontPieceBRW = new Front.BlueRedWhite();
         private Front.GreenRedWhite mod_FrontPieceGRW = new Front.GreenRedWhite();
@@ -35,13 +35,14 @@ namespace RubiksCube_2x2
             //
             // Added 11/12/2020 thomas downes
             //
-            mod_RotateBackside = new Back.ClassRotateRules(mod_BackPieceBOY, mod_BackPieceBYR,
+            mod_RotateBackside = new Back.ClassRotateRules_Back(mod_BackPieceBOY, mod_BackPieceBYR,
                                                            mod_BackPieceGRY, mod_BackPieceGYO);
+            mod_RotateBackside.LoadInitialPositions();
 
             //
             // Added 11/13/2020 thomas downes
             //
-            mod_RotateFrontside = new Front.ClassRotateRules(mod_FrontPieceBOW, mod_FrontPieceBRW,
+            mod_RotateFrontside = new Front.ClassRotateRules_Front(mod_FrontPieceBOW, mod_FrontPieceBRW,
                                                            mod_FrontPieceGRW, mod_FrontPieceGOW);
 
         }

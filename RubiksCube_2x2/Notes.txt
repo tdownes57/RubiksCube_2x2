@@ -50,3 +50,124 @@
         //     corresponds to Color #3.)
         //     
 
+
+
+                //
+                // Front Face is ___Blue____
+                //
+                if (Color.Blue == par_frontfacecolor) // Blue
+                    switch (par_enum)
+                    {
+                        case (FrontClockFace.one_thirty):
+                            base.WhichFaceIsN_of_front = EnumFaceNum.Face2;
+                            base.WhichFaceIsE_of_front = EnumFaceNum.Face3;
+                            base.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                            base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                            break;
+
+                        case (FrontClockFace.four_thirty):
+                            base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                            base.WhichFaceIsE_of_front = EnumFaceNum.Face2;
+                            base.WhichFaceIsS_of_front = EnumFaceNum.Face3;
+                            base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                            break;
+
+                        case (FrontClockFace.seven_thirty):
+                            base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                            base.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                            base.WhichFaceIsS_of_front = EnumFaceNum.Face2;
+                            base.WhichFaceIsW_of_front = EnumFaceNum.Face3;
+                            break;
+
+                        case (FrontClockFace.ten_thirty):
+                            base.WhichFaceIsN_of_front = EnumFaceNum.Face3;
+                            base.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                            base.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                            base.WhichFaceIsW_of_front = EnumFaceNum.Face2;
+                            break;
+
+                    }
+
+
+                //
+                // Front Face is ___Yellow____
+                //
+                if (Color.Yellow == par_frontfacecolor) // Yellow 
+                    switch (par_enum)
+                    {
+                        case (FrontClockFace.one_thirty):
+                            base.WhichFaceIsN_of_front = EnumFaceNum.Face3;
+                            base.WhichFaceIsE_of_front = EnumFaceNum.Face1;
+                            base.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                            base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                            break;
+
+                        case (FrontClockFace.four_thirty):
+                            base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                            base.WhichFaceIsE_of_front = EnumFaceNum.Face3;
+                            base.WhichFaceIsS_of_front = EnumFaceNum.Face1;
+                            base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                            break;
+
+                        case (FrontClockFace.seven_thirty):
+                            base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                            base.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                            base.WhichFaceIsS_of_front = EnumFaceNum.Face3;
+                            base.WhichFaceIsW_of_front = EnumFaceNum.Face1;
+                            break;
+
+                        case (FrontClockFace.ten_thirty):
+                            base.WhichFaceIsN_of_front = EnumFaceNum.Face1;
+                            base.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                            base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                            base.WhichFaceIsE_of_front = EnumFaceNum.Face3;
+                            break;
+
+                    }
+
+
+                //
+                // Front Face is ___Red____
+                //
+                if (Color.Red == par_frontfacecolor)  // Red
+                    switch (par_enum)
+                    {
+                        case (FrontClockFace.one_thirty):
+                            base.WhichFaceIsN_of_front = EnumFaceNum.Face1;
+                            base.WhichFaceIsE_of_front = EnumFaceNum.Face2;
+                            base.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                            base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                            break;
+
+                        case (FrontClockFace.four_thirty):
+                            base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                            base.WhichFaceIsE_of_front = EnumFaceNum.Face1;
+                            base.WhichFaceIsS_of_front = EnumFaceNum.Face2;
+                            base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                            break;
+
+                        case (FrontClockFace.seven_thirty):
+                            base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                            base.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                            base.WhichFaceIsS_of_front = EnumFaceNum.Face1;
+                            base.WhichFaceIsW_of_front = EnumFaceNum.Face2;
+                            break;
+
+                        case (FrontClockFace.ten_thirty):
+                            base.WhichFaceIsN_of_front = EnumFaceNum.Face2;
+                            base.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                            base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                            base.WhichFaceIsE_of_front = EnumFaceNum.Face1;
+                            break;
+
+                    }
+
+
+                                  //
+                // Take care of the side faces. 
+                //
+                if (Color.Blue == par_frontfacecolor) base.ReorientPiece_FrontFaceIsFace1(par_enum);
+                if (Color.Yellow == par_frontfacecolor) base.ReorientPiece_FrontFaceIsFace2(par_enum);
+                if (Color.Red == par_frontfacecolor) base.ReorientPiece_FrontFaceIsFace3(par_enum);
+
+

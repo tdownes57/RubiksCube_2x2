@@ -13,14 +13,14 @@ namespace RubiksCube_2x2
         // Added 11/13/2020 thomas downes
         //
 
-        class ClassRotateRules : BackOrFront
+        class ClassRotateRules_Front : BackOrFront
         {
             BlueOrangeWhite _pieceBOW;
             BlueRedWhite _pieceBRW;
             GreenRedWhite _pieceGRW;
             GreenOrangeWhite _pieceGOW; 
 
-            public ClassRotateRules(BlueOrangeWhite par_BOW, 
+            public ClassRotateRules_Front(BlueOrangeWhite par_BOW, 
                                     BlueRedWhite par_BRW,
                                     GreenRedWhite par_GRW,
                                     GreenOrangeWhite par_GOW)

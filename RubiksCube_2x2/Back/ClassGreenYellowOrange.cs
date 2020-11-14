@@ -72,11 +72,11 @@ namespace RubiksCube_2x2
                 //
                 // Encapsulated 11/13/2020 td
                 //
-                LoadInitialState();
+                if (EnumStaticClass.PiecesLoadTheirInitialState) LoadInitialState_NotInUse();
 
 
             }
-            public override void LoadInitialState()
+            public override void LoadInitialState_NotInUse()
             {
                 //
                 // Encapsulated 11/13/2020 td
@@ -92,7 +92,7 @@ namespace RubiksCube_2x2
                 //
                 //   (The [. .] faces are _side_ faces.) 
                 //
-                base.FrontFacePosition = FrontClockFace.four_thirty;
+                base.FrontClockFacePosition = FrontClockFace.four_thirty;
 
                 base.FaceColor1Position_NotInUse = FacePositionNSWE.W_side_of_front;
                 base.FaceColor2Position_NotInUse = FacePositionNSWE.FrontFacing;
@@ -126,7 +126,7 @@ namespace RubiksCube_2x2
             //              out p_pointNW, out p_pointSW,
             //              out p_pointNE, out p_pointSE);
             //
-            //    //Rectangle frontFace = EnumStaticClass.GetRectangle_Front(p_center_of_form, base.FrontFacePosition);
+            //    //Rectangle frontFace = EnumStaticClass.GetRectangle_Front(p_center_of_form, base.FrontClockFacePosition);
             //
             //    //p_pointNW = new Point(frontFace.X, frontFace.Y);
             //    //p_pointSW = new Point(frontFace.X, frontFace.Y + frontFace.Height);
@@ -173,6 +173,78 @@ namespace RubiksCube_2x2
 
 
             }
+
+
+            public override void ReorientPiece(FrontClockFace par_enum, Color par_frontfacecolor)
+            {
+                //
+                // Added 11/14/2020 thomas downes
+                //
+                //throw new NotImplementedException();
+
+                base.FrontClockFacePosition = par_enum;
+
+                //switch (par_frontfacecolor.ToArgb())
+                //{
+                //    case Color.Blue.ToArgb():  base.WhichFaceIsFront = EnumFaceNum.Face1; break;
+                //}
+
+                if (Color.Lime == par_frontfacecolor) base.WhichFaceIsFront = EnumFaceNum.Face1;
+                else if (Color.Green == par_frontfacecolor) base.WhichFaceIsFront = EnumFaceNum.Face1;
+                else if (Color.Yellow == par_frontfacecolor) base.WhichFaceIsFront = EnumFaceNum.Face2;
+                else if (Color.Orange == par_frontfacecolor) base.WhichFaceIsFront = EnumFaceNum.Face3;
+                //Added 11/14/2020 td
+                else throw new Exception("The color parameter is not recognized as one of the face colors of this piece.");
+
+                switch (par_enum)
+                {
+                    case (FrontClockFace.one_thirty):
+                        base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                        base.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                        base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                        base.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                        break;
+
+                    case (FrontClockFace.four_thirty):
+                        base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                        base.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                        base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                        base.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                        break;
+
+                    case (FrontClockFace.seven_thirty):
+                        base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                        base.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                        base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                        base.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                        break;
+
+                    case (FrontClockFace.ten_thirty):
+                        base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                        base.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                        base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                        base.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                        break;
+
+                }
+
+                //
+                // Take care of the side faces. 
+                //
+                if (Color.Green == par_frontfacecolor) base.ReorientPiece_FrontFaceIsFace1(par_enum);
+                // Lime = Green. 
+                if (Color.LimeGreen == par_frontfacecolor) base.ReorientPiece_FrontFaceIsFace1(par_enum);
+                if (Color.Lime == par_frontfacecolor) base.ReorientPiece_FrontFaceIsFace1(par_enum);
+                if (Color.Yellow == par_frontfacecolor) base.ReorientPiece_FrontFaceIsFace2(par_enum);
+                if (Color.Orange == par_frontfacecolor) base.ReorientPiece_FrontFaceIsFace3(par_enum);
+
+
+
+
+            }
+
+
+
 
 
         }
