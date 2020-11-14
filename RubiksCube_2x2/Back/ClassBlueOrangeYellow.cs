@@ -88,9 +88,9 @@ namespace RubiksCube_2x2
                 //
                 base.FrontFacePosition = FrontClockFace.seven_thirty;  // [ 7:30]  in   [.W.] [ 7:30] [3:30]  [.E.] 
 
-                base.FaceColor1Position = FacePositionNSWE.W_side_of_front;
-                base.FaceColor2Position = FacePositionNSWE.FrontFacing;
-                base.FaceColor3Position = FacePositionNSWE.S_side_of_front;
+                base.FaceColor1Position_NotInUse = FacePositionNSWE.W_side_of_front;
+                base.FaceColor2Position_NotInUse = FacePositionNSWE.FrontFacing;
+                base.FaceColor3Position_NotInUse = FacePositionNSWE.S_side_of_front;
 
                 //
                 //
@@ -179,6 +179,8 @@ namespace RubiksCube_2x2
                 //
                 //
                 //base.FaceColor1of3
+
+
 
 
             }

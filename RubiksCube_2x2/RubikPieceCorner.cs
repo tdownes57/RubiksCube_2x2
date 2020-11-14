@@ -57,9 +57,9 @@ namespace RubiksCube_2x2
         //
         public FrontClockFace FrontFacePosition;
 
-        public FacePositionNSWE FaceColor1Position;
-        public FacePositionNSWE FaceColor2Position;
-        public FacePositionNSWE FaceColor3Position;
+        public FacePositionNSWE FaceColor1Position_NotInUse;
+        public FacePositionNSWE FaceColor2Position_NotInUse;
+        public FacePositionNSWE FaceColor3Position_NotInUse;
 
         //
         //
@@ -255,15 +255,104 @@ namespace RubiksCube_2x2
 
             switch (this.FrontFacePosition)
             {
-                case FrontClockFace.one_thirty: new_position = FrontClockFace.four_thirty; break;
-                case FrontClockFace.four_thirty: new_position = FrontClockFace.seven_thirty; break;
-                case FrontClockFace.seven_thirty: new_position = FrontClockFace.ten_thirty; break;
-                case FrontClockFace.ten_thirty: new_position = FrontClockFace.one_thirty; break;
+                case FrontClockFace.one_thirty: new_position = FrontClockFace.four_thirty; SimpleRotation_to430_from130(); break;
+                case FrontClockFace.four_thirty: new_position = FrontClockFace.seven_thirty; SimpleRotation_to730_from430(); break;
+                case FrontClockFace.seven_thirty: new_position = FrontClockFace.ten_thirty; SimpleRotation_to1030_from730(); break;
+                case FrontClockFace.ten_thirty: new_position = FrontClockFace.one_thirty; SimpleRotation_to130_from1030(); break;
                 default: break;
             }
             this.FrontFacePosition = new_position;
 
         }
+
+        internal void SimpleRotation_to430_from130()
+        {
+            //
+            // Added 11/13/2020 thomas downes
+            //
+            EnumFaceNum tempFaceNum_N;
+            EnumFaceNum tempFaceNum_S;
+            EnumFaceNum tempFaceNum_W;
+            EnumFaceNum tempFaceNum_E;
+
+            tempFaceNum_N = this.WhichFaceIsN_of_front;
+            tempFaceNum_S = this.WhichFaceIsS_of_front;
+            tempFaceNum_W = this.WhichFaceIsW_of_front;
+            tempFaceNum_E = this.WhichFaceIsE_of_front;
+
+            this.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+            this.WhichFaceIsS_of_front = tempFaceNum_E;
+            this.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+            this.WhichFaceIsE_of_front = tempFaceNum_N;
+
+        }
+
+        internal void SimpleRotation_to730_from430()
+        {
+            //
+            // Added 11/13/2020 thomas downes
+            //
+            EnumFaceNum tempFaceNum_N;
+            EnumFaceNum tempFaceNum_S;
+            EnumFaceNum tempFaceNum_W;
+            EnumFaceNum tempFaceNum_E;
+
+            tempFaceNum_N = this.WhichFaceIsN_of_front;
+            tempFaceNum_S = this.WhichFaceIsS_of_front;
+            tempFaceNum_W = this.WhichFaceIsW_of_front;
+            tempFaceNum_E = this.WhichFaceIsE_of_front;
+
+            this.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+            this.WhichFaceIsS_of_front = tempFaceNum_E;
+            this.WhichFaceIsW_of_front = tempFaceNum_S;
+            this.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+
+        }
+
+        internal void SimpleRotation_to1030_from730()
+        {
+            //
+            // Added 11/13/2020 thomas downes
+            //
+            EnumFaceNum tempFaceNum_N;
+            EnumFaceNum tempFaceNum_S;
+            EnumFaceNum tempFaceNum_W;
+            EnumFaceNum tempFaceNum_E;
+
+            tempFaceNum_N = this.WhichFaceIsN_of_front;
+            tempFaceNum_S = this.WhichFaceIsS_of_front;
+            tempFaceNum_W = this.WhichFaceIsW_of_front;
+            tempFaceNum_E = this.WhichFaceIsE_of_front;
+
+            this.WhichFaceIsN_of_front = tempFaceNum_W;
+            this.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+            this.WhichFaceIsW_of_front = tempFaceNum_S;
+            this.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+
+        }
+
+        internal void SimpleRotation_to130_from1030()
+        {
+            //
+            // Added 11/13/2020 thomas downes
+            //
+            EnumFaceNum tempFaceNum_N;
+            EnumFaceNum tempFaceNum_S;
+            EnumFaceNum tempFaceNum_W;
+            EnumFaceNum tempFaceNum_E;
+
+            tempFaceNum_N = this.WhichFaceIsN_of_front;
+            tempFaceNum_S = this.WhichFaceIsS_of_front;
+            tempFaceNum_W = this.WhichFaceIsW_of_front;
+            tempFaceNum_E = this.WhichFaceIsE_of_front;
+
+            this.WhichFaceIsN_of_front = tempFaceNum_W;
+            this.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+            this.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece; 
+            this.WhichFaceIsE_of_front = tempFaceNum_N;
+
+        }
+
 
 
 

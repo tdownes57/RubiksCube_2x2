@@ -86,9 +86,9 @@ namespace RubiksCube_2x2
             {
                 base.FrontFacePosition = FrontClockFace.four_thirty; // i.e. Bottom-Right, or SouthEast.
 
-                base.FaceColor1Position = FacePositionNSWE.E_side_of_front;
-                base.FaceColor2Position = FacePositionNSWE.S_side_of_front;
-                base.FaceColor3Position = FacePositionNSWE.FrontFacing;
+                base.FaceColor1Position_NotInUse = FacePositionNSWE.E_side_of_front;
+                base.FaceColor2Position_NotInUse = FacePositionNSWE.S_side_of_front;
+                base.FaceColor3Position_NotInUse = FacePositionNSWE.FrontFacing;
 
                 //
                 //
