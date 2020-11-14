@@ -164,6 +164,20 @@ namespace RubiksCube_2x2
 
             }
 
+            public void RotateJustThisPiece_Clockwise()
+            {
+                //
+                // Added 11/13/2020 thomas downes
+                //
+                EnumFaceNum temp = base.WhichFaceIsFront;
+                base.WhichFaceIsFront = base.WhichFaceIsS_of_front;
+                base.WhichFaceIsS_of_front = base.WhichFaceIsE_of_front;
+                base.WhichFaceIsE_of_front = temp;
+
+            }
+
+
+
         }
     }
 }

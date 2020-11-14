@@ -17,6 +17,7 @@ namespace RubiksCube_2x2
 
         //Added 11/13/2020 thomas downes
         public abstract bool SideIsASolidColor();
+        public abstract void ComplexRotation();
 
 
 

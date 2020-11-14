@@ -47,6 +47,15 @@ namespace RubiksCube_2x2
 
             }
 
+            public override void ComplexRotation()
+            {
+                //
+                // Added 11/13/2020 thomas downes
+                //
+
+
+            }
+
             public override void Simple_Counterwise90()
             {
                 //
