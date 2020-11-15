@@ -18,9 +18,9 @@ namespace RubiksCube_2x2
             BlueOrangeYellow _pieceBOY;
             BlueYellowRed _pieceBYR;
             GreenRedYellow _pieceGRY;
-            GreenYellowOrange _pieceGYO; 
+            GreenYellowOrange _pieceGYO;
 
-            public ClassRotateRules_Back(BlueOrangeYellow par_BOY, 
+            public ClassRotateRules_Back(BlueOrangeYellow par_BOY,
                                     BlueYellowRed par_BYR,
                                     GreenRedYellow par_GRY,
                                     GreenYellowOrange par_GYO)
@@ -31,7 +31,7 @@ namespace RubiksCube_2x2
                 _pieceBOY = par_BOY;
                 _pieceBYR = par_BYR;
                 _pieceGRY = par_GRY;
-                _pieceGYO = par_GYO; 
+                _pieceGYO = par_GYO;
 
             }
 
@@ -85,23 +85,45 @@ namespace RubiksCube_2x2
                 //_pieceGRY.ReorientPiece(_pieceGYO.FrontClockFacePosition, Color.Lime);
                 //_pieceGYO.ReorientPiece(temp, Color.Yellow);
 
+                const bool c_boolEncapsulateRulesInStaticClass = true;
+
                 ComplexPieceMove move1_from130; // = new ComplexPieceMove();
                 ComplexPieceMove move2_from430;
                 ComplexPieceMove move3_from730;
                 ComplexPieceMove move4_from1030;
 
-                move1_from130.StartingPoint = FrontClockFace.one_thirty;
-                move1_from130.EndingPoint = EnumAll12Faces.F0430;
+                if (c_boolEncapsulateRulesInStaticClass)
+                {
+                    //
+                    // New way, encapsulation of rules into a static class.
+                    //      ----Added 11/15/2020 thomas
+                    //
+                    ComplexRules.BuildComplexRotationRules();
+                    move1_from130 = ComplexRules.move1_from130;
+                    move2_from430 = ComplexRules.move2_from430;
+                    move3_from730 = ComplexRules.move3_from730;
+                    move4_from1030 = ComplexRules.move4_from1030;
 
-                move2_from430.StartingPoint = FrontClockFace.four_thirty;
-                move2_from430.EndingPoint = EnumAll12Faces._730_SSW;
+                }
+                else
+                {
+                    //
+                    // Old way, without encapsulation of rules. 
+                    //
+                    move1_from130.StartingPoint = FrontClockFace.one_thirty;
+                    move1_from130.EndingPoint = EnumAll12Faces.F0430;
 
-                move3_from730.StartingPoint = FrontClockFace.seven_thirty;
-                move3_from730.EndingPoint = EnumAll12Faces._1030_NNW;
+                    move2_from430.StartingPoint = FrontClockFace.four_thirty;
+                    move2_from430.EndingPoint = EnumAll12Faces._730_SSW;
 
-                move4_from1030.StartingPoint = FrontClockFace.ten_thirty;
-                //move4.StartingPoint = FrontClockFace.ten_thirty;
-                move4_from1030.EndingPoint = EnumAll12Faces._130_ENE;
+                    move3_from730.StartingPoint = FrontClockFace.seven_thirty;
+                    move3_from730.EndingPoint = EnumAll12Faces._1030_NNW;
+
+                    move4_from1030.StartingPoint = FrontClockFace.ten_thirty;
+                    //move4.StartingPoint = FrontClockFace.ten_thirty;
+                    move4_from1030.EndingPoint = EnumAll12Faces._130_ENE;
+                }
+
 
                 //
                 // Implementing the movements described above, as follows: 
