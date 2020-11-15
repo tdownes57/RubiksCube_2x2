@@ -143,10 +143,33 @@ namespace RubiksCube_2x2
                 //piece_starting_at_730.ReorientPiece_Complex(piece_starting_at_730.WhichFaceIsFront, move3.EndingPoint);
                 //piece_starting_at_1030.ReorientPiece_Complex(piece_starting_at_1030.WhichFaceIsFront, move4.EndingPoint);
 
-                piece_starting_at_130.ReorientPiece_Complex(move1_from130.StartingPoint, move1_from130.EndingPoint);
-                piece_starting_at_430.ReorientPiece_Complex(move2_from430.StartingPoint, move2_from430.EndingPoint);
-                piece_starting_at_730.ReorientPiece_Complex(move3_from730.StartingPoint, move3_from730.EndingPoint);
-                piece_starting_at_1030.ReorientPiece_Complex(move4_from1030.StartingPoint, move4_from1030.EndingPoint);
+                const bool c_boolEncapsulateRuleImplementation = false;
+
+                if (c_boolEncapsulateRuleImplementation)
+                {
+                    //
+                    // Use the static class, ComplexRulesEngine.  
+                    //
+                    ComplexRulesEngine.this_piece = piece_starting_at_130;
+                    ComplexRulesEngine.ReorientPiece_Complex(move1_from130.StartingPoint, move1_from130.EndingPoint);
+
+                    ComplexRulesEngine.this_piece = piece_starting_at_430;
+                    //ComplexRulesEngine.ReorientPiece_Complex(move1_from130.StartingPoint, move1_from130.EndingPoint);
+
+                    ComplexRulesEngine.this_piece = piece_starting_at_730;
+                    //ComplexRulesEngine.ReorientPiece_Complex(move1_from130.StartingPoint, move1_from130.EndingPoint);
+                    
+                    ComplexRulesEngine.this_piece = piece_starting_at_1030;
+                    //ComplexRulesEngine.ReorientPiece_Complex(move1_from130.StartingPoint, move1_from130.EndingPoint);
+
+                }
+                else
+                {
+                    piece_starting_at_130.ReorientPiece_Complex(move1_from130.StartingPoint, move1_from130.EndingPoint);
+                    piece_starting_at_430.ReorientPiece_Complex(move2_from430.StartingPoint, move2_from430.EndingPoint);
+                    piece_starting_at_730.ReorientPiece_Complex(move3_from730.StartingPoint, move3_from730.EndingPoint);
+                    piece_starting_at_1030.ReorientPiece_Complex(move4_from1030.StartingPoint, move4_from1030.EndingPoint);
+                }
 
             }
 
