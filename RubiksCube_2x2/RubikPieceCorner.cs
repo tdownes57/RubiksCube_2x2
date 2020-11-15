@@ -565,11 +565,13 @@ namespace RubiksCube_2x2
             EnumFaceNum start_whichIsEast = this.WhichFaceIsE_of_front;
             EnumFaceNum start_whichIsSouth = this.WhichFaceIsS_of_front;
             EnumFaceNum start_whichIsWest = this.WhichFaceIsW_of_front;
+            //Added 11/15/2020 thomas downes
+            EnumFaceNum start_whichIs_NotSpecified = EnumFaceNum.NotSpecified;
 
             switch (par_enum)
             {
                 //
-                // The blue-orange-yellow piece is in the upper-right corner. 
+                // The top-left piece (10:30) is now moved to the upper-right corner (130). 
                 //
                 case EnumAll12Faces.F0130:
                     this.WhichFaceIsFront = start_whichIsFront;  // i.e. !!! no change !!!
@@ -597,65 +599,81 @@ namespace RubiksCube_2x2
 
 
                 //
-                // The blue-orange-yellow piece is in the bottom-right corner.  
+                // The top-left piece (10:30) is now moved to the bottom-right corner.  
                 //
                 case EnumAll12Faces.F0430:
                     this.WhichFaceIsFront = start_whichIsFront;  // i.e. !!! no change !!!
                     this.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
-                    this.WhichFaceIsE_of_front = start_whichIsNorth;
-                    this.WhichFaceIsS_of_front = start_whichIsEast;
+                    this.WhichFaceIsE_of_front = start_whichIsWest;
+                    this.WhichFaceIsS_of_front = start_whichIsNorth;
                     this.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                     break;
 
                 case EnumAll12Faces._430_ESE:
-                    this.WhichFaceIsFront = start_whichIsWest;
+                    this.WhichFaceIsFront = start_whichIsNorth;
                     this.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
-                    this.WhichFaceIsE_of_front = EnumFaceNum.NotSpecified;
-                    this.WhichFaceIsS_of_front = EnumFaceNum.NotSpecified;
+                    this.WhichFaceIsE_of_front = start_whichIsFront;
+                    this.WhichFaceIsS_of_front = start_whichIsWest;
                     this.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                     break;
 
                 case EnumAll12Faces._430_SSE:
                     this.WhichFaceIsFront = start_whichIsWest;
                     this.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
-                    this.WhichFaceIsE_of_front = EnumFaceNum.NotSpecified;
-                    this.WhichFaceIsS_of_front = EnumFaceNum.NotSpecified;
+                    this.WhichFaceIsE_of_front = start_whichIs_NotSpecified;
+                    this.WhichFaceIsS_of_front = start_whichIs_NotSpecified;
                     this.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                     break;
 
 
                 //
-                // The blue-orange-yellow piece is in the bottom-left corner.  
+                // The top-left (10:30) piece is now in the bottom-left corner.  
                 //
                 case EnumAll12Faces.F0730:
-                    this.WhichFaceIsFront = start_whichIsFront;  // i.e. !!! no change !!!
-                    this.WhichFaceIsN_of_front = EnumFaceNum.NotSpecified;
-                    this.WhichFaceIsE_of_front = EnumFaceNum.NotSpecified;
-                    this.WhichFaceIsS_of_front = EnumFaceNum.NotSpecified;
-                    this.WhichFaceIsW_of_front = EnumFaceNum.NotSpecified;
+                    this.WhichFaceIsFront = start_whichIs_NotSpecified;  // i.e. !!! no change !!!
+                    this.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                    this.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                    this.WhichFaceIsS_of_front = start_whichIs_NotSpecified;
+                    this.WhichFaceIsW_of_front = start_whichIs_NotSpecified;
                         break;
 
                 case EnumAll12Faces._730_SSW:
-                    this.WhichFaceIsFront = start_whichIsWest;
-                    this.WhichFaceIsN_of_front = EnumFaceNum.NotSpecified;
-                    this.WhichFaceIsE_of_front = EnumFaceNum.NotSpecified;
-                    this.WhichFaceIsS_of_front = EnumFaceNum.NotSpecified;
-                    this.WhichFaceIsW_of_front = EnumFaceNum.NotSpecified;
+                    this.WhichFaceIsFront = start_whichIs_NotSpecified;
+                    this.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                    this.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                    this.WhichFaceIsS_of_front = start_whichIs_NotSpecified;
+                    this.WhichFaceIsW_of_front = start_whichIs_NotSpecified;
                         break;
 
                 case EnumAll12Faces._730_WSW:
-                    this.WhichFaceIsFront = start_whichIsWest;
-                    this.WhichFaceIsN_of_front = EnumFaceNum.NotSpecified;
-                    this.WhichFaceIsE_of_front = EnumFaceNum.NotSpecified;
-                    this.WhichFaceIsS_of_front = EnumFaceNum.NotSpecified;
-                    this.WhichFaceIsW_of_front = EnumFaceNum.NotSpecified;
+                    this.WhichFaceIsFront = start_whichIs_NotSpecified;
+                    this.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                    this.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                    this.WhichFaceIsS_of_front = start_whichIs_NotSpecified;
+                    this.WhichFaceIsW_of_front = start_whichIs_NotSpecified;
                         break;
 
 
                 //
-                // The blue-orange-yellow piece is in the top-left corner.  
+                // The top-left piece is now in the top-left corner.... not likely!!?? 
                 //
-                case EnumAll12Faces.F1030: break;
+                case EnumAll12Faces.F1030: break; // No change !!!
+
+                case EnumAll12Faces._1030_WNW :
+                    this.WhichFaceIsFront = start_whichIs_NotSpecified;
+                    this.WhichFaceIsN_of_front = start_whichIs_NotSpecified;
+                    this.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                    this.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                    this.WhichFaceIsW_of_front = start_whichIs_NotSpecified;
+                    break;
+
+                case EnumAll12Faces._1030_NNW:
+                    this.WhichFaceIsFront = start_whichIsWest;
+                    this.WhichFaceIsN_of_front = start_whichIs_NotSpecified;
+                    this.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                    this.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                    this.WhichFaceIsW_of_front = start_whichIs_NotSpecified;
+                    break;
 
 
             }
@@ -667,7 +685,15 @@ namespace RubiksCube_2x2
             //
             // Added 11/15/2020 thomas downes
             //
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            EnumFaceNum start_whichIsFront = this.WhichFaceIsFront;
+            EnumFaceNum start_whichIsNorth = this.WhichFaceIsN_of_front;
+            EnumFaceNum start_whichIsEast = this.WhichFaceIsE_of_front;
+            EnumFaceNum start_whichIsSouth = this.WhichFaceIsS_of_front;
+            EnumFaceNum start_whichIsWest = this.WhichFaceIsW_of_front;
+            //Added 11/15/2020 thomas downes
+            EnumFaceNum start_whichIs_NotSpecified = EnumFaceNum.NotSpecified;
+
         }
 
         public void ReorientPiece_Complex_From430(EnumAll12Faces par_enum)
@@ -675,7 +701,15 @@ namespace RubiksCube_2x2
             //
             // Added 11/15/2020 thomas downes
             //
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            EnumFaceNum start_whichIsFront = this.WhichFaceIsFront;
+            EnumFaceNum start_whichIsNorth = this.WhichFaceIsN_of_front;
+            EnumFaceNum start_whichIsEast = this.WhichFaceIsE_of_front;
+            EnumFaceNum start_whichIsSouth = this.WhichFaceIsS_of_front;
+            EnumFaceNum start_whichIsWest = this.WhichFaceIsW_of_front;
+            //Added 11/15/2020 thomas downes
+            EnumFaceNum start_whichIs_NotSpecified = EnumFaceNum.NotSpecified;
+
         }
 
         public void ReorientPiece_Complex_From730(EnumAll12Faces par_enum)
@@ -683,7 +717,15 @@ namespace RubiksCube_2x2
             //
             // Added 11/15/2020 thomas downes
             //
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            EnumFaceNum start_whichIsFront = this.WhichFaceIsFront;
+            EnumFaceNum start_whichIsNorth = this.WhichFaceIsN_of_front;
+            EnumFaceNum start_whichIsEast = this.WhichFaceIsE_of_front;
+            EnumFaceNum start_whichIsSouth = this.WhichFaceIsS_of_front;
+            EnumFaceNum start_whichIsWest = this.WhichFaceIsW_of_front;
+            //Added 11/15/2020 thomas downes
+            EnumFaceNum start_whichIs_NotSpecified = EnumFaceNum.NotSpecified;
+
         }
 
     }
