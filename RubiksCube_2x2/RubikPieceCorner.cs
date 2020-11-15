@@ -87,6 +87,8 @@ namespace RubiksCube_2x2
                 case EnumFaceNum.Face1: return this.FaceColor1of3;
                 case EnumFaceNum.Face2: return this.FaceColor2of3;
                 case EnumFaceNum.Face3: return this.FaceColor3of3;
+                case EnumFaceNum.NotSpecified:
+                    throw new NotImplementedException("Front Face has not been specified.");
                 default: return Color.Black; 
             }
 
@@ -360,6 +362,12 @@ namespace RubiksCube_2x2
             //
             //Added 11/14/2020 thomas downes
             //
+            //Added 11/15/2020 thomas downes
+            this.WhichFaceIsFront = EnumFaceNum.Face1;
+
+            //
+            //Determine the two(2) side faces. 
+            //
             switch (par_enum)
             {
                 case (FrontClockFace.one_thirty):
@@ -401,6 +409,12 @@ namespace RubiksCube_2x2
         {
             //
             //Added 11/14/2020 thomas downes
+            //
+            //Added 11/15/2020 thomas downes
+            this.WhichFaceIsFront = EnumFaceNum.Face2;
+
+            //
+            //Determine the two(2) side faces. 
             //
             switch (par_enum)
             {
@@ -444,9 +458,16 @@ namespace RubiksCube_2x2
             //
             //Added 11/14/2020 thomas downes
             //
+            //Added 11/15/2020 thomas downes
+            this.WhichFaceIsFront = EnumFaceNum.Face3;
+
+            //
+            //Determine the two(2) side faces. 
+            //
             switch (par_enum)
             {
                 case (FrontClockFace.one_thirty):
+                    // The current piece being oriented is the 1:30 face, top-right. 
                     this.WhichFaceIsN_of_front = EnumFaceNum.Face1;
                     this.WhichFaceIsE_of_front = EnumFaceNum.Face2;
                     this.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
@@ -454,6 +475,7 @@ namespace RubiksCube_2x2
                     break;
 
                 case (FrontClockFace.four_thirty):
+                    // The current piece being oriented is the 4:30 face, bottom-right. 
                     this.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                     this.WhichFaceIsE_of_front = EnumFaceNum.Face1;
                     this.WhichFaceIsS_of_front = EnumFaceNum.Face2;
@@ -461,6 +483,7 @@ namespace RubiksCube_2x2
                     break;
 
                 case (FrontClockFace.seven_thirty):
+                    // The current piece being oriented is the 7:30 face, bottom-left. 
                     this.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                     this.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                     this.WhichFaceIsS_of_front = EnumFaceNum.Face1;
@@ -468,6 +491,7 @@ namespace RubiksCube_2x2
                     break;
 
                 case (FrontClockFace.ten_thirty):
+                    // The current piece being oriented is the 10:30 face, top-left. 
                     this.WhichFaceIsN_of_front = EnumFaceNum.Face2;
                     this.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                     this.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
@@ -480,6 +504,41 @@ namespace RubiksCube_2x2
 
         }
 
+        public void ReorientPiece_Complex(EnumAll12Faces par_enum)
+        {
+            //
+            //Added 11/14/2020 thomas downes 
+            //
+            switch (par_enum)
+            {
+                case EnumAll12Faces.F0130: this.FrontClockFacePosition = FrontClockFace.one_thirty; break;
+                case EnumAll12Faces._130_ENE: this.FrontClockFacePosition = FrontClockFace.one_thirty; break;
+                case EnumAll12Faces._130_NNE: this.FrontClockFacePosition = FrontClockFace.one_thirty; break;
+
+                case EnumAll12Faces.F0430: this.FrontClockFacePosition = FrontClockFace.four_thirty; break;
+                case EnumAll12Faces._430_ESE: this.FrontClockFacePosition = FrontClockFace.four_thirty; break;
+                case EnumAll12Faces._430_SSE: this.FrontClockFacePosition = FrontClockFace.four_thirty; break;
+
+                case EnumAll12Faces.F0730: this.FrontClockFacePosition = FrontClockFace.seven_thirty; break;
+                case EnumAll12Faces._730_SSW: this.FrontClockFacePosition = FrontClockFace.seven_thirty; break;
+                case EnumAll12Faces._730_WSW: this.FrontClockFacePosition = FrontClockFace.seven_thirty; break;
+
+                case EnumAll12Faces.F1030: this.FrontClockFacePosition = FrontClockFace.ten_thirty; break;
+                case EnumAll12Faces._1030_NNW: this.FrontClockFacePosition = FrontClockFace.ten_thirty; break;
+                case EnumAll12Faces._1030_WNW: this.FrontClockFacePosition = FrontClockFace.ten_thirty; break;
+
+                default:  throw new Exception("EnumAll12Faces par_enum value is not recognized.");
+            }
+
+            EnumFaceNum frontFaceColorNum_Start = this.WhichFaceIsFront;
+            //EnumFaceNum frontFaceColorNum_End = ??????;
+
+            //this.ReorientPiece(this.FrontClockFacePosition, frontfaceColor);
+
+
+
+
+        }
 
 
 

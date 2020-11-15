@@ -44,6 +44,8 @@ namespace RubiksCube_2x2
             //
             mod_RotateFrontside = new Front.ClassRotateRules_Front(mod_FrontPieceBWO, mod_FrontPieceBRW,
                                                            mod_FrontPieceGWR, mod_FrontPieceGOW);
+            //Added 11/15/2020 thomas downes
+            mod_RotateFrontside.LoadInitialPositions();
 
         }
 

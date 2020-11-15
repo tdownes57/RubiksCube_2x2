@@ -49,10 +49,10 @@ namespace RubiksCube_2x2
                 //throw new NotImplementedException();
 
                 _pieceGRY.FrontClockFacePosition = FrontClockFace.four_thirty;
-                _pieceGRY.ReorientPiece_FrontFaceIsFace3(FrontClockFace.four_thirty);
+                _pieceGRY.ReorientPiece_FrontFaceIsFace2(FrontClockFace.four_thirty);
 
                 _pieceGYO.FrontClockFacePosition = FrontClockFace.one_thirty;
-                _pieceGYO.ReorientPiece_FrontFaceIsFace3(FrontClockFace.one_thirty);
+                _pieceGYO.ReorientPiece_FrontFaceIsFace2(FrontClockFace.one_thirty);
 
             }
 
@@ -103,8 +103,35 @@ namespace RubiksCube_2x2
                 //move4.StartingPoint = FrontClockFace.ten_thirty;
                 move4.EndingPoint = EnumAll12Faces._430_SSE;
 
+                //
+                // Implementing the movements described above, as follows: 
+                //
+                RubikPieceCorner piece_starting_at_130 = GetPieceAtPosition(FrontClockFace.one_thirty);
+                RubikPieceCorner piece_starting_at_430 = GetPieceAtPosition(FrontClockFace.four_thirty);
+                RubikPieceCorner piece_starting_at_730 = GetPieceAtPosition(FrontClockFace.seven_thirty);
+                RubikPieceCorner piece_starting_at_1030 = GetPieceAtPosition(FrontClockFace.ten_thirty);
+
+                piece_starting_at_130.ReorientPiece_Complex(move1.EndingPoint);
+                piece_starting_at_430.ReorientPiece_Complex(move2.EndingPoint);
+                piece_starting_at_730.ReorientPiece_Complex(move3.EndingPoint);
+                piece_starting_at_1030.ReorientPiece_Complex(move4.EndingPoint);
+
 
             }
+
+            private RubikPieceCorner GetPieceAtPosition(FrontClockFace par_enum)
+            {
+                //
+                // Added 11/14/2020 thomas downes   
+                //
+                if (_pieceBOY.FrontClockFacePosition == par_enum) return _pieceBOY;
+                else if (_pieceBYR.FrontClockFacePosition == par_enum) return _pieceBYR;
+                else if (_pieceGRY.FrontClockFacePosition == par_enum) return _pieceGRY;
+                else if (_pieceGYO.FrontClockFacePosition == par_enum) return _pieceGYO;
+                else return null;
+
+            }
+
 
             public override void Simple_Counterwise90()
             {
