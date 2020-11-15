@@ -335,6 +335,118 @@ namespace RubiksCube_2x2
 
             }
 
+            //public override void ReorientPiece_Complex(EnumAll12Faces par_enum)
+            //{
+            //    //
+            //    // Added 11/15/2020 thomas downes
+            //    //
+
+            //    //This will take care of determining the o'clock position
+            //    //  of the piece.  
+            //    base.ReorientPiece_Complex(par_enum);
+
+            //    //throw new NotImplementedException("The side faces must be addressed.");
+
+            //    EnumFaceNum start_whichIsFront = base.WhichFaceIsFront;
+            //    EnumFaceNum start_whichIsNorth = base.WhichFaceIsN_of_front;
+            //    EnumFaceNum start_whichIsEast = base.WhichFaceIsE_of_front;
+            //    EnumFaceNum start_whichIsSouth = base.WhichFaceIsS_of_front;
+            //    EnumFaceNum start_whichIsWest = base.WhichFaceIsW_of_front;
+
+            //    switch (par_enum)
+            //    {
+            //        //
+            //        // The blue-orange-yellow piece is in the upper-right corner. 
+            //        //
+            //        case EnumAll12Faces.F0130:
+            //            base.WhichFaceIsFront = start_whichIsFront;  // i.e. !!! no change !!!
+            //            base.WhichFaceIsN_of_front = start_whichIsWest;
+            //            base.WhichFaceIsE_of_front = start_whichIsNorth;
+            //            base.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+            //            base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+            //            break;
+
+            //        case EnumAll12Faces._130_NNE:
+            //            base.WhichFaceIsFront = start_whichIsNorth; 
+            //            base.WhichFaceIsN_of_front = start_whichIsFront;
+            //            base.WhichFaceIsE_of_front = start_whichIsWest;
+            //            base.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+            //            base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+            //            break;
+
+            //        case EnumAll12Faces._130_ENE:
+            //            base.WhichFaceIsFront = start_whichIsWest;
+            //            base.WhichFaceIsN_of_front = start_whichIsNorth;  // No change.
+            //            base.WhichFaceIsE_of_front = start_whichIsFront;
+            //            base.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+            //            base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+            //            break;
+
+
+            //        //
+            //        // The blue-orange-yellow piece is in the bottom-right corner.  
+            //        //
+            //        case EnumAll12Faces.F0430:
+            //            base.WhichFaceIsFront = start_whichIsFront;  // i.e. !!! no change !!!
+            //            base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+            //            base.WhichFaceIsE_of_front = start_whichIsNorth;
+            //            base.WhichFaceIsS_of_front = start_whichIsEast; 
+            //            base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+            //            break;
+
+            //        case EnumAll12Faces._430_ESE:
+            //            base.WhichFaceIsFront = start_whichIsWest;
+            //            base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+            //            base.WhichFaceIsE_of_front = ;
+            //            base.WhichFaceIsS_of_front = ;
+            //            base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+            //            break;
+
+            //        case EnumAll12Faces._430_ENE:
+            //            base.WhichFaceIsFront = start_whichIsWest;
+            //            base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+            //            base.WhichFaceIsE_of_front = ;
+            //            base.WhichFaceIsS_of_front = ;
+            //            base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+            //            break;
+
+
+            //        //
+            //        // The blue-orange-yellow piece is in the bottom-left corner.  
+            //        //
+            //        case EnumAll12Faces.F0730:
+            //            base.WhichFaceIsFront = start_whichIsFront;  // i.e. !!! no change !!!
+            //            base.WhichFaceIsN_of_front = //EnumFaceNum.NotApplicable_DifferentPiece;
+            //            base.WhichFaceIsE_of_front = //start_whichIsNorth;
+            //            base.WhichFaceIsS_of_front = //start_whichIsEast;
+            //            base.WhichFaceIsW_of_front = //EnumFaceNum.NotApplicable_DifferentPiece;
+            //            break;
+
+            //        case EnumAll12Faces._730_ESE:
+            //            base.WhichFaceIsFront = start_whichIsWest;
+            //            base.WhichFaceIsN_of_front = //EnumFaceNum.NotApplicable_DifferentPiece;
+            //            base.WhichFaceIsE_of_front = ;
+            //            base.WhichFaceIsS_of_front = ;
+            //            base.WhichFaceIsW_of_front = //EnumFaceNum.NotApplicable_DifferentPiece;
+            //            break;
+
+            //        case EnumAll12Faces._730_ENE:
+            //            base.WhichFaceIsFront = start_whichIsWest;
+            //            base.WhichFaceIsN_of_front = //EnumFaceNum.NotApplicable_DifferentPiece;
+            //            base.WhichFaceIsE_of_front = ;
+            //            base.WhichFaceIsS_of_front = ;
+            //            base.WhichFaceIsW_of_front = //EnumFaceNum.NotApplicable_DifferentPiece;
+            //            break;
+
+
+            //        //
+            //        // The blue-orange-yellow piece is in the top-left corner.  
+            //        //
+            //        case EnumAll12Faces.F1030:
+            //    }
+            //}
+
+
 
 
 

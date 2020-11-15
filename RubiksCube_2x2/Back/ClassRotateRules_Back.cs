@@ -85,23 +85,23 @@ namespace RubiksCube_2x2
                 //_pieceGRY.ReorientPiece(_pieceGYO.FrontClockFacePosition, Color.Lime);
                 //_pieceGYO.ReorientPiece(temp, Color.Yellow);
 
-                ComplexPieceMove move1; // = new ComplexPieceMove();
-                ComplexPieceMove move2;
-                ComplexPieceMove move3;
-                ComplexPieceMove move4;
+                ComplexPieceMove move1_from130; // = new ComplexPieceMove();
+                ComplexPieceMove move2_from430;
+                ComplexPieceMove move3_from730;
+                ComplexPieceMove move4_from1030;
 
-                move1.StartingPoint = FrontClockFace.one_thirty;
-                move1.EndingPoint = EnumAll12Faces.F0730;
+                move1_from130.StartingPoint = FrontClockFace.one_thirty;
+                move1_from130.EndingPoint = EnumAll12Faces.F0430;
 
-                move2.StartingPoint = FrontClockFace.four_thirty;
-                move2.EndingPoint = EnumAll12Faces._1030_WNW;
+                move2_from430.StartingPoint = FrontClockFace.four_thirty;
+                move2_from430.EndingPoint = EnumAll12Faces._730_SSW;
 
-                move3.StartingPoint = FrontClockFace.seven_thirty;
-                move3.EndingPoint = EnumAll12Faces._130_ENE;
+                move3_from730.StartingPoint = FrontClockFace.seven_thirty;
+                move3_from730.EndingPoint = EnumAll12Faces._1030_NNW;
 
-                move4.StartingPoint = FrontClockFace.ten_thirty;
+                move4_from1030.StartingPoint = FrontClockFace.ten_thirty;
                 //move4.StartingPoint = FrontClockFace.ten_thirty;
-                move4.EndingPoint = EnumAll12Faces._430_SSE;
+                move4_from1030.EndingPoint = EnumAll12Faces._130_ENE;
 
                 //
                 // Implementing the movements described above, as follows: 
@@ -111,11 +111,20 @@ namespace RubiksCube_2x2
                 RubikPieceCorner piece_starting_at_730 = GetPieceAtPosition(FrontClockFace.seven_thirty);
                 RubikPieceCorner piece_starting_at_1030 = GetPieceAtPosition(FrontClockFace.ten_thirty);
 
-                piece_starting_at_130.ReorientPiece_Complex(move1.EndingPoint);
-                piece_starting_at_430.ReorientPiece_Complex(move2.EndingPoint);
-                piece_starting_at_730.ReorientPiece_Complex(move3.EndingPoint);
-                piece_starting_at_1030.ReorientPiece_Complex(move4.EndingPoint);
+                //piece_starting_at_130.ReorientPiece_Complex(move1.EndingPoint);
+                //piece_starting_at_430.ReorientPiece_Complex(move2.EndingPoint);
+                //piece_starting_at_730.ReorientPiece_Complex(move3.EndingPoint);
+                //piece_starting_at_1030.ReorientPiece_Complex(move4.EndingPoint);
 
+                //piece_starting_at_130.ReorientPiece_Complex(piece_starting_at_130.WhichFaceIsFront, move1.EndingPoint);
+                //piece_starting_at_430.ReorientPiece_Complex(piece_starting_at_430.WhichFaceIsFront, move2.EndingPoint);
+                //piece_starting_at_730.ReorientPiece_Complex(piece_starting_at_730.WhichFaceIsFront, move3.EndingPoint);
+                //piece_starting_at_1030.ReorientPiece_Complex(piece_starting_at_1030.WhichFaceIsFront, move4.EndingPoint);
+
+                piece_starting_at_130.ReorientPiece_Complex(move1_from130.StartingPoint, move1_from130.EndingPoint);
+                piece_starting_at_430.ReorientPiece_Complex(move2_from430.StartingPoint, move2_from430.EndingPoint);
+                piece_starting_at_730.ReorientPiece_Complex(move3_from730.StartingPoint, move3_from730.EndingPoint);
+                piece_starting_at_1030.ReorientPiece_Complex(move4_from1030.StartingPoint, move4_from1030.EndingPoint);
 
             }
 

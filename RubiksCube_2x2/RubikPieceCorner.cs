@@ -501,11 +501,13 @@ namespace RubiksCube_2x2
                 default:
                     throw new Exception("Par_enum value is not recognized. #3 of 3");
             }
-
+            
         }
 
-        public void ReorientPiece_Complex(EnumAll12Faces par_enum)
+        public void ReorientPiece_Complex(FrontClockFace par_clockPosition_Start, EnumAll12Faces par_enum)
         {
+            //public virtual void ReorientPiece_Complex(EnumAll12Faces par_enum)
+            //public void ReorientPiece_Complex(EnumFaceNum frontFaceColorNum_Start, EnumAll12Faces par_enum)
             //
             //Added 11/14/2020 thomas downes 
             //
@@ -530,17 +532,159 @@ namespace RubiksCube_2x2
                 default:  throw new Exception("EnumAll12Faces par_enum value is not recognized.");
             }
 
-            EnumFaceNum frontFaceColorNum_Start = this.WhichFaceIsFront;
+            //EnumFaceNum frontFaceColorNum_Start = this.WhichFaceIsFront;
             //EnumFaceNum frontFaceColorNum_End = ??????;
-
             //this.ReorientPiece(this.FrontClockFacePosition, frontfaceColor);
 
-
-
+            switch (par_clockPosition_Start)
+            {
+                case FrontClockFace.ten_thirty: ReorientPiece_Complex_From1030(par_enum); break;
+                case FrontClockFace.one_thirty: ReorientPiece_Complex_From130(par_enum); break;
+                case FrontClockFace.four_thirty: ReorientPiece_Complex_From430(par_enum); break;
+                case FrontClockFace.seven_thirty: ReorientPiece_Complex_From730(par_enum); break;
+                default:
+                    throw new Exception("Parameter par_clockPosition_Start is not specified.");
+            }
 
         }
 
+        public void ReorientPiece_Complex_From1030(EnumAll12Faces par_enum)
+        {
+            //
+            // Added 11/15/2020 thomas downes
+            //
 
+            //This will take care of determining the o'clock position
+            //  of the piece.  
+            //this.ReorientPiece_Complex(par_enum);
+
+            //throw new NotImplementedException("The side faces must be addressed.");
+
+            EnumFaceNum start_whichIsFront = this.WhichFaceIsFront;
+            EnumFaceNum start_whichIsNorth = this.WhichFaceIsN_of_front;
+            EnumFaceNum start_whichIsEast = this.WhichFaceIsE_of_front;
+            EnumFaceNum start_whichIsSouth = this.WhichFaceIsS_of_front;
+            EnumFaceNum start_whichIsWest = this.WhichFaceIsW_of_front;
+
+            switch (par_enum)
+            {
+                //
+                // The blue-orange-yellow piece is in the upper-right corner. 
+                //
+                case EnumAll12Faces.F0130:
+                    this.WhichFaceIsFront = start_whichIsFront;  // i.e. !!! no change !!!
+                    this.WhichFaceIsN_of_front = start_whichIsWest;
+                    this.WhichFaceIsE_of_front = start_whichIsNorth;
+                    this.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                    this.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                    break;
+
+                case EnumAll12Faces._130_NNE:
+                    this.WhichFaceIsFront = start_whichIsNorth;
+                    this.WhichFaceIsN_of_front = start_whichIsFront;
+                    this.WhichFaceIsE_of_front = start_whichIsWest;
+                    this.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                    this.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                    break;
+
+                case EnumAll12Faces._130_ENE:
+                    this.WhichFaceIsFront = start_whichIsWest;
+                    this.WhichFaceIsN_of_front = start_whichIsNorth;  // No change.
+                    this.WhichFaceIsE_of_front = start_whichIsFront;
+                    this.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                    this.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                    break;
+
+
+                //
+                // The blue-orange-yellow piece is in the bottom-right corner.  
+                //
+                case EnumAll12Faces.F0430:
+                    this.WhichFaceIsFront = start_whichIsFront;  // i.e. !!! no change !!!
+                    this.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                    this.WhichFaceIsE_of_front = start_whichIsNorth;
+                    this.WhichFaceIsS_of_front = start_whichIsEast;
+                    this.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                    break;
+
+                case EnumAll12Faces._430_ESE:
+                    this.WhichFaceIsFront = start_whichIsWest;
+                    this.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                    this.WhichFaceIsE_of_front = EnumFaceNum.NotSpecified;
+                    this.WhichFaceIsS_of_front = EnumFaceNum.NotSpecified;
+                    this.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                    break;
+
+                case EnumAll12Faces._430_SSE:
+                    this.WhichFaceIsFront = start_whichIsWest;
+                    this.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                    this.WhichFaceIsE_of_front = EnumFaceNum.NotSpecified;
+                    this.WhichFaceIsS_of_front = EnumFaceNum.NotSpecified;
+                    this.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+                    break;
+
+
+                //
+                // The blue-orange-yellow piece is in the bottom-left corner.  
+                //
+                case EnumAll12Faces.F0730:
+                    this.WhichFaceIsFront = start_whichIsFront;  // i.e. !!! no change !!!
+                    this.WhichFaceIsN_of_front = EnumFaceNum.NotSpecified;
+                    this.WhichFaceIsE_of_front = EnumFaceNum.NotSpecified;
+                    this.WhichFaceIsS_of_front = EnumFaceNum.NotSpecified;
+                    this.WhichFaceIsW_of_front = EnumFaceNum.NotSpecified;
+                        break;
+
+                case EnumAll12Faces._730_SSW:
+                    this.WhichFaceIsFront = start_whichIsWest;
+                    this.WhichFaceIsN_of_front = EnumFaceNum.NotSpecified;
+                    this.WhichFaceIsE_of_front = EnumFaceNum.NotSpecified;
+                    this.WhichFaceIsS_of_front = EnumFaceNum.NotSpecified;
+                    this.WhichFaceIsW_of_front = EnumFaceNum.NotSpecified;
+                        break;
+
+                case EnumAll12Faces._730_WSW:
+                    this.WhichFaceIsFront = start_whichIsWest;
+                    this.WhichFaceIsN_of_front = EnumFaceNum.NotSpecified;
+                    this.WhichFaceIsE_of_front = EnumFaceNum.NotSpecified;
+                    this.WhichFaceIsS_of_front = EnumFaceNum.NotSpecified;
+                    this.WhichFaceIsW_of_front = EnumFaceNum.NotSpecified;
+                        break;
+
+
+                //
+                // The blue-orange-yellow piece is in the top-left corner.  
+                //
+                case EnumAll12Faces.F1030: break;
+
+
+            }
+
+        }
+
+        public void ReorientPiece_Complex_From130(EnumAll12Faces par_enum)
+        {
+            //
+            // Added 11/15/2020 thomas downes
+            //
+            throw new NotImplementedException();
+        }
+
+        public void ReorientPiece_Complex_From430(EnumAll12Faces par_enum)
+        {
+            //
+            // Added 11/15/2020 thomas downes
+            //
+            throw new NotImplementedException();
+        }
+
+        public void ReorientPiece_Complex_From730(EnumAll12Faces par_enum)
+        {
+            //
+            // Added 11/15/2020 thomas downes
+            //
+            throw new NotImplementedException();
+        }
 
     }
 }

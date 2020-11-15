@@ -280,6 +280,15 @@ namespace RubiksCube_2x2
 
             }
 
+            //public override void ReorientPiece_Complex(EnumAll12Faces par_enum)
+            //{
+            //    //
+            //    // Added 11/15/2020 thomas downes
+            //    //
+            //    base.ReorientPiece_Complex(par_enum);
+            //    throw new NotImplementedException("The side faces must be addressed.");
+            //}
+
 
         }
     }
