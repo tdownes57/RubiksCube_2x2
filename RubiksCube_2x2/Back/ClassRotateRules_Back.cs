@@ -80,10 +80,29 @@ namespace RubiksCube_2x2
                 //_pieceGRY.FrontClockFacePosition = _pieceGYO.FrontClockFacePosition;
                 //_pieceGYO.FrontClockFacePosition = temp;
 
-                _pieceBOY.ReorientPiece(_pieceBYR.FrontClockFacePosition, Color.Orange);
-                _pieceBYR.ReorientPiece( _pieceGRY.FrontClockFacePosition, Color.Yellow);
-                _pieceGRY.ReorientPiece(_pieceGYO.FrontClockFacePosition, Color.Lime);
-                _pieceGYO.ReorientPiece(temp, Color.Yellow);
+                //_pieceBOY.ReorientPiece(_pieceBYR.FrontClockFacePosition, Color.Orange);
+                //_pieceBYR.ReorientPiece( _pieceGRY.FrontClockFacePosition, Color.Yellow);
+                //_pieceGRY.ReorientPiece(_pieceGYO.FrontClockFacePosition, Color.Lime);
+                //_pieceGYO.ReorientPiece(temp, Color.Yellow);
+
+                ComplexPieceMove move1; // = new ComplexPieceMove();
+                ComplexPieceMove move2;
+                ComplexPieceMove move3;
+                ComplexPieceMove move4;
+
+                move1.StartingPoint = FrontClockFace.one_thirty;
+                move1.EndingPoint = EnumAll12Faces.F0730;
+
+                move2.StartingPoint = FrontClockFace.four_thirty;
+                move2.EndingPoint = EnumAll12Faces._1030_WNW;
+
+                move3.StartingPoint = FrontClockFace.seven_thirty;
+                move3.EndingPoint = EnumAll12Faces._130_ENE;
+
+                move4.StartingPoint = FrontClockFace.ten_thirty;
+                //move4.StartingPoint = FrontClockFace.ten_thirty;
+                move4.EndingPoint = EnumAll12Faces._430_SSE;
+
 
             }
 

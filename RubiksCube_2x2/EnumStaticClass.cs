@@ -20,6 +20,7 @@ namespace RubiksCube_2x2
 
     }
 
+
     //
     //          [.N.]   [.N.]
     //   [.W.] [10:30] [1:30]  [.E.]
@@ -48,7 +49,19 @@ namespace RubiksCube_2x2
     public enum EnumFaceNum { NotSpecified, NotApplicable_DifferentPiece, Face1, Face2, Face3 };
 
     // Added 11/14/2020 thomas downes 
-    public enum EnumAll12Faces { NotSpecified, F0130, F0430, F0730, F1030, NNE, ENE, ESE, SSE, SSW, WSW, WNW, NNW }
+    public enum EnumAll12Faces { NotSpecified, 
+                   F0130, F0430, F0730, F1030, 
+                    _130_NNE, _130_ENE, 
+                    _430_ESE, _430_SSE, 
+                    _730_SSW, _730_WSW, 
+                    _1030_WNW, _1030_NNW }
+
+    // Added 11/14/2020 thomas downes 
+    public struct ComplexPieceMove
+    {
+        public FrontClockFace StartingPoint;
+        public EnumAll12Faces EndingPoint; 
+    }
 
 
     public class EnumStaticClass
