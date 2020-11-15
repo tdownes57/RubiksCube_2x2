@@ -477,5 +477,10 @@ namespace RubiksCube_2x2
             this.Refresh();
 
         }
+
+        private void labelComplexRotate2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
