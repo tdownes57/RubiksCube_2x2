@@ -15,23 +15,44 @@ namespace RubiksCube_2x2
 
         class ClassRotateRules_Front : BackOrFront
         {
-            BlueOrangeWhite _pieceBOW;
+            BlueWhiteOrange _pieceBWO;
             BlueRedWhite _pieceBRW;
-            GreenRedWhite _pieceGRW;
+            GreenWhiteRed _pieceGWR;
             GreenOrangeWhite _pieceGOW; 
 
-            public ClassRotateRules_Front(BlueOrangeWhite par_BOW, 
+            public ClassRotateRules_Front(BlueWhiteOrange par_BWO, 
                                     BlueRedWhite par_BRW,
-                                    GreenRedWhite par_GRW,
+                                    GreenWhiteRed par_GWR,
                                     GreenOrangeWhite par_GOW)
             {
                 //
                 // Added 11/12/2020 thomas downes
                 //
-                _pieceBOW = par_BOW;
+                _pieceBWO = par_BWO;
                 _pieceBRW = par_BRW;
-                _pieceGRW = par_GRW;
-                _pieceGOW = par_GOW; 
+                _pieceGOW = par_GOW;
+                _pieceGWR = par_GWR;
+
+            }
+
+            public override void LoadInitialPositions()
+            {
+                //throw new NotImplementedException();
+
+                _pieceBWO.FrontClockFacePosition = FrontClockFace.seven_thirty;
+                _pieceBWO.ReorientPiece_FrontFaceIsFace2(FrontClockFace.seven_thirty);
+
+                _pieceBRW.FrontClockFacePosition = FrontClockFace.ten_thirty;
+                _pieceBRW.ReorientPiece_FrontFaceIsFace3(FrontClockFace.ten_thirty);
+
+                _pieceGOW.FrontClockFacePosition = FrontClockFace.four_thirty;
+                _pieceGOW.ReorientPiece_FrontFaceIsFace3(FrontClockFace.four_thirty);
+
+                _pieceGWR.FrontClockFacePosition = FrontClockFace.one_thirty;
+                _pieceGWR.ReorientPiece_FrontFaceIsFace2(FrontClockFace.one_thirty);
+
+                throw new NotImplementedException();
+
 
             }
 
@@ -40,9 +61,9 @@ namespace RubiksCube_2x2
                 //
                 // Added 11/12/2020 thomas downes
                 //
-                _pieceBOW.Rotate_Clockwise90();
+                _pieceBWO.Rotate_Clockwise90();
                 _pieceBRW.Rotate_Clockwise90();
-                _pieceGRW.Rotate_Clockwise90();
+                _pieceGWR.Rotate_Clockwise90();
                 _pieceGOW.Rotate_Clockwise90();
                  
             }
@@ -75,10 +96,10 @@ namespace RubiksCube_2x2
                 //
                 // Added 11/13/2020 thomas downes
                 //
-                Color colorOfSide = _pieceBOW.GetColorOfFrontFace();
+                Color colorOfSide = _pieceBWO.GetColorOfFrontFace();
 
                 return (colorOfSide == _pieceBRW.GetColorOfFrontFace()) &&
-                       (colorOfSide == _pieceGRW.GetColorOfFrontFace()) &&
+                       (colorOfSide == _pieceGWR.GetColorOfFrontFace()) &&
                        (colorOfSide == _pieceGOW.GetColorOfFrontFace());
 
             }

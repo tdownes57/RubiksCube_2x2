@@ -22,9 +22,9 @@ namespace RubiksCube_2x2
         private Back.GreenYellowOrange mod_BackPieceGYO = new Back.GreenYellowOrange();
 
         private Front.ClassRotateRules_Front mod_RotateFrontside; //Added 11/13/2020 thomas downes
-        private Front.BlueOrangeWhite mod_FrontPieceBOW = new Front.BlueOrangeWhite();
+        private Front.BlueWhiteOrange mod_FrontPieceBWO = new Front.BlueWhiteOrange();
         private Front.BlueRedWhite mod_FrontPieceBRW = new Front.BlueRedWhite();
-        private Front.GreenRedWhite mod_FrontPieceGRW = new Front.GreenRedWhite();
+        private Front.GreenWhiteRed mod_FrontPieceGWR = new Front.GreenWhiteRed();
         private Front.GreenOrangeWhite mod_FrontPieceGOW = new Front.GreenOrangeWhite();
 
 
@@ -42,8 +42,8 @@ namespace RubiksCube_2x2
             //
             // Added 11/13/2020 thomas downes
             //
-            mod_RotateFrontside = new Front.ClassRotateRules_Front(mod_FrontPieceBOW, mod_FrontPieceBRW,
-                                                           mod_FrontPieceGRW, mod_FrontPieceGOW);
+            mod_RotateFrontside = new Front.ClassRotateRules_Front(mod_FrontPieceBWO, mod_FrontPieceBRW,
+                                                           mod_FrontPieceGWR, mod_FrontPieceGOW);
 
         }
 
@@ -414,9 +414,9 @@ namespace RubiksCube_2x2
                 //
                 // Added 11/11/2020 Thomas Downes        
                 //
-                mod_FrontPieceBOW.PaintByGraphics(a_graphics, center_point_form_FRONT);
+                mod_FrontPieceBWO.PaintByGraphics(a_graphics, center_point_form_FRONT);
                 mod_FrontPieceBRW.PaintByGraphics(a_graphics, center_point_form_FRONT);
-                mod_FrontPieceGRW.PaintByGraphics(a_graphics, center_point_form_FRONT);
+                mod_FrontPieceGWR.PaintByGraphics(a_graphics, center_point_form_FRONT);
                 mod_FrontPieceGOW.PaintByGraphics(a_graphics, center_point_form_FRONT);
 
             }

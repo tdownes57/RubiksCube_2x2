@@ -60,9 +60,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Front\ClassBlueOrangeWhite.cs" />
+    <Compile Include="Front\ClassBlueWhiteOrange.cs" />
     <Compile Include="Front\ClassBlueRedWhite.cs" />
-    <Compile Include="Front\ClassGreenRedWhite.cs" />
+    <Compile Include="Front\ClassGreenWhiteRed.cs" />
     <Compile Include="Front\ClassGreenOrangeWhite.cs" />
     <Compile Include="Front\ClassRotateRules_Front.cs" />
     <Compile Include="Program.cs" />

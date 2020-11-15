@@ -47,6 +47,10 @@ namespace RubiksCube_2x2
 
     public enum EnumFaceNum { NotSpecified, NotApplicable_DifferentPiece, Face1, Face2, Face3 };
 
+    // Added 11/14/2020 thomas downes 
+    public enum EnumAll12Faces { NotSpecified, F0130, F0430, F0730, F1030, NNE, ENE, ESE, SSE, SSW, WSW, WNW, NNW }
+
+
     public class EnumStaticClass
     {
         //

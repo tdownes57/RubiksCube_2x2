@@ -46,8 +46,13 @@ namespace RubiksCube_2x2
                 _pieceBYR.FrontClockFacePosition = FrontClockFace.seven_thirty;
                 _pieceBYR.ReorientPiece_FrontFaceIsFace3(FrontClockFace.seven_thirty);
 
-                throw new NotImplementedException();
+                //throw new NotImplementedException();
 
+                _pieceGRY.FrontClockFacePosition = FrontClockFace.four_thirty;
+                _pieceGRY.ReorientPiece_FrontFaceIsFace3(FrontClockFace.four_thirty);
+
+                _pieceGYO.FrontClockFacePosition = FrontClockFace.one_thirty;
+                _pieceGYO.ReorientPiece_FrontFaceIsFace3(FrontClockFace.one_thirty);
 
             }
 

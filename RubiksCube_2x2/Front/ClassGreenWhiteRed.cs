@@ -12,7 +12,7 @@ namespace RubiksCube_2x2
     //
     namespace Front
     {
-        class GreenRedWhite : RubikPieceCorner
+        class GreenWhiteRed : RubikPieceCorner
         {
             //
             // Colors must be expressed in partial-alphabetical order,
@@ -40,7 +40,7 @@ namespace RubiksCube_2x2
             public override System.Drawing.Color FaceColor2of3 { get { return Color.White; } }
             public override System.Drawing.Color FaceColor3of3 { get { return Color.Red; } }
 
-            public GreenRedWhite()
+            public GreenWhiteRed()
             {
                 //
                 // Clock position:
