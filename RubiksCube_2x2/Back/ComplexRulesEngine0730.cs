@@ -21,129 +21,129 @@ namespace RubiksCube_2x2.Back
             //
             //throw new NotImplementedException();
             EnumFaceNum start_whichIsFront = this_piece_startsAt_730.WhichFaceIsFront;
-            EnumFaceNum start_whichIsNorth = this_piece_startsAt_730.WhichFaceIsN_of_front;
-            EnumFaceNum start_whichIsEast = this_piece_startsAt_730.WhichFaceIsE_of_front;
+            //---n/a---EnumFaceNum start_whichIsNorth = this_piece_startsAt_730.WhichFaceIsN_of_front;
+            //---n/a---EnumFaceNum start_whichIsEast = this_piece_startsAt_730.WhichFaceIsE_of_front;
             EnumFaceNum start_whichIsSouth = this_piece_startsAt_730.WhichFaceIsS_of_front;
             EnumFaceNum start_whichIsWest = this_piece_startsAt_730.WhichFaceIsW_of_front;
             //Added 11/15/2020 thomas downes
-            EnumFaceNum start_whichIs_NotSpecified = EnumFaceNum.NotSpecified;
+            //---n/a---EnumFaceNum start_whichIs_NotSpecified = EnumFaceNum.NotSpecified;
 
             //throw new NotImplementedException();
 
-           //Added 11/15/2020 thomas downes
+            //Added 11/15/2020 thomas downes
             EnumAll12Faces the_endpoint = this_complex_move.EndingPoint;
 
             switch (the_endpoint)
             {
                 //
-                // The bottom-right piece (4:30) is now moved to the upper-right corner (130). 
+                // The bottom-left piece (7:30) is now moved to the upper-right corner (130). 
                 //
                 case EnumAll12Faces.F0130:
-                    this_piece_startsAt_730.WhichFaceIsFront = start_whichIs_NotSpecified;  // i.e. !!! no change !!!
-                    this_piece_startsAt_730.WhichFaceIsN_of_front = start_whichIsWest_NotSpecified;
-                    this_piece_startsAt_730.WhichFaceIsE_of_front = start_whichIsNorth_NotSpecified;
+                    this_piece_startsAt_730.WhichFaceIsFront = start_whichIsFront;  // i.e. !!! no change !!!
+                    this_piece_startsAt_730.WhichFaceIsN_of_front = start_whichIsSouth;
+                    this_piece_startsAt_730.WhichFaceIsE_of_front = start_whichIsWest;
                     this_piece_startsAt_730.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                     this_piece_startsAt_730.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                     break;
 
                 case EnumAll12Faces._130_NNE:
-                    this_piece_startsAt_730.WhichFaceIsFront = start_whichIsNorth_NotSpecified;
-                    this_piece_startsAt_730.WhichFaceIsN_of_front = start_whichIsFront_NotSpecified;
-                    this_piece_startsAt_730.WhichFaceIsE_of_front = start_whichIsWest_NotSpecified;
+                    this_piece_startsAt_730.WhichFaceIsFront = start_whichIsWest;
+                    this_piece_startsAt_730.WhichFaceIsN_of_front = start_whichIsFront;
+                    this_piece_startsAt_730.WhichFaceIsE_of_front = start_whichIsSouth;
                     this_piece_startsAt_730.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                     this_piece_startsAt_730.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                     break;
 
                 case EnumAll12Faces._130_ENE:
-                    this_piece_startsAt_730.WhichFaceIsFront = start_whichIsWest_NotSpecified;
-                    this_piece_startsAt_730.WhichFaceIsN_of_front = start_whichIsNorth_NotSpecified;  // No change.
-                    this_piece_startsAt_730.WhichFaceIsE_of_front = start_whichIsFront_NotSpecified;
+                    this_piece_startsAt_730.WhichFaceIsFront = start_whichIsSouth;
+                    this_piece_startsAt_730.WhichFaceIsN_of_front = start_whichIsWest;  // No change.
+                    this_piece_startsAt_730.WhichFaceIsE_of_front = start_whichIsFront;
                     this_piece_startsAt_730.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                     this_piece_startsAt_730.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                     break;
 
 
                 //
-                // The bottom-right piece (4:30) is now moved to the bottom-right corner.  
+                // The bottom-left piece (7:30) is now moved to the bottom-right corner.  
                 //
                 case EnumAll12Faces.F0430:
                     this_piece_startsAt_730.WhichFaceIsFront = start_whichIsFront;  // i.e. !!! no change !!!
                     this_piece_startsAt_730.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
-                    this_piece_startsAt_730.WhichFaceIsE_of_front = start_whichIsWest_NotSpecified;
-                    this_piece_startsAt_730.WhichFaceIsS_of_front = start_whichIsNorth_NotSpecified;
+                    this_piece_startsAt_730.WhichFaceIsE_of_front = start_whichIsSouth;
+                    this_piece_startsAt_730.WhichFaceIsS_of_front = start_whichIsWest;
                     this_piece_startsAt_730.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                     break;
 
                 case EnumAll12Faces._430_ESE:
-                    this_piece_startsAt_730.WhichFaceIsFront = start_whichIsNorth_NotSpecified;
+                    this_piece_startsAt_730.WhichFaceIsFront = start_whichIsWest;
                     this_piece_startsAt_730.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
-                    this_piece_startsAt_730.WhichFaceIsE_of_front = start_whichIsFront_NotSpecified;
-                    this_piece_startsAt_730.WhichFaceIsS_of_front = start_whichIsWest_NotSpecified;
+                    this_piece_startsAt_730.WhichFaceIsE_of_front = start_whichIsFront;
+                    this_piece_startsAt_730.WhichFaceIsS_of_front = start_whichIsSouth;
                     this_piece_startsAt_730.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                     break;
 
                 case EnumAll12Faces._430_SSE:
-                    this_piece_startsAt_730.WhichFaceIsFront = start_whichIsWest_NotSpecified;
+                    this_piece_startsAt_730.WhichFaceIsFront = start_whichIsSouth;
                     this_piece_startsAt_730.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
-                    this_piece_startsAt_730.WhichFaceIsE_of_front = start_whichIsNorth_NotSpecified;
-                    this_piece_startsAt_730.WhichFaceIsS_of_front = start_whichIsFront_NotSpecified;
+                    this_piece_startsAt_730.WhichFaceIsE_of_front = start_whichIsWest;
+                    this_piece_startsAt_730.WhichFaceIsS_of_front = start_whichIsFront;
                     this_piece_startsAt_730.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                     break;
 
 
                 //
-                // The bottom-right (4:30) piece is now in the bottom-left corner (F0730, etc.).  
+                // The bottom-left (7:30) piece is now in the bottom-left corner (F0730, etc.).  
                 //
                 case EnumAll12Faces.F0730:
-                    this_piece_startsAt_730.WhichFaceIsFront = start_whichIsFront_NotSpecified;  // i.e. !!! no change !!!
+                    this_piece_startsAt_730.WhichFaceIsFront = start_whichIsFront;  // i.e. !!! no change !!!
                     this_piece_startsAt_730.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                     this_piece_startsAt_730.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
-                    this_piece_startsAt_730.WhichFaceIsS_of_front = start_whichIsWest_NotSpecified;
-                    this_piece_startsAt_730.WhichFaceIsW_of_front = start_whichIsNorth_NotSpecified;
+                    this_piece_startsAt_730.WhichFaceIsS_of_front = start_whichIsSouth;  // i.e. !!! no change !!!
+                    this_piece_startsAt_730.WhichFaceIsW_of_front = start_whichIsWest;
                     break;
 
                 case EnumAll12Faces._730_SSW:
-                    this_piece_startsAt_730.WhichFaceIsFront = start_whichIsNorth_NotSpecified;
+                    this_piece_startsAt_730.WhichFaceIsFront = start_whichIsWest;
                     this_piece_startsAt_730.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                     this_piece_startsAt_730.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
-                    this_piece_startsAt_730.WhichFaceIsS_of_front = start_whichIsFront_NotSpecified;
-                    this_piece_startsAt_730.WhichFaceIsW_of_front = start_whichIsWest_NotSpecified;
+                    this_piece_startsAt_730.WhichFaceIsS_of_front = start_whichIsFront;
+                    this_piece_startsAt_730.WhichFaceIsW_of_front = start_whichIsSouth;
                     break;
 
                 case EnumAll12Faces._730_WSW:
-                    this_piece_startsAt_730.WhichFaceIsFront = start_whichIsWest_NotSpecified;
+                    this_piece_startsAt_730.WhichFaceIsFront = start_whichIsSouth;
                     this_piece_startsAt_730.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                     this_piece_startsAt_730.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
-                    this_piece_startsAt_730.WhichFaceIsS_of_front = start_whichIsNorth_NotSpecified;
-                    this_piece_startsAt_730.WhichFaceIsW_of_front = start_whichIsFront_NotSpecified;
+                    this_piece_startsAt_730.WhichFaceIsS_of_front = start_whichIsWest;
+                    this_piece_startsAt_730.WhichFaceIsW_of_front = start_whichIsFront;
                     break;
 
 
                 //
-                // The bottom-right piece is now in the top-left corner.  
+                // The bottom-left (7:30) piece is now in the top-left corner.  
                 //
                 case EnumAll12Faces.F1030:  
-                    this_piece_startsAt_730.WhichFaceIsFront = start_whichIsFront_NotSpecified;
-                    this_piece_startsAt_730.WhichFaceIsN_of_front = start_whichIsEast_NotSpecified;
+                    this_piece_startsAt_730.WhichFaceIsFront = start_whichIsFront;
+                    this_piece_startsAt_730.WhichFaceIsN_of_front = start_whichIsWest;
                     this_piece_startsAt_730.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                     this_piece_startsAt_730.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
-                    this_piece_startsAt_730.WhichFaceIsW_of_front = start_whichIsNorth;
+                    this_piece_startsAt_730.WhichFaceIsW_of_front = start_whichIsSouth;
                     break;
 
                 case EnumAll12Faces._1030_WNW:
-                    this_piece_startsAt_730.WhichFaceIsFront = start_whichIsNorth_NotSpecified;
-                    this_piece_startsAt_730.WhichFaceIsN_of_front = start_whichIsWest_NotSpecified;
+                    this_piece_startsAt_730.WhichFaceIsFront = start_whichIsWest;
+                    this_piece_startsAt_730.WhichFaceIsN_of_front = start_whichIsSouth;
                     this_piece_startsAt_730.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                     this_piece_startsAt_730.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
-                    this_piece_startsAt_730.WhichFaceIsW_of_front = start_whichIsFront_NotSpecified;
+                    this_piece_startsAt_730.WhichFaceIsW_of_front = start_whichIsFront;
                     break;
 
                 case EnumAll12Faces._1030_NNW:
-                    this_piece_startsAt_730.WhichFaceIsFront = start_whichIsWest_NotSpecified;
-                    this_piece_startsAt_730.WhichFaceIsN_of_front = start_whichIsFront_NotSpecified;
+                    this_piece_startsAt_730.WhichFaceIsFront = start_whichIsSouth;
+                    this_piece_startsAt_730.WhichFaceIsN_of_front = start_whichIsFront;
                     this_piece_startsAt_730.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                     this_piece_startsAt_730.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
-                    this_piece_startsAt_730.WhichFaceIsW_of_front = start_whichIsNorth_NotSpecified;
+                    this_piece_startsAt_730.WhichFaceIsW_of_front = start_whichIsWest;
                     break;
 
 

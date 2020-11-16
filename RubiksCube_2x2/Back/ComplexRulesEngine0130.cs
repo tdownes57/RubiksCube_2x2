@@ -24,10 +24,10 @@ namespace RubiksCube_2x2.Back
             EnumFaceNum start_whichIsFront = this_piece_startsAt_130.WhichFaceIsFront;
             EnumFaceNum start_whichIsNorth = this_piece_startsAt_130.WhichFaceIsN_of_front;
             EnumFaceNum start_whichIsEast = this_piece_startsAt_130.WhichFaceIsE_of_front;
-            EnumFaceNum start_whichIsSouth = this_piece_startsAt_130.WhichFaceIsS_of_front;
-            EnumFaceNum start_whichIsWest = this_piece_startsAt_130.WhichFaceIsW_of_front;
+            //---n/a---EnumFaceNum start_whichIsSouth = this_piece_startsAt_130.WhichFaceIsS_of_front;
+            //---n/a---EnumFaceNum start_whichIsWest = this_piece_startsAt_130.WhichFaceIsW_of_front;
             //Added 11/15/2020 thomas downes
-            EnumFaceNum start_whichIs_NotSpecified = EnumFaceNum.NotSpecified;
+            //---n/a---EnumFaceNum start_whichIs_NotSpecified = EnumFaceNum.NotSpecified;
 
             //
             //We have to specify the new side-faces. 
@@ -136,8 +136,8 @@ namespace RubiksCube_2x2.Back
                     break;
 
                 case EnumAll12Faces._1030_NNW:
-                    this_piece_startsAt_130.WhichFaceIsFront = start_whichIsWest;
-                    this_piece_startsAt_130.WhichFaceIsN_of_front = start_whichIsNorth;
+                    this_piece_startsAt_130.WhichFaceIsFront = start_whichIsNorth;
+                    this_piece_startsAt_130.WhichFaceIsN_of_front = start_whichIsFront;
                     this_piece_startsAt_130.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                     this_piece_startsAt_130.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                     this_piece_startsAt_130.WhichFaceIsW_of_front = start_whichIsEast;

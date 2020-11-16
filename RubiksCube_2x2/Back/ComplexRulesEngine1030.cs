@@ -28,11 +28,12 @@ namespace RubiksCube_2x2
 
             EnumFaceNum start_whichIsFront = this_piece_startsAt_1030.WhichFaceIsFront;
             EnumFaceNum start_whichIsNorth = this_piece_startsAt_1030.WhichFaceIsN_of_front;
-            EnumFaceNum start_whichIsEast = this_piece_startsAt_1030.WhichFaceIsE_of_front;
-            EnumFaceNum start_whichIsSouth = this_piece_startsAt_1030.WhichFaceIsS_of_front;
+            //---n/a---EnumFaceNum start_whichIsEast = this_piece_startsAt_1030.WhichFaceIsE_of_front;
+            //---n/a---EnumFaceNum start_whichIsSouth = this_piece_startsAt_1030.WhichFaceIsS_of_front;
             EnumFaceNum start_whichIsWest = this_piece_startsAt_1030.WhichFaceIsW_of_front;
+            
             //Added 11/15/2020 thomas downes
-            EnumFaceNum start_whichIs_NotSpecified = EnumFaceNum.NotSpecified;
+            //---n/a---EnumFaceNum start_whichIs_NotSpecified = EnumFaceNum.NotSpecified;
 
             //Added 11/15/2020 thomas downes
             EnumAll12Faces the_endpoint = this_complex_move.EndingPoint;
