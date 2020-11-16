@@ -143,24 +143,32 @@ namespace RubiksCube_2x2
                 //piece_starting_at_730.ReorientPiece_Complex(piece_starting_at_730.WhichFaceIsFront, move3.EndingPoint);
                 //piece_starting_at_1030.ReorientPiece_Complex(piece_starting_at_1030.WhichFaceIsFront, move4.EndingPoint);
 
-                const bool c_boolEncapsulateRuleImplementation = false;
+                const bool c_boolEncapsulateRuleImplementation = true;  // false;
 
                 if (c_boolEncapsulateRuleImplementation)
                 {
                     //
                     // Use the static class, ComplexRulesEngine.  
                     //
-                    ComplexRulesEngine.this_piece = piece_starting_at_130;
-                    ComplexRulesEngine.ReorientPiece_Complex(move1_from130.StartingPoint, move1_from130.EndingPoint);
+                    //ComplexRulesEngine.ReorientPiece_Complex(move1_from130.StartingPoint, move1_from130.EndingPoint);
+                    ComplexRulesEngine0130.this_piece_startsAt_130 = piece_starting_at_130;
+                    ComplexRulesEngine0130.this_complex_move = move1_from130;
+                    ComplexRulesEngine0130.FrontFace_130_ReorientTo(); // (move1_from130.StartingPoint, move1_from130.EndingPoint);
 
-                    ComplexRulesEngine.this_piece = piece_starting_at_430;
                     //ComplexRulesEngine.ReorientPiece_Complex(move1_from130.StartingPoint, move1_from130.EndingPoint);
+                    ComplexRulesEngine0430.this_piece_startsAt_430 = piece_starting_at_430;
+                    ComplexRulesEngine0430.this_complex_move = move2_from430;
+                    ComplexRulesEngine0430.FrontFace_430_ReorientTo(); // (move1_from130.StartingPoint, move1_from130.EndingPoint);
 
-                    ComplexRulesEngine.this_piece = piece_starting_at_730;
                     //ComplexRulesEngine.ReorientPiece_Complex(move1_from130.StartingPoint, move1_from130.EndingPoint);
-                    
-                    ComplexRulesEngine.this_piece = piece_starting_at_1030;
-                    //ComplexRulesEngine.ReorientPiece_Complex(move1_from130.StartingPoint, move1_from130.EndingPoint);
+                    ComplexRulesEngine0730.this_piece_startsAt_730 = piece_starting_at_730;
+                    ComplexRulesEngine0730.this_complex_move = move3_from730;
+                    ComplexRulesEngine0730.FrontFace_730_ReorientTo(); // (move1_from130.StartingPoint, move1_from130.EndingPoint);
+
+                    //ComplexRulesEngine.FrontFace_1030_ReorientTo(move1_from130.StartingPoint, move1_from130.EndingPoint);
+                    ComplexRulesEngine1030.this_piece_startsAt_1030 = piece_starting_at_1030;
+                    ComplexRulesEngine1030.this_complex_move = move4_from1030;
+                    ComplexRulesEngine1030.FrontFace_1030_ReorientTo(); // (move1_from130.StartingPoint, move1_from130.EndingPoint);
 
                 }
                 else

@@ -52,9 +52,12 @@
     <Compile Include="Back\ClassGreenRedYellow.cs" />
     <Compile Include="Back\ClassGreenYellowOrange.cs" />
     <Compile Include="Back\ClassRotateRules_Back.cs" />
-    <Compile Include="ComplexRotation.cs" />
-    <Compile Include="ComplexRules.cs" />
-    <Compile Include="ComplexRulesEngine.cs" />
+    <Compile Include="Back\ComplexRotation.cs" />
+    <Compile Include="Back\ComplexRules.cs" />
+    <Compile Include="Back\ComplexRulesEngine0130.cs" />
+    <Compile Include="Back\ComplexRulesEngine0430.cs" />
+    <Compile Include="Back\ComplexRulesEngine0730.cs" />
+    <Compile Include="Back\ComplexRulesEngine1030.cs" />
     <Compile Include="EnumStaticClass.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
