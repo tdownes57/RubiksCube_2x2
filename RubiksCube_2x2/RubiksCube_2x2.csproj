@@ -106,6 +106,9 @@
     <None Include="Cursors\custom-cursor-tcd .cur" />
     <Content Include="Cursors\custom-cursor-tcd.ico" />
     <Content Include="Cursors\custom-cursor-tcd.png" />
+    <Content Include="Cursors\custom-cursor-transparent2.png" />
+    <None Include="Cursors\transparent2.ico" />
+    <Content Include="Cursors\transparent2.cur" />
     <Content Include="Notes.txt" />
   </ItemGroup>
   <ItemGroup>

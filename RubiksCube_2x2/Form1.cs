@@ -27,6 +27,8 @@ namespace RubiksCube_2x2
         private Front.GreenWhiteRed mod_FrontPieceGWR = new Front.GreenWhiteRed();
         private Front.GreenOrangeWhite mod_FrontPieceGOW = new Front.GreenOrangeWhite();
 
+        //Added 11/17/2020 thomas downes
+        private Cursor _customCursor = null; 
 
         public Form1()
         {
@@ -528,8 +530,44 @@ namespace RubiksCube_2x2
             //
             //this.Cursor = new Cursor(Properties.Resources.custom_cursor_tcd2);
 
-            var ms = new System.IO.MemoryStream(Properties.Resources.custom_cursor_tcd2);  // (My.Resources.Cursor1)
-            this.Cursor = new Cursor(ms);
+            const bool c_boolEntireFormHasCustomCursor = false;
+
+            if (c_boolEntireFormHasCustomCursor)
+            {
+                //var ms = new System.IO.MemoryStream(Properties.Resources.custom_cursor_tcd2);  // (My.Resources.Cursor1)
+                //var ms = new System.IO.MemoryStream(Properties.Resources.custom_cursor_transparent2);  // (My.Resources.Cursor1)
+                //this.Cursor = new Cursor(ms);
+            }
+
+        }
+
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            //
+            // Added 11/17/2020 thomas downes 
+            //
+            Point currentLocation = new Point(e.X, e.Y);
+
+            RubikPieceCorner whichPiece;
+
+            whichPiece = mod_RotateBackside.WhichPieceHasMouseHover(currentLocation);
+
+            if (whichPiece == null)
+            {
+                this.Cursor = Cursors.Default;
+            }
+            else
+            {
+                if (_customCursor == null)
+                {
+                    //var ms = new System.IO.MemoryStream(Properties.Resources.custom_cursor_tcd2);  // (My.Resources.Cursor1)
+                    var ms = new System.IO.MemoryStream(Properties.Resources.transparent2);  // (My.Resources.Cursor1)
+                    _customCursor = new Cursor(ms);
+                }
+                //this.Cursor = new Cursor(ms);
+                this.Cursor = _customCursor;
+
+            }
 
         }
     }

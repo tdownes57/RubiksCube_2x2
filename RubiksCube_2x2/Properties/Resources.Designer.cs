@@ -89,5 +89,15 @@ namespace RubiksCube_2x2.Properties {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] transparent2 {
+            get {
+                object obj = ResourceManager.GetObject("transparent2", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }
