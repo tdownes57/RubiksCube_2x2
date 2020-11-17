@@ -108,6 +108,10 @@
     <Content Include="Cursors\custom-cursor-tcd.png" />
     <Content Include="Cursors\custom-cursor-transparent2.png" />
     <None Include="Cursors\transparent2.ico" />
+    <Content Include="Cursors\plussign-cursor.cur" />
+    <Content Include="Cursors\plussign-paint3d.cur" />
+    <Content Include="Cursors\plussign-paint3d.ico" />
+    <Content Include="Cursors\ring-cursor.cur" />
     <Content Include="Cursors\transparent2.cur" />
     <Content Include="Notes.txt" />
   </ItemGroup>

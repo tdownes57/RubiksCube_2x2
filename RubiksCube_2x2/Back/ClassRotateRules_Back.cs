@@ -231,6 +231,17 @@ namespace RubiksCube_2x2
 
             //Added 11/17/2020 thomas downes
             //
+            public RubikPieceCorner WhichPieceIsClicked(int par_pointX, int par_pointY)
+            {
+                //
+                // Added 11/17/2020 thomas downes
+                //
+                return WhichPieceHasMouseHover(new Point(par_pointX, par_pointY));
+
+            }
+
+            //Added 11/17/2020 thomas downes
+            //
             public override RubikPieceCorner WhichPieceHasMouseHover(Point par_point)
             {
                 //
@@ -245,6 +256,19 @@ namespace RubiksCube_2x2
                 return null;
 
             }
+
+            public void GodlikeSwitch(RubikPieceCorner par_dragged, RubikPieceCorner par_replaced)
+            {
+                //
+                // Added 11/17/2020 thomas downes
+                //
+
+
+            }
+
+
+
+
 
         }
     }

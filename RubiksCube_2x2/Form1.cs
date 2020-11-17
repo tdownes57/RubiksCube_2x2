@@ -28,7 +28,10 @@ namespace RubiksCube_2x2
         private Front.GreenOrangeWhite mod_FrontPieceGOW = new Front.GreenOrangeWhite();
 
         //Added 11/17/2020 thomas downes
-        private Cursor _customCursor = null; 
+        private Cursor _customCursorRing = null;
+        private Cursor _customCursorPlus = null;
+        private RubikPieceCorner _rubiksPiece_Dragged = null;
+        private RubikPieceCorner _rubiksPiece_Replaced = null;
 
         public Form1()
         {
@@ -554,18 +557,94 @@ namespace RubiksCube_2x2
 
             if (whichPiece == null)
             {
-                this.Cursor = Cursors.Default;
+                if (_rubiksPiece_Dragged == null)
+                {
+                    this.Cursor = Cursors.Default;
+                }
             }
             else
             {
-                if (_customCursor == null)
+                if (_rubiksPiece_Dragged != null)
                 {
-                    //var ms = new System.IO.MemoryStream(Properties.Resources.custom_cursor_tcd2);  // (My.Resources.Cursor1)
-                    var ms = new System.IO.MemoryStream(Properties.Resources.transparent2);  // (My.Resources.Cursor1)
-                    _customCursor = new Cursor(ms);
+                    //
+                    // We are dragging a piece. Don't modify the cursor. 
+                    //
                 }
-                //this.Cursor = new Cursor(ms);
-                this.Cursor = _customCursor;
+                else 
+                {
+                    //
+                    // Let's apply the Ring cursor, "ring_cursor" (formerly "transparent2").  
+                    //
+                    if (_customCursorRing == null)
+                    {
+                        //var ms = new System.IO.MemoryStream(Properties.Resources.custom_cursor_tcd2);  // (My.Resources.Cursor1)
+                        //var ms = new System.IO.MemoryStream(Properties.Resources.transparent2);  // (My.Resources.Cursor1)
+                        var ms = new System.IO.MemoryStream(Properties.Resources.ring_cursor);  // (My.Resources.Cursor1)
+                        _customCursorRing = new Cursor(ms);
+                    }
+                    //this.Cursor = new Cursor(ms);
+                    this.Cursor = _customCursorRing;
+                }
+            }
+
+        }
+
+        private void Form1_MouseClick(object sender, MouseEventArgs e)
+        {
+            //
+            // Added 11/17/2020 thomas downes  
+            //
+            RubikPieceCorner piece_clicked = mod_RotateBackside.WhichPieceIsClicked(e.X, e.Y);
+
+            if (piece_clicked == null)
+            {
+                //
+                // Clean up time!!   Then exit Sub.
+                //
+                _rubiksPiece_Dragged = null;
+                _rubiksPiece_Replaced = null;
+                this.Cursor = Cursors.Default;
+                labelHowToMoveAPiece.Visible = false;
+                return;
+            }
+
+            else if (piece_clicked != null)
+            {
+                if (_rubiksPiece_Dragged != null)
+                {
+                    //
+                    //   Step 2 of 2 -- Replace.
+                    //
+                    //   We are pretty much done with the drag-and-replace process. 
+                    //
+                    this.Cursor = Cursors.Default;
+                    _rubiksPiece_Replaced = piece_clicked;
+
+                    // Added 11/17/2020 thomas downes
+                    mod_RotateBackside
+                        .GodlikeSwitch(_rubiksPiece_Dragged, _rubiksPiece_Replaced);
+
+                    //
+                    // Clean up time!!
+                    //
+                    _rubiksPiece_Dragged = null;
+                    _rubiksPiece_Replaced = null;
+                    labelHowToMoveAPiece.Visible = false;
+                    this.Cursor = Cursors.Default;
+
+                }
+                else
+                {
+                    _rubiksPiece_Dragged = piece_clicked;
+                    if (_customCursorPlus == null)
+                    {
+                        //var ms = new System.IO.MemoryStream(Properties.Resources.transparent2);  // (My.Resources.Cursor1)
+                        var ms = new System.IO.MemoryStream(Properties.Resources.plussign_cursor);  // (My.Resources.Cursor1)
+                        _customCursorPlus = new Cursor(ms);
+                    }
+                    this.Cursor = _customCursorPlus;
+                    labelHowToMoveAPiece.Visible = true;
+                }
 
             }
 

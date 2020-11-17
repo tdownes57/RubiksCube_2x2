@@ -93,6 +93,26 @@ namespace RubiksCube_2x2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] plussign_cursor {
+            get {
+                object obj = ResourceManager.GetObject("plussign_cursor", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] ring_cursor {
+            get {
+                object obj = ResourceManager.GetObject("ring_cursor", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] transparent2 {
             get {
                 object obj = ResourceManager.GetObject("transparent2", resourceCulture);

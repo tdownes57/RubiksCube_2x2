@@ -127,6 +127,12 @@
   <data name="custom_cursor_tcd2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Cursors\custom-cursor-tcd .cur;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="plussign_cursor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Cursors\plussign-cursor.cur;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ring_cursor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Cursors\ring-cursor.cur;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="transparent2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Cursors\transparent2.cur;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

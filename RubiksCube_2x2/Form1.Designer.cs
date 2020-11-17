@@ -47,6 +47,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.labelHowToMoveAPiece = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // progressBar1
@@ -226,11 +227,23 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Complex Rules - Player Rotates One Front Piece";
             // 
+            // labelHowToMoveAPiece
+            // 
+            this.labelHowToMoveAPiece.AutoSize = true;
+            this.labelHowToMoveAPiece.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHowToMoveAPiece.Location = new System.Drawing.Point(522, 48);
+            this.labelHowToMoveAPiece.Name = "labelHowToMoveAPiece";
+            this.labelHowToMoveAPiece.Size = new System.Drawing.Size(592, 25);
+            this.labelHowToMoveAPiece.TabIndex = 18;
+            this.labelHowToMoveAPiece.Text = "You have selected a Rubik\'s piece.  Now drop it onto another piece.";
+            this.labelHowToMoveAPiece.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1152, 642);
+            this.Controls.Add(this.labelHowToMoveAPiece);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
@@ -254,6 +267,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.Enter += new System.EventHandler(this.Form1_Enter);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
             this.MouseEnter += new System.EventHandler(this.Form1_MouseEnter);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.ResumeLayout(false);
@@ -281,6 +295,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelHowToMoveAPiece;
     }
 }
 
