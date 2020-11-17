@@ -14,8 +14,9 @@ namespace RubiksCube_2x2.Back
         public static RubikPieceCorner this_piece_startsAt_730;
         public static ComplexPieceMove this_complex_move;
 
-        public static void ReorientPiece_Complex_From730(EnumAll12Faces par_enum)
+        public static void FrontFace_730_ReorientTo()  //  (EnumAll12Faces par_enum)
         {
+            //---11/16 ---public static void ReorientPiece_Complex_From730(EnumAll12Faces par_enum)
             //
             // Added 11/15/2020 thomas downes
             //
