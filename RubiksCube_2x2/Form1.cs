@@ -32,6 +32,8 @@ namespace RubiksCube_2x2
         private Cursor _customCursorPlus = null;
         private RubikPieceCorner _rubiksPiece_Dragged = null;
         private RubikPieceCorner _rubiksPiece_Replaced = null;
+        private bool _godlike_behavior_OK;
+
 
         public Form1()
         {
@@ -635,19 +637,110 @@ namespace RubiksCube_2x2
                 }
                 else
                 {
-                    _rubiksPiece_Dragged = piece_clicked;
-                    if (_customCursorPlus == null)
+                    if (CheckForGodlikeBehavior_MovePiece())
                     {
-                        //var ms = new System.IO.MemoryStream(Properties.Resources.transparent2);  // (My.Resources.Cursor1)
-                        var ms = new System.IO.MemoryStream(Properties.Resources.plussign_cursor);  // (My.Resources.Cursor1)
-                        _customCursorPlus = new Cursor(ms);
+                        _rubiksPiece_Dragged = piece_clicked;
+                        if (_customCursorPlus == null)
+                        {
+                            //var ms = new System.IO.MemoryStream(Properties.Resources.transparent2);  // (My.Resources.Cursor1)
+                            var ms = new System.IO.MemoryStream(Properties.Resources.plussign_cursor);  // (My.Resources.Cursor1)
+                            _customCursorPlus = new Cursor(ms);
+                        }
+                        this.Cursor = _customCursorPlus;
+                        labelHowToMoveAPiece.Visible = true;
                     }
-                    this.Cursor = _customCursorPlus;
-                    labelHowToMoveAPiece.Visible = true;
                 }
 
             }
 
         }
+
+        private void Form1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            //
+            // Added 11/17/2020 thomas downes
+            //
+            RubikPieceCorner piece_clicked = mod_RotateBackside.WhichPieceIsClicked(e.X, e.Y);
+
+            //if (piece_clicked != null && _rubiksPiece_Dragged != null)
+            if (_rubiksPiece_Dragged != null)
+            {
+                //
+                // The user has double-clicked, but seems to be in the 
+                //    middle of a select-then-drop process.  
+                //
+                // This is confusing behavior by the user. 
+                //
+                // Let's "punish" the user by reverting to an earlier state of things. 
+                //
+                // Clean up time!!   Then exit Sub.
+                //
+                _rubiksPiece_Dragged = null;
+                _rubiksPiece_Replaced = null;
+                this.Cursor = Cursors.Default;
+                labelHowToMoveAPiece.Visible = false;
+                return;
+            }
+
+            if (piece_clicked != null)
+            {
+                //
+                // Rotate the piece clockwise.  
+                //
+                // First, check with the user if he or she wants to 
+                //   perform a godlike behavior. 
+                //
+                if (CheckForGodlikeBehavior_RotateInPlace())
+                {
+                    //piece_clicked.RotateInPlace_Clockwise120();
+                    this.Refresh();
+                }
+
+            }
+
+
+        }
+
+
+        private bool CheckForGodlikeBehavior_RotateInPlace()
+        {
+            //
+            // Added 11/17/2020 thoms downes
+            //
+            if (_godlike_behavior_OK == false)
+            {
+                DialogResult user_response;
+                user_response = MessageBox.Show("Do you want to perform a godlike behavior?"
+                                   + "\n \n  (Rotating a piece in place, i.e. not affecting other pieces.) ", 
+                                   "Godlike Behavior",
+                    MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+                _godlike_behavior_OK = (user_response == DialogResult.Yes);
+                //return true;
+            }
+            return _godlike_behavior_OK;
+        }
+
+        private bool CheckForGodlikeBehavior_MovePiece()
+        {
+            //
+            // Added 11/17/2020 thoms downes
+            //
+            if (_godlike_behavior_OK == false)
+            {
+                DialogResult user_response;
+                user_response = MessageBox.Show("Do you want to perform a godlike behavior?"
+                                   + "\n \n  (Selecting a piece to move elsewhere, without impacting surrounding pieces.) ",
+                                   "Godlike Behavior",
+                    MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+                _godlike_behavior_OK = (user_response == DialogResult.Yes);
+            }
+            return _godlike_behavior_OK;
+
+        }
+
+
+
     }
 }
