@@ -482,5 +482,55 @@ namespace RubiksCube_2x2
         {
 
         }
+
+        private void Form1_Enter(object sender, EventArgs e)
+        {
+            //
+            // Added 11/17/2020 thomas downes
+            //
+            //this.Cursor
+            //
+            //  C# Winforms - change cursor icon of mouse
+            //  https://stackoverflow.com/questions/2902327/c-sharp-winforms-change-cursor-icon-of-mouse
+            //  https://stackoverflow.com/questions/432379/set-custom-cursor-from-resource-file
+            //  https://www.youtube.com/watch?v=mTuVpfsPX1k
+            //  https://convertico.com/
+            //
+            //
+            //I have the answer for a picturebox
+            //
+            //    Picturebox1.cursor = new cursor(Properties.Resources.CURSOR NAME.GetHicon());
+            //
+            //this.Cursor = new Cursor(Properties.Resources.custom_cursor_tcd2);
+
+            var ms = new System.IO.MemoryStream(Properties.Resources.custom_cursor_tcd2);  // (My.Resources.Cursor1)
+            this.Cursor = new Cursor(ms);
+
+        }
+
+        private void Form1_MouseEnter(object sender, EventArgs e)
+        {
+            //
+            // Added 11/17/2020 thomas downes
+            //
+            //this.Cursor
+            //
+            //  C# Winforms - change cursor icon of mouse
+            //  https://stackoverflow.com/questions/2902327/c-sharp-winforms-change-cursor-icon-of-mouse
+            //  https://stackoverflow.com/questions/432379/set-custom-cursor-from-resource-file
+            //  https://www.youtube.com/watch?v=mTuVpfsPX1k
+            //  https://convertico.com/
+            //
+            //
+            //I have the answer for a picturebox
+            //
+            //    Picturebox1.cursor = new cursor(Properties.Resources.CURSOR NAME.GetHicon());
+            //
+            //this.Cursor = new Cursor(Properties.Resources.custom_cursor_tcd2);
+
+            var ms = new System.IO.MemoryStream(Properties.Resources.custom_cursor_tcd2);  // (My.Resources.Cursor1)
+            this.Cursor = new Cursor(ms);
+
+        }
     }
 }
