@@ -74,6 +74,7 @@ namespace RubiksCube_2x2
         public EnumFaceNum WhichFaceIsS_of_front;
 
         private const int _margin = 3;  // 2;  // 1; // 10;   // Added 11/12/2020 thomas downes
+        private Rectangle _rectangleFrontFace; // Added 11/17/2020 thomas d. 
 
         public abstract void Rotate_Clockwise90();
         //----public abstract void Rotate_Counterwise90();
@@ -186,6 +187,9 @@ namespace RubiksCube_2x2
             //
             //Rectangle frontFace = EnumStaticClass.GetRectangle_Front(p_center_of_form, base.FrontClockFacePosition);
             Rectangle frontFace = EnumStaticClass.GetRectangle_Front(p_center_of_form, this.FrontClockFacePosition, _margin);
+
+            //Added 11/17/2020 thomas d.
+            _rectangleFrontFace = frontFace; 
 
             p_pointNW = new Point(frontFace.X, frontFace.Y);
             p_pointSW = new Point(frontFace.X, frontFace.Y + frontFace.Height);
@@ -552,6 +556,29 @@ namespace RubiksCube_2x2
             }
 
         }
+
+
+        //Added 11/17/2020 thomas downes
+        //
+        //public abstract EnumAll12Faces WhichSideIsClicked(Point par_point);
+
+        public bool FrontFaceWasClicked(Point par_point)
+        {
+            //
+            //Added 11/17/2020 thomas downes
+            //
+            //return null;
+
+            if (par_point.X < _rectangleFrontFace.X + _rectangleFrontFace.Width)
+                if (par_point.X > _rectangleFrontFace.X)
+                    if (par_point.Y < _rectangleFrontFace.Y + _rectangleFrontFace.Height)
+                        if (par_point.Y > _rectangleFrontFace.Y)
+                            return true;
+
+            return false;
+
+        }
+
 
         #region NotYetEncapsulated
 

@@ -104,6 +104,27 @@ namespace RubiksCube_2x2
 
             }
 
+            //Added 11/17/2020 thomas downes
+            //
+            public override RubikPieceCorner WhichPieceIsClicked(Point par_point)
+            {
+                //
+                // Added 11/17/2020 thomas downes
+                //
+                return WhichPieceHasMouseHover(par_point);
+
+            }
+
+            //Added 11/17/2020 thomas downes
+            //
+            public override RubikPieceCorner WhichPieceHasMouseHover(Point par_point)
+            {
+                //
+                //Added 11/17/2020 thomas downes
+                //
+                return null;
+            }
+
         }
     }
 }

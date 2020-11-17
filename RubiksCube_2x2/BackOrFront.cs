@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;  // Added 11/17/2020 thomas downes
 
 namespace RubiksCube_2x2
 {
@@ -23,7 +24,11 @@ namespace RubiksCube_2x2
         //Added 11/14/2020 thomas downes
         public abstract void LoadInitialPositions();
 
-
+        //
+        //Added 11/17/2020 thomas downes
+        //
+        public abstract RubikPieceCorner WhichPieceIsClicked(Point par_point);
+        public abstract RubikPieceCorner WhichPieceHasMouseHover(Point par_point);
 
 
     }

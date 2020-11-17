@@ -218,6 +218,34 @@ namespace RubiksCube_2x2
 
             }
 
+            //Added 11/17/2020 thomas downes
+            //
+            public override RubikPieceCorner WhichPieceIsClicked(Point par_point)
+            {
+                //
+                // Added 11/17/2020 thomas downes
+                //
+                return WhichPieceHasMouseHover(par_point);
+
+            }
+
+            //Added 11/17/2020 thomas downes
+            //
+            public override RubikPieceCorner WhichPieceHasMouseHover(Point par_point)
+            {
+                //
+                //Added 11/17/2020 thomas downes
+                //
+                //return null;
+
+                if (_pieceBOY.FrontFaceWasClicked(par_point)) return _pieceBOY;
+                if (_pieceBYR.FrontFaceWasClicked(par_point)) return _pieceBYR;
+                if (_pieceGRY.FrontFaceWasClicked(par_point)) return _pieceGRY;
+                if (_pieceGYO.FrontFaceWasClicked(par_point)) return _pieceGYO;
+                return null;
+
+            }
+
         }
     }
 }

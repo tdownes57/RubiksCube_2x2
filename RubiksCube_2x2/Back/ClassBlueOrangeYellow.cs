@@ -45,7 +45,7 @@ namespace RubiksCube_2x2
             // 
             //-----public enum EnumFaceNum { NotSpecified, NotApplicable_DifferentPiece, Face1, Face2, Face3 };
 
-            private enum FaceNumber_BOY_NotInUse { NotSpecified, NotApplicable_DifferentPiece, 
+            private enum FaceNumber_BOY_NotInUse { NotSpecified, NotApplicable_DifferentPiece,
                 Face1_Blue, Face2_Orange, Face3_Yellow }
 
 
@@ -446,10 +446,16 @@ namespace RubiksCube_2x2
             //    }
             //}
 
+        //Added 11/17/2020 thomas downes
+        //
+        //public override EnumAll12Faces WhichSideIsClicked(Point par_point)
+        //{
+        //    //
+        //    //Added 11/17/2020 thomas downes
+        //    //
+        //    return EnumAll12Faces.NotSpecified;
+        //}
 
-
-
-
-        }
     }
+}
 }
