@@ -264,6 +264,7 @@
             this.Controls.Add(this.progressBar1);
             this.Name = "Form1";
             this.Text = "Rubik\'s Cube, Front Half of a 2x2";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.Enter += new System.EventHandler(this.Form1_Enter);

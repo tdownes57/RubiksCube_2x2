@@ -87,9 +87,9 @@ namespace RubiksCube_2x2
                 // Clock position 10:30 pm 
                 base.FrontClockFacePosition = FrontClockFace.ten_thirty;  // i.e. the TopLeft piece, or NorthWest.
 
-                base.FaceColor1Position_NotInUse = FacePositionNSWE.W_side_of_front;
-                base.FaceColor2Position_NotInUse = FacePositionNSWE.N_side_of_front;
-                base.FaceColor3Position_NotInUse = FacePositionNSWE.FrontFacing;
+                //base.FaceColor1Position_NotInUse = FacePositionNSWE.W_side_of_front;
+                //base.FaceColor2Position_NotInUse = FacePositionNSWE.N_side_of_front;
+                //base.FaceColor3Position_NotInUse = FacePositionNSWE.FrontFacing;
 
                 //
                 //

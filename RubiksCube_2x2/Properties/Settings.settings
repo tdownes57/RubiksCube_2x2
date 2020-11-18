@@ -1,7 +1,18 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="RubiksCube_2x2.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="PositionOf_BOY" Type="System.String" Scope="User">
+      <Value Profile="(Default)">JSON</Value>
+    </Setting>
+    <Setting Name="PositionOf_BYR" Type="System.String" Scope="User">
+      <Value Profile="(Default)">JSON</Value>
+    </Setting>
+    <Setting Name="PositionOf_GRY" Type="System.String" Scope="User">
+      <Value Profile="(Default)">JSON</Value>
+    </Setting>
+    <Setting Name="PositionOf_GYO" Type="System.String" Scope="User">
+      <Value Profile="(Default)">JSON</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

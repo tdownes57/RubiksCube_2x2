@@ -69,6 +69,39 @@ namespace RubiksCube_2x2
             center_point_form_FRONT = new Point(this.Width / 3, 1 * this.Height / 3);
             center_point_form_BACK = new Point(this.Width * 2 / 3, 1 * this.Height / 3);
 
+            //
+            // Added 11/17/2020 td 
+            //
+            bool boolRefreshSideObject = false;
+            const bool c_boolLoadLastSerializedPositions = true; 
+
+            if (c_boolLoadLastSerializedPositions)
+            {
+                var pieceBOY = JsonStaticClass_Load.LoadPiece_BOY();
+                var pieceBYR = JsonStaticClass_Load.LoadPiece_BYR();
+                var pieceGRY = JsonStaticClass_Load.LoadPiece_GRY();
+                var pieceGYO = JsonStaticClass_Load.LoadPiece_GYO();
+
+                if (pieceBOY != null)
+                {
+                    mod_BackPieceBOY = pieceBOY;
+                    boolRefreshSideObject = true;
+                }
+                if (pieceBYR != null)
+                {
+                    mod_BackPieceBYR = pieceBYR;
+                    boolRefreshSideObject = true;
+                }
+            }
+
+            //Refresh the Backside object.  
+            if (boolRefreshSideObject)
+            {
+                mod_RotateBackside = new Back.ClassRotateRules_Back(mod_BackPieceBOY, mod_BackPieceBYR,
+                                                               mod_BackPieceGRY, mod_BackPieceGYO);
+                //this.Refresh();
+            }
+
         }
 
         private void Form1_Draw_NotInUse(object sender, EventArgs e)
@@ -740,7 +773,15 @@ namespace RubiksCube_2x2
 
         }
 
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //
+            // Added 11/17/2020 thomas downes
+            //
+            JsonStaticClass_Save.SavePiece_BOY(mod_BackPieceBOY);
+            JsonStaticClass_Save.SavePiece_BYR(mod_BackPieceBYR);
 
 
+        }
     }
 }

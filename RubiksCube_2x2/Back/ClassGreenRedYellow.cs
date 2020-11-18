@@ -93,9 +93,9 @@ namespace RubiksCube_2x2
                 //
                 base.FrontClockFacePosition = FrontClockFace.one_thirty;
 
-                base.FaceColor1Position_NotInUse = FacePositionNSWE.W_side_of_front;
-                base.FaceColor2Position_NotInUse = FacePositionNSWE.FrontFacing;
-                base.FaceColor3Position_NotInUse = FacePositionNSWE.S_side_of_front;
+                //base.FaceColor1Position_NotInUse = FacePositionNSWE.W_side_of_front;
+                //base.FaceColor2Position_NotInUse = FacePositionNSWE.FrontFacing;
+                //base.FaceColor3Position_NotInUse = FacePositionNSWE.S_side_of_front;
 
                 //
                 //

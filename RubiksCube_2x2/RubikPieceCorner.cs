@@ -58,9 +58,9 @@ namespace RubiksCube_2x2
         //
         public FrontClockFace FrontClockFacePosition;
 
-        public FacePositionNSWE FaceColor1Position_NotInUse;
-        public FacePositionNSWE FaceColor2Position_NotInUse;
-        public FacePositionNSWE FaceColor3Position_NotInUse;
+        //public FacePositionNSWE FaceColor1Position_NotInUse;
+        //public FacePositionNSWE FaceColor2Position_NotInUse;
+        //public FacePositionNSWE FaceColor3Position_NotInUse;
 
         //
         //
