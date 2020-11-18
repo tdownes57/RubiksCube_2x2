@@ -12,12 +12,17 @@ namespace RubiksCube_2x2
         //
         // Added 11/17/2020 thomas Downes  
         //
+        private const bool c_boolDebugging = true; 
+
         public static Back.BlueOrangeYellow LoadPiece_BOY()
         {
             //
             // Added 11/17/2020 thomas Downes  
             //
             string strJsonStringFor_BOY = Properties.Settings.Default.PositionOf_BOY;
+
+            //const bool c_boolDebugging = true; 
+            if (c_boolDebugging) System.IO.File.WriteAllText("LoadPiece_BOY.txt", strJsonStringFor_BOY);
 
             if (strJsonStringFor_BOY == "")
             {
@@ -61,6 +66,9 @@ namespace RubiksCube_2x2
             //
             string strJsonStringFor_BYR = Properties.Settings.Default.PositionOf_BYR;
 
+            //const bool c_boolDebugging = true; 
+            if (c_boolDebugging) System.IO.File.WriteAllText("LoadPiece_BYR.txt", strJsonStringFor_BYR);
+
             if (strJsonStringFor_BYR == "")
             {
                 return null;
@@ -82,7 +90,7 @@ namespace RubiksCube_2x2
                     (Back.BlueYellowRed)JsonConvert.DeserializeObject(strJsonStringFor_BYR,
                                                      typeof(Back.BlueYellowRed));
 
-            return objectBYR;
+                return objectBYR;
             }
             catch (Exception ex)
             {
@@ -97,12 +105,16 @@ namespace RubiksCube_2x2
         }
 
 
-        public static RubikPieceCorner LoadPiece_GRY()
+        public static Back.GreenRedYellow LoadPiece_GRY()
         {
+            //---public static RubikPieceCorner LoadPiece_GRY()
             //
             // Added 11/17/2020 thomas Downes  
             //
             string strJsonStringFor_GRY = Properties.Settings.Default.PositionOf_GRY;
+
+            //const bool c_boolDebugging = true; 
+            if (c_boolDebugging) System.IO.File.WriteAllText("LoadPiece_GRY.txt", strJsonStringFor_GRY);
 
             if (strJsonStringFor_GRY == "")
             {
@@ -139,12 +151,16 @@ namespace RubiksCube_2x2
         }
 
 
-        public static RubikPieceCorner LoadPiece_GYO()
+        public static Back.GreenYellowOrange LoadPiece_GYO()
         {
+            //----public static RubikPieceCorner LoadPiece_GYO()
             //
             // Added 11/17/2020 thomas Downes  
             //
             string strJsonStringFor_GYO = Properties.Settings.Default.PositionOf_GYO;
+
+            //const bool c_boolDebugging = true; 
+            if (c_boolDebugging) System.IO.File.WriteAllText("LoadPiece_GYO.txt", strJsonStringFor_GYO);
 
             if (strJsonStringFor_GYO == "")
             {

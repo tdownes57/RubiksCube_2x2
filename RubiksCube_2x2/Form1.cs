@@ -73,7 +73,7 @@ namespace RubiksCube_2x2
             // Added 11/17/2020 td 
             //
             bool boolRefreshSideObject = false;
-            const bool c_boolLoadLastSerializedPositions = true; 
+            const bool c_boolLoadLastSerializedPositions = true;  //  false;  // true; 
 
             if (c_boolLoadLastSerializedPositions)
             {
@@ -90,6 +90,16 @@ namespace RubiksCube_2x2
                 if (pieceBYR != null)
                 {
                     mod_BackPieceBYR = pieceBYR;
+                    boolRefreshSideObject = true;
+                }
+                if (pieceGRY != null)
+                {
+                    mod_BackPieceGRY = pieceGRY;
+                    boolRefreshSideObject = true;
+                }
+                if (pieceGYO != null)
+                {
+                    mod_BackPieceGYO = pieceGYO;
                     boolRefreshSideObject = true;
                 }
             }
@@ -780,6 +790,8 @@ namespace RubiksCube_2x2
             //
             JsonStaticClass_Save.SavePiece_BOY(mod_BackPieceBOY);
             JsonStaticClass_Save.SavePiece_BYR(mod_BackPieceBYR);
+            JsonStaticClass_Save.SavePiece_GRY(mod_BackPieceGRY);
+            JsonStaticClass_Save.SavePiece_GYO(mod_BackPieceGYO);
 
 
         }

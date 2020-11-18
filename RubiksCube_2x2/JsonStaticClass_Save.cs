@@ -124,7 +124,7 @@ namespace RubiksCube_2x2
         }
 
 
-        public static void SavePiece_GYO(Back.GreenRedYellow par_GYO)
+        public static void SavePiece_GYO(Back.GreenYellowOrange par_GYO)
         {
             //
             // Added 11/17/2020 thomas Downes  
