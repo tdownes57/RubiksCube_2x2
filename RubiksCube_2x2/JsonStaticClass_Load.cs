@@ -12,7 +12,7 @@ namespace RubiksCube_2x2
         //
         // Added 11/17/2020 thomas Downes  
         //
-        private const bool c_boolDebugging = true; 
+        private const bool c_boolDebugging = true;  // false;  //true; 
 
         public static Back.BlueOrangeYellow LoadPiece_BOY()
         {
@@ -22,7 +22,7 @@ namespace RubiksCube_2x2
             string strJsonStringFor_BOY = Properties.Settings.Default.PositionOf_BOY;
 
             //const bool c_boolDebugging = true; 
-            if (c_boolDebugging) System.IO.File.WriteAllText("LoadPiece_BOY.txt", strJsonStringFor_BOY);
+            if (c_boolDebugging) System.IO.File.WriteAllText("NotUsed_LoadPiece_BOY.txt", strJsonStringFor_BOY);
 
             if (strJsonStringFor_BOY == "")
             {
@@ -67,7 +67,7 @@ namespace RubiksCube_2x2
             string strJsonStringFor_BYR = Properties.Settings.Default.PositionOf_BYR;
 
             //const bool c_boolDebugging = true; 
-            if (c_boolDebugging) System.IO.File.WriteAllText("LoadPiece_BYR.txt", strJsonStringFor_BYR);
+            if (c_boolDebugging) System.IO.File.WriteAllText("NotUsed_LoadPiece_BYR.txt", strJsonStringFor_BYR);
 
             if (strJsonStringFor_BYR == "")
             {
@@ -114,7 +114,7 @@ namespace RubiksCube_2x2
             string strJsonStringFor_GRY = Properties.Settings.Default.PositionOf_GRY;
 
             //const bool c_boolDebugging = true; 
-            if (c_boolDebugging) System.IO.File.WriteAllText("LoadPiece_GRY.txt", strJsonStringFor_GRY);
+            if (c_boolDebugging) System.IO.File.WriteAllText("NotUsed_LoadPiece_GRY.txt", strJsonStringFor_GRY);
 
             if (strJsonStringFor_GRY == "")
             {
@@ -160,7 +160,7 @@ namespace RubiksCube_2x2
             string strJsonStringFor_GYO = Properties.Settings.Default.PositionOf_GYO;
 
             //const bool c_boolDebugging = true; 
-            if (c_boolDebugging) System.IO.File.WriteAllText("LoadPiece_GYO.txt", strJsonStringFor_GYO);
+            if (c_boolDebugging) System.IO.File.WriteAllText("NotUsed_LoadPiece_GYO.txt", strJsonStringFor_GYO);
 
             if (strJsonStringFor_GYO == "")
             {

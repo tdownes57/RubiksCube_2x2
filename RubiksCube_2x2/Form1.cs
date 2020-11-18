@@ -73,7 +73,7 @@ namespace RubiksCube_2x2
             // Added 11/17/2020 td 
             //
             bool boolRefreshSideObject = false;
-            const bool c_boolLoadLastSerializedPositions = true;  //  false;  // true; 
+            const bool c_boolLoadLastSerializedPositions = false;  // true;  //  false;  // true; 
 
             if (c_boolLoadLastSerializedPositions)
             {
@@ -408,10 +408,26 @@ namespace RubiksCube_2x2
                 //
                 // Added 11/11/2020 Thomas Downes        
                 //
-                mod_BackPieceBOY.PaintByGraphics(a_graphics, center_point_form_BACK);
-                mod_BackPieceBYR.PaintByGraphics(a_graphics, center_point_form_BACK);
-                mod_BackPieceGRY.PaintByGraphics(a_graphics, center_point_form_BACK);
-                mod_BackPieceGYO.PaintByGraphics(a_graphics, center_point_form_BACK);
+                //mod_BackPieceBOY.PaintByGraphics(a_graphics, center_point_form_BACK);
+                //mod_BackPieceBYR.PaintByGraphics(a_graphics, center_point_form_BACK);
+                //mod_BackPieceGRY.PaintByGraphics(a_graphics, center_point_form_BACK);
+                //mod_BackPieceGYO.PaintByGraphics(a_graphics, center_point_form_BACK);
+
+                //
+                // Step 1 of 2.  Paint the front faces.  (vs. sides) 
+                //
+                mod_BackPieceBOY.PaintByGraphics(a_graphics, center_point_form_BACK, EnumWhatToPaint.JustFront);
+                mod_BackPieceBYR.PaintByGraphics(a_graphics, center_point_form_BACK, EnumWhatToPaint.JustFront);
+                mod_BackPieceGRY.PaintByGraphics(a_graphics, center_point_form_BACK, EnumWhatToPaint.JustFront);
+                mod_BackPieceGYO.PaintByGraphics(a_graphics, center_point_form_BACK, EnumWhatToPaint.JustFront);
+
+                //
+                // Step 2 of 2.  Paint the side faces.  
+                //
+                mod_BackPieceBOY.PaintByGraphics(a_graphics, center_point_form_BACK, EnumWhatToPaint.JustSides);
+                mod_BackPieceBYR.PaintByGraphics(a_graphics, center_point_form_BACK, EnumWhatToPaint.JustSides);
+                mod_BackPieceGRY.PaintByGraphics(a_graphics, center_point_form_BACK, EnumWhatToPaint.JustSides);
+                mod_BackPieceGYO.PaintByGraphics(a_graphics, center_point_form_BACK, EnumWhatToPaint.JustSides);
 
             }
             else
@@ -466,10 +482,15 @@ namespace RubiksCube_2x2
                 //
                 // Added 11/11/2020 Thomas Downes        
                 //
-                mod_FrontPieceBWO.PaintByGraphics(a_graphics, center_point_form_FRONT);
-                mod_FrontPieceBRW.PaintByGraphics(a_graphics, center_point_form_FRONT);
-                mod_FrontPieceGWR.PaintByGraphics(a_graphics, center_point_form_FRONT);
-                mod_FrontPieceGOW.PaintByGraphics(a_graphics, center_point_form_FRONT);
+                //mod_FrontPieceBWO.PaintByGraphics(a_graphics, center_point_form_FRONT);
+                //mod_FrontPieceBRW.PaintByGraphics(a_graphics, center_point_form_FRONT);
+                //mod_FrontPieceGWR.PaintByGraphics(a_graphics, center_point_form_FRONT);
+                //mod_FrontPieceGOW.PaintByGraphics(a_graphics, center_point_form_FRONT);
+
+                mod_FrontPieceBWO.PaintByGraphics(a_graphics, center_point_form_FRONT, EnumWhatToPaint.FrontAndSides);
+                mod_FrontPieceBRW.PaintByGraphics(a_graphics, center_point_form_FRONT, EnumWhatToPaint.FrontAndSides);
+                mod_FrontPieceGWR.PaintByGraphics(a_graphics, center_point_form_FRONT, EnumWhatToPaint.FrontAndSides);
+                mod_FrontPieceGOW.PaintByGraphics(a_graphics, center_point_form_FRONT, EnumWhatToPaint.FrontAndSides);
 
             }
             else
@@ -522,8 +543,8 @@ namespace RubiksCube_2x2
                 return; 
             }
 
-            mod_RotateFrontside.ComplexRotation();
-            mod_RotateBackside.ComplexRotation();
+            mod_RotateFrontside.ComplexRevolution();
+            mod_RotateBackside.ComplexRevolution();
             this.Refresh();
 
         }
@@ -650,6 +671,10 @@ namespace RubiksCube_2x2
                 _rubiksPiece_Replaced = null;
                 this.Cursor = Cursors.Default;
                 labelHowToMoveAPiece.Visible = false;
+
+                //Added 11/17/2020 thomas d.
+                CheckIfSideFaceWasClicked(e.X, e.Y);
+                
                 return;
             }
 
@@ -676,6 +701,7 @@ namespace RubiksCube_2x2
                     _rubiksPiece_Replaced = null;
                     labelHowToMoveAPiece.Visible = false;
                     this.Cursor = Cursors.Default;
+                    this.Refresh();
 
                 }
                 else
@@ -698,12 +724,13 @@ namespace RubiksCube_2x2
 
         }
 
-        private void Form1_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void CheckIfSideFaceWasClicked(int e_X, int e_Y)  // (object sender, MouseEventArgs e)
         {
+            //---private void Form1_MouseDoubleClick(object sender, MouseEventArgs e)
             //
             // Added 11/17/2020 thomas downes
             //
-            RubikPieceCorner piece_clicked = mod_RotateBackside.WhichPieceIsClicked(e.X, e.Y);
+            RubikPieceCorner piece_clicked = mod_RotateBackside.WhichPiece_SideFaceClicked(e_X, e_Y);
 
             //if (piece_clicked != null && _rubiksPiece_Dragged != null)
             if (_rubiksPiece_Dragged != null)
@@ -736,6 +763,7 @@ namespace RubiksCube_2x2
                 if (CheckForGodlikeBehavior_RotateInPlace())
                 {
                     //piece_clicked.RotateInPlace_Clockwise120();
+                    piece_clicked.RotateInPlace_PivotPiece120degrees();
                     this.Refresh();
                 }
 
@@ -793,6 +821,19 @@ namespace RubiksCube_2x2
             JsonStaticClass_Save.SavePiece_GRY(mod_BackPieceGRY);
             JsonStaticClass_Save.SavePiece_GYO(mod_BackPieceGYO);
 
+
+        }
+
+        private void linkRevertToStart_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            //
+            // Added 11/17/2020 thomas downes
+            //
+            if (CheckForGodlikeBehavior_MovePiece())
+            {
+                mod_RotateBackside.LoadInitialPositions();
+                this.Refresh(); 
+            }
 
         }
     }

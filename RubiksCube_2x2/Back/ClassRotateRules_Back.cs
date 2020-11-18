@@ -62,14 +62,14 @@ namespace RubiksCube_2x2
                 //
                 // Added 11/12/2020 thomas downes
                 //
-                _pieceBOY.Rotate_Clockwise90();
-                _pieceBYR.Rotate_Clockwise90();
-                _pieceGRY.Rotate_Clockwise90();
-                _pieceGYO.Rotate_Clockwise90();
+                _pieceBOY.Revolve_Clockwise90();
+                _pieceBYR.Revolve_Clockwise90();
+                _pieceGRY.Revolve_Clockwise90();
+                _pieceGYO.Revolve_Clockwise90();
 
             }
 
-            public override void ComplexRotation()
+            public override void ComplexRevolution()
             {
                 //
                 // Added 11/13/2020 thomas downes
@@ -148,6 +148,16 @@ namespace RubiksCube_2x2
                 if (c_boolEncapsulateRuleImplementation)
                 {
                     //
+                    //First, set the clock position of the piece.   
+                    //    ----11/18/2020 thomas downes
+                    //
+                    const bool c_boolOnlySetClockPosition = true;
+                    piece_starting_at_130.ReorientPiece_Complex(move1_from130.StartingPoint, move1_from130.EndingPoint, c_boolOnlySetClockPosition);
+                    piece_starting_at_430.ReorientPiece_Complex(move2_from430.StartingPoint, move2_from430.EndingPoint, c_boolOnlySetClockPosition);
+                    piece_starting_at_730.ReorientPiece_Complex(move3_from730.StartingPoint, move3_from730.EndingPoint, c_boolOnlySetClockPosition);
+                    piece_starting_at_1030.ReorientPiece_Complex(move4_from1030.StartingPoint, move4_from1030.EndingPoint, c_boolOnlySetClockPosition);
+
+                    //
                     // Use the static class, ComplexRulesEngine.  
                     //
                     //ComplexRulesEngine.ReorientPiece_Complex(move1_from130.StartingPoint, move1_from130.EndingPoint);
@@ -169,6 +179,52 @@ namespace RubiksCube_2x2
                     ComplexRulesEngine1030.this_piece_startsAt_1030 = piece_starting_at_1030;
                     ComplexRulesEngine1030.this_complex_move = move4_from1030;
                     ComplexRulesEngine1030.FrontFace_1030_ReorientTo(); // (move1_from130.StartingPoint, move1_from130.EndingPoint);
+
+                    //
+                    // Debugging!!!!!
+                    //
+                    // As a check, let's count the number of side faces with valid colors. 
+                    //
+                    //
+                    int intCountValidSidefaces = 0;
+                    //Check the enumerated value.
+                    Func<EnumFaceNum, bool> isValidFace = enumFN =>
+                       (enumFN == EnumFaceNum.Face1 || enumFN == EnumFaceNum.Face2 || enumFN == EnumFaceNum.Face3);
+
+                    if (isValidFace(_pieceBOY.WhichFaceIsN_of_front)) intCountValidSidefaces++;
+                    if (isValidFace(_pieceBOY.WhichFaceIsE_of_front)) intCountValidSidefaces++;
+                    if (isValidFace(_pieceBOY.WhichFaceIsS_of_front)) intCountValidSidefaces++;
+                    if (isValidFace(_pieceBOY.WhichFaceIsW_of_front)) intCountValidSidefaces++;
+
+                    if (isValidFace(_pieceBYR.WhichFaceIsN_of_front)) intCountValidSidefaces++;
+                    if (isValidFace(_pieceBYR.WhichFaceIsE_of_front)) intCountValidSidefaces++;
+                    if (isValidFace(_pieceBYR.WhichFaceIsS_of_front)) intCountValidSidefaces++;
+                    if (isValidFace(_pieceBYR.WhichFaceIsW_of_front)) intCountValidSidefaces++;
+
+                    if (isValidFace(_pieceGRY.WhichFaceIsN_of_front)) intCountValidSidefaces++;
+                    if (isValidFace(_pieceGRY.WhichFaceIsE_of_front)) intCountValidSidefaces++;
+                    if (isValidFace(_pieceGRY.WhichFaceIsS_of_front)) intCountValidSidefaces++;
+                    if (isValidFace(_pieceGRY.WhichFaceIsW_of_front)) intCountValidSidefaces++;
+
+                    if (isValidFace(_pieceGYO.WhichFaceIsN_of_front)) intCountValidSidefaces++;
+                    if (isValidFace(_pieceGYO.WhichFaceIsE_of_front)) intCountValidSidefaces++;
+                    if (isValidFace(_pieceGYO.WhichFaceIsS_of_front)) intCountValidSidefaces++;
+                    if (isValidFace(_pieceGYO.WhichFaceIsW_of_front)) intCountValidSidefaces++;
+
+                    //The count should be 8. 
+                    if (8 != intCountValidSidefaces) throw new NotImplementedException();
+
+                    //
+                    // More checks. 
+                    //
+                    if (_pieceBOY.FrontClockFacePosition == FrontClockFace.ten_thirty)
+                    {
+                        if (_pieceBOY.WhichFaceIsW_of_front == EnumFaceNum.NotApplicable_DifferentPiece)
+                        {
+                            throw new NotImplementedException();
+                        }
+                    }
+
 
                 }
                 else
@@ -257,12 +313,53 @@ namespace RubiksCube_2x2
 
             }
 
+            //Added 11/17/2020 thomas downes
+            //
+            public RubikPieceCorner WhichPiece_SideFaceClicked(int par_pointX, int par_pointY)
+            {
+                //
+                // Added 11/17/2020 thomas downes
+                //
+                Point par_point = new Point(par_pointX, par_pointY);
+
+                if (_pieceBOY.SideFaceWasClicked(par_point)) return _pieceBOY;
+                if (_pieceBYR.SideFaceWasClicked(par_point)) return _pieceBYR;
+                if (_pieceGRY.SideFaceWasClicked(par_point)) return _pieceGRY;
+                if (_pieceGYO.SideFaceWasClicked(par_point)) return _pieceGYO;
+                return null;
+
+            }
+
+
             public void GodlikeSwitch(RubikPieceCorner par_dragged, RubikPieceCorner par_replaced)
             {
                 //
                 // Added 11/17/2020 thomas downes
                 //
+                FrontClockFace clock_dragged = par_dragged.FrontClockFacePosition;
+                FrontClockFace clock_replaced = par_replaced.FrontClockFacePosition;
+                FrontClockFace tempClock = FrontClockFace.unassigned;
+                FrontClockFace targetClock = FrontClockFace.unassigned;
 
+                //
+                // Position the dragged piece. 
+                //
+                targetClock = clock_replaced; // We will place the selected/dragged piece at the Replaced position.
+                do
+                {
+                    par_dragged.Revolve_Clockwise90();
+                    tempClock = par_dragged.FrontClockFacePosition;
+                } while (tempClock != targetClock);
+
+                //
+                // Position the replaced piece. 
+                //
+                targetClock = clock_dragged; // We will place the selected/dragged piece at the Replaced position.
+                do
+                {
+                    par_replaced.Revolve_Clockwise90();
+                    tempClock = par_replaced.FrontClockFacePosition;
+                } while (tempClock != targetClock);
 
             }
 

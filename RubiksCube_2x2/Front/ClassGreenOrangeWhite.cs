@@ -156,7 +156,7 @@ namespace RubiksCube_2x2
             //
             //}
 
-            public override void Rotate_Clockwise90()
+            public override void Revolve_Clockwise90()
             {
                 //
                 // Added 11/12/2020 thomas downes

@@ -61,14 +61,14 @@ namespace RubiksCube_2x2
                 //
                 // Added 11/12/2020 thomas downes
                 //
-                _pieceBWO.Rotate_Clockwise90();
-                _pieceBRW.Rotate_Clockwise90();
-                _pieceGWR.Rotate_Clockwise90();
-                _pieceGOW.Rotate_Clockwise90();
+                _pieceBWO.Revolve_Clockwise90();
+                _pieceBRW.Revolve_Clockwise90();
+                _pieceGWR.Revolve_Clockwise90();
+                _pieceGOW.Revolve_Clockwise90();
                  
             }
 
-            public override void ComplexRotation()
+            public override void ComplexRevolution()
             {
                 //
                 // Added 11/13/2020 thomas downes

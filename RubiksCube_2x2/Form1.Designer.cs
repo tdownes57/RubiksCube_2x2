@@ -48,6 +48,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.labelHowToMoveAPiece = new System.Windows.Forms.Label();
+            this.linkRevertToStart = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // progressBar1
@@ -238,11 +239,24 @@
             this.labelHowToMoveAPiece.Text = "You have selected a Rubik\'s piece.  Now drop it onto another piece.";
             this.labelHowToMoveAPiece.Visible = false;
             // 
+            // linkRevertToStart
+            // 
+            this.linkRevertToStart.AutoSize = true;
+            this.linkRevertToStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkRevertToStart.Location = new System.Drawing.Point(786, 540);
+            this.linkRevertToStart.Name = "linkRevertToStart";
+            this.linkRevertToStart.Size = new System.Drawing.Size(220, 26);
+            this.linkRevertToStart.TabIndex = 19;
+            this.linkRevertToStart.TabStop = true;
+            this.linkRevertToStart.Text = "Revert to Initial State.";
+            this.linkRevertToStart.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRevertToStart_LinkClicked);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1152, 642);
+            this.Controls.Add(this.linkRevertToStart);
             this.Controls.Add(this.labelHowToMoveAPiece);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
@@ -269,7 +283,6 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.Enter += new System.EventHandler(this.Form1_Enter);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
-            this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDoubleClick);
             this.MouseEnter += new System.EventHandler(this.Form1_MouseEnter);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.ResumeLayout(false);
@@ -298,6 +311,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelHowToMoveAPiece;
+        private System.Windows.Forms.LinkLabel linkRevertToStart;
     }
 }
 

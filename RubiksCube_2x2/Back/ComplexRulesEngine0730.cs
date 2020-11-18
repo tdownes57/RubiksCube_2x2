@@ -31,6 +31,18 @@ namespace RubiksCube_2x2.Back
 
             //throw new NotImplementedException();
 
+            //Added 11/18/2020 thomas downes
+            if (start_whichIsFront == EnumFaceNum.NotApplicable_DifferentPiece
+                || start_whichIsSouth == EnumFaceNum.NotApplicable_DifferentPiece
+                || start_whichIsWest == EnumFaceNum.NotApplicable_DifferentPiece) 
+                throw new NotImplementedException();
+
+            //Added 11/18/2020 thomas downes
+            if (start_whichIsFront == EnumFaceNum.NotSpecified
+                    || start_whichIsSouth == EnumFaceNum.NotSpecified
+                    || start_whichIsWest == EnumFaceNum.NotSpecified)
+                throw new NotImplementedException();
+
             //Added 11/15/2020 thomas downes
             EnumAll12Faces the_endpoint = this_complex_move.EndingPoint;
 

@@ -29,6 +29,18 @@ namespace RubiksCube_2x2.Back
             //Added 11/15/2020 thomas downes
             //---n/a---EnumFaceNum start_whichIs_NotSpecified = EnumFaceNum.NotSpecified;
 
+            //Added 11/18/2020 thomas downes
+            if (start_whichIsFront == EnumFaceNum.NotApplicable_DifferentPiece
+                || start_whichIsNorth == EnumFaceNum.NotApplicable_DifferentPiece
+                || start_whichIsEast == EnumFaceNum.NotApplicable_DifferentPiece)
+                throw new NotImplementedException();
+
+            //Added 11/18/2020 thomas downes
+            if (start_whichIsFront == EnumFaceNum.NotSpecified
+                    || start_whichIsNorth == EnumFaceNum.NotSpecified
+                    || start_whichIsEast == EnumFaceNum.NotSpecified)
+                throw new NotImplementedException();
+
             //
             //We have to specify the new side-faces. 
             //
