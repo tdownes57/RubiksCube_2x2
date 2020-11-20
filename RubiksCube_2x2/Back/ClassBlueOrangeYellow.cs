@@ -45,8 +45,11 @@ namespace RubiksCube_2x2
             // 
             //-----public enum EnumFaceNum { NotSpecified, NotApplicable_DifferentPiece, Face1, Face2, Face3 };
 
-            private enum FaceNumber_BOY_NotInUse { NotSpecified, NotApplicable_DifferentPiece,
-                Face1_Blue, Face2_Orange, Face3_Yellow }
+            private enum FaceNumber_BOY_NotInUse
+            {
+                NotSpecified, NotApplicable_DifferentPiece,
+                Face1_Blue, Face2_Orange, Face3_Yellow
+            }
 
 
             public BlueOrangeYellow()
@@ -446,16 +449,37 @@ namespace RubiksCube_2x2
             //    }
             //}
 
-        //Added 11/17/2020 thomas downes
-        //
-        //public override EnumAll12Faces WhichSideIsClicked(Point par_point)
-        //{
-        //    //
-        //    //Added 11/17/2020 thomas downes
-        //    //
-        //    return EnumAll12Faces.NotSpecified;
-        //}
+            //Added 11/17/2020 thomas downes
+            //
+            //public override EnumAll12Faces WhichSideIsClicked(Point par_point)
+            //{
+            //    //
+            //    //Added 11/17/2020 thomas downes
+            //    //
+            //    return EnumAll12Faces.NotSpecified;
+            //}
 
+            public override string ToString()
+            {
+                //
+                // Added 11/19/2020 td
+                //
+                // Example #1:
+                //
+                //     BOY/NE=F1:N_F2:E_F3:F 
+                //
+                // Example #1:
+                //
+                //     BOY/SW=F1:S_F2:W_F3:F
+                //
+                //     (F = Front Face) 
+                //
+                return ("BOY/" + base.ToString());
+
+
+            }
+
+
+        }
     }
-}
 }

@@ -15,7 +15,7 @@ namespace RubiksCube_2x2
         private Point center_point_form_FRONT; // = new Point(this.Width / 2, this.Height / 2);
         private Point center_point_form_BACK; // Added 11/12/2020 td
 
-        private Back.ClassRotateRules_Back mod_RotateBackside; //Added 11/12/2020 thomas downes
+        private Back.ClassBackside mod_RotateBackside; //Added 11/12/2020 thomas downes
         private Back.BlueOrangeYellow mod_BackPieceBOY = new Back.BlueOrangeYellow();
         private Back.BlueYellowRed mod_BackPieceBYR = new Back.BlueYellowRed();
         private Back.GreenRedYellow mod_BackPieceGRY = new Back.GreenRedYellow();
@@ -42,7 +42,7 @@ namespace RubiksCube_2x2
             //
             // Added 11/12/2020 thomas downes
             //
-            mod_RotateBackside = new Back.ClassRotateRules_Back(mod_BackPieceBOY, mod_BackPieceBYR,
+            mod_RotateBackside = new Back.ClassBackside(mod_BackPieceBOY, mod_BackPieceBYR,
                                                            mod_BackPieceGRY, mod_BackPieceGYO);
             mod_RotateBackside.LoadInitialPositions();
 
@@ -73,7 +73,7 @@ namespace RubiksCube_2x2
             // Added 11/17/2020 td 
             //
             bool boolRefreshSideObject = false;
-            const bool c_boolLoadLastSerializedPositions = false;  // true;  //  false;  // true; 
+            const bool c_boolLoadLastSerializedPositions = true;  // false;  // true;  //  false;  // true; 
 
             if (c_boolLoadLastSerializedPositions)
             {
@@ -107,7 +107,7 @@ namespace RubiksCube_2x2
             //Refresh the Backside object.  
             if (boolRefreshSideObject)
             {
-                mod_RotateBackside = new Back.ClassRotateRules_Back(mod_BackPieceBOY, mod_BackPieceBYR,
+                mod_RotateBackside = new Back.ClassBackside(mod_BackPieceBOY, mod_BackPieceBYR,
                                                                mod_BackPieceGRY, mod_BackPieceGYO);
                 //this.Refresh();
             }
@@ -816,9 +816,9 @@ namespace RubiksCube_2x2
             //
             // Added 11/17/2020 thomas downes
             //
-            JsonStaticClass_Save.SavePiece_BOY(mod_BackPieceBOY);
-            JsonStaticClass_Save.SavePiece_BYR(mod_BackPieceBYR);
-            JsonStaticClass_Save.SavePiece_GRY(mod_BackPieceGRY);
+            JsonStaticClass_Save.SaveToDiskPiece_BOY(mod_BackPieceBOY);
+            JsonStaticClass_Save.SaveToDiskPiece_BYR(mod_BackPieceBYR);
+            JsonStaticClass_Save.SaveToDiskPiece_GRY(mod_BackPieceGRY);
             JsonStaticClass_Save.SavePiece_GYO(mod_BackPieceGYO);
 
 

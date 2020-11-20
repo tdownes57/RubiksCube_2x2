@@ -13,7 +13,7 @@ namespace RubiksCube_2x2
         //
         // Added 11/17/2020 thomas Downes  
         //
-        public static void SavePiece_BOY(Back.BlueOrangeYellow par_BOY)
+        public static void SaveToDiskPiece_BOY(Back.BlueOrangeYellow par_BOY)
         {
             //
             // Added 11/17/2020 thomas Downes  
@@ -50,7 +50,7 @@ namespace RubiksCube_2x2
         }
 
 
-        public static void SavePiece_BYR(Back.BlueYellowRed par_BYR)
+        public static void SaveToDiskPiece_BYR(Back.BlueYellowRed par_BYR)
         {
             //
             // Added 11/17/2020 thomas Downes  
@@ -87,7 +87,7 @@ namespace RubiksCube_2x2
         }
 
 
-        public static void SavePiece_GRY(Back.GreenRedYellow par_GRY)
+        public static void SaveToDiskPiece_GRY(Back.GreenRedYellow par_GRY)
         {
             //
             // Added 11/17/2020 thomas Downes  

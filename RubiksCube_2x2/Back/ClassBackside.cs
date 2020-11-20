@@ -13,14 +13,14 @@ namespace RubiksCube_2x2
         // Added 11/12/2020 thomas downes
         //
 
-        class ClassRotateRules_Back : BackOrFront
+        class ClassBackside : BackOrFront
         {
             BlueOrangeYellow _pieceBOY;
             BlueYellowRed _pieceBYR;
             GreenRedYellow _pieceGRY;
             GreenYellowOrange _pieceGYO;
 
-            public ClassRotateRules_Back(BlueOrangeYellow par_BOY,
+            public ClassBackside(BlueOrangeYellow par_BOY,
                                     BlueYellowRed par_BYR,
                                     GreenRedYellow par_GRY,
                                     GreenYellowOrange par_GYO)
@@ -91,6 +91,7 @@ namespace RubiksCube_2x2
                 ComplexPieceMove move2_from430;
                 ComplexPieceMove move3_from730;
                 ComplexPieceMove move4_from1030;
+                ComplexPieceMove move5_Clockwise90;
 
                 if (c_boolEncapsulateRulesInStaticClass)
                 {
@@ -103,6 +104,8 @@ namespace RubiksCube_2x2
                     move2_from430 = ComplexRules.move2_from430;
                     move3_from730 = ComplexRules.move3_from730;
                     move4_from1030 = ComplexRules.move4_from1030;
+                    //Added 11/18/2020 thomas downes
+                    move5_Clockwise90 = ComplexRules.move5_clockwise90;
 
                 }
                 else
@@ -160,25 +163,40 @@ namespace RubiksCube_2x2
                     //
                     // Use the static class, ComplexRulesEngine.  
                     //
+                    // Move #1 of 5. 
                     //ComplexRulesEngine.ReorientPiece_Complex(move1_from130.StartingPoint, move1_from130.EndingPoint);
                     ComplexRulesEngine0130.this_piece_startsAt_130 = piece_starting_at_130;
                     ComplexRulesEngine0130.this_complex_move = move1_from130;
                     ComplexRulesEngine0130.FrontFace_130_ReorientTo(); // (move1_from130.StartingPoint, move1_from130.EndingPoint);
 
+                    // Move #2 of 5. 
                     //ComplexRulesEngine.ReorientPiece_Complex(move1_from130.StartingPoint, move1_from130.EndingPoint);
                     ComplexRulesEngine0430.this_piece_startsAt_430 = piece_starting_at_430;
                     ComplexRulesEngine0430.this_complex_move = move2_from430;
                     ComplexRulesEngine0430.FrontFace_430_ReorientTo(); // (move1_from130.StartingPoint, move1_from130.EndingPoint);
 
+                    // Move #3 of 5. 
                     //ComplexRulesEngine.ReorientPiece_Complex(move1_from130.StartingPoint, move1_from130.EndingPoint);
                     ComplexRulesEngine0730.this_piece_startsAt_730 = piece_starting_at_730;
                     ComplexRulesEngine0730.this_complex_move = move3_from730;
                     ComplexRulesEngine0730.FrontFace_730_ReorientTo(); // (move1_from130.StartingPoint, move1_from130.EndingPoint);
 
+                    // Move #4 of 5. 
                     //ComplexRulesEngine.FrontFace_1030_ReorientTo(move1_from130.StartingPoint, move1_from130.EndingPoint);
                     ComplexRulesEngine1030.this_piece_startsAt_1030 = piece_starting_at_1030;
                     ComplexRulesEngine1030.this_complex_move = move4_from1030;
                     ComplexRulesEngine1030.FrontFace_1030_ReorientTo(); // (move1_from130.StartingPoint, move1_from130.EndingPoint);
+
+                    // Move #5 of 5.    ----11/18/2020 thomas d. 
+                    if (move5_Clockwise90.ClockwiseRevolution90)
+                    {
+                        // Added 11/18/2020 td 
+                        piece_starting_at_130.Revolve_Clockwise90();
+                        piece_starting_at_430.Revolve_Clockwise90();
+                        piece_starting_at_730.Revolve_Clockwise90();
+                        piece_starting_at_1030.Revolve_Clockwise90();
+
+                    }
 
                     //
                     // Debugging!!!!!
@@ -364,7 +382,73 @@ namespace RubiksCube_2x2
             }
 
 
+            public string Brief_BOY ()
+            {
+                //Added 11/19/2020 thomas downes
+                //
+                // Example #1:
+                //
+                //     BOY/NE=F1:N_F2:E_F3:F 
+                //
+                // Example #1:
+                //
+                //     BOY/SW=F1:S_F2:W_F3:F
+                //
+                //     (F = Front Face) 
+                //
+                return _pieceBOY.ToString();
+            }
 
+            public string Brief_BYR()
+            {
+                //Added 11/19/2020 thomas downes
+                //
+                // Example #1:
+                //
+                //      BYR/NE=F1:N_F2:E_F3:F
+                //
+                // Example #1:
+                //
+                //      BYR/SW=F1:W_F2:S_F3:F  
+                //
+                //     (F = Front Face) 
+                //
+                return _pieceBYR.ToString();
+            }
+
+            public string Brief_GRY()
+            {
+                //Added 11/19/2020 thomas downes
+                //
+                // Example #1:
+                //
+                //      GRY/SE=F1:F_F2:E_F3:S 
+                //
+                // Example #1:
+                //
+                //      GRY/SW=F1:F_F2:W_F3:S 
+                //
+                //     (F = Front Face) 
+                //
+                return _pieceGRY.ToString();
+            }
+
+            public string Brief_GYO()
+            {
+                //Added 11/19/2020 thomas downes
+                //
+                // Example #1:
+                //
+                //     GYO/NW=F1:N_F2:F_F3:W
+                //
+                // Example #1:
+                //
+                //     GYO/SE=F1:S_F2:F_F3:E
+                //
+                //     (F = Front Face) 
+                //
+                return _pieceGYO.ToString();
+            }
 
 
         }

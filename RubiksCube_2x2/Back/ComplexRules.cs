@@ -12,6 +12,7 @@ namespace RubiksCube_2x2
         public static ComplexPieceMove move2_from430;
         public static ComplexPieceMove move3_from730;
         public static ComplexPieceMove move4_from1030;
+        public static ComplexPieceMove move5_clockwise90;
 
         public static void BuildComplexRotationRules()
         {
@@ -46,6 +47,9 @@ namespace RubiksCube_2x2
             move4_from1030.StartingPoint = FrontClockFace.ten_thirty;
             //move4.StartingPoint = FrontClockFace.ten_thirty;
             move4_from1030.EndingPoint = EnumAll12Faces._130_ENE;
+
+            //Added 11/18/2020 thomas downes
+            move5_clockwise90.ClockwiseRevolution90 = true;  
 
         }
 
