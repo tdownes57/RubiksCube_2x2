@@ -76,6 +76,33 @@ namespace RubiksCube_2x2
 
 
             }
+
+
+            public BlueYellowRed(string par_strBriefDescription)
+            {
+                //
+                // Added 11/20/2020 thomas downes
+                //
+                // Example #1:
+                //
+                //     BYR/NE==F1:N_F2:E_F3:F  
+                //
+                // Example #2:
+                //
+                //     BYR/SW==F1:S_F2:W_F3:F
+                //
+                //     (F = Front Face) 
+                //
+                if (par_strBriefDescription.StartsWith("BYR") == false) throw new ArgumentOutOfRangeException("Brief string must begin with BYR.");
+
+                //
+                // Encapsulated 11/20/2020.
+                //
+                base.ParseBriefInputString(par_strBriefDescription);
+
+            }
+
+
             public override void LoadInitialState_NotInUse()
             {
                 //

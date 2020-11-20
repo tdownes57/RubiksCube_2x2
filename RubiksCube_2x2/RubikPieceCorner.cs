@@ -1060,5 +1060,181 @@ namespace RubiksCube_2x2
 
         #endregion
 
+
+        //
+        // Added 11/20/2020 thomas downes  
+        //
+        public override string ToString()
+        {
+            //return base.ToString();
+
+            //
+            // Added 11/19/2020 td
+            //
+            // Example #1:
+            //
+            //     NE==F1:N_F2:E_F3:F 
+            //
+            // Example #1:
+            //
+            //     SW==F1:S_F2:W_F3:F
+            //
+            //     (F = Front Face) 
+            //
+            string strOutput = "";
+            string strNE_SE_SW_NW = "";
+            string strDirectionF1 = "";
+            string strDirectionF2 = "";
+            string strDirectionF3 = "";
+
+            switch (this.FrontClockFacePosition)
+            {
+                //
+                // Added 11/20/2020 thomas downes
+                //
+                case (FrontClockFace.one_thirty): strNE_SE_SW_NW = "NE"; break;
+                case (FrontClockFace.four_thirty): strNE_SE_SW_NW = "SE"; break;
+                case (FrontClockFace.seven_thirty): strNE_SE_SW_NW = "SW"; break; 
+                case (FrontClockFace.ten_thirty): strNE_SE_SW_NW = "NW"; break;
+                default:
+                    strNE_SE_SW_NW = "__";
+                    throw new NotImplementedException("");
+            }
+
+            //
+            // Partial output. 
+            //
+            //---strOutput = strNE_SE_SW_NW + "==";
+
+            // Face #1
+            strDirectionF1 = "F1:";  // + this.FaceColor1of3
+            if (EnumFaceNum.Face1 == this.WhichFaceIsFront) strDirectionF1 += "F";  // F = Front 
+            if (EnumFaceNum.Face1 == this.WhichFaceIsN_of_front) strDirectionF1 += "N"; // N = North 
+            if (EnumFaceNum.Face1 == this.WhichFaceIsE_of_front) strDirectionF1 += "E";
+            if (EnumFaceNum.Face1 == this.WhichFaceIsS_of_front) strDirectionF1 += "S";
+            if (EnumFaceNum.Face1 == this.WhichFaceIsW_of_front) strDirectionF1 += "W";
+
+            // Face #2
+            strDirectionF2 = "F2:";  // + this.FaceColor1of3
+            if (EnumFaceNum.Face2 == this.WhichFaceIsFront) strDirectionF2 += "F";  // F = Front 
+            if (EnumFaceNum.Face2 == this.WhichFaceIsN_of_front) strDirectionF2 += "N"; // N = North 
+            if (EnumFaceNum.Face2 == this.WhichFaceIsE_of_front) strDirectionF2 += "E";
+            if (EnumFaceNum.Face2 == this.WhichFaceIsS_of_front) strDirectionF2 += "S";
+            if (EnumFaceNum.Face2 == this.WhichFaceIsW_of_front) strDirectionF2 += "W";
+
+            // Face #3
+            strDirectionF1 = "F3:";  // + this.FaceColor1of3
+            if (EnumFaceNum.Face3 == this.WhichFaceIsFront) strDirectionF3 += "F";  // F = Front 
+            if (EnumFaceNum.Face3 == this.WhichFaceIsN_of_front) strDirectionF3 += "N"; // N = North 
+            if (EnumFaceNum.Face3 == this.WhichFaceIsE_of_front) strDirectionF3 += "E";
+            if (EnumFaceNum.Face3 == this.WhichFaceIsS_of_front) strDirectionF3 += "S";
+            if (EnumFaceNum.Face3 == this.WhichFaceIsW_of_front) strDirectionF3 += "W";
+
+            //
+            // Return the output string. 
+            //
+            // Example #1:
+            //
+            //     NE==F1:N_F2:E_F3:F 
+            //
+            // Example #1:
+            //
+            //     SW==F1:S_F2:W_F3:F
+            //
+            //     (F = Front Face) 
+            //
+            strOutput = (strNE_SE_SW_NW + "==" + 
+                strDirectionF1 + "_" + strDirectionF2 + "_" + strDirectionF3);
+
+            return strOutput;
+        }
+
+        internal void ParseBriefInputString(string par_strBriefDescription)
+        {
+            //
+            // Step #1:  Parse the input string into two(2) parts.  
+            //
+            string[] separator1 = new string[] { "==" };
+            string[] parsed_array_step1 = par_strBriefDescription.Split(separator1, StringSplitOptions.RemoveEmptyEntries);
+
+            //
+            //Examples:  BOY/SW, BYR/NE, GRY/NW, GYO/SE   
+            //
+            string strColorsAndClockPosition = parsed_array_step1[0];
+            string strZZZ_slash = strColorsAndClockPosition.Substring(0, "ZZZ/".Length);
+            string strNE_SE_SW_NW = strColorsAndClockPosition.Substring("ZZZ/".Length, 2);
+
+            //
+            // Step #2:  Parse the 90-degree revolutionary position on the front face of the Rubik's Cube
+            //
+            switch (strNE_SE_SW_NW)
+            {
+                case ("NE"): this.FrontClockFacePosition = FrontClockFace.one_thirty; break;
+                case ("SE"): this.FrontClockFacePosition = FrontClockFace.four_thirty; break;
+                case ("SW"): this.FrontClockFacePosition = FrontClockFace.seven_thirty; break;
+                case ("NW"): this.FrontClockFacePosition = FrontClockFace.ten_thirty; break;
+                default: throw new NotImplementedException("Should be NE or SE or SW or NW.");
+            }
+
+            //
+            // Step # 3: Parse the 120-degree rotation of the piece, about the corner
+            //            (vs. position on the front face of the Rubik's Cube).
+            //
+            // Example #1:
+            //
+            //     F1:N_F2:E_F3:F  
+            //
+            // Example #2:
+            //
+            //     F1:S_F2:W_F3:F
+            //
+            //     (F = Front Face) 
+            //
+            string strFaceDeterminations = parsed_array_step1[1];
+
+            char[] separator_underscore = new char[] { '_' };
+            string[] parsed_array_step3 = strFaceDeterminations.Split(separator_underscore, StringSplitOptions.RemoveEmptyEntries);
+
+            //Check that the string array has three(3) items, 
+            //  corresponding to three(3) faces. ---11/20/2020 td
+            if (parsed_array_step3.Length != 3)
+                throw new NotImplementedException("There must be three substrings, F1:_, F2:_, and F3:_.");
+
+            if (parsed_array_step3[0].StartsWith("F1") == false) throw new NotImplementedException("The 1st substring must start with F1.");
+            if (parsed_array_step3[1].StartsWith("F2") == false) throw new NotImplementedException("The 2nd substring must start with F2.");
+            if (parsed_array_step3[2].StartsWith("F3") == false) throw new NotImplementedException("The 3rd substring must start with F3.");
+
+            //Set default values. 
+            this.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+            this.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+            this.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+            this.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+
+            //Face #1 of 3
+            string strFace1_NESW = parsed_array_step3[1 - 1].Substring("F1:".Length);
+            if (strFace1_NESW == "N") this.WhichFaceIsN_of_front = EnumFaceNum.Face1;
+            if (strFace1_NESW == "E") this.WhichFaceIsE_of_front = EnumFaceNum.Face1;
+            if (strFace1_NESW == "S") this.WhichFaceIsS_of_front = EnumFaceNum.Face1;
+            if (strFace1_NESW == "W") this.WhichFaceIsW_of_front = EnumFaceNum.Face1;
+            if (strFace1_NESW == "F") this.WhichFaceIsFront = EnumFaceNum.Face1;  // F = Front face. 
+
+            //Face #2 of 3
+            string strFace2_NESW = parsed_array_step3[2 - 1].Substring("F2:".Length);
+            if (strFace2_NESW == "N") this.WhichFaceIsN_of_front = EnumFaceNum.Face2;
+            if (strFace2_NESW == "E") this.WhichFaceIsE_of_front = EnumFaceNum.Face2;
+            if (strFace2_NESW == "S") this.WhichFaceIsS_of_front = EnumFaceNum.Face2;
+            if (strFace2_NESW == "W") this.WhichFaceIsW_of_front = EnumFaceNum.Face2;
+            if (strFace2_NESW == "F") this.WhichFaceIsFront = EnumFaceNum.Face2;  // F = Front face. 
+
+            string strFace3_NESW = parsed_array_step3[3 - 1].Substring("F1:".Length);
+            if (strFace3_NESW == "N") this.WhichFaceIsN_of_front = EnumFaceNum.Face3;
+            if (strFace3_NESW == "E") this.WhichFaceIsE_of_front = EnumFaceNum.Face3;
+            if (strFace3_NESW == "S") this.WhichFaceIsS_of_front = EnumFaceNum.Face3;
+            if (strFace3_NESW == "W") this.WhichFaceIsW_of_front = EnumFaceNum.Face3;
+            if (strFace3_NESW == "F") this.WhichFaceIsFront = EnumFaceNum.Face3;  // F = Front face. 
+
+        }
+
+
     }
 }
