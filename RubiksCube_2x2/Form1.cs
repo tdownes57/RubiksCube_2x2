@@ -34,6 +34,8 @@ namespace RubiksCube_2x2
         private RubikPieceCorner _rubiksPiece_Replaced = null;
         private bool _godlike_behavior_OK;
 
+        //Added 11/20/2020 thomas downes
+        private int mod_countOfComplexMotions = 0; 
 
         public Form1()
         {
@@ -111,6 +113,12 @@ namespace RubiksCube_2x2
                                                                mod_BackPieceGRY, mod_BackPieceGYO);
                 //this.Refresh();
             }
+
+            //Added 11/20/2020 thomas downes
+            string strBriefDescription = (new Back.ClassBacksideBrief(mod_RotateBackside)).PositionsBrief;
+            string strUniqueIndex = Uniqueness.AddDescription(strBriefDescription);
+            labelUniquenessIndex.Text = strUniqueIndex;
+            labelBriefSerialization.Text = strBriefDescription;
 
         }
 
@@ -535,6 +543,8 @@ namespace RubiksCube_2x2
             //
             // Added 11/13/2020 thomas downes  
             //
+            //static intCountOfClicks = 0; 
+
             if (mod_RotateBackside.SideIsASolidColor())
             {
                 // Added 11/13/2020 thomas downes
@@ -546,6 +556,17 @@ namespace RubiksCube_2x2
             mod_RotateFrontside.ComplexRevolution();
             mod_RotateBackside.ComplexRevolution();
             this.Refresh();
+
+            //Added 11/20/2020 thomas downes
+            mod_countOfComplexMotions += 1;
+            labelCountCR.Text = "Count: " + mod_countOfComplexMotions.ToString();
+
+            //Added 11/20/2020 thomas downes
+            //string strBriefDescription = mod_RotateBackside.ToString();
+            string strBriefDescription = (new Back.ClassBacksideBrief(mod_RotateBackside)).PositionsBrief;  
+            string strUniqueIndex = Uniqueness.AddDescription(strBriefDescription);
+            labelUniquenessIndex.Text = strUniqueIndex;
+            labelBriefSerialization.Text = strBriefDescription;  
 
         }
 

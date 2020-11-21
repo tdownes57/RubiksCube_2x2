@@ -79,6 +79,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RubikPieceCorner.cs" />
     <Compile Include="Back\ClassBacksideBrief.cs" />
+    <Compile Include="Uniqueness.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

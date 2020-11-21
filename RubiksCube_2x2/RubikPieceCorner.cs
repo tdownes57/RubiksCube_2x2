@@ -1123,7 +1123,7 @@ namespace RubiksCube_2x2
             if (EnumFaceNum.Face2 == this.WhichFaceIsW_of_front) strDirectionF2 += "W";
 
             // Face #3
-            strDirectionF1 = "F3:";  // + this.FaceColor1of3
+            strDirectionF3 = "F3:";  // + this.FaceColor1of3
             if (EnumFaceNum.Face3 == this.WhichFaceIsFront) strDirectionF3 += "F";  // F = Front 
             if (EnumFaceNum.Face3 == this.WhichFaceIsN_of_front) strDirectionF3 += "N"; // N = North 
             if (EnumFaceNum.Face3 == this.WhichFaceIsE_of_front) strDirectionF3 += "E";

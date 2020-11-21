@@ -49,6 +49,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.labelHowToMoveAPiece = new System.Windows.Forms.Label();
             this.linkRevertToStart = new System.Windows.Forms.LinkLabel();
+            this.labelBriefSerialization = new System.Windows.Forms.Label();
+            this.labelUniquenessIndex = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // progressBar1
@@ -95,6 +97,7 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "Undo";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             // 
             // buttonRotateComplex
             // 
@@ -123,6 +126,7 @@
             this.labelCountCR.Name = "labelCountCR";
             this.labelCountCR.Size = new System.Drawing.Size(49, 17);
             this.labelCountCR.TabIndex = 7;
+            this.labelCountCR.Tag = "Count: ";
             this.labelCountCR.Text = "Count:";
             // 
             // labelCountCRUndo
@@ -133,6 +137,7 @@
             this.labelCountCRUndo.Size = new System.Drawing.Size(49, 17);
             this.labelCountCRUndo.TabIndex = 8;
             this.labelCountCRUndo.Text = "Count:";
+            this.labelCountCRUndo.Visible = false;
             // 
             // labelSimpleCCW
             // 
@@ -154,21 +159,23 @@
             // 
             // buttonReplayAllRotation
             // 
-            this.buttonReplayAllRotation.Location = new System.Drawing.Point(198, 587);
+            this.buttonReplayAllRotation.Location = new System.Drawing.Point(45, 573);
             this.buttonReplayAllRotation.Name = "buttonReplayAllRotation";
             this.buttonReplayAllRotation.Size = new System.Drawing.Size(191, 31);
             this.buttonReplayAllRotation.TabIndex = 11;
             this.buttonReplayAllRotation.Text = "Replay All Rotation";
             this.buttonReplayAllRotation.UseVisualStyleBackColor = true;
+            this.buttonReplayAllRotation.Visible = false;
             // 
             // buttonClearAllRotation
             // 
-            this.buttonClearAllRotation.Location = new System.Drawing.Point(416, 587);
+            this.buttonClearAllRotation.Location = new System.Drawing.Point(45, 607);
             this.buttonClearAllRotation.Name = "buttonClearAllRotation";
             this.buttonClearAllRotation.Size = new System.Drawing.Size(191, 31);
             this.buttonClearAllRotation.TabIndex = 12;
             this.buttonClearAllRotation.Text = "Clear All Rotation";
             this.buttonClearAllRotation.UseVisualStyleBackColor = true;
+            this.buttonClearAllRotation.Visible = false;
             // 
             // label2
             // 
@@ -251,11 +258,32 @@
             this.linkRevertToStart.Text = "Revert to Initial State.";
             this.linkRevertToStart.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRevertToStart_LinkClicked);
             // 
+            // labelBriefSerialization
+            // 
+            this.labelBriefSerialization.AutoSize = true;
+            this.labelBriefSerialization.Location = new System.Drawing.Point(302, 607);
+            this.labelBriefSerialization.Name = "labelBriefSerialization";
+            this.labelBriefSerialization.Size = new System.Drawing.Size(733, 17);
+            this.labelBriefSerialization.TabIndex = 20;
+            this.labelBriefSerialization.Text = "BOY/SW==F1:N_F2:E_F3:F  BYR/SE==F1:S_F2:E_F3:F  GRY/SW==F1:F_F2:W_F3:S  GYO/NW==F" +
+    "1:N_F2:F_F3:W";
+            // 
+            // labelUniquenessIndex
+            // 
+            this.labelUniquenessIndex.AutoSize = true;
+            this.labelUniquenessIndex.Location = new System.Drawing.Point(302, 580);
+            this.labelUniquenessIndex.Name = "labelUniquenessIndex";
+            this.labelUniquenessIndex.Size = new System.Drawing.Size(140, 17);
+            this.labelUniquenessIndex.TabIndex = 21;
+            this.labelUniquenessIndex.Text = "Uniqueness Index #1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1152, 642);
+            this.Controls.Add(this.labelUniquenessIndex);
+            this.Controls.Add(this.labelBriefSerialization);
             this.Controls.Add(this.linkRevertToStart);
             this.Controls.Add(this.labelHowToMoveAPiece);
             this.Controls.Add(this.label1);
@@ -312,6 +340,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelHowToMoveAPiece;
         private System.Windows.Forms.LinkLabel linkRevertToStart;
+        private System.Windows.Forms.Label labelBriefSerialization;
+        private System.Windows.Forms.Label labelUniquenessIndex;
     }
 }
 

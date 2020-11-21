@@ -87,13 +87,13 @@ namespace RubiksCube_2x2
                 //
                 //     BOY/NE==F1:N_F2:E_F3:F  
                 //
-                //                             ignore: BYR/SE==F1:S_F2:E_F3:F  GRY/SW==F1:F_F2:W_F3:S  GYO/NW==F1:N_F2:F_F3:W
+                //                             ignore: BOY/SW==F1:N_F2:E_F3:F  BYR/SE==F1:S_F2:E_F3:F  GRY/SW==F1:F_F2:W_F3:S  GYO/NW==F1:N_F2:F_F3:W
                 //
                 // Example #2:
                 //
                 //     BOY/SW==F1:S_F2:W_F3:F
                 //
-                //                             ignore: BYR/NE==F1:N_F2:E_F3:F  GRY/SE==F1:F_F2:E_F3:S  GYO/NW==F1:N_F2:F_F3:W
+                //          ignore: BOY/SW==F1:S_F2:W_F3:F  BYR/NE==F1:N_F2:E_F3:F  GRY/SE==F1:F_F2:E_F3:S  GYO/NW==F1:N_F2:F_F3:W
                 //
                 //     (F = Front Face) 
                 //
@@ -283,7 +283,23 @@ namespace RubiksCube_2x2
             //    throw new NotImplementedException("The side faces must be addressed.");
             //}
 
-
+            public override string ToString()
+            {
+                //
+                // Added 11/19/2020 td
+                //
+                // Example #1:
+                //
+                //     BOY/NE==F1:N_F2:E_F3:F 
+                //
+                // Example #1:
+                //
+                //     BOY/SW==F1:S_F2:W_F3:F
+                //
+                //     (F = Front Face) 
+                //
+                return ("GYO/" + base.ToString());
+            }
 
         }
     }
