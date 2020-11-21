@@ -451,6 +451,20 @@ namespace RubiksCube_2x2
             }
 
 
+            public override string ToString()
+            {
+                //
+                // Added 11/20/2020 thomas downes
+                //
+                //return base.ToString();
+
+                string strBriefDescription = (new Back.ClassBacksideBrief(this)).PositionsBrief;
+
+                return strBriefDescription; 
+
+            }
+
+
         }
     }
 }

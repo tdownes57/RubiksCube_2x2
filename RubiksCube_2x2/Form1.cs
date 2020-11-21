@@ -35,7 +35,10 @@ namespace RubiksCube_2x2
         private bool _godlike_behavior_OK;
 
         //Added 11/20/2020 thomas downes
-        private int mod_countOfComplexMotions = 0; 
+        private int mod_countOfComplexMotions = 0;
+
+        //Added 11/20/2020 thomas downes
+        private bool mod_bGiveCompletionMessage = true; 
 
         public Form1()
         {
@@ -115,10 +118,22 @@ namespace RubiksCube_2x2
             }
 
             //Added 11/20/2020 thomas downes
-            string strBriefDescription = (new Back.ClassBacksideBrief(mod_RotateBackside)).PositionsBrief;
-            string strUniqueIndex = Uniqueness.AddDescription(strBriefDescription);
-            labelUniquenessIndex.Text = strUniqueIndex;
+            const bool c_bCheckRotations = true;
+            string strUniqueIndex;
+            string strBriefDescription;
+            strBriefDescription = (new Back.ClassBacksideBrief(mod_RotateBackside)).PositionsBrief;
             labelBriefSerialization.Text = strBriefDescription;
+
+            if (c_bCheckRotations)
+            {
+                //string strUniqueIndex = Uniqueness.AddDescription(strBriefDescription);
+                strUniqueIndex = Uniqueness.AddDescription(in mod_RotateBackside, true);
+            }
+            else
+            {
+                strUniqueIndex = Uniqueness.AddDescription(strBriefDescription);
+            }
+            labelUniquenessIndex.Text = strUniqueIndex;
 
         }
 
@@ -545,12 +560,18 @@ namespace RubiksCube_2x2
             //
             //static intCountOfClicks = 0; 
 
-            if (mod_RotateBackside.SideIsASolidColor())
+            //if (mod_RotateBackside.SideIsASolidColor())
+            if (mod_RotateBackside.SideIsASolidColor() && mod_bGiveCompletionMessage)
             {
                 // Added 11/13/2020 thomas downes
                 MessageBox.Show("The backside of the Cube is completed, i.e. a solid color.", "Completed", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                mod_bGiveCompletionMessage = false;  //Don't show a second time in a row. 
                 return; 
+            }
+            else
+            {
+                mod_bGiveCompletionMessage = true;  //Reinitialize.  ---11/20/2020 thomas downes
             }
 
             mod_RotateFrontside.ComplexRevolution();
