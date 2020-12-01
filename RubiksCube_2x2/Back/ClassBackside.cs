@@ -465,6 +465,78 @@ namespace RubiksCube_2x2
             }
 
 
+            public bool PiecesAreCorrectlyOrdered()
+            {
+                //
+                //  Added 12/01/2020 thomas  
+                //
+
+                //bool bPieceBOY_nextTo_BYR;
+                //bool bPieceBOY_nextTo_GYO;
+
+                //bool bPieceBYR_nextTo_GRY;
+                //bool bPieceBYR_nextTo_BOY;  // Redundant, perhaps. 
+
+                //bool bPieceGYO_nextTo_GRY;
+                //bool bPieceGYO_nextTo_BOY;  // Redundant, perhaps. 
+
+                //bool bPieceGRY_nextTo_GYO;  // Redundant, perhaps. 
+                //bool bPieceGRY_nextTo_BYR;  // Redundant, perhaps. 
+
+                bool bPieceBOY_nextClockwiseFrom_BYR = PieceBOY_nextClockwiseFrom_BYR();
+                bool bPieceBYR_nextClockwiseFrom_GRY = PieceBYR_nextClockwiseFrom_GRY();
+                bool bPieceGRY_nextClockwiseFrom_GYO = PieceGRY_nextClockwiseFrom_GYO();
+                bool bPieceGYO_nextClockwiseFrom_BOY = PieceGYO_nextClockwiseFrom_BOY();
+
+                bool boolean1 = (bPieceBOY_nextClockwiseFrom_BYR && bPieceBYR_nextClockwiseFrom_GRY);
+                bool boolean2 = (bPieceGRY_nextClockwiseFrom_GYO && bPieceGYO_nextClockwiseFrom_BOY);
+
+                return (boolean1 && boolean2);
+
+            }
+
+            private bool PieceBOY_nextClockwiseFrom_BYR()
+            {
+                //---private bool PieceBOY_nextTo_BYR()
+                //
+                // Added 12/1/2020 thomas downes
+                //
+                return EnumStaticClass.AdjacentClockwise(_pieceBYR, _pieceBOY);
+
+            }
+
+
+            private bool PieceGYO_nextClockwiseFrom_BOY()
+            {
+                //
+                // Added 12/1/2020 thomas downes
+                //
+                return EnumStaticClass.AdjacentClockwise(_pieceBOY, _pieceGYO);
+
+            }
+
+
+            private bool PieceGRY_nextClockwiseFrom_GYO()
+            {
+                //
+                // Added 12/1/2020 thomas downes
+                //
+                return EnumStaticClass.AdjacentClockwise(_pieceGYO, _pieceGRY);  
+
+            }
+
+
+            private bool PieceBYR_nextClockwiseFrom_GRY()
+            {
+                //
+                // Added 12/1/2020 thomas downes
+                //
+                return EnumStaticClass.AdjacentClockwise(_pieceGRY, _pieceBYR);
+
+            }
+
+
+
         }
     }
 }

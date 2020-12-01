@@ -254,3 +254,38 @@
                 if (strFace3_NESW == "S") base.WhichFaceIsS_of_front = EnumFaceNum.Face3;
                 if (strFace3_NESW == "W") base.WhichFaceIsW_of_front = EnumFaceNum.Face3;
                 if (strFace3_NESW == "F") base.WhichFaceIsFront = EnumFaceNum.Face3;  // F = Front face. 
+
+
+
+                                //switch (_pieceBOY.FrontClockFacePosition)
+                //{
+                //    case FrontClockFace.one_thirty:
+                //        // BOY 1:30 pm
+                //        // BOY is at 1:30 am, so let's check BYR is at 10:30 p.m.
+                //        //----if (_pieceBYR.FrontClockFacePosition == FrontClockFace.four_thirty) return true;
+                //        if (_pieceBYR.FrontClockFacePosition == FrontClockFace.ten_thirty) return true;
+                //        break;
+
+                //    case FrontClockFace.four_thirty:
+                //        // BOY 4:30 pm
+                //        // BOY is at 4:30 pm, so let's check BYR is at 1:30 p.m.
+                //        if (_pieceBYR.FrontClockFacePosition == FrontClockFace.one_thirty) return true;
+                //        break;
+
+                //    case FrontClockFace.seven_thirty:
+                //        // BOY 7:30 pm.
+                //        // BOY is at 7:30 pm, so let's check BYR is at 4:30 p.m.
+                //        if (_pieceBYR.FrontClockFacePosition == FrontClockFace.four_thirty) return true;
+                //        break;
+
+                //    case FrontClockFace.ten_thirty:
+                //        // BOY 10:30 pm
+                //        // BOY is at 10:30 pm, so let's check BYR is at 7:30 p.m.
+                //        if (_pieceBYR.FrontClockFacePosition == FrontClockFace.seven_thirty) return true;
+                //        break;
+
+                //    default:
+                //        return false; 
+                //}
+
+                //return false;  

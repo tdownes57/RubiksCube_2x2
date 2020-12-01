@@ -313,5 +313,50 @@ namespace RubiksCube_2x2
         }
 
 
+        internal static bool AdjacentClockwise(RubikPieceCorner p_PieceFirst, RubikPieceCorner p_PieceNext)
+        {
+            //
+            // Added 12/1/2020 
+            //
+            return AdjacentClockwise(p_PieceFirst.FrontClockFacePosition,
+                                     p_PieceNext.FrontClockFacePosition);
+
+        }
+
+        public static bool AdjacentClockwise(FrontClockFace p_ClockFirst, FrontClockFace p_ClockNext)
+        {
+            //
+            // Added 12/1/2020 thomas d. 
+            //
+            switch (p_ClockFirst)
+            {
+                case FrontClockFace.one_thirty:
+                    if (p_ClockNext == FrontClockFace.four_thirty) return true;
+                    break;
+
+                case FrontClockFace.four_thirty:
+                    if (p_ClockNext == FrontClockFace.seven_thirty) return true;
+                    break;
+
+                case FrontClockFace.seven_thirty:
+                    if (p_ClockNext == FrontClockFace.ten_thirty) return true;
+                    break;
+
+                case FrontClockFace.ten_thirty:
+                    if (p_ClockNext == FrontClockFace.one_thirty) return true;
+                    break;
+
+                default:
+                    //return false;
+                    throw new NotImplementedException(); 
+            }
+
+            return false;
+
+        }
+
+
+
+
     }
 }
