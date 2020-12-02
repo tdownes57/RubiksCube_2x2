@@ -464,8 +464,9 @@ namespace RubiksCube_2x2
 
             }
 
+            private bool _bPriorFunctionValue; //Added 12/1/2020 td 
 
-            public bool PiecesAreCorrectlyOrdered()
+            public bool PiecesAreCorrectlyOrdered(out bool par_priorOutput)
             {
                 //
                 //  Added 12/01/2020 thomas  
@@ -491,7 +492,11 @@ namespace RubiksCube_2x2
                 bool boolean1 = (bPieceBOY_nextClockwiseFrom_BYR && bPieceBYR_nextClockwiseFrom_GRY);
                 bool boolean2 = (bPieceGRY_nextClockwiseFrom_GYO && bPieceGYO_nextClockwiseFrom_BOY);
 
-                return (boolean1 && boolean2);
+                //return (boolean1 && boolean2);
+                bool bNewOutputValue = (boolean1 && boolean2);
+                par_priorOutput = _bPriorFunctionValue;
+                _bPriorFunctionValue = bNewOutputValue;
+                return bNewOutputValue; 
 
             }
 
