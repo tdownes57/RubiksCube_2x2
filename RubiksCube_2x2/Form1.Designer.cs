@@ -36,7 +36,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.buttonRotateComplex = new System.Windows.Forms.Button();
             this.labelComplexRotate2 = new System.Windows.Forms.Label();
-            this.labelCountCR = new System.Windows.Forms.Label();
             this.labelCountCRUndo = new System.Windows.Forms.Label();
             this.labelSimpleCCW = new System.Windows.Forms.Label();
             this.labelCountSimpleCW = new System.Windows.Forms.Label();
@@ -51,13 +50,16 @@
             this.linkRevertToStart = new System.Windows.Forms.LinkLabel();
             this.labelBriefSerialization = new System.Windows.Forms.Label();
             this.labelUniquenessIndex = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.labelCountCR = new System.Windows.Forms.Label();
+            this.labelUVW_VWX_WXY_XYZ = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(14, 367);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(919, 20);
+            this.progressBar1.Size = new System.Drawing.Size(1100, 16);
             this.progressBar1.TabIndex = 0;
             // 
             // labelRotateSimpleClock
@@ -118,16 +120,6 @@
             this.labelComplexRotate2.TabIndex = 4;
             this.labelComplexRotate2.Text = resources.GetString("labelComplexRotate2.Text");
             this.labelComplexRotate2.Click += new System.EventHandler(this.labelComplexRotate2_Click);
-            // 
-            // labelCountCR
-            // 
-            this.labelCountCR.AutoSize = true;
-            this.labelCountCR.Location = new System.Drawing.Point(201, 531);
-            this.labelCountCR.Name = "labelCountCR";
-            this.labelCountCR.Size = new System.Drawing.Size(49, 17);
-            this.labelCountCR.TabIndex = 7;
-            this.labelCountCR.Tag = "Count: ";
-            this.labelCountCR.Text = "Count:";
             // 
             // labelCountCRUndo
             // 
@@ -277,11 +269,44 @@
             this.labelUniquenessIndex.TabIndex = 21;
             this.labelUniquenessIndex.Text = "Uniqueness Index #1";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(655, 344);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(276, 17);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Clockwise from BOY (Blue Orange Yellow):";
+            this.label6.Visible = false;
+            // 
+            // labelCountCR
+            // 
+            this.labelCountCR.AutoSize = true;
+            this.labelCountCR.Location = new System.Drawing.Point(201, 531);
+            this.labelCountCR.Name = "labelCountCR";
+            this.labelCountCR.Size = new System.Drawing.Size(49, 17);
+            this.labelCountCR.TabIndex = 7;
+            this.labelCountCR.Tag = "Count: ";
+            this.labelCountCR.Text = "Count:";
+            // 
+            // labelUVW_VWX_WXY_XYZ
+            // 
+            this.labelUVW_VWX_WXY_XYZ.AutoSize = true;
+            this.labelUVW_VWX_WXY_XYZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUVW_VWX_WXY_XYZ.Location = new System.Drawing.Point(938, 344);
+            this.labelUVW_VWX_WXY_XYZ.Name = "labelUVW_VWX_WXY_XYZ";
+            this.labelUVW_VWX_WXY_XYZ.Size = new System.Drawing.Size(176, 20);
+            this.labelUVW_VWX_WXY_XYZ.TabIndex = 23;
+            this.labelUVW_VWX_WXY_XYZ.Tag = "BOY, BYR, GRY, GYO";
+            this.labelUVW_VWX_WXY_XYZ.Text = "BOY, BYR, GRY, GYO";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1152, 642);
+            this.Controls.Add(this.labelUVW_VWX_WXY_XYZ);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.labelUniquenessIndex);
             this.Controls.Add(this.labelBriefSerialization);
             this.Controls.Add(this.linkRevertToStart);
@@ -327,7 +352,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button buttonRotateComplex;
         private System.Windows.Forms.Label labelComplexRotate2;
-        private System.Windows.Forms.Label labelCountCR;
         private System.Windows.Forms.Label labelCountCRUndo;
         private System.Windows.Forms.Label labelSimpleCCW;
         private System.Windows.Forms.Label labelCountSimpleCW;
@@ -342,6 +366,9 @@
         private System.Windows.Forms.LinkLabel linkRevertToStart;
         private System.Windows.Forms.Label labelBriefSerialization;
         private System.Windows.Forms.Label labelUniquenessIndex;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelCountCR;
+        private System.Windows.Forms.Label labelUVW_VWX_WXY_XYZ;
     }
 }
 

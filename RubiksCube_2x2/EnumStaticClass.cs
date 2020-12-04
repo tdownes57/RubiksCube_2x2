@@ -318,6 +318,8 @@ namespace RubiksCube_2x2
             //
             // Added 12/1/2020 
             //
+            if (p_PieceFirst == p_PieceNext) return false; 
+
             return AdjacentClockwise(p_PieceFirst.FrontClockFacePosition,
                                      p_PieceNext.FrontClockFacePosition);
 

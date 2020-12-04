@@ -83,6 +83,9 @@ namespace RubiksCube_2x2
         public abstract void Revolve_Clockwise90();
         public abstract void ReorientPiece(FrontClockFace par_enum, Color par_frontfacecolor);
 
+        //Added 12/4/2020 thomas downes
+        public abstract string GetColorAbbreviationXYZ();
+
         public Color GetColorOfFrontFace()
         {
             //
@@ -1232,6 +1235,24 @@ namespace RubiksCube_2x2
             if (strFace3_NESW == "S") this.WhichFaceIsS_of_front = EnumFaceNum.Face3;
             if (strFace3_NESW == "W") this.WhichFaceIsW_of_front = EnumFaceNum.Face3;
             if (strFace3_NESW == "F") this.WhichFaceIsFront = EnumFaceNum.Face3;  // F = Front face. 
+
+        }
+
+
+        public RubikPieceCorner NextPieceClockwise(Back.ClassBackside par_backSide)
+        {
+            //
+            // Added 12/3/2020 Thomas Downes 
+            //
+            FrontClockFace enumBYR = par_backSide._pieceBYR.FrontClockFacePosition;
+            FrontClockFace enumGRY = par_backSide._pieceGRY.FrontClockFacePosition;
+            FrontClockFace enumGYO = par_backSide._pieceGYO.FrontClockFacePosition;
+
+            if (EnumStaticClass.AdjacentClockwise(this, par_backSide._pieceBYR)) return par_backSide._pieceBYR;
+            if (EnumStaticClass.AdjacentClockwise(this, par_backSide._pieceGRY)) return par_backSide._pieceGRY;
+            if (EnumStaticClass.AdjacentClockwise(this, par_backSide._pieceGYO)) return par_backSide._pieceGYO;
+
+            return null;
 
         }
 

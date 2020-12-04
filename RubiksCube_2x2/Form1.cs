@@ -135,6 +135,9 @@ namespace RubiksCube_2x2
             }
             labelUniquenessIndex.Text = strUniqueIndex;
 
+            // Added 12/4/2020 td
+            labelUVW_VWX_WXY_XYZ.Text = mod_RotateBackside.BOY_etc_Clockwise();
+
         }
 
         private void Form1_Draw_NotInUse(object sender, EventArgs e)
@@ -602,6 +605,10 @@ namespace RubiksCube_2x2
                 }
             }
 
+            // Added 12/4/2020 td
+            labelUVW_VWX_WXY_XYZ.Text = mod_RotateBackside.BOY_etc_Clockwise();
+
+
         }
 
         private void labelComplexRotate2_Click(object sender, EventArgs e)
@@ -757,13 +764,15 @@ namespace RubiksCube_2x2
                     labelHowToMoveAPiece.Visible = false;
                     this.Cursor = Cursors.Default;
                     this.Refresh();
+                    // Added 12/4/2020 td
+                    labelUVW_VWX_WXY_XYZ.Text = mod_RotateBackside.BOY_etc_Clockwise();
 
                     //Added 12/1/2020 thomas
                     bool bPriorValue = false;
                     if (mod_RotateBackside.PiecesAreCorrectlyOrdered(out bPriorValue))
                     {
                         // Added 12/01/2020 thomas downes
-                        if (bPriorValue == false)
+                        if (bPriorValue == false) //Let's not keep hitting the user over the head with this message. 
                         {
                             MessageBox.Show("All the pieces of the backside are correctly placed in relaction with each other-- BOY, BYR, GRY, GOY.",
                                 "Pieces in correct order",
@@ -787,6 +796,9 @@ namespace RubiksCube_2x2
                         labelHowToMoveAPiece.Visible = true;
                     }
                 }
+
+                // Added 12/4/2020 td
+                //Moved up, to a condition.//labelUVW_VWX_WXY_XYZ.Text = mod_RotateBackside.BOY_etc_Clockwise();
 
             }
 

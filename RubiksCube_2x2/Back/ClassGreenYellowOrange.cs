@@ -107,6 +107,14 @@ namespace RubiksCube_2x2
             }
 
 
+            //Added 12/4/2020 thomas downes
+            public override string GetColorAbbreviationXYZ()
+            {
+                //Added 12/4/2020 thomas downes
+                return "GYO";
+            }
+
+
             public override void LoadInitialState_NotInUse()
             {
                 //

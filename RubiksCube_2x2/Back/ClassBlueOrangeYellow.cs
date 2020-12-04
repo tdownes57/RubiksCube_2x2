@@ -40,6 +40,8 @@ namespace RubiksCube_2x2
             public override System.Drawing.Color FaceColor2of3 { get { return Color.Orange; } }
             public override System.Drawing.Color FaceColor3of3 { get { return Color.Yellow; } }
 
+            private ClassBackside _parentSide;  //Added 12/3/2020 thomas downes 
+
             //
             // Added 11/14/2020 
             // 
@@ -88,8 +90,9 @@ namespace RubiksCube_2x2
             }
 
 
-            public BlueOrangeYellow(string par_strBriefDescription)
+            public BlueOrangeYellow(string par_strBriefDescription) //, ClassBackside par_parentSide)
             {
+                //---public BlueOrangeYellow(string par_strBriefDescription
                 //
                 // Added 11/20/2020 thomas downes
                 //
@@ -97,13 +100,13 @@ namespace RubiksCube_2x2
                 //
                 //     BOY/NE==F1:N_F2:E_F3:F  
                 //
-                //                             ignore: BYR/SE==F1:S_F2:E_F3:F  GRY/SW==F1:F_F2:W_F3:S  GYO/NW==F1:N_F2:F_F3:W
+                //                     ignore: BYR/SE==F1:S_F2:E_F3:F  GRY/SW==F1:F_F2:W_F3:S  GYO/NW==F1:N_F2:F_F3:W
                 //
                 // Example #2:
                 //
                 //     BOY/SW==F1:S_F2:W_F3:F
                 //
-                //                             ignore: BYR/NE==F1:N_F2:E_F3:F  GRY/SE==F1:F_F2:E_F3:S  GYO/NW==F1:N_F2:F_F3:W
+                //                     ignore: BYR/NE==F1:N_F2:E_F3:F  GRY/SE==F1:F_F2:E_F3:S  GYO/NW==F1:N_F2:F_F3:W
                 //
                 //     (F = Front Face) 
                 //
@@ -114,7 +117,19 @@ namespace RubiksCube_2x2
                 //
                 base.ParseBriefInputString(par_strBriefDescription);
 
+                //Added 12/3/2020 thomas downes
+                //_parentSide = par_parentSide;
+
             }
+
+
+            //Added 12/4/2020 thomas downes
+            public override string GetColorAbbreviationXYZ()
+            {
+                //Added 12/4/2020 thomas downes
+                return "BOY";
+            }
+
 
             public override void LoadInitialState_NotInUse()
             {
@@ -506,6 +521,24 @@ namespace RubiksCube_2x2
                 //
                 return ("BOY/" + base.ToString());
 
+
+            }
+
+
+            public RubikPieceCorner NextPieceClockwise()
+            {
+                //
+                // Added 12/3/2020 Thomas Downes 
+                //
+                FrontClockFace enumBYR = _parentSide._pieceBYR.FrontClockFacePosition;
+                FrontClockFace enumGRY = _parentSide._pieceGRY.FrontClockFacePosition;
+                FrontClockFace enumGYO = _parentSide._pieceGYO.FrontClockFacePosition;
+
+                if (EnumStaticClass.AdjacentClockwise(this, _parentSide._pieceBYR)) return _parentSide._pieceBYR;
+                if (EnumStaticClass.AdjacentClockwise(this, _parentSide._pieceGRY)) return _parentSide._pieceGRY;
+                if (EnumStaticClass.AdjacentClockwise(this, _parentSide._pieceGYO)) return _parentSide._pieceGYO;
+
+                return null;  
 
             }
 

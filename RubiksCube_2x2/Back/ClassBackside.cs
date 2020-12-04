@@ -15,10 +15,10 @@ namespace RubiksCube_2x2
 
         class ClassBackside : BackOrFront
         {
-            BlueOrangeYellow _pieceBOY;
-            BlueYellowRed _pieceBYR;
-            GreenRedYellow _pieceGRY;
-            GreenYellowOrange _pieceGYO;
+            public BlueOrangeYellow _pieceBOY;
+            public BlueYellowRed _pieceBYR;
+            public GreenRedYellow _pieceGRY;
+            public GreenYellowOrange _pieceGYO;
 
             public ClassBackside(BlueOrangeYellow par_BOY,
                                     BlueYellowRed par_BYR,
@@ -537,6 +537,27 @@ namespace RubiksCube_2x2
                 // Added 12/1/2020 thomas downes
                 //
                 return EnumStaticClass.AdjacentClockwise(_pieceGRY, _pieceBYR);
+
+            }
+
+
+            public string BOY_etc_Clockwise()
+            {
+                //
+                // Added 12/4/2020 thomas downes  
+                //
+                string strOutput = "BOY, ";
+
+                RubikPieceCorner piece1 = _pieceBOY;
+                RubikPieceCorner piece2 = _pieceBOY.NextPieceClockwise(this);
+                RubikPieceCorner piece3 = piece2.NextPieceClockwise(this);
+                RubikPieceCorner piece4 = piece3.NextPieceClockwise(this);
+
+                strOutput += piece2.GetColorAbbreviationXYZ() + ", ";
+                strOutput += piece3.GetColorAbbreviationXYZ() + ", ";
+                strOutput += piece4.GetColorAbbreviationXYZ();
+
+                return strOutput;
 
             }
 

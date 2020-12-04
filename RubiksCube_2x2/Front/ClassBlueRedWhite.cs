@@ -41,6 +41,14 @@ namespace RubiksCube_2x2
             public override System.Drawing.Color FaceColor2of3 { get { return Color.Red; } }
             public override System.Drawing.Color FaceColor3of3 { get { return Color.White; } }
 
+            //Added 12/4/2020 thomas downes
+            public override string GetColorAbbreviationXYZ()
+            {
+                //Added 12/4/2020 thomas downes
+                return "BRW";
+            }
+
+
             public BlueRedWhite()
             {
                 //

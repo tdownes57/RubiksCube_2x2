@@ -103,6 +103,14 @@ namespace RubiksCube_2x2
             }
 
 
+            //Added 12/4/2020 thomas downes
+            public override string GetColorAbbreviationXYZ()
+            {
+                //Added 12/4/2020 thomas downes
+                return "BYR";
+            }
+
+
             public override void LoadInitialState_NotInUse()
             {
                 //
@@ -388,6 +396,25 @@ namespace RubiksCube_2x2
 
 
             }
+
+
+            //public RubikPieceCorner NextPieceClockwise()
+            //{
+            //    //
+            //    // Added 12/3/2020 Thomas Downes 
+            //    //
+            //    FrontClockFace enumBYR = _parentSide._pieceBYR.FrontClockFacePosition;
+            //    FrontClockFace enumGRY = _parentSide._pieceGRY.FrontClockFacePosition;
+            //    FrontClockFace enumGYO = _parentSide._pieceGYO.FrontClockFacePosition;
+            // 
+            //    if (EnumStaticClass.AdjacentClockwise(this, _parentSide._pieceBYR)) return _parentSide._pieceBYR;
+            //    if (EnumStaticClass.AdjacentClockwise(this, _parentSide._pieceGRY)) return _parentSide._pieceGRY;
+            //    if (EnumStaticClass.AdjacentClockwise(this, _parentSide._pieceGYO)) return _parentSide._pieceGYO;
+            //
+            //    return null;
+            //
+            //}
+
 
 
         }
