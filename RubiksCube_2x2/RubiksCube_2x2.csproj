@@ -56,7 +56,8 @@
     <Compile Include="Back\ClassGreenYellowOrange.cs" />
     <Compile Include="Back\ClassBackside.cs" />
     <Compile Include="Back\ComplexRotation.cs" />
-    <Compile Include="Back\ComplexRules.cs" />
+    <Compile Include="Back\Rules_AdjacentPairExchange.cs" />
+    <Compile Include="Back\Rules_FrontPieceRotation.cs" />
     <Compile Include="Back\ComplexRulesEngine0130.cs" />
     <Compile Include="Back\ComplexRulesEngine0430.cs" />
     <Compile Include="Back\ComplexRulesEngine0730.cs" />

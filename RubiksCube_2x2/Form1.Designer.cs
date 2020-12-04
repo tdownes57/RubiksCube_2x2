@@ -53,6 +53,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.labelCountCR = new System.Windows.Forms.Label();
             this.labelUVW_VWX_WXY_XYZ = new System.Windows.Forms.Label();
+            this.comboGodlikePowers = new System.Windows.Forms.ComboBox();
+            this.labelBOYwSideColorsEql = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // progressBar1
@@ -272,7 +274,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(655, 344);
+            this.label6.Location = new System.Drawing.Point(655, 330);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(276, 17);
             this.label6.TabIndex = 22;
@@ -293,18 +295,41 @@
             // 
             this.labelUVW_VWX_WXY_XYZ.AutoSize = true;
             this.labelUVW_VWX_WXY_XYZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUVW_VWX_WXY_XYZ.Location = new System.Drawing.Point(938, 344);
+            this.labelUVW_VWX_WXY_XYZ.Location = new System.Drawing.Point(937, 330);
             this.labelUVW_VWX_WXY_XYZ.Name = "labelUVW_VWX_WXY_XYZ";
             this.labelUVW_VWX_WXY_XYZ.Size = new System.Drawing.Size(176, 20);
             this.labelUVW_VWX_WXY_XYZ.TabIndex = 23;
             this.labelUVW_VWX_WXY_XYZ.Tag = "BOY, BYR, GRY, GYO";
             this.labelUVW_VWX_WXY_XYZ.Text = "BOY, BYR, GRY, GYO";
             // 
+            // comboGodlikePowers
+            // 
+            this.comboGodlikePowers.FormattingEnabled = true;
+            this.comboGodlikePowers.Items.AddRange(new object[] {
+            "Manual Human Ops",
+            "Godlike Operations"});
+            this.comboGodlikePowers.Location = new System.Drawing.Point(225, 49);
+            this.comboGodlikePowers.Name = "comboGodlikePowers";
+            this.comboGodlikePowers.Size = new System.Drawing.Size(281, 24);
+            this.comboGodlikePowers.TabIndex = 24;
+            // 
+            // labelBOYwSideColorsEql
+            // 
+            this.labelBOYwSideColorsEql.AutoSize = true;
+            this.labelBOYwSideColorsEql.Location = new System.Drawing.Point(844, 350);
+            this.labelBOYwSideColorsEql.Name = "labelBOYwSideColorsEql";
+            this.labelBOYwSideColorsEql.Size = new System.Drawing.Size(269, 17);
+            this.labelBOYwSideColorsEql.TabIndex = 25;
+            this.labelBOYwSideColorsEql.Text = "Sides matching: BOY - BYR - GRY - GYO";
+            this.labelBOYwSideColorsEql.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1152, 642);
+            this.Controls.Add(this.labelBOYwSideColorsEql);
+            this.Controls.Add(this.comboGodlikePowers);
             this.Controls.Add(this.labelUVW_VWX_WXY_XYZ);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.labelUniquenessIndex);
@@ -369,6 +394,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label labelCountCR;
         private System.Windows.Forms.Label labelUVW_VWX_WXY_XYZ;
+        private System.Windows.Forms.ComboBox comboGodlikePowers;
+        private System.Windows.Forms.Label labelBOYwSideColorsEql;
     }
 }
 

@@ -6,8 +6,26 @@ using System.Threading.Tasks;
 
 namespace RubiksCube_2x2
 {
-    static class ComplexRules
+    static class Rules_FrontPieceRotation
     {
+        //
+        // What happens to the opposite side (the backside), when the 
+        //    frontside's lower-righthand (S.E., or 4:30 pm) piece
+        //    is manipulated to experience a rotation-in-place
+        //    which will cause the 3 colors to partially "revolve" about 
+        //    the S.E. front vertex a number of degrees < 360 
+        //    (360 degrees / 3 colors = 120 degrees/color)?   The frontmost
+        //    color will become a side-facing color, and one of the side 
+        //    colors comes forward to become the front-facing color. 
+        //
+        //These rules describe what then happens to the --BACK-- side,
+        //    which is opposite to the front side.
+        //     -----12/4/2020  thomas downes
+        //
+        //
+        // This class was renamed to Rules_FrontPieceRotation, 
+        //    from the former name of "ComplexRules". 
+        //
         public static ComplexPieceMove move1_from130; // = new ComplexPieceMove();
         public static ComplexPieceMove move2_from430;
         public static ComplexPieceMove move3_from730;
