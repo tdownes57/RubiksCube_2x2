@@ -73,7 +73,7 @@
     <Compile Include="Front\ClassBlueRedWhite.cs" />
     <Compile Include="Front\ClassGreenWhiteRed.cs" />
     <Compile Include="Front\ClassGreenOrangeWhite.cs" />
-    <Compile Include="Front\ClassRotateRules_Front.cs" />
+    <Compile Include="Front\ClassFrontside.cs" />
     <Compile Include="JsonStaticClass_Load.cs" />
     <Compile Include="JsonStaticClass_Save.cs" />
     <Compile Include="Program.cs" />

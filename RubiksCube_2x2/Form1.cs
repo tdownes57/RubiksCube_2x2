@@ -21,7 +21,8 @@ namespace RubiksCube_2x2
         private Back.GreenRedYellow mod_BackPieceGRY = new Back.GreenRedYellow();
         private Back.GreenYellowOrange mod_BackPieceGYO = new Back.GreenYellowOrange();
 
-        private Front.ClassRotateRules_Front mod_RotateFrontside; //Added 11/13/2020 thomas downes
+        //private Front.ClassRotateRules mod_RotateFrontside; //Added 11/13/2020 thomas downes
+        private Front.ClassFrontside mod_RotateFrontside; //Added 11/13/2020 thomas downes
         private Front.BlueWhiteOrange mod_FrontPieceBWO = new Front.BlueWhiteOrange();
         private Front.BlueRedWhite mod_FrontPieceBRW = new Front.BlueRedWhite();
         private Front.GreenWhiteRed mod_FrontPieceGWR = new Front.GreenWhiteRed();
@@ -54,8 +55,11 @@ namespace RubiksCube_2x2
             //
             // Added 11/13/2020 thomas downes
             //
-            mod_RotateFrontside = new Front.ClassRotateRules_Front(mod_FrontPieceBWO, mod_FrontPieceBRW,
+            //---mod_RotateFrontside = new Front.ClassRotateRules_Front(mod_FrontPieceBWO, mod_FrontPieceBRW,
+            //---                                               mod_FrontPieceGWR, mod_FrontPieceGOW);
+            mod_RotateFrontside = new Front.ClassFrontside(mod_FrontPieceBWO, mod_FrontPieceBRW,
                                                            mod_FrontPieceGWR, mod_FrontPieceGOW);
+
             //Added 11/15/2020 thomas downes
             mod_RotateFrontside.LoadInitialPositions();
 
@@ -679,10 +683,33 @@ namespace RubiksCube_2x2
             //
             Point currentLocation = new Point(e.X, e.Y);
 
-            RubikPieceCorner whichPiece;
+            RubikPieceCorner whichPiece = null;
 
-            whichPiece = mod_RotateBackside.WhichPieceHasMouseHover(currentLocation);
+            //
+            // Back Side 
+            //
+            if (whichPiece == null)
+            {
+                whichPiece = mod_RotateBackside.WhichPieceHasMouseHover(currentLocation);
+            }
 
+            //
+            // Front Side
+            //
+            //Added 12/6/2020 thomas downes
+            if (whichPiece == null)
+            {
+                //Added 12/6/2020 thomas downes
+                whichPiece = mod_RotateFrontside.WhichPieceHasMouseHover(currentLocation);
+
+                //Added 12/6/2020 thomas downes
+                if (false && whichPiece != null)
+                MessageBox.Show("You have placed the mouse over the front side of the Rubik's Cube.");
+            }
+
+            //
+            // Take a look at whether or not we have identified a clicked piece. 
+            //
             if (whichPiece == null)
             {
                 if (_rubiksPiece_Dragged == null)
@@ -723,6 +750,10 @@ namespace RubiksCube_2x2
             // Added 11/17/2020 thomas downes  
             //
             RubikPieceCorner piece_clicked = mod_RotateBackside.WhichPieceIsClicked(e.X, e.Y);
+
+            Sloan says, look here, there's a bug!!!
+            44 + AccessibleDefaultActionDescription ----- 
+            piece_clicked = mod_RotateFrontside.WhichPieceIsClicked(e.X, e.Y);
 
             if (piece_clicked == null)
             {
@@ -810,7 +841,15 @@ namespace RubiksCube_2x2
             //
             // Added 11/17/2020 thomas downes
             //
-            RubikPieceCorner piece_clicked = mod_RotateBackside.WhichPiece_SideFaceClicked(e_X, e_Y);
+            RubikPieceCorner piece_clicked = null; // = mod_RotateBackside.WhichPiece_SideFaceClicked(e_X, e_Y);
+
+            //Added 12/05/2020 thomas downes 
+            if (null == piece_clicked)
+                piece_clicked = mod_RotateFrontside.WhichPiece_SideFaceClicked(e_X, e_Y);
+
+            //Conditioned 12/05/2020 thomas downes 
+            if (null == piece_clicked) 
+                piece_clicked = mod_RotateBackside.WhichPiece_SideFaceClicked(e_X, e_Y);
 
             //if (piece_clicked != null && _rubiksPiece_Dragged != null)
             if (_rubiksPiece_Dragged != null)

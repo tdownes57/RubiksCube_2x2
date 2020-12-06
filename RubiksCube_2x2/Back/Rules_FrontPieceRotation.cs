@@ -67,10 +67,10 @@ namespace RubiksCube_2x2
             move4_from1030.EndingPoint = EnumAll12Faces._130_ENE;
 
             //Added 11/18/2020 thomas downes
-            move5_clockwise90.ClockwiseRevolution90 = true;  
+            move5_clockwise90.ClockwiseRevolution90 = true;
 
         }
 
 
-        }
     }
+}

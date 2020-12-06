@@ -13,18 +13,19 @@ namespace RubiksCube_2x2
         // Added 11/13/2020 thomas downes
         //
 
-        class ClassRotateRules_Front : BackOrFront
+        class ClassFrontside : BackOrFront    // class ClassRotateRules_Front : BackOrFront
         {
             BlueWhiteOrange _pieceBWO;
             BlueRedWhite _pieceBRW;
             GreenWhiteRed _pieceGWR;
             GreenOrangeWhite _pieceGOW; 
 
-            public ClassRotateRules_Front(BlueWhiteOrange par_BWO, 
+            public ClassFrontside(BlueWhiteOrange par_BWO, 
                                     BlueRedWhite par_BRW,
                                     GreenWhiteRed par_GWR,
                                     GreenOrangeWhite par_GOW)
             {
+                //---class ClassRotateRules_Front : BackOrFront
                 //
                 // Added 11/12/2020 thomas downes
                 //
@@ -115,15 +116,42 @@ namespace RubiksCube_2x2
 
             }
 
-            //Added 11/17/2020 thomas downes
+            //Added 12/06/2020 thomas downes
             //
             public override RubikPieceCorner WhichPieceHasMouseHover(Point par_point)
             {
                 //
-                //Added 11/17/2020 thomas downes
+                //Added 12/06/2020 thomas downes
                 //
+                //return null;
+
+                if (_pieceBRW.FrontFaceWasClicked(par_point)) return _pieceBRW;
+                if (_pieceBWO.FrontFaceWasClicked(par_point)) return _pieceBWO;
+                if (_pieceGOW.FrontFaceWasClicked(par_point)) return _pieceGOW;
+                if (_pieceGWR.FrontFaceWasClicked(par_point)) return _pieceGWR;
                 return null;
+
             }
+
+
+            //Added 12/06/2020 thomas downes
+            //
+            public RubikPieceCorner WhichPiece_SideFaceClicked(int par_pointX, int par_pointY)
+            {
+                //
+                // Added 12/06/2020 thomas downes
+                //
+                Point par_point = new Point(par_pointX, par_pointY);
+
+                if (_pieceBRW.SideFaceWasClicked(par_point)) return _pieceBRW;
+                if (_pieceBWO.SideFaceWasClicked(par_point)) return _pieceBWO;
+                if (_pieceGOW.SideFaceWasClicked(par_point)) return _pieceGOW;
+                if (_pieceGWR.SideFaceWasClicked(par_point)) return _pieceGWR;
+                return null;
+
+            }
+
+
 
         }
     }

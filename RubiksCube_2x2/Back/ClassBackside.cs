@@ -99,13 +99,13 @@ namespace RubiksCube_2x2
                     // New way, encapsulation of rules into a static class.
                     //      ----Added 11/15/2020 thomas
                     //
-                    ComplexRules.BuildComplexRotationRules();
-                    move1_from130 = ComplexRules.move1_from130;
-                    move2_from430 = ComplexRules.move2_from430;
-                    move3_from730 = ComplexRules.move3_from730;
-                    move4_from1030 = ComplexRules.move4_from1030;
+                    Rules_FrontPieceRotation.BuildComplexRotationRules();
+                    move1_from130 = Rules_FrontPieceRotation.move1_from130;
+                    move2_from430 = Rules_FrontPieceRotation.move2_from430;
+                    move3_from730 = Rules_FrontPieceRotation.move3_from730;
+                    move4_from1030 = Rules_FrontPieceRotation.move4_from1030;
                     //Added 11/18/2020 thomas downes
-                    move5_Clockwise90 = ComplexRules.move5_clockwise90;
+                    move5_Clockwise90 = Rules_FrontPieceRotation.move5_clockwise90;
 
                 }
                 else
