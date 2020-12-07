@@ -39,7 +39,12 @@ namespace RubiksCube_2x2
         private int mod_countOfComplexMotions = 0;
 
         //Added 11/20/2020 thomas downes
-        private bool mod_bGiveCompletionMessage = true; 
+        private bool mod_bGiveCompletionMessage = true;
+
+        //Added 12/6/2020 thomas downes
+        private bool _bClickedFrontside = false;  // _bClickedFrontside; //  false;
+        private bool _bClickedBackside = false;  // _bClickedBackside;  // false;
+
 
         public Form1()
         {
@@ -141,6 +146,9 @@ namespace RubiksCube_2x2
 
             // Added 12/4/2020 td
             labelUVW_VWX_WXY_XYZ.Text = mod_RotateBackside.BOY_etc_Clockwise();
+
+            //Added 12/06/2020 td
+            comboGodlikePowers.SelectedIndex = 0;  
 
         }
 
@@ -749,11 +757,32 @@ namespace RubiksCube_2x2
             //
             // Added 11/17/2020 thomas downes  
             //
-            RubikPieceCorner piece_clicked = mod_RotateBackside.WhichPieceIsClicked(e.X, e.Y);
+            bool bClickedFrontside = false;  // _bClickedFrontside; //  false;
+            bool bClickedBackside = false;  // _bClickedBackside;  // false;
+            bool bAllowGodlikeOperations = (1 == comboGodlikePowers.SelectedIndex);
 
-            Sloan says, look here, there's a bug!!!
-            44 + AccessibleDefaultActionDescription ----- 
-            piece_clicked = mod_RotateFrontside.WhichPieceIsClicked(e.X, e.Y);
+            RubikPieceCorner piece_clicked = null;
+
+            //Front Side
+            //  Check the Front Side for a clicked piece. 
+            //
+            if (piece_clicked == null)
+            {
+                piece_clicked = mod_RotateFrontside.WhichPieceIsClicked(e.X, e.Y);
+                if (piece_clicked != null) bClickedFrontside = true;
+            }
+
+            // Sloan says, look here, there's a bug!!!
+            // AccessibleDefaultActionDescription ----- 
+
+            //Back Side
+            //  Check the Back Side for a clicked piece.
+            //
+            if (piece_clicked == null)
+            {
+                piece_clicked = mod_RotateBackside.WhichPieceIsClicked(e.X, e.Y);
+                if (piece_clicked != null) bClickedBackside = true;
+            }
 
             if (piece_clicked == null)
             {
@@ -767,7 +796,11 @@ namespace RubiksCube_2x2
 
                 //Added 11/17/2020 thomas d.
                 CheckIfSideFaceWasClicked(e.X, e.Y);
-                
+
+                //Added 12/6/2020 thomas downes
+                _bClickedFrontside = bClickedFrontside;
+                _bClickedBackside = bClickedBackside;
+
                 return;
             }
 
@@ -784,8 +817,49 @@ namespace RubiksCube_2x2
                     _rubiksPiece_Replaced = piece_clicked;
 
                     // Added 11/17/2020 thomas downes
-                    mod_RotateBackside
-                        .GodlikeSwitch(_rubiksPiece_Dragged, _rubiksPiece_Replaced);
+                    if (bAllowGodlikeOperations) // Conditioned 12/7/2020 td
+                    {
+                        //
+                        // Allow the pieces to be moved without any consequence to the 
+                        //    arrangement of pieces on the opposide side of the cube. 
+                        //
+                        // Condition added 12/06/2020 thomas downes
+                        if (bClickedBackside) mod_RotateBackside
+                            .GodlikeSwitch(_rubiksPiece_Dragged, _rubiksPiece_Replaced);
+
+                        // Condition (& function call) added 12/06/2020 thomas downes
+                        if (bClickedFrontside) mod_RotateFrontside
+                            .GodlikeSwitch(_rubiksPiece_Dragged, _rubiksPiece_Replaced);
+                    }
+                    else
+                    {
+                        //
+                        // Allow only adjacent pieces to be swapped. 
+                        //
+                        bool bPiecesAreAdjacent_Front = (bClickedFrontside 
+                            && mod_RotateFrontside.AdjacentPieces(_rubiksPiece_Dragged, _rubiksPiece_Replaced));
+                        bool bPiecesAreAdjacent_Back = (bClickedBackside
+                            && mod_RotateBackside.AdjacentPieces(_rubiksPiece_Dragged, _rubiksPiece_Replaced));
+
+                        bool bAdjacentPieces = (bPiecesAreAdjacent_Front || bPiecesAreAdjacent_Back);
+
+                        if (bAdjacentPieces)
+                        {
+                            // Added 12/7/2020 td
+                            MessageBox.Show("Great, the pieces are adjacent.  Okay to effect the consequences to the other side?");
+
+
+                        }
+                        else
+                        {
+                            // Added 12/7/2020 td
+                            MessageBox.Show("The pieces are not adjacent.  Please reconsider.");
+
+                        }
+
+
+                    }
+
 
                     //
                     // Clean up time!!
@@ -797,6 +871,9 @@ namespace RubiksCube_2x2
                     this.Refresh();
                     // Added 12/4/2020 td
                     labelUVW_VWX_WXY_XYZ.Text = mod_RotateBackside.BOY_etc_Clockwise();
+                    //Added 12/6/2020 td
+                    _bClickedBackside = false;
+                    _bClickedFrontside = false; 
 
                     //Added 12/1/2020 thomas
                     bool bPriorValue = false;
@@ -868,6 +945,8 @@ namespace RubiksCube_2x2
                 _rubiksPiece_Replaced = null;
                 this.Cursor = Cursors.Default;
                 labelHowToMoveAPiece.Visible = false;
+                _bClickedFrontside = false;  //Added 12/6/2020 thomas downes
+                _bClickedBackside = false;  //Added 12/6/2020 thomas downes
                 return;
             }
 

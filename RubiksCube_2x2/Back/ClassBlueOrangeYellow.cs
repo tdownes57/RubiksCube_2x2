@@ -237,9 +237,6 @@ namespace RubiksCube_2x2
                 //
                 //base.FaceColor1of3
 
-
-
-
             }
 
             public override void ReorientPiece(FrontClockFace par_enum, Color par_frontfacecolor)

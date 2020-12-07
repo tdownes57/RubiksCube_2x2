@@ -172,6 +172,7 @@ namespace RubiksCube_2x2
                 //
                 // Added 11/12/2020 thomas downes
                 //
+                base.Revolve_Clockwise90_base();
 
             }
 

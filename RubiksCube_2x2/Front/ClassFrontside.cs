@@ -105,6 +105,19 @@ namespace RubiksCube_2x2
 
             }
 
+            //
+            //Added 11/17/2020 thomas downes
+            //
+            public RubikPieceCorner WhichPieceIsClicked(int par_pointX, int par_pointY)
+            {
+                //
+                // Added 11/17/2020 thomas downes
+                //
+                return WhichPieceHasMouseHover(new Point(par_pointX, par_pointY));
+
+            }
+
+
             //Added 11/17/2020 thomas downes
             //
             public override RubikPieceCorner WhichPieceIsClicked(Point par_point)
@@ -148,6 +161,53 @@ namespace RubiksCube_2x2
                 if (_pieceGOW.SideFaceWasClicked(par_point)) return _pieceGOW;
                 if (_pieceGWR.SideFaceWasClicked(par_point)) return _pieceGWR;
                 return null;
+
+            }
+
+
+            public void GodlikeSwitch(RubikPieceCorner par_dragged, RubikPieceCorner par_replaced)
+            {
+                //
+                // Added 12/06/2020 thomas downes
+                //
+                FrontClockFace clock_dragged = par_dragged.FrontClockFacePosition;
+                FrontClockFace clock_replaced = par_replaced.FrontClockFacePosition;
+                FrontClockFace tempClock = FrontClockFace.unassigned;
+                FrontClockFace targetClock = FrontClockFace.unassigned;
+
+                //
+                // Position the dragged piece. 
+                //
+                targetClock = clock_replaced; // We will place the selected/dragged piece at the Replaced position.
+                do
+                {
+                    par_dragged.Revolve_Clockwise90();
+                    tempClock = par_dragged.FrontClockFacePosition;
+                } while (tempClock != targetClock);
+
+                //
+                // Position the replaced piece. 
+                //
+                targetClock = clock_dragged; // We will place the selected/dragged piece at the Replaced position.
+                do
+                {
+                    par_replaced.Revolve_Clockwise90();
+                    tempClock = par_replaced.FrontClockFacePosition;
+                } while (tempClock != targetClock);
+
+            }
+
+
+            public bool AdjacentPieces(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2)
+            {
+                //
+                // Added 12/07/2020 thomas downes
+                //
+                bool bAdjacentClockwise_1_2 = EnumStaticClass.AdjacentClockwise(par_piece1, par_piece2);
+                bool bAdjacentClockwise_2_1 = EnumStaticClass.AdjacentClockwise(par_piece2, par_piece1);
+
+                bool bEitherWay = (bAdjacentClockwise_1_2 || bAdjacentClockwise_2_1);
+                return bEitherWay;  
 
             }
 

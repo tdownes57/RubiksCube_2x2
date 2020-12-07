@@ -59,7 +59,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(14, 367);
+            this.progressBar1.Location = new System.Drawing.Point(13, 380);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(1100, 16);
             this.progressBar1.TabIndex = 0;
@@ -274,12 +274,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(655, 330);
+            this.label6.Location = new System.Drawing.Point(367, 347);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(276, 17);
             this.label6.TabIndex = 22;
             this.label6.Text = "Clockwise from BOY (Blue Orange Yellow):";
-            this.label6.Visible = false;
             // 
             // labelCountCR
             // 
@@ -295,7 +294,7 @@
             // 
             this.labelUVW_VWX_WXY_XYZ.AutoSize = true;
             this.labelUVW_VWX_WXY_XYZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUVW_VWX_WXY_XYZ.Location = new System.Drawing.Point(937, 330);
+            this.labelUVW_VWX_WXY_XYZ.Location = new System.Drawing.Point(649, 347);
             this.labelUVW_VWX_WXY_XYZ.Name = "labelUVW_VWX_WXY_XYZ";
             this.labelUVW_VWX_WXY_XYZ.Size = new System.Drawing.Size(176, 20);
             this.labelUVW_VWX_WXY_XYZ.TabIndex = 23;
@@ -321,7 +320,6 @@
             this.labelBOYwSideColorsEql.Size = new System.Drawing.Size(269, 17);
             this.labelBOYwSideColorsEql.TabIndex = 25;
             this.labelBOYwSideColorsEql.Text = "Sides matching: BOY - BYR - GRY - GYO";
-            this.labelBOYwSideColorsEql.Visible = false;
             // 
             // Form1
             // 

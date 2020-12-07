@@ -562,6 +562,19 @@ namespace RubiksCube_2x2
             }
 
 
+            public bool AdjacentPieces(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2)
+            {
+                //
+                // Added 12/07/2020 thomas downes
+                //
+                bool bAdjacentClockwise_1_2 = EnumStaticClass.AdjacentClockwise(par_piece1, par_piece2);
+                bool bAdjacentClockwise_2_1 = EnumStaticClass.AdjacentClockwise(par_piece2, par_piece1);
+
+                bool bEitherWay = (bAdjacentClockwise_1_2 || bAdjacentClockwise_2_1);
+                return bEitherWay;
+
+            }
+
 
         }
     }
