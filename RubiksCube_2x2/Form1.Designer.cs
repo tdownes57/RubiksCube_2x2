@@ -303,6 +303,7 @@
             // 
             // comboGodlikePowers
             // 
+            this.comboGodlikePowers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboGodlikePowers.FormattingEnabled = true;
             this.comboGodlikePowers.Items.AddRange(new object[] {
             "Manual Human Ops",

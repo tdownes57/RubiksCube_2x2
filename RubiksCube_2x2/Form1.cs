@@ -859,7 +859,7 @@ namespace RubiksCube_2x2
                         else
                         {
                             // Added 12/7/2020 td
-                            MessageBox.Show("The pieces are not adjacent.  Please reconsider.");
+                            MessageBox.Show("The pieces are not adjacent, and Godlike operartions are turned off.  Please reconsider.");
 
                         }
 

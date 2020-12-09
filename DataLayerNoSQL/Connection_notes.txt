@@ -1,0 +1,29 @@
+﻿
+
+   //   Quick Start: C# and MongoDB - Starting and Setup
+        // https://www.mongodb.com/blog/post/quick-start-c-sharp-and-mongodb-starting-and-setup  
+        //
+
+        
+
+My MongoDB account's Cluster0 
+
+https://cloud.mongodb.com/v2/5fbb31ecbaf9ad01b2a30783#clusters
+
+Trouble-shooting the connection:
+https://docs.atlas.mongodb.com/troubleshoot-connection
+
+
+credential:  
+
+tomdownes1
+art666
+
+connection string:
+
+mongodb+srv://tomdownes1:<password>@cluster0.zcz3l.mongodb.net/test
+
+mongodb+srv://tomdownes1:art666@cluster0.zcz3l.mongodb.net/test
+
+
+

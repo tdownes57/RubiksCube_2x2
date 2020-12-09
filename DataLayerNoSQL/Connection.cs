@@ -23,6 +23,10 @@ namespace DataLayerNoSQL
 
             var byteArrayAddress = new byte[] { 0, 0, 0, 0 };
             var objIPAddress = new System.Net.IPAddress(byteArrayAddress);
+
+            //
+            //   https://cloud.mongodb.com/v2/5fbb31ecbaf9ad01b2a30783#clusters
+            //
             var objClusterId = new MongoDB.Driver.Core.Clusters.ClusterId();
             var objEndPoint1 = new System.Net.IPEndPoint(objIPAddress, 80);
             var objEndPoint2 = new System.Net.IPEndPoint(System.Net.IPAddress.Parse("10.1.1.100"), 80);

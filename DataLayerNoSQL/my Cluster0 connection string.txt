@@ -1,0 +1,19 @@
+
+
+My MongoDB account's Cluster0 
+
+credential:  
+
+tomdownes1
+art666
+
+connection string:
+
+mongodb+srv://tomdownes1:<password>@cluster0.zcz3l.mongodb.net/test
+
+mongodb+srv://tomdownes1:art666@cluster0.zcz3l.mongodb.net/test
+
+
+
+
+
