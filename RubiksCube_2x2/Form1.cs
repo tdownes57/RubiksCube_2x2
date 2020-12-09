@@ -15,14 +15,17 @@ namespace RubiksCube_2x2
         private Point center_point_form_FRONT; // = new Point(this.Width / 2, this.Height / 2);
         private Point center_point_form_BACK; // Added 11/12/2020 td
 
-        private Back.ClassBackside mod_RotateBackside; //Added 11/12/2020 thomas downes
+        //Added 12/8/2020 thomas downes
+        private RubiksCubeBothSides mod_cubeWholeBothSides;
+
+        private Back.ClassBackside mod_cubeBackside; //Added 11/12/2020 thomas downes
         private Back.BlueOrangeYellow mod_BackPieceBOY = new Back.BlueOrangeYellow();
         private Back.BlueYellowRed mod_BackPieceBYR = new Back.BlueYellowRed();
         private Back.GreenRedYellow mod_BackPieceGRY = new Back.GreenRedYellow();
         private Back.GreenYellowOrange mod_BackPieceGYO = new Back.GreenYellowOrange();
 
         //private Front.ClassRotateRules mod_RotateFrontside; //Added 11/13/2020 thomas downes
-        private Front.ClassFrontside mod_RotateFrontside; //Added 11/13/2020 thomas downes
+        private Front.ClassFrontside mod_cubeFrontside; //Added 11/13/2020 thomas downes
         private Front.BlueWhiteOrange mod_FrontPieceBWO = new Front.BlueWhiteOrange();
         private Front.BlueRedWhite mod_FrontPieceBRW = new Front.BlueRedWhite();
         private Front.GreenWhiteRed mod_FrontPieceGWR = new Front.GreenWhiteRed();
@@ -53,20 +56,23 @@ namespace RubiksCube_2x2
             //
             // Added 11/12/2020 thomas downes
             //
-            mod_RotateBackside = new Back.ClassBackside(mod_BackPieceBOY, mod_BackPieceBYR,
+            mod_cubeBackside = new Back.ClassBackside(mod_BackPieceBOY, mod_BackPieceBYR,
                                                            mod_BackPieceGRY, mod_BackPieceGYO);
-            mod_RotateBackside.LoadInitialPositions();
+            mod_cubeBackside.LoadInitialPositions();
 
             //
             // Added 11/13/2020 thomas downes
             //
             //---mod_RotateFrontside = new Front.ClassRotateRules_Front(mod_FrontPieceBWO, mod_FrontPieceBRW,
             //---                                               mod_FrontPieceGWR, mod_FrontPieceGOW);
-            mod_RotateFrontside = new Front.ClassFrontside(mod_FrontPieceBWO, mod_FrontPieceBRW,
+            mod_cubeFrontside = new Front.ClassFrontside(mod_FrontPieceBWO, mod_FrontPieceBRW,
                                                            mod_FrontPieceGWR, mod_FrontPieceGOW);
 
             //Added 11/15/2020 thomas downes
-            mod_RotateFrontside.LoadInitialPositions();
+            mod_cubeFrontside.LoadInitialPositions();
+
+            //Added 12/8/2020 thomas downes
+            mod_cubeWholeBothSides = new RubiksCubeBothSides(mod_cubeFrontside, mod_cubeBackside);
 
         }
 
@@ -121,7 +127,7 @@ namespace RubiksCube_2x2
             //Refresh the Backside object.  
             if (boolRefreshSideObject)
             {
-                mod_RotateBackside = new Back.ClassBackside(mod_BackPieceBOY, mod_BackPieceBYR,
+                mod_cubeBackside = new Back.ClassBackside(mod_BackPieceBOY, mod_BackPieceBYR,
                                                                mod_BackPieceGRY, mod_BackPieceGYO);
                 //this.Refresh();
             }
@@ -130,13 +136,13 @@ namespace RubiksCube_2x2
             const bool c_bCheckRotations = true;
             string strUniqueIndex;
             string strBriefDescription;
-            strBriefDescription = (new Back.ClassBacksideBrief(mod_RotateBackside)).PositionsBrief;
+            strBriefDescription = (new Back.ClassBacksideBrief(mod_cubeBackside)).PositionsBrief;
             labelBriefSerialization.Text = strBriefDescription;
 
             if (c_bCheckRotations)
             {
                 //string strUniqueIndex = Uniqueness.AddDescription(strBriefDescription);
-                strUniqueIndex = Uniqueness.AddDescription(in mod_RotateBackside, true);
+                strUniqueIndex = Uniqueness.AddDescription(in mod_cubeBackside, true);
             }
             else
             {
@@ -145,7 +151,7 @@ namespace RubiksCube_2x2
             labelUniquenessIndex.Text = strUniqueIndex;
 
             // Added 12/4/2020 td
-            labelUVW_VWX_WXY_XYZ.Text = mod_RotateBackside.BOY_etc_Clockwise();
+            labelUVW_VWX_WXY_XYZ.Text = mod_cubeBackside.BOY_etc_Clockwise();
 
             //Added 12/06/2020 td
             comboGodlikePowers.SelectedIndex = 0;  
@@ -563,7 +569,7 @@ namespace RubiksCube_2x2
             //
             // Added 11/12/2020 thomas downes
             //
-            mod_RotateBackside.Simple_Clockwise90();
+            mod_cubeBackside.Simple_Clockwise90();
             this.Refresh();
 
         }
@@ -576,7 +582,7 @@ namespace RubiksCube_2x2
             //static intCountOfClicks = 0; 
 
             //if (mod_RotateBackside.SideIsASolidColor())
-            if (mod_RotateBackside.SideIsASolidColor() && mod_bGiveCompletionMessage)
+            if (mod_cubeBackside.SideIsASolidColor() && mod_bGiveCompletionMessage)
             {
                 // Added 11/13/2020 thomas downes
                 MessageBox.Show("The backside of the Cube is completed, i.e. a solid color.", "Completed", 
@@ -589,8 +595,8 @@ namespace RubiksCube_2x2
                 mod_bGiveCompletionMessage = true;  //Reinitialize.  ---11/20/2020 thomas downes
             }
 
-            mod_RotateFrontside.ComplexRevolution();
-            mod_RotateBackside.ComplexRevolution();
+            mod_cubeFrontside.ComplexRevolution();
+            mod_cubeBackside.ComplexRevolution();
             this.Refresh();
 
             //Added 11/20/2020 thomas downes
@@ -599,14 +605,14 @@ namespace RubiksCube_2x2
 
             //Added 11/20/2020 thomas downes
             //string strBriefDescription = mod_RotateBackside.ToString();
-            string strBriefDescription = (new Back.ClassBacksideBrief(mod_RotateBackside)).PositionsBrief;  
+            string strBriefDescription = (new Back.ClassBacksideBrief(mod_cubeBackside)).PositionsBrief;  
             string strUniqueIndex = Uniqueness.AddDescription(strBriefDescription);
             labelUniquenessIndex.Text = strUniqueIndex;
             labelBriefSerialization.Text = strBriefDescription;
 
             //Added 12/1/2020 thomas
             bool bPriorValue = false; //Added 12/1/2020 thomas
-            if (mod_RotateBackside.PiecesAreCorrectlyOrdered(out bPriorValue))
+            if (mod_cubeBackside.PiecesAreCorrectlyOrdered(out bPriorValue))
             {
                 // Added 12/01/2020 thomas downes
                 if (bPriorValue == false) // Only show the message if the value has changed. 
@@ -618,7 +624,7 @@ namespace RubiksCube_2x2
             }
 
             // Added 12/4/2020 td
-            labelUVW_VWX_WXY_XYZ.Text = mod_RotateBackside.BOY_etc_Clockwise();
+            labelUVW_VWX_WXY_XYZ.Text = mod_cubeBackside.BOY_etc_Clockwise();
 
 
         }
@@ -698,7 +704,7 @@ namespace RubiksCube_2x2
             //
             if (whichPiece == null)
             {
-                whichPiece = mod_RotateBackside.WhichPieceHasMouseHover(currentLocation);
+                whichPiece = mod_cubeBackside.WhichPieceHasMouseHover(currentLocation);
             }
 
             //
@@ -708,7 +714,7 @@ namespace RubiksCube_2x2
             if (whichPiece == null)
             {
                 //Added 12/6/2020 thomas downes
-                whichPiece = mod_RotateFrontside.WhichPieceHasMouseHover(currentLocation);
+                whichPiece = mod_cubeFrontside.WhichPieceHasMouseHover(currentLocation);
 
                 //Added 12/6/2020 thomas downes
                 if (false && whichPiece != null)
@@ -768,7 +774,7 @@ namespace RubiksCube_2x2
             //
             if (piece_clicked == null)
             {
-                piece_clicked = mod_RotateFrontside.WhichPieceIsClicked(e.X, e.Y);
+                piece_clicked = mod_cubeFrontside.WhichPieceIsClicked(e.X, e.Y);
                 if (piece_clicked != null) bClickedFrontside = true;
             }
 
@@ -780,7 +786,7 @@ namespace RubiksCube_2x2
             //
             if (piece_clicked == null)
             {
-                piece_clicked = mod_RotateBackside.WhichPieceIsClicked(e.X, e.Y);
+                piece_clicked = mod_cubeBackside.WhichPieceIsClicked(e.X, e.Y);
                 if (piece_clicked != null) bClickedBackside = true;
             }
 
@@ -824,11 +830,11 @@ namespace RubiksCube_2x2
                         //    arrangement of pieces on the opposide side of the cube. 
                         //
                         // Condition added 12/06/2020 thomas downes
-                        if (bClickedBackside) mod_RotateBackside
+                        if (bClickedBackside) mod_cubeBackside
                             .GodlikeSwitch(_rubiksPiece_Dragged, _rubiksPiece_Replaced);
 
                         // Condition (& function call) added 12/06/2020 thomas downes
-                        if (bClickedFrontside) mod_RotateFrontside
+                        if (bClickedFrontside) mod_cubeFrontside
                             .GodlikeSwitch(_rubiksPiece_Dragged, _rubiksPiece_Replaced);
                     }
                     else
@@ -837,9 +843,9 @@ namespace RubiksCube_2x2
                         // Allow only adjacent pieces to be swapped. 
                         //
                         bool bPiecesAreAdjacent_Front = (bClickedFrontside 
-                            && mod_RotateFrontside.AdjacentPieces(_rubiksPiece_Dragged, _rubiksPiece_Replaced));
+                            && mod_cubeFrontside.AdjacentPieces(_rubiksPiece_Dragged, _rubiksPiece_Replaced));
                         bool bPiecesAreAdjacent_Back = (bClickedBackside
-                            && mod_RotateBackside.AdjacentPieces(_rubiksPiece_Dragged, _rubiksPiece_Replaced));
+                            && mod_cubeBackside.AdjacentPieces(_rubiksPiece_Dragged, _rubiksPiece_Replaced));
 
                         bool bAdjacentPieces = (bPiecesAreAdjacent_Front || bPiecesAreAdjacent_Back);
 
@@ -870,14 +876,14 @@ namespace RubiksCube_2x2
                     this.Cursor = Cursors.Default;
                     this.Refresh();
                     // Added 12/4/2020 td
-                    labelUVW_VWX_WXY_XYZ.Text = mod_RotateBackside.BOY_etc_Clockwise();
+                    labelUVW_VWX_WXY_XYZ.Text = mod_cubeBackside.BOY_etc_Clockwise();
                     //Added 12/6/2020 td
                     _bClickedBackside = false;
                     _bClickedFrontside = false; 
 
                     //Added 12/1/2020 thomas
                     bool bPriorValue = false;
-                    if (mod_RotateBackside.PiecesAreCorrectlyOrdered(out bPriorValue))
+                    if (mod_cubeBackside.PiecesAreCorrectlyOrdered(out bPriorValue))
                     {
                         // Added 12/01/2020 thomas downes
                         if (bPriorValue == false) //Let's not keep hitting the user over the head with this message. 
@@ -922,11 +928,11 @@ namespace RubiksCube_2x2
 
             //Added 12/05/2020 thomas downes 
             if (null == piece_clicked)
-                piece_clicked = mod_RotateFrontside.WhichPiece_SideFaceClicked(e_X, e_Y);
+                piece_clicked = mod_cubeFrontside.WhichPiece_SideFaceClicked(e_X, e_Y);
 
             //Conditioned 12/05/2020 thomas downes 
             if (null == piece_clicked) 
-                piece_clicked = mod_RotateBackside.WhichPiece_SideFaceClicked(e_X, e_Y);
+                piece_clicked = mod_cubeBackside.WhichPiece_SideFaceClicked(e_X, e_Y);
 
             //if (piece_clicked != null && _rubiksPiece_Dragged != null)
             if (_rubiksPiece_Dragged != null)
@@ -1029,7 +1035,7 @@ namespace RubiksCube_2x2
             //
             if (CheckForGodlikeBehavior_MovePiece())
             {
-                mod_RotateBackside.LoadInitialPositions();
+                mod_cubeBackside.LoadInitialPositions();
                 this.Refresh(); 
             }
 

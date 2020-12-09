@@ -203,6 +203,9 @@ namespace RubiksCube_2x2
                 //
                 // Added 12/07/2020 thomas downes
                 //
+                bool bPiecesAreRecognized = PiecesBelongToThisSide(par_piece1, par_piece2);
+                if (!bPiecesAreRecognized) throw new ArgumentOutOfRangeException();
+
                 bool bAdjacentClockwise_1_2 = EnumStaticClass.AdjacentClockwise(par_piece1, par_piece2);
                 bool bAdjacentClockwise_2_1 = EnumStaticClass.AdjacentClockwise(par_piece2, par_piece1);
 
@@ -211,6 +214,77 @@ namespace RubiksCube_2x2
 
             }
 
+
+            public override bool PiecesAreAdjacent(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2)
+            {
+                //
+                // Added 12/07/2020 thomas downes
+                //
+                bool bPiecesAreRecognized = PiecesBelongToThisSide(par_piece1, par_piece2);
+                if (!bPiecesAreRecognized) throw new ArgumentOutOfRangeException();
+
+                bool bAdjacentClockwise_1_2 = EnumStaticClass.AdjacentClockwise(par_piece1, par_piece2);
+                bool bAdjacentClockwise_2_1 = EnumStaticClass.AdjacentClockwise(par_piece2, par_piece1);
+
+                bool bEitherWay = (bAdjacentClockwise_1_2 || bAdjacentClockwise_2_1);
+                return bEitherWay;
+
+            }
+
+
+            public override bool PiecesAreAdjacent_Clockwise(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2)
+            {
+                //
+                // Added 12/07/2020 thomas downes
+                //
+                bool bPiecesAreRecognized = PiecesBelongToThisSide(par_piece1, par_piece2);
+                if (!bPiecesAreRecognized) throw new ArgumentOutOfRangeException();
+
+                bool bAdjacentClockwise_1_2 = EnumStaticClass.AdjacentClockwise(par_piece1, par_piece2);
+                //----bool bAdjacentClockwise_2_1 = EnumStaticClass.AdjacentClockwise(par_piece2, par_piece1);
+
+                //---bool bEitherWay = (bAdjacentClockwise_1_2 || bAdjacentClockwise_2_1);
+                //---return bEitherWay;
+
+                return bAdjacentClockwise_1_2;
+
+            }
+
+
+            public override bool PiecesAre_BottomSWSE(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2)
+            {
+                //
+                // Added 12/8/2020 Thomas Downes 
+                //
+                //throw new NotImplementedException();
+                bool bPiecesAreRecognized = PiecesBelongToThisSide(par_piece1, par_piece2);
+                if (!bPiecesAreRecognized) throw new ArgumentOutOfRangeException();
+
+                bool bOutputValue;
+                bOutputValue = base.PiecesAre_BottomSWSE_Base(par_piece1, par_piece2);
+                return bOutputValue;
+            }
+
+
+            public override bool PiecesBelongToThisSide(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2)
+            {
+                //
+                // Added 12/8/2020 Thomas Downes 
+                //
+                //throw new NotImplementedException();
+
+                bool bPiece1_okay;
+                bool bPiece2_okay;
+
+                bPiece1_okay = (par_piece1 == _pieceBRW || par_piece1 == _pieceBWO ||
+                     par_piece1 == _pieceGOW || par_piece1 == _pieceGWR);
+
+                bPiece2_okay = (par_piece2 == _pieceBRW || par_piece2 == _pieceBWO ||
+                     par_piece2 == _pieceGOW || par_piece2 == _pieceGWR);
+
+                return (bPiece1_okay && bPiece2_okay);
+
+            }
 
 
         }

@@ -576,6 +576,110 @@ namespace RubiksCube_2x2
             }
 
 
+            //public bool AdjacentPieces(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2)
+            //{
+            //    //
+            //    // Added 12/07/2020 thomas downes
+            //    //
+            //    bool bPiecesAreRecognized = PiecesBelongToThisSide(par_piece1, par_piece2);
+            //    if (!bPiecesAreRecognized) throw new ArgumentOutOfRangeException();
+            //
+            //    bool bAdjacentClockwise_1_2 = EnumStaticClass.AdjacentClockwise(par_piece1, par_piece2);
+            //    bool bAdjacentClockwise_2_1 = EnumStaticClass.AdjacentClockwise(par_piece2, par_piece1);
+            //
+            //    bool bEitherWay = (bAdjacentClockwise_1_2 || bAdjacentClockwise_2_1);
+            //    return bEitherWay;
+            //
+            //}
+
+
+            public override bool PiecesAreAdjacent(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2)
+            {
+                //
+                // Added 12/07/2020 thomas downes
+                //
+                bool bPiecesAreRecognized = PiecesBelongToThisSide(par_piece1, par_piece2);
+                if (!bPiecesAreRecognized) throw new ArgumentOutOfRangeException();
+
+                bool bAdjacentClockwise_1_2 = EnumStaticClass.AdjacentClockwise(par_piece1, par_piece2);
+                bool bAdjacentClockwise_2_1 = EnumStaticClass.AdjacentClockwise(par_piece2, par_piece1);
+
+                bool bEitherWay = (bAdjacentClockwise_1_2 || bAdjacentClockwise_2_1);
+                return bEitherWay;
+
+            }
+
+
+            public override bool PiecesAreAdjacent_Clockwise(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2)
+            {
+                //
+                // Added 12/07/2020 thomas downes
+                //
+                bool bPiecesAreRecognized = PiecesBelongToThisSide(par_piece1, par_piece2);
+                if (!bPiecesAreRecognized) throw new ArgumentOutOfRangeException();
+
+                bool bAdjacentClockwise_1_2 = EnumStaticClass.AdjacentClockwise(par_piece1, par_piece2);
+                //----bool bAdjacentClockwise_2_1 = EnumStaticClass.AdjacentClockwise(par_piece2, par_piece1);
+
+                //---bool bEitherWay = (bAdjacentClockwise_1_2 || bAdjacentClockwise_2_1);
+                //---return bEitherWay;
+
+                return bAdjacentClockwise_1_2;
+
+            }
+
+
+            public override bool PiecesAre_BottomSWSE(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2)
+            {
+                //
+                // Added 12/8/2020 Thomas Downes 
+                //
+                //throw new NotImplementedException();
+                bool bPiecesAreRecognized = PiecesBelongToThisSide(par_piece1, par_piece2);
+                if (!bPiecesAreRecognized) throw new ArgumentOutOfRangeException();
+
+                bool bOutputValue; 
+                bOutputValue = base.PiecesAre_BottomSWSE_Base(par_piece1, par_piece2);
+                return bOutputValue;
+
+                //FrontClockFace position1 = par_piece1.FrontClockFacePosition;
+                //FrontClockFace position2 = par_piece2.FrontClockFacePosition;
+
+                //bool bPosition1_SW = (position1 == FrontClockFace.seven_thirty);
+                //bool bPosition1_SE = (position1 == FrontClockFace.four_thirty);
+                //bool bPosition2_SW = (position2 == FrontClockFace.seven_thirty);
+                //bool bPosition2_SE = (position2 == FrontClockFace.four_thirty);
+
+                //bool b_1SW_2SE = (bPosition1_SW && bPosition2_SE);
+                //bool b_1SE_2SW = (bPosition1_SE && bPosition2_SW);
+
+                //bool bOutputValue = (b_1SE_2SW || b_1SW_2SE);
+                //return bOutputValue; 
+
+            }
+
+
+            public override bool PiecesBelongToThisSide(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2)
+            {
+                //
+                // Added 12/8/2020 Thomas Downes 
+                //
+                //throw new NotImplementedException();
+
+                bool bPiece1_okay;
+                bool bPiece2_okay;
+
+                bPiece1_okay = (par_piece1 == _pieceBOY || par_piece1 == _pieceBYR ||
+                     par_piece1 == _pieceGRY || par_piece1 == _pieceGYO);
+
+                bPiece2_okay = (par_piece2 == _pieceBOY || par_piece2 == _pieceBYR ||
+                     par_piece2 == _pieceGRY || par_piece2 == _pieceGYO);
+
+                return (bPiece1_okay && bPiece2_okay);
+
+            }
+
+
         }
     }
 }
