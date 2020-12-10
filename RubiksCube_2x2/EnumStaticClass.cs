@@ -65,7 +65,18 @@ namespace RubiksCube_2x2
         public FrontClockFace StartingPoint;
         public EnumAll12Faces EndingPoint;
         //Added 11/18/2020 thomas downes
-        public bool ClockwiseRevolution90; 
+        public bool ClockwiseRevolution90_Deprecated;
+        //public bool FrontFaceMovement; //Added 12/9/2020 td
+    }
+
+    // Added 12/09/2020 thomas downes 
+    public struct ComplexPieceMoves_Five
+    {
+        public ComplexPieceMove move1_from130; // = new ComplexPieceMove();
+        public ComplexPieceMove move2_from430;
+        public ComplexPieceMove move3_from730;
+        public ComplexPieceMove move4_from1030;
+        public bool move5_Clockwise90;
     }
 
 

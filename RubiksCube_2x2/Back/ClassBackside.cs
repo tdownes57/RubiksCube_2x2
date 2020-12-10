@@ -13,7 +13,7 @@ namespace RubiksCube_2x2
         // Added 11/12/2020 thomas downes
         //
 
-        class ClassBackside : BackOrFront
+        class ClassBackside : RubiksCubeOneSide
         {
             public BlueOrangeYellow _pieceBOY;
             public BlueYellowRed _pieceBYR;
@@ -68,6 +68,38 @@ namespace RubiksCube_2x2
                 _pieceGYO.Revolve_Clockwise90();
 
             }
+
+
+            public void ComplexRules_FrontPieceRotation()
+            {
+                //
+                // Added 12/9/2020 Thomas Downes  
+                //
+                ComplexRevolution();
+
+            }
+
+            public void ComplexRules_AdjacentPairExchange()
+            {
+                //
+                // Added 12/9/2020 Thomas Downes  
+                //
+                //ComplexPieceMove move1_from130; // = new ComplexPieceMove();
+                //ComplexPieceMove move2_from430;
+                //ComplexPieceMove move3_from730;
+                //ComplexPieceMove move4_from1030;
+
+                //Rules_AdjacentPairExchange.BuildBacksideRules();
+                //move1_from130 = Rules_AdjacentPairExchange.backside_move1_from130;
+                //move2_from430 = Rules_AdjacentPairExchange.backside_move2_from430;
+                //move3_from730 = Rules_AdjacentPairExchange.backside_move3_from730;
+                //move4_from1030 = Rules_AdjacentPairExchange.backside_move4_from1030;
+
+                var complex_rules = Rules_AdjacentPairExchange.GetBacksideRules();
+                base.ComplexRules_Perform(complex_rules);
+
+            }
+
 
             public override void ComplexRevolution()
             {
@@ -187,8 +219,10 @@ namespace RubiksCube_2x2
                     ComplexRulesEngine1030.this_complex_move = move4_from1030;
                     ComplexRulesEngine1030.FrontFace_1030_ReorientTo(); // (move1_from130.StartingPoint, move1_from130.EndingPoint);
 
+                    //
                     // Move #5 of 5.    ----11/18/2020 thomas d. 
-                    if (move5_Clockwise90.ClockwiseRevolution90)
+                    //
+                    if (move5_Clockwise90.ClockwiseRevolution90_Deprecated)
                     {
                         // Added 11/18/2020 td 
                         piece_starting_at_130.Revolve_Clockwise90();
@@ -349,35 +383,61 @@ namespace RubiksCube_2x2
             }
 
 
+            public void GodlikeSwitch_BottomPieces()
+            {
+                //
+                // Added 12/9/2020 thomas downes
+                //
+                // Using o'clock times, for the 2x2 front-facing pieces: 
+                //
+                //       [10:30] [1:30]   
+                //       [ 7:30] [4:30]   
+                //
+                //   Using the points of the compass, for the front-facing pieces: 
+                //
+                //       [ NW ] [ NE ]  
+                //       [ SW ] [ SE ]   
+                //
+                RubikPieceCorner pieceSW = this.GetPiece(FrontClockFace.seven_thirty);
+                RubikPieceCorner pieceSE = this.GetPiece(FrontClockFace.four_thirty);
+
+                GodlikeSwitch(pieceSW, pieceSE);
+
+            }
+
+
+
             public void GodlikeSwitch(RubikPieceCorner par_dragged, RubikPieceCorner par_replaced)
             {
                 //
                 // Added 11/17/2020 thomas downes
                 //
-                FrontClockFace clock_dragged = par_dragged.FrontClockFacePosition;
-                FrontClockFace clock_replaced = par_replaced.FrontClockFacePosition;
-                FrontClockFace tempClock = FrontClockFace.unassigned;
-                FrontClockFace targetClock = FrontClockFace.unassigned;
+                base.GodlikeSwitch_Base(par_dragged, par_replaced);
 
-                //
-                // Position the dragged piece. 
-                //
-                targetClock = clock_replaced; // We will place the selected/dragged piece at the Replaced position.
-                do
-                {
-                    par_dragged.Revolve_Clockwise90();
-                    tempClock = par_dragged.FrontClockFacePosition;
-                } while (tempClock != targetClock);
+                //FrontClockFace clock_dragged = par_dragged.FrontClockFacePosition;
+                //FrontClockFace clock_replaced = par_replaced.FrontClockFacePosition;
+                //FrontClockFace tempClock = FrontClockFace.unassigned;
+                //FrontClockFace targetClock = FrontClockFace.unassigned;
 
-                //
-                // Position the replaced piece. 
-                //
-                targetClock = clock_dragged; // We will place the selected/dragged piece at the Replaced position.
-                do
-                {
-                    par_replaced.Revolve_Clockwise90();
-                    tempClock = par_replaced.FrontClockFacePosition;
-                } while (tempClock != targetClock);
+                ////
+                //// Position the dragged piece. 
+                ////
+                //targetClock = clock_replaced; // We will place the selected/dragged piece at the Replaced position.
+                //do
+                //{
+                //    par_dragged.Revolve_Clockwise90();
+                //    tempClock = par_dragged.FrontClockFacePosition;
+                //} while (tempClock != targetClock);
+
+                ////
+                //// Position the replaced piece. 
+                ////
+                //targetClock = clock_dragged; // We will place the selected/dragged piece at the Replaced position.
+                //do
+                //{
+                //    par_replaced.Revolve_Clockwise90();
+                //    tempClock = par_replaced.FrontClockFacePosition;
+                //} while (tempClock != targetClock);
 
             }
 
@@ -676,6 +736,20 @@ namespace RubiksCube_2x2
                      par_piece2 == _pieceGRY || par_piece2 == _pieceGYO);
 
                 return (bPiece1_okay && bPiece2_okay);
+
+            }
+
+
+            public override RubikPieceCorner GetPiece(FrontClockFace par_enum)
+            {
+                //
+                // Added 12/9/2020 thomas d. 
+                //
+                if (par_enum == _pieceBOY.FrontClockFacePosition) return _pieceBOY;
+                if (par_enum == _pieceBYR.FrontClockFacePosition) return _pieceBYR;
+                if (par_enum == _pieceGRY.FrontClockFacePosition) return _pieceGRY;
+                if (par_enum == _pieceGYO.FrontClockFacePosition) return _pieceGYO;
+                throw new ArgumentOutOfRangeException(); //return null; 
 
             }
 

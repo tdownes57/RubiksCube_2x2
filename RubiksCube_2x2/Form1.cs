@@ -1040,5 +1040,16 @@ namespace RubiksCube_2x2
             }
 
         }
+
+        private void cmdSwitchFrontBottomPieces_Click(object sender, EventArgs e)
+        {
+            //
+            //  Added 12/9/2020 thomas d.
+            //
+
+
+
+
+        }
     }
 }

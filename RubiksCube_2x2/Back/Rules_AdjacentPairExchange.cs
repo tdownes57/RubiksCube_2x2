@@ -36,11 +36,27 @@ namespace RubiksCube_2x2.Back
             backside_move4_from1030.StartingPoint = FrontClockFace.ten_thirty;
             backside_move4_from1030.EndingPoint = EnumAll12Faces.F0430;
 
-
-
         }
 
 
+        public static ComplexPieceMoves_Five GetBacksideRules()
+        {
+            //
+            // Added 12/5/2020 thomas downes  
+            //
+            BuildBacksideRules();
+
+            var new_rules = new ComplexPieceMoves_Five();
+
+            new_rules.move1_from130 = backside_move1_from130;
+            new_rules.move2_from430 = backside_move2_from430;
+            new_rules.move3_from730 = backside_move3_from730;
+            new_rules.move4_from1030 = backside_move4_from1030;
+            new_rules.move5_Clockwise90 = false;
+
+            return new_rules; 
+
+        }
 
 
     }

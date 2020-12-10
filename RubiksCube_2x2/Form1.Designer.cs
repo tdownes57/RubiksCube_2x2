@@ -55,6 +55,7 @@
             this.labelUVW_VWX_WXY_XYZ = new System.Windows.Forms.Label();
             this.comboGodlikePowers = new System.Windows.Forms.ComboBox();
             this.labelBOYwSideColorsEql = new System.Windows.Forms.Label();
+            this.cmdSwitchFrontBottomPieces = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // progressBar1
@@ -153,7 +154,7 @@
             // 
             // buttonReplayAllRotation
             // 
-            this.buttonReplayAllRotation.Location = new System.Drawing.Point(45, 573);
+            this.buttonReplayAllRotation.Location = new System.Drawing.Point(949, 85);
             this.buttonReplayAllRotation.Name = "buttonReplayAllRotation";
             this.buttonReplayAllRotation.Size = new System.Drawing.Size(191, 31);
             this.buttonReplayAllRotation.TabIndex = 11;
@@ -163,7 +164,7 @@
             // 
             // buttonClearAllRotation
             // 
-            this.buttonClearAllRotation.Location = new System.Drawing.Point(45, 607);
+            this.buttonClearAllRotation.Location = new System.Drawing.Point(949, 119);
             this.buttonClearAllRotation.Name = "buttonClearAllRotation";
             this.buttonClearAllRotation.Size = new System.Drawing.Size(191, 31);
             this.buttonClearAllRotation.TabIndex = 12;
@@ -322,11 +323,22 @@
             this.labelBOYwSideColorsEql.TabIndex = 25;
             this.labelBOYwSideColorsEql.Text = "Sides matching: BOY - BYR - GRY - GYO";
             // 
+            // cmdSwitchFrontBottomPieces
+            // 
+            this.cmdSwitchFrontBottomPieces.Location = new System.Drawing.Point(42, 563);
+            this.cmdSwitchFrontBottomPieces.Name = "cmdSwitchFrontBottomPieces";
+            this.cmdSwitchFrontBottomPieces.Size = new System.Drawing.Size(208, 36);
+            this.cmdSwitchFrontBottomPieces.TabIndex = 26;
+            this.cmdSwitchFrontBottomPieces.Text = "Switch Bottom 2 Pieces";
+            this.cmdSwitchFrontBottomPieces.UseVisualStyleBackColor = true;
+            this.cmdSwitchFrontBottomPieces.Click += new System.EventHandler(this.cmdSwitchFrontBottomPieces_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1152, 642);
+            this.Controls.Add(this.cmdSwitchFrontBottomPieces);
             this.Controls.Add(this.labelBOYwSideColorsEql);
             this.Controls.Add(this.comboGodlikePowers);
             this.Controls.Add(this.labelUVW_VWX_WXY_XYZ);
@@ -395,6 +407,7 @@
         private System.Windows.Forms.Label labelUVW_VWX_WXY_XYZ;
         private System.Windows.Forms.ComboBox comboGodlikePowers;
         private System.Windows.Forms.Label labelBOYwSideColorsEql;
+        private System.Windows.Forms.Button cmdSwitchFrontBottomPieces;
     }
 }
 

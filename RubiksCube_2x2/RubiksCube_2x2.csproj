@@ -49,7 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BackOrFront.cs" />
+    <Compile Include="RubiksCubeOneSide.cs" />
     <Compile Include="Back\ClassBlueOrangeYellow.cs" />
     <Compile Include="Back\ClassBlueYellowRed.cs" />
     <Compile Include="Back\ClassGreenRedYellow.cs" />

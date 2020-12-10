@@ -16,11 +16,11 @@ namespace RubiksCube_2x2
 
         private struct OrientationWork
         {
-            public BackOrFront MainSide;
+            public RubiksCubeOneSide MainSide;
             //public BackOrFront OtherSide;
             public RubikPieceCorner AdjacentPiece1;
             public RubikPieceCorner AdjacentPiece2;
-            public BackOrFront OtherSide;
+            public RubiksCubeOneSide OtherSide;
 
             public bool SomeWorkIsNeeded;
             public int HowMany90degreeShiftsClockwise;
@@ -33,6 +33,8 @@ namespace RubiksCube_2x2
         public RubiksCubeBothSides(Front.ClassFrontside par_frontside, Back.ClassBackside par_backside)
         {
             //
+            // This is the initializer. (I forget the correct name!  Oh, "constructor".) 
+            //
             // Added 12/8/2020 thomas downes
             //
             mod_backside = par_backside;
@@ -41,10 +43,34 @@ namespace RubiksCube_2x2
         }
 
 
+        public void SwitchBottomPieces_Front()
+        {
+            //
+            // Added 12/9/2020 td 
+            //
+            if (false) mod_frontside.GodlikeSwitch(null, null);
+
+            //var pieceSW = mod_frontside.GetPiece(FrontClockFace.seven_thirty);
+            //var pieceSE = mod_frontside.GetPiece(FrontClockFace.four_thirty);
+            //mod_frontside.GodlikeSwitch_BottomPieces(pieceSE, pieceSW);
+
+            //
+            // Major call!! 
+            //
+            mod_frontside.GodlikeSwitch_BottomPieces();
+
+            //
+            // Major call!! 
+            //
+            mod_backside.ComplexRules_AdjacentPairExchange();
+
+        }
+
+
         public void OrientCube_Step1Rotate(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2,
                                              bool par_bOrientPiecesToBottom, 
-                                             BackOrFront par_sideParentOfPieces,
-                                             BackOrFront par_sideOther)
+                                             RubiksCubeOneSide par_sideParentOfPieces,
+                                             RubiksCubeOneSide par_sideOther)
         {
             //
             // Rotate the "Parent-of-Pieces" side clockwise (and the opposing side 

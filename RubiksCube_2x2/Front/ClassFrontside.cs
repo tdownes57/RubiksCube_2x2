@@ -13,7 +13,7 @@ namespace RubiksCube_2x2
         // Added 11/13/2020 thomas downes
         //
 
-        class ClassFrontside : BackOrFront    // class ClassRotateRules_Front : BackOrFront
+        class ClassFrontside : RubiksCubeOneSide    // class ClassRotateRules_Front : BackOrFront
         {
             BlueWhiteOrange _pieceBWO;
             BlueRedWhite _pieceBRW;
@@ -165,38 +165,76 @@ namespace RubiksCube_2x2
             }
 
 
+            public void GodlikeSwitch_BottomPieces()
+            {
+                //
+                // Added 12/9/2020 thomas downes
+                //
+                // Using o'clock times, for the 2x2 front-facing pieces: 
+                //
+                //       [10:30] [1:30]   
+                //       [ 7:30] [4:30]   
+                //
+                //   Using the points of the compass, for the front-facing pieces: 
+                //
+                //       [ NW ] [ NE ]  
+                //       [ SW ] [ SE ]   
+                //
+                RubikPieceCorner pieceSW = this.GetPiece(FrontClockFace.seven_thirty);
+                RubikPieceCorner pieceSE = this.GetPiece(FrontClockFace.four_thirty);
+
+                GodlikeSwitch(pieceSW, pieceSE);
+
+            }
+
+
             public void GodlikeSwitch(RubikPieceCorner par_dragged, RubikPieceCorner par_replaced)
             {
                 //
                 // Added 12/06/2020 thomas downes
                 //
-                FrontClockFace clock_dragged = par_dragged.FrontClockFacePosition;
-                FrontClockFace clock_replaced = par_replaced.FrontClockFacePosition;
-                FrontClockFace tempClock = FrontClockFace.unassigned;
-                FrontClockFace targetClock = FrontClockFace.unassigned;
+                base.GodlikeSwitch_Base(par_dragged, par_replaced);
 
-                //
-                // Position the dragged piece. 
-                //
-                targetClock = clock_replaced; // We will place the selected/dragged piece at the Replaced position.
-                do
-                {
-                    par_dragged.Revolve_Clockwise90();
-                    tempClock = par_dragged.FrontClockFacePosition;
-                } while (tempClock != targetClock);
+                //FrontClockFace clock_dragged = par_dragged.FrontClockFacePosition;
+                //FrontClockFace clock_replaced = par_replaced.FrontClockFacePosition;
+                //FrontClockFace tempClock = FrontClockFace.unassigned;
+                //FrontClockFace targetClock = FrontClockFace.unassigned;
 
-                //
-                // Position the replaced piece. 
-                //
-                targetClock = clock_dragged; // We will place the selected/dragged piece at the Replaced position.
-                do
-                {
-                    par_replaced.Revolve_Clockwise90();
-                    tempClock = par_replaced.FrontClockFacePosition;
-                } while (tempClock != targetClock);
+                ////
+                //// Position the dragged piece. 
+                ////
+                //targetClock = clock_replaced; // We will place the selected/dragged piece at the Replaced position.
+                //do
+                //{
+                //    par_dragged.Revolve_Clockwise90();
+                //    tempClock = par_dragged.FrontClockFacePosition;
+                //} while (tempClock != targetClock);
+
+                ////
+                //// Position the replaced piece. 
+                ////
+                //targetClock = clock_dragged; // We will place the selected/dragged piece at the Replaced position.
+                //do
+                //{
+                //    par_replaced.Revolve_Clockwise90();
+                //    tempClock = par_replaced.FrontClockFacePosition;
+                //} while (tempClock != targetClock);
 
             }
 
+
+            public override RubikPieceCorner GetPiece(FrontClockFace par_enum)
+            {
+                //
+                // Added 12/9/2020 thomas d. 
+                //
+                if (par_enum == _pieceBRW.FrontClockFacePosition) return _pieceBRW;
+                if (par_enum == _pieceBWO.FrontClockFacePosition) return _pieceBWO;
+                if (par_enum == _pieceGOW.FrontClockFacePosition) return _pieceGOW;
+                if (par_enum == _pieceGWR.FrontClockFacePosition) return _pieceGWR;
+                throw new ArgumentOutOfRangeException(); //return null; 
+
+            }
 
             public bool AdjacentPieces(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2)
             {
