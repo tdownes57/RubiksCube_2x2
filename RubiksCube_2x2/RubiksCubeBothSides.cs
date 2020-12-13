@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;    //Added 12/13/2020 thomas downes
 
 namespace RubiksCube_2x2
 {
@@ -63,6 +64,13 @@ namespace RubiksCube_2x2
             // Major call!! 
             //
             mod_backside.ComplexRules_AdjacentPairExchange();
+
+            //
+            // Feedback after work. 
+            //
+            //MessageBox.Show(mod_backside._pieceBOY.ToString());
+
+
 
         }
 
@@ -156,6 +164,17 @@ namespace RubiksCube_2x2
             }       //--while (bKeepRotating);
 
         }
+
+
+        public Back.ClassBackside BackSide()
+        {
+            // Added 12/13/2020 thomas downes
+            //
+            return mod_backside; 
+
+        }
+
+
 
 
 

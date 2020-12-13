@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;  //Added 11/13/2020 thomas downes
+using System.Windows.Forms;  // Added 12/13/2020 td
 
 namespace RubiksCube_2x2
 {
@@ -95,8 +96,39 @@ namespace RubiksCube_2x2
                 //move3_from730 = Rules_AdjacentPairExchange.backside_move3_from730;
                 //move4_from1030 = Rules_AdjacentPairExchange.backside_move4_from1030;
 
+                RubikPieceCorner beforePiece430;  // For testing only. 
+                RubikPieceCorner beforePiece1030;   // For testing only. 
+                FrontClockFace test_position430_Before;
+                FrontClockFace test_position430_After;
+                FrontClockFace test_position1030_Before;
+                FrontClockFace test_position1030_After;
+
+                //
+                // Testing, before. 
+                //
+                beforePiece430 = this.GetPiece(FrontClockFace.four_thirty);
+                beforePiece1030 = this.GetPiece(FrontClockFace.ten_thirty);
+
+                test_position430_Before = beforePiece430.FrontClockFacePosition;
+                test_position1030_Before = beforePiece1030.FrontClockFacePosition;
+
+                //
+                // Do the work!!  
+                //
                 var complex_rules = Rules_AdjacentPairExchange.GetBacksideRules();
                 base.ComplexRules_Perform(complex_rules);
+
+                //
+                // Testing, after. 
+                //
+                test_position430_After = beforePiece430.FrontClockFacePosition;
+                test_position1030_After = beforePiece1030.FrontClockFacePosition;
+
+                bool boolNoChange430 = (test_position430_Before == test_position430_After);
+                bool boolNoChange1030 = (test_position1030_Before == test_position1030_After);
+
+                //if (boolNoChange430) MessageBox.Show("The backside piece at 4:30 has not moved.");
+                //if (boolNoChange1030) MessageBox.Show("The backside piece at 10:30 has not moved.");
 
             }
 
@@ -407,7 +439,7 @@ namespace RubiksCube_2x2
 
 
 
-            public void GodlikeSwitch(RubikPieceCorner par_dragged, RubikPieceCorner par_replaced)
+            public override void GodlikeSwitch(RubikPieceCorner par_dragged, RubikPieceCorner par_replaced)
             {
                 //
                 // Added 11/17/2020 thomas downes

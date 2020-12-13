@@ -60,7 +60,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(13, 380);
+            this.progressBar1.Location = new System.Drawing.Point(21, 428);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(1100, 16);
             this.progressBar1.TabIndex = 0;
@@ -69,7 +69,7 @@
             // 
             this.labelRotateSimpleClock.AutoSize = true;
             this.labelRotateSimpleClock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRotateSimpleClock.Location = new System.Drawing.Point(784, 404);
+            this.labelRotateSimpleClock.Location = new System.Drawing.Point(792, 452);
             this.labelRotateSimpleClock.Name = "labelRotateSimpleClock";
             this.labelRotateSimpleClock.Size = new System.Drawing.Size(343, 25);
             this.labelRotateSimpleClock.TabIndex = 1;
@@ -77,7 +77,7 @@
             // 
             // buttonRotateClockwise
             // 
-            this.buttonRotateClockwise.Location = new System.Drawing.Point(785, 444);
+            this.buttonRotateClockwise.Location = new System.Drawing.Point(793, 492);
             this.buttonRotateClockwise.Name = "buttonRotateClockwise";
             this.buttonRotateClockwise.Size = new System.Drawing.Size(153, 36);
             this.buttonRotateClockwise.TabIndex = 2;
@@ -87,7 +87,7 @@
             // 
             // buttonRotateCounter
             // 
-            this.buttonRotateCounter.Location = new System.Drawing.Point(785, 486);
+            this.buttonRotateCounter.Location = new System.Drawing.Point(793, 534);
             this.buttonRotateCounter.Name = "buttonRotateCounter";
             this.buttonRotateCounter.Size = new System.Drawing.Size(234, 36);
             this.buttonRotateCounter.TabIndex = 3;
@@ -96,7 +96,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(318, 521);
+            this.button1.Location = new System.Drawing.Point(326, 569);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(212, 36);
             this.button1.TabIndex = 6;
@@ -106,7 +106,7 @@
             // 
             // buttonRotateComplex
             // 
-            this.buttonRotateComplex.Location = new System.Drawing.Point(42, 521);
+            this.buttonRotateComplex.Location = new System.Drawing.Point(50, 569);
             this.buttonRotateComplex.Name = "buttonRotateComplex";
             this.buttonRotateComplex.Size = new System.Drawing.Size(131, 36);
             this.buttonRotateComplex.TabIndex = 5;
@@ -117,7 +117,7 @@
             // labelComplexRotate2
             // 
             this.labelComplexRotate2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelComplexRotate2.Location = new System.Drawing.Point(41, 433);
+            this.labelComplexRotate2.Location = new System.Drawing.Point(49, 481);
             this.labelComplexRotate2.Name = "labelComplexRotate2";
             this.labelComplexRotate2.Size = new System.Drawing.Size(707, 80);
             this.labelComplexRotate2.TabIndex = 4;
@@ -127,7 +127,7 @@
             // labelCountCRUndo
             // 
             this.labelCountCRUndo.AutoSize = true;
-            this.labelCountCRUndo.Location = new System.Drawing.Point(567, 531);
+            this.labelCountCRUndo.Location = new System.Drawing.Point(575, 579);
             this.labelCountCRUndo.Name = "labelCountCRUndo";
             this.labelCountCRUndo.Size = new System.Drawing.Size(49, 17);
             this.labelCountCRUndo.TabIndex = 8;
@@ -137,7 +137,7 @@
             // labelSimpleCCW
             // 
             this.labelSimpleCCW.AutoSize = true;
-            this.labelSimpleCCW.Location = new System.Drawing.Point(1034, 496);
+            this.labelSimpleCCW.Location = new System.Drawing.Point(1042, 544);
             this.labelSimpleCCW.Name = "labelSimpleCCW";
             this.labelSimpleCCW.Size = new System.Drawing.Size(49, 17);
             this.labelSimpleCCW.TabIndex = 10;
@@ -146,7 +146,7 @@
             // labelCountSimpleCW
             // 
             this.labelCountSimpleCW.AutoSize = true;
-            this.labelCountSimpleCW.Location = new System.Drawing.Point(944, 454);
+            this.labelCountSimpleCW.Location = new System.Drawing.Point(952, 502);
             this.labelCountSimpleCW.Name = "labelCountSimpleCW";
             this.labelCountSimpleCW.Size = new System.Drawing.Size(49, 17);
             this.labelCountSimpleCW.TabIndex = 9;
@@ -224,7 +224,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(46, 399);
+            this.label1.Location = new System.Drawing.Point(54, 447);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(434, 25);
             this.label1.TabIndex = 17;
@@ -245,7 +245,7 @@
             // 
             this.linkRevertToStart.AutoSize = true;
             this.linkRevertToStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkRevertToStart.Location = new System.Drawing.Point(786, 540);
+            this.linkRevertToStart.Location = new System.Drawing.Point(794, 588);
             this.linkRevertToStart.Name = "linkRevertToStart";
             this.linkRevertToStart.Size = new System.Drawing.Size(220, 26);
             this.linkRevertToStart.TabIndex = 19;
@@ -256,7 +256,7 @@
             // labelBriefSerialization
             // 
             this.labelBriefSerialization.AutoSize = true;
-            this.labelBriefSerialization.Location = new System.Drawing.Point(302, 607);
+            this.labelBriefSerialization.Location = new System.Drawing.Point(310, 655);
             this.labelBriefSerialization.Name = "labelBriefSerialization";
             this.labelBriefSerialization.Size = new System.Drawing.Size(733, 17);
             this.labelBriefSerialization.TabIndex = 20;
@@ -266,7 +266,7 @@
             // labelUniquenessIndex
             // 
             this.labelUniquenessIndex.AutoSize = true;
-            this.labelUniquenessIndex.Location = new System.Drawing.Point(302, 580);
+            this.labelUniquenessIndex.Location = new System.Drawing.Point(310, 628);
             this.labelUniquenessIndex.Name = "labelUniquenessIndex";
             this.labelUniquenessIndex.Size = new System.Drawing.Size(140, 17);
             this.labelUniquenessIndex.TabIndex = 21;
@@ -275,16 +275,17 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(367, 347);
+            this.label6.Location = new System.Drawing.Point(375, 395);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(276, 17);
             this.label6.TabIndex = 22;
             this.label6.Text = "Clockwise from BOY (Blue Orange Yellow):";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // labelCountCR
             // 
             this.labelCountCR.AutoSize = true;
-            this.labelCountCR.Location = new System.Drawing.Point(201, 531);
+            this.labelCountCR.Location = new System.Drawing.Point(209, 579);
             this.labelCountCR.Name = "labelCountCR";
             this.labelCountCR.Size = new System.Drawing.Size(49, 17);
             this.labelCountCR.TabIndex = 7;
@@ -295,7 +296,7 @@
             // 
             this.labelUVW_VWX_WXY_XYZ.AutoSize = true;
             this.labelUVW_VWX_WXY_XYZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUVW_VWX_WXY_XYZ.Location = new System.Drawing.Point(649, 347);
+            this.labelUVW_VWX_WXY_XYZ.Location = new System.Drawing.Point(657, 395);
             this.labelUVW_VWX_WXY_XYZ.Name = "labelUVW_VWX_WXY_XYZ";
             this.labelUVW_VWX_WXY_XYZ.Size = new System.Drawing.Size(176, 20);
             this.labelUVW_VWX_WXY_XYZ.TabIndex = 23;
@@ -317,7 +318,7 @@
             // labelBOYwSideColorsEql
             // 
             this.labelBOYwSideColorsEql.AutoSize = true;
-            this.labelBOYwSideColorsEql.Location = new System.Drawing.Point(844, 350);
+            this.labelBOYwSideColorsEql.Location = new System.Drawing.Point(852, 398);
             this.labelBOYwSideColorsEql.Name = "labelBOYwSideColorsEql";
             this.labelBOYwSideColorsEql.Size = new System.Drawing.Size(269, 17);
             this.labelBOYwSideColorsEql.TabIndex = 25;
@@ -325,7 +326,7 @@
             // 
             // cmdSwitchFrontBottomPieces
             // 
-            this.cmdSwitchFrontBottomPieces.Location = new System.Drawing.Point(42, 563);
+            this.cmdSwitchFrontBottomPieces.Location = new System.Drawing.Point(50, 611);
             this.cmdSwitchFrontBottomPieces.Name = "cmdSwitchFrontBottomPieces";
             this.cmdSwitchFrontBottomPieces.Size = new System.Drawing.Size(208, 36);
             this.cmdSwitchFrontBottomPieces.TabIndex = 26;
@@ -337,7 +338,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1152, 642);
+            this.ClientSize = new System.Drawing.Size(1152, 691);
             this.Controls.Add(this.cmdSwitchFrontBottomPieces);
             this.Controls.Add(this.labelBOYwSideColorsEql);
             this.Controls.Add(this.comboGodlikePowers);

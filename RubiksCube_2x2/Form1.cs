@@ -130,6 +130,9 @@ namespace RubiksCube_2x2
                 mod_cubeBackside = new Back.ClassBackside(mod_BackPieceBOY, mod_BackPieceBYR,
                                                                mod_BackPieceGRY, mod_BackPieceGYO);
                 //this.Refresh();
+
+                //Added 12/13/2020 thomas downes
+                mod_cubeWholeBothSides = new RubiksCubeBothSides(mod_cubeFrontside, mod_cubeBackside);
             }
 
             //Added 11/20/2020 thomas downes
@@ -617,7 +620,7 @@ namespace RubiksCube_2x2
                 // Added 12/01/2020 thomas downes
                 if (bPriorValue == false) // Only show the message if the value has changed. 
                 {
-                    MessageBox.Show("All the pieces of the backside are correctly placed in relaction with each other-- BOY, BYR, GRY, GOY.",
+                    MessageBox.Show("All the pieces of the backside are correctly placed in relation with each other-- BOY, BYR, GRY, GOY.",
                         "Pieces in correct order",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -830,12 +833,15 @@ namespace RubiksCube_2x2
                         //    arrangement of pieces on the opposide side of the cube. 
                         //
                         // Condition added 12/06/2020 thomas downes
-                        if (bClickedBackside) mod_cubeBackside
-                            .GodlikeSwitch(_rubiksPiece_Dragged, _rubiksPiece_Replaced);
+                        RubiksCubeOneSide cubeSide = null;
+
+                        if (bClickedFrontside) cubeSide = mod_cubeFrontside;
+                        if (bClickedBackside) cubeSide = mod_cubeBackside;
+                        cubeSide.GodlikeSwitch(_rubiksPiece_Dragged, _rubiksPiece_Replaced);
 
                         // Condition (& function call) added 12/06/2020 thomas downes
-                        if (bClickedFrontside) mod_cubeFrontside
-                            .GodlikeSwitch(_rubiksPiece_Dragged, _rubiksPiece_Replaced);
+                        //if (bClickedFrontside) mod_cubeFrontside
+                        //    .GodlikeSwitch(_rubiksPiece_Dragged, _rubiksPiece_Replaced);
                     }
                     else
                     {
@@ -854,6 +860,17 @@ namespace RubiksCube_2x2
                             // Added 12/7/2020 td
                             MessageBox.Show("Great, the pieces are adjacent.  Okay to effect the consequences to the other side?");
 
+                            //Added 12/9/2020 thomas downes  
+                            if (bClickedFrontside)
+                                mod_cubeWholeBothSides.OrientCube_Step1Rotate(_rubiksPiece_Dragged,
+                                 _rubiksPiece_Replaced, true,
+                                 mod_cubeFrontside, mod_cubeBackside);
+                            if (bClickedBackside) 
+                                  mod_cubeWholeBothSides.OrientCube_Step1Rotate(_rubiksPiece_Dragged, 
+                                   _rubiksPiece_Replaced, true, 
+                                   mod_cubeBackside, mod_cubeFrontside);
+                            mod_cubeWholeBothSides.SwitchBottomPieces_Front();
+                            mod_cubeWholeBothSides.OrientCube_Step2Restore();
 
                         }
                         else
@@ -888,7 +905,7 @@ namespace RubiksCube_2x2
                         // Added 12/01/2020 thomas downes
                         if (bPriorValue == false) //Let's not keep hitting the user over the head with this message. 
                         {
-                            MessageBox.Show("All the pieces of the backside are correctly placed in relaction with each other-- BOY, BYR, GRY, GOY.",
+                            MessageBox.Show("All the pieces of the backside are correctly placed in relation with each other-- BOY, BYR, GRY, GOY.",
                                 "Pieces in correct order",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
@@ -1046,9 +1063,85 @@ namespace RubiksCube_2x2
             //
             //  Added 12/9/2020 thomas d.
             //
+            RubikPieceCorner beforePiece430;  // For testing only. 
+            RubikPieceCorner beforePiece1030;   // For testing only. 
+            FrontClockFace test_position430_Before;
+            FrontClockFace test_position430_After;
+            FrontClockFace test_position1030_Before;
+            FrontClockFace test_position1030_After;
+
+            //
+            // Testing, before. 
+            //
+            beforePiece430 = mod_cubeBackside.GetPiece(FrontClockFace.four_thirty);
+            beforePiece1030 = mod_cubeBackside.GetPiece(FrontClockFace.ten_thirty);
+
+            test_position430_Before = beforePiece430.FrontClockFacePosition;
+            test_position1030_Before = beforePiece1030.FrontClockFacePosition;
+
+            //MessageBox.Show("Before..... \n  Blue-Orange-Yellow piece: " + mod_BackPieceBOY.ToString() +
+            //                "\n\n Green-Red-Yellow piece: " + mod_BackPieceGRY.ToString());
+
+            //
+            // Major call !!   Do the work!
+            //
+            mod_cubeWholeBothSides.SwitchBottomPieces_Front();
+            this.Refresh();
+
+            //
+            // Testing, after. 
+            //
+            test_position430_After = beforePiece430.FrontClockFacePosition;
+            test_position1030_After = beforePiece1030.FrontClockFacePosition;
+
+            bool boolNoChange430 = (test_position430_Before == test_position430_After);
+            bool boolNoChange1030 = (test_position1030_Before == test_position1030_After);
+
+            if (boolNoChange430) MessageBox.Show("The backside piece at 4:30 has not moved.");
+            if (boolNoChange1030) MessageBox.Show("The backside piece at 10:30 has not moved.");
+
+            //MessageBox.Show("After..... \n  Blue-Orange-Yellow piece: " + mod_BackPieceBOY.ToString() +
+            //    "\n\n Green-Red-Yellow piece: " + mod_BackPieceGRY.ToString());
+
+            //
+            // Check object-references. 
+            //
+            //bool boolObjectOkayBOY_1 = (mod_BackPieceBOY == mod_cubeBackside._pieceBOY);
+            //bool boolObjectOkayGRY_1 = (mod_BackPieceGRY == mod_cubeBackside._pieceGRY);
+
+            //if (!boolObjectOkayBOY_1) MessageBox.Show("Object-reference #1 for BOY is broken.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //if (!boolObjectOkayGRY_1) MessageBox.Show("Object-reference #1 for GRY is broken.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            bool boolObjectOkayBOY_2 = (mod_BackPieceBOY == mod_cubeWholeBothSides.BackSide()._pieceBOY );
+            bool boolObjectOkayGRY_2 = (mod_BackPieceGRY == mod_cubeWholeBothSides.BackSide()._pieceGRY );
+
+            if (!boolObjectOkayBOY_2) MessageBox.Show("Object-reference #2 for BOY is broken.....!!", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            if (!boolObjectOkayGRY_2) MessageBox.Show("Object-reference #2 for GRY is broken.....!!.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            //
+            // Give supplementary feedback to the user. 
+            //
+            //Added 12/1/2020 thomas
+            bool bPriorValue = false; //Added 12/1/2020 thomas
+            if (mod_cubeBackside.PiecesAreCorrectlyOrdered(out bPriorValue))
+            {
+                // Added 12/01/2020 thomas downes
+                if (bPriorValue == false) // Only show the message if the value has changed. 
+                {
+                    MessageBox.Show("All the pieces of the backside are correctly placed in relation with each other-- BOY, BYR, GRY, GOY.",
+                        "Pieces in correct order",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+
+            // Added 12/4/2020 td
+            labelUVW_VWX_WXY_XYZ.Text = mod_cubeBackside.BOY_etc_Clockwise();
 
 
+        }
 
+        private void label6_Click(object sender, EventArgs e)
+        {
 
         }
     }

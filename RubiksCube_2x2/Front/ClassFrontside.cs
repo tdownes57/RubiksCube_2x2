@@ -188,7 +188,7 @@ namespace RubiksCube_2x2
             }
 
 
-            public void GodlikeSwitch(RubikPieceCorner par_dragged, RubikPieceCorner par_replaced)
+            public override void GodlikeSwitch(RubikPieceCorner par_dragged, RubikPieceCorner par_replaced)
             {
                 //
                 // Added 12/06/2020 thomas downes

@@ -39,6 +39,9 @@ namespace RubiksCube_2x2
         public abstract bool PiecesAreAdjacent_Clockwise(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2);
         public abstract bool PiecesBelongToThisSide(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2);
 
+        //Added 12/9/2020 thomas downes 
+        public abstract void GodlikeSwitch(RubikPieceCorner par_dragged, RubikPieceCorner par_replaced);
+
 
         public abstract RubikPieceCorner GetPiece(FrontClockFace par_enum);
 
@@ -125,6 +128,7 @@ namespace RubiksCube_2x2
             // Use the static class, ComplexRulesEngine.  
             //
             // Move #1 of 5. 
+            //
             //ComplexRulesEngine.ReorientPiece_Complex(move1_from130.StartingPoint, move1_from130.EndingPoint);
             Back.ComplexRulesEngine0130.this_piece_startsAt_130 = piece_starting_at_130;
             Back.ComplexRulesEngine0130.this_complex_move = par_rules.move1_from130;
