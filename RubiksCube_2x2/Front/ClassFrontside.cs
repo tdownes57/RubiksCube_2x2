@@ -325,6 +325,77 @@ namespace RubiksCube_2x2
             }
 
 
+            public string Brief_BRW()
+            {
+                //Added 11/19/2020 thomas downes
+                //
+                // Example #1:
+                //
+                //     BOY/NE=F1:N_F2:E_F3:F 
+                //
+                // Example #1:
+                //
+                //     BOY/SW=F1:S_F2:W_F3:F
+                //
+                //     (F = Front Face) 
+                //
+                return _pieceBRW.ToString();
+            }
+
+            public string Brief_BWO()
+            {
+                //Added 11/19/2020 thomas downes
+                //
+                // Example #1:
+                //
+                //      BYR/NE=F1:N_F2:E_F3:F
+                //
+                // Example #1:
+                //
+                //      BYR/SW=F1:W_F2:S_F3:F  
+                //
+                //     (F = Front Face) 
+                //
+                return _pieceBWO.ToString();
+            }
+
+            public string Brief_GOW()
+            {
+                //Added 11/19/2020 thomas downes
+                //
+                // Example #1:
+                //
+                //      GRY/SE=F1:F_F2:E_F3:S 
+                //
+                // Example #1:
+                //
+                //      GRY/SW=F1:F_F2:W_F3:S 
+                //
+                //     (F = Front Face) 
+                //
+                return _pieceGOW.ToString();
+            }
+
+            public string Brief_GWR()
+            {
+                //Added 11/19/2020 thomas downes
+                //
+                // Example #1:
+                //
+                //     GYO/NW=F1:N_F2:F_F3:W
+                //
+                // Example #1:
+                //
+                //     GYO/SE=F1:S_F2:F_F3:E
+                //
+                //     (F = Front Face) 
+                //
+                return _pieceGWR.ToString();
+            }
+
+
+
+
         }
     }
 }

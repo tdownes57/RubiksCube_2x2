@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Front\ClassFrontsideBrief.cs" />
     <Compile Include="RubiksCubeOneSide.cs" />
     <Compile Include="Back\ClassBlueOrangeYellow.cs" />
     <Compile Include="Back\ClassBlueYellowRed.cs" />

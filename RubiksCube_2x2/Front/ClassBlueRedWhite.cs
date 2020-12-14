@@ -79,8 +79,42 @@ namespace RubiksCube_2x2
 
                 LoadInitialState_NotInUse();
 
+            }
+
+            public BlueRedWhite(string par_strBriefDescription) //, ClassBackside par_parentSide)
+            {
+                //---public BlueOrangeYellow(string par_strBriefDescription
+                //
+                // Added 12/13/2020 thomas downes
+                //
+                // Example #1:
+                //
+                //     BOY/NE==F1:N_F2:E_F3:F  
+                //
+                //                     ignore: BYR/SE==F1:S_F2:E_F3:F  GRY/SW==F1:F_F2:W_F3:S  GYO/NW==F1:N_F2:F_F3:W
+                //
+                // Example #2:
+                //
+                //     BOY/SW==F1:S_F2:W_F3:F
+                //
+                //                     ignore: BYR/NE==F1:N_F2:E_F3:F  GRY/SE==F1:F_F2:E_F3:S  GYO/NW==F1:N_F2:F_F3:W
+                //
+                //     (F = Front Face) 
+                //
+                if (par_strBriefDescription.StartsWith("BRW") == false) 
+                    throw new ArgumentOutOfRangeException("Brief string must begin with BRW.");
+
+                //
+                // Encapsulated 11/20/2020.
+                //
+                base.ParseBriefInputString(par_strBriefDescription);
+
+                //Added 12/3/2020 thomas downes
+                //_parentSide = par_parentSide;
 
             }
+
+
             public override void LoadInitialState_NotInUse() { 
                 //
                 // Clock position:
