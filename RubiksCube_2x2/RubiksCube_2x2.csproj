@@ -115,6 +115,10 @@
     <Content Include="20201110_140914.jpg" />
     <Content Include="20201110_140918.jpg" />
     <None Include="Cursors\custom-cursor-tcd .cur" />
+    <Content Include="Back\NotUsed_LoadPiece_BOY.txt" />
+    <Content Include="Back\NotUsed_LoadPiece_BYR.txt" />
+    <Content Include="Back\NotUsed_LoadPiece_GRY.txt" />
+    <Content Include="Back\NotUsed_LoadPiece_GYO.txt" />
     <Content Include="Cursors\custom-cursor-tcd.ico" />
     <Content Include="Cursors\custom-cursor-tcd.png" />
     <Content Include="Cursors\custom-cursor-transparent2.png" />

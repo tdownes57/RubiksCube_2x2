@@ -41,8 +41,13 @@ namespace RubiksCube_2x2
                 //
                 // Convert the JSON to the object. 
                 //
-                Back.BlueOrangeYellow objectBOY =
-                    (Back.BlueOrangeYellow)JsonConvert.DeserializeObject(strJsonStringFor_BOY, 
+                Back.BlueOrangeYellow objectBOY;
+
+                //Added 12/14/2020 td 
+                //   Example:   BOY/NE==F1:N_F2:E_F3:F 
+                if (strJsonStringFor_BOY.StartsWith("BOY/")) objectBOY = new Back.BlueOrangeYellow(strJsonStringFor_BOY);
+
+                else objectBOY = (Back.BlueOrangeYellow)JsonConvert.DeserializeObject(strJsonStringFor_BOY, 
                                                             typeof(Back.BlueOrangeYellow));
 
                 return objectBOY;
@@ -86,7 +91,13 @@ namespace RubiksCube_2x2
                 //
                 // Convert the JSON to the object. 
                 //
-                Back.BlueYellowRed objectBYR =
+                Back.BlueYellowRed objectBYR;
+
+                //Added 12/14/2020 td 
+                //   Example:   BOY/NE==F1:N_F2:E_F3:F 
+                if (strJsonStringFor_BYR.StartsWith("BYR/")) objectBYR = new Back.BlueYellowRed(strJsonStringFor_BYR);
+
+                else objectBYR =
                     (Back.BlueYellowRed)JsonConvert.DeserializeObject(strJsonStringFor_BYR,
                                                      typeof(Back.BlueYellowRed));
 
@@ -132,7 +143,13 @@ namespace RubiksCube_2x2
                 //
                 // Convert the JSON to the object. 
                 //
-                Back.GreenRedYellow objectGRY =
+                Back.GreenRedYellow objectGRY;
+
+                //Added 12/14/2020 td 
+                //   Example:   GRY/NE==F1:N_F2:E_F3:F 
+                if (strJsonStringFor_GRY.StartsWith("GRY/")) objectGRY = new Back.GreenRedYellow(strJsonStringFor_GRY);
+
+                else objectGRY =
                     (Back.GreenRedYellow)JsonConvert.DeserializeObject(strJsonStringFor_GRY, 
                                                             typeof(Back.GreenRedYellow));
 
@@ -179,8 +196,14 @@ namespace RubiksCube_2x2
                 //
                 // Convert the JSON to the object. 
                 //
-                Back.GreenYellowOrange objectGYO =
-                   (Back.GreenYellowOrange)JsonConvert.DeserializeObject(strJsonStringFor_GYO, 
+                Back.GreenYellowOrange objectGYO;
+
+                //Added 12/14/2020 td 
+                //   Example:   GYO/NE==F1:N_F2:E_F3:F 
+                if (strJsonStringFor_GYO.StartsWith("GYO/")) objectGYO = new Back.GreenYellowOrange(strJsonStringFor_GYO);
+
+                else objectGYO =
+                        (Back.GreenYellowOrange)JsonConvert.DeserializeObject(strJsonStringFor_GYO, 
                                                             typeof(Back.GreenYellowOrange));
 
             return objectGYO;

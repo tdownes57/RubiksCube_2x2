@@ -1037,11 +1037,26 @@ namespace RubiksCube_2x2
             //
             // Added 11/17/2020 thomas downes
             //
-            JsonStaticClass_Save.SaveToDiskPiece_BOY(mod_BackPieceBOY);
-            JsonStaticClass_Save.SaveToDiskPiece_BYR(mod_BackPieceBYR);
-            JsonStaticClass_Save.SaveToDiskPiece_GRY(mod_BackPieceGRY);
-            JsonStaticClass_Save.SavePiece_GYO(mod_BackPieceGYO);
+            //JsonStaticClass_Save.SaveToDiskPiece_BOY(mod_BackPieceBOY);
+            //JsonStaticClass_Save.SaveToDiskPiece_BYR(mod_BackPieceBYR);
+            //JsonStaticClass_Save.SaveToDiskPiece_GRY(mod_BackPieceGRY);
+            //JsonStaticClass_Save.SavePiece_GYO(mod_BackPieceGYO);
 
+            const bool c_boolBriefVersion1 = false;   // true;  //Added 12/14/2020 thomas downes
+
+            if (c_boolBriefVersion1)
+            {
+                var objectSide = new Back.ClassBacksideBrief(mod_cubeBackside);
+                string strSerialization = objectSide.PositionsBrief;
+            }
+            else 
+            {
+                const bool c_boolBriefVersion2 = false;   // true;  //Added 12/14/2020 thomas downes
+                JsonStaticClass_Save.SaveToDiskPiece_BOY(mod_BackPieceBOY, c_boolBriefVersion2);
+                JsonStaticClass_Save.SaveToDiskPiece_BYR(mod_BackPieceBYR, c_boolBriefVersion2);
+                JsonStaticClass_Save.SaveToDiskPiece_GRY(mod_BackPieceGRY, c_boolBriefVersion2);
+                JsonStaticClass_Save.SavePiece_GYO(mod_BackPieceGYO, c_boolBriefVersion2);   //, c_boolBriefVersion);
+            }
 
         }
 

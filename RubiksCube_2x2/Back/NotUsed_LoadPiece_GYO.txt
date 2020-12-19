@@ -1,0 +1,1 @@
+{"FrontClockFacePosition":3,"FrontClockFacePosition_Prior":2,"WhichFaceIsFront":3,"WhichFaceIsN_of_front":1,"WhichFaceIsW_of_front":2,"WhichFaceIsE_of_front":1,"WhichFaceIsS_of_front":4,"FaceColor1of3":"Lime","FaceColor2of3":"Yellow","FaceColor3of3":"Orange"}

@@ -384,11 +384,11 @@ namespace RubiksCube_2x2
                 //
                 // Example #1:
                 //
-                //     BOY/NE==F1:N_F2:E_F3:F 
+                //     BYR/NE==F1:N_F2:E_F3:F 
                 //
                 // Example #1:
                 //
-                //     BOY/SW==F1:S_F2:W_F3:F
+                //     BYR/SW==F1:S_F2:W_F3:F
                 //
                 //     (F = Front Face) 
                 //

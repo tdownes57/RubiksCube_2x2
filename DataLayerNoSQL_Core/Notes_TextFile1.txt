@@ -1,0 +1,17 @@
+﻿
+
+        //
+        //   https://www.c-sharpcorner.com/article/using-mongodb-with-asp-net-core-web-api/
+        //
+
+
+        Installing MongoDB and creating the database elements
+ 
+The first step would be to download and install the MongoDB Server and Client. You can do this from the below URL:
+https://www.mongodb.com/download-center/community
+ 
+Once you have downloaded the MSI package, you can install it as shown below:
+
+
+
+

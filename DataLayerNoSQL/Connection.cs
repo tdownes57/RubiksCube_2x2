@@ -27,7 +27,9 @@ namespace DataLayerNoSQL
             //
             //   https://cloud.mongodb.com/v2/5fbb31ecbaf9ad01b2a30783#clusters
             //
-            var objClusterId = new MongoDB.Driver.Core.Clusters.ClusterId();
+            var objClusterId = new MongoDB.Driver.Core.Clusters.ClusterId();  // Cluster0, cluster0-shard-00-01.zcz3l
+            //objClusterId = MongoDB.Driver.Core.Clusters.ClusterConnectionMode
+
             var objEndPoint1 = new System.Net.IPEndPoint(objIPAddress, 80);
             var objEndPoint2 = new System.Net.IPEndPoint(System.Net.IPAddress.Parse("10.1.1.100"), 80);
 

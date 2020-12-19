@@ -33,13 +33,13 @@ namespace RubiksCube_2x2.Front
             //     (F = Front Face) 
             //
 
-            string brief_BOY = par_frontsideFull.Brief_BOY();
-            string brief_BYR = par_frontsideFull.Brief_BYR();
-            string brief_GRY = par_frontsideFull.Brief_GRY();
-            string brief_GYO = par_frontsideFull.Brief_GYO();
+            string brief_BRW = par_frontsideFull.Brief_BRW();
+            string brief_BWO = par_frontsideFull.Brief_BWO();
+            string brief_GOW = par_frontsideFull.Brief_GOW();
+            string brief_GWR = par_frontsideFull.Brief_GWR();
 
             //this.PositionsBrief = String.Concat(brief_BOY, brief_BYR, brief_GRY, brief_GYO);
-            this.PositionsBrief = (brief_BOY + "  " + brief_BYR + "  " + brief_GRY + "  " + brief_GYO);
+            this.PositionsBrief = (brief_BRW + "  " + brief_BWO + "  " + brief_GOW + "  " + brief_GWR);
 
         }
 
@@ -66,7 +66,7 @@ namespace RubiksCube_2x2.Front
             GreenOrangeWhite outputGOW = new GreenOrangeWhite(parsedByFour[2]);
             GreenWhiteRed outputGWR = new GreenWhiteRed(parsedByFour[3]);
 
-            ClassFrontside outputFrontside = new ClassFrontside(outputBRW, outputBWO, outputGOW, outputGWR);
+            ClassFrontside outputFrontside = new ClassFrontside(outputBWO, outputBRW, outputGWR, outputGOW);
 
             return outputFrontside; 
 
