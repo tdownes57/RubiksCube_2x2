@@ -21,9 +21,9 @@ namespace DataLayerNoSQL
         public void SetUp_DataClient()
         {
             // ...
-            var client = new MongoClient(
-                "mongodb+srv://<username>:<password>@<cluster-address>/test?w=majority"
-            );
+            //var client = new MongoClient(
+            //    "mongodb+srv://<username>:<password>@<cluster-address>/test?w=majority"
+            //);
             var client_TD = new MongoClient(
                 "mongodb+srv://tomdownes1:art666@cluster0.zcz3l.mongodb.net/test"
             );
@@ -51,7 +51,11 @@ namespace DataLayerNoSQL
 
             var obj_findResult = ThisCollection.Find<RubiksSideConfiguration>(my_linq_func, obj_findOptions);
 
-            ReturnData = obj_findResult.ToString();
+            long intCountDocuments = obj_findResult.CountDocuments();  // Added 12/19/2020 thomas downes
+
+            //ReturnData = obj_findResult.ToString();
+
+            ReturnData = "Back_Brief_BOY: "  + obj_findResult.First<RubiksSideConfiguration>().Back_Brief_BOY;
 
         }
 
