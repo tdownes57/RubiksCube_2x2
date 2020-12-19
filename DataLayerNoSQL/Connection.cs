@@ -40,6 +40,8 @@ namespace DataLayerNoSQL
             var objConnectionString = new MongoDB.Driver.Core.Configuration.ConnectionString(strConnectionString);
 
 
+            var currMongoClient = new MongoDB.Driver.MongoClient();
+
 
 
 

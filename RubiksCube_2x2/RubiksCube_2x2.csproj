@@ -82,6 +82,7 @@
     <Compile Include="RubikPieceCorner.cs" />
     <Compile Include="Back\ClassBacksideBrief.cs" />
     <Compile Include="RubiksCubeBothSides.cs" />
+    <Compile Include="TestMongoDB.cs" />
     <Compile Include="Uniqueness.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

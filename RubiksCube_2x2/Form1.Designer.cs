@@ -56,6 +56,7 @@
             this.comboGodlikePowers = new System.Windows.Forms.ComboBox();
             this.labelBOYwSideColorsEql = new System.Windows.Forms.Label();
             this.cmdSwitchFrontBottomPieces = new System.Windows.Forms.Button();
+            this.buttonGetNoSQL = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // progressBar1
@@ -334,11 +335,22 @@
             this.cmdSwitchFrontBottomPieces.UseVisualStyleBackColor = true;
             this.cmdSwitchFrontBottomPieces.Click += new System.EventHandler(this.cmdSwitchFrontBottomPieces_Click);
             // 
+            // buttonGetNoSQL
+            // 
+            this.buttonGetNoSQL.Location = new System.Drawing.Point(28, 266);
+            this.buttonGetNoSQL.Name = "buttonGetNoSQL";
+            this.buttonGetNoSQL.Size = new System.Drawing.Size(153, 36);
+            this.buttonGetNoSQL.TabIndex = 27;
+            this.buttonGetNoSQL.Text = "Get NoSQL data";
+            this.buttonGetNoSQL.UseVisualStyleBackColor = true;
+            this.buttonGetNoSQL.Click += new System.EventHandler(this.buttonGetNoSQL_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1152, 691);
+            this.Controls.Add(this.buttonGetNoSQL);
             this.Controls.Add(this.cmdSwitchFrontBottomPieces);
             this.Controls.Add(this.labelBOYwSideColorsEql);
             this.Controls.Add(this.comboGodlikePowers);
@@ -409,6 +421,7 @@
         private System.Windows.Forms.ComboBox comboGodlikePowers;
         private System.Windows.Forms.Label labelBOYwSideColorsEql;
         private System.Windows.Forms.Button cmdSwitchFrontBottomPieces;
+        private System.Windows.Forms.Button buttonGetNoSQL;
     }
 }
 

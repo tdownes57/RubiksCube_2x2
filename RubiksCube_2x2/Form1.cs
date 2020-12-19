@@ -1159,5 +1159,22 @@ namespace RubiksCube_2x2
         {
 
         }
+
+        private void buttonGetNoSQL_Click(object sender, EventArgs e)
+        {
+            //
+            //  Added 12/19/2020 td
+            //
+            string strNoSQL = "";
+
+            var objTest = new DataLayerNoSQL.MongoAtlas();
+
+            objTest.SetUp_DataClient();
+
+            strNoSQL = objTest.ReturnData;
+
+            MessageBox.Show("NoSQL:_________  " + strNoSQL);
+
+        }
     }
 }
