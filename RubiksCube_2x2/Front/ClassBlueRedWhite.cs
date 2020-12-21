@@ -107,7 +107,7 @@ namespace RubiksCube_2x2
                 //
                 // Encapsulated 11/20/2020.
                 //
-                base.ParseBriefInputString(par_strBriefDescription);
+                base.ParseBriefInputString_UpdatePosition(par_strBriefDescription);
 
                 //Added 12/3/2020 thomas downes
                 //_parentSide = par_parentSide;

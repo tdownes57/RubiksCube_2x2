@@ -43,6 +43,7 @@ namespace RubiksCube_2x2.Front
 
         }
 
+
         public static ClassFrontside Deserialize(string par_stringToBeParsed)
         {
             //
@@ -73,6 +74,32 @@ namespace RubiksCube_2x2.Front
         }
 
 
+        public static ClassFrontside Deserialize(string par_stringBriefBRW, string par_stringBriefBWO,
+                                                string par_stringBriefGOW, string par_stringBriefGWR)
+        {
+            //
+            // Added 12/13/2020 thomas downes  
+            //
+            // Example #1:
+            //
+            //     BOY/NE==F1:N_F2:E_F3:F  BYR/SE==F1:S_F2:E_F3:F  GRY/SW==F1:F_F2:W_F3:S  GYO/NW==F1:N_F2:F_F3:W
+            //
+            // Example #2:
+            //
+            //     BOY/SW==F1:S_F2:W_F3:F  BYR/NE==F1:N_F2:E_F3:F  GRY/SE==F1:F_F2:E_F3:S  GYO/NW==F1:N_F2:F_F3:W
+            //
+            //     (F = Front Face) 
+            //
+            BlueRedWhite outputBRW = new BlueRedWhite(par_stringBriefBRW);
+            BlueWhiteOrange outputBWO = new BlueWhiteOrange(par_stringBriefBWO);
+            GreenOrangeWhite outputGOW = new GreenOrangeWhite(par_stringBriefGOW);
+            GreenWhiteRed outputGWR = new GreenWhiteRed(par_stringBriefGWR);
+
+            ClassFrontside outputFrontside = new ClassFrontside(outputBWO, outputBRW, outputGWR, outputGOW);
+
+            return outputFrontside;
+
+        }
 
 
     }

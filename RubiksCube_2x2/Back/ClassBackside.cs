@@ -37,6 +37,25 @@ namespace RubiksCube_2x2
             }
 
 
+            public ClassBackside(string par_briefDescription_BOY,
+              string par_briefDescription_BYR,
+              string par_briefDescription_GRY,
+              string par_briefDescription_GYO)
+            {
+                //
+                // Added 12/20/2020 thomas downes
+                //
+                var objBackside = ClassBacksideBrief.Deserialize(par_briefDescription_BOY, par_briefDescription_BYR,
+                                                                 par_briefDescription_GRY, par_briefDescription_GYO);
+
+                _pieceBOY = objBackside._pieceBOY;
+                _pieceBYR = objBackside._pieceBYR;
+                _pieceGRY = objBackside._pieceGRY;
+                _pieceGYO = objBackside._pieceGYO;
+
+            }
+
+
             public override void LoadInitialPositions()
             {
                 //throw new NotImplementedException();
@@ -782,6 +801,22 @@ namespace RubiksCube_2x2
                 if (par_enum == _pieceGRY.FrontClockFacePosition) return _pieceGRY;
                 if (par_enum == _pieceGYO.FrontClockFacePosition) return _pieceGYO;
                 throw new ArgumentOutOfRangeException(); //return null; 
+
+            }
+
+
+            public void ParseBriefs_UpdatePositions(string par_strBriefDescriptionBOY, 
+                                                  string par_strBriefDescriptionBYR, 
+                                                  string par_strBriefDescriptionGRY,
+                                                  string par_strBriefDescriptionGYO)
+            {
+                //
+                // Added 12/20/2020 thomas downes
+                //
+                _pieceBOY.ParseBriefInputString_UpdatePosition(par_strBriefDescriptionBOY);
+                _pieceBYR.ParseBriefInputString_UpdatePosition(par_strBriefDescriptionBYR);
+                _pieceGRY.ParseBriefInputString_UpdatePosition(par_strBriefDescriptionGRY);
+                _pieceGYO.ParseBriefInputString_UpdatePosition(par_strBriefDescriptionGYO);
 
             }
 

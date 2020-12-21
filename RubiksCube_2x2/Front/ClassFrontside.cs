@@ -36,6 +36,26 @@ namespace RubiksCube_2x2
 
             }
 
+
+            public ClassFrontside(string par_brief_BWO,
+                        string par_brief_BRW,
+                        string par_brief_GWR,
+                        string par_brief_GOW)
+            {
+                //---class ClassRotateRules_Front : BackOrFront
+                //
+                // Added 12/20/2020 thomas downes
+                //
+                var objFrontside = ClassFrontsideBrief.Deserialize(par_brief_BRW, par_brief_BWO, par_brief_GOW, par_brief_GWR);
+
+                _pieceBRW = objFrontside._pieceBRW;
+                _pieceBWO = objFrontside._pieceBWO;
+                _pieceGOW = objFrontside._pieceGOW;
+                _pieceGWR = objFrontside._pieceGWR;  
+
+            }
+
+
             public override void LoadInitialPositions()
             {
                 //throw new NotImplementedException();

@@ -26,5 +26,13 @@ namespace DataLayerNoSQL
         public string Back_Brief_GRY  { get; set; }
         public string Back_Brief_GYO  { get; set; }
 
+        //
+        // Added 12/20/2020 thomas downes
+        //
+        public string Front_Brief_BRW { get; set; }
+        public string Front_Brief_BWO { get; set; }
+        public string Front_Brief_GOW { get; set; }
+        public string Front_Brief_GWR { get; set; }
+
     }
 }

@@ -1152,7 +1152,7 @@ namespace RubiksCube_2x2
             return strOutput;
         }
 
-        internal void ParseBriefInputString(string par_strBriefDescription)
+        public void ParseBriefInputString_UpdatePosition(string par_strBriefDescription)
         {
             //
             // Step #1:  Parse the input string into two(2) parts.  
