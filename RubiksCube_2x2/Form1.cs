@@ -1058,6 +1058,13 @@ namespace RubiksCube_2x2
                 JsonStaticClass_Save.SavePiece_GYO(mod_BackPieceGYO, c_boolBriefVersion2);   //, c_boolBriefVersion);
             }
 
+            //
+            // Save to Mongo Database!
+            //
+            //  Added 12/30/2020 td
+            //
+            MongoDB_Save.SaveRubiksSides(in mod_cubeFrontside, in mod_cubeBackside);
+
         }
 
         private void linkRevertToStart_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -1174,6 +1181,29 @@ namespace RubiksCube_2x2
             strNoSQL = objTest.ReturnData;
 
             MessageBox.Show("NoSQL:_________  " + strNoSQL);
+
+        }
+
+        private void buttonSaveToMongo_Click(object sender, EventArgs e)
+        {
+            //
+            // Save to Mongo Database!
+            //
+            //  Added 12/30/2020 td
+            //
+            MongoDB_Save.SaveRubiksSides(in mod_cubeFrontside, in mod_cubeBackside);
+
+        }
+
+        private void buttonLoadFromMongo_Click(object sender, EventArgs e)
+        {
+            //
+            // Save to Mongo Database!
+            //
+            //  Added 12/30/2020 td
+            //
+            MongoDB_Load.GetRubiksSides(out mod_cubeFrontside, out mod_cubeBackside);
+            this.Refresh();
 
         }
     }

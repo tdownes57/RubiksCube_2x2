@@ -215,10 +215,13 @@ namespace RubiksCube_2x2
                 //
                 // Added 11/13/2020 thomas downes
                 //
-                EnumFaceNum temp = base.WhichFaceIsFront;
-                base.WhichFaceIsFront = base.WhichFaceIsS_of_front;
-                base.WhichFaceIsS_of_front = base.WhichFaceIsE_of_front;
-                base.WhichFaceIsE_of_front = temp;
+                //--EnumFaceNum temp = base.WhichFaceIsFront;
+                //--base.WhichFaceIsFront = base.WhichFaceIsS_of_front;
+                //--base.WhichFaceIsS_of_front = base.WhichFaceIsE_of_front;
+                //--base.WhichFaceIsE_of_front = temp;
+
+                //Added 12/23/2020 td
+                base.Revolve_Clockwise90_base();
 
             }
 

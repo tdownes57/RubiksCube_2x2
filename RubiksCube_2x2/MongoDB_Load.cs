@@ -38,7 +38,7 @@ namespace RubiksCube_2x2
             //var objConfig = new DataLayerNoSQL.RubiksSideConfiguration();
             var objConfig = DataLayerNoSQL.MongoAtlas.GetRubiksSideConfiguration();
 
-            out_frontSide = new Back.ClassBackside(objConfig.Front_Brief_BRW, objConfig.Front_Brief_BWO,
+            out_frontSide = new Front.ClassFrontside(objConfig.Front_Brief_BRW, objConfig.Front_Brief_BWO,
                                                   objConfig.Front_Brief_GOW, objConfig.Front_Brief_GWR);
 
             out_backSide = new Back.ClassBackside(objConfig.Back_Brief_BOY, objConfig.Back_Brief_BYR,

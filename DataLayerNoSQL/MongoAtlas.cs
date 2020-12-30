@@ -87,6 +87,34 @@ namespace DataLayerNoSQL
         }
 
 
+        public static void SaveRubiksSideConfiguration(RubiksSideConfiguration par_save)
+        {
+            //
+            // Added 12/30/2020 td
+            //
+            var client_TD = new MongoClient(
+                "mongodb+srv://tomdownes1:art666@cluster0.zcz3l.mongodb.net/test"
+            );
+
+            var objDatabase = client_TD.GetDatabase("RubiksOperations");
+
+            var objCollection = objDatabase.GetCollection<RubiksSideConfiguration>("CurrentPosition_Brief");
+
+            ///Func<RubiksSideConfiguration, bool> test_func1 = s => s.Back_Brief_BOY.StartsWith("B");
+
+            //Expression<Func<RubiksSideConfiguration, bool>> my_linq_func = s => s.Back_Brief_BOY.StartsWith("B");
+
+            //var obj_filter = new ExpressionFilterDefinition<RubiksSideConfiguration>(my_linq_func);
+            //var obj_findOptions = new FindOptions();
+            //var obj_findResult = objCollection.Find<RubiksSideConfiguration>(my_linq_func, obj_findOptions);
+
+            //long intCountDocuments = obj_findResult.CountDocuments();  // Added 12/19/2020 thomas downes
+            //return obj_findResult.First<RubiksSideConfiguration>();
+
+            objCollection.InsertOne(par_save, null);
+
+        }
+
 
 
     }

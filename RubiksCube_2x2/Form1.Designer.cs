@@ -57,6 +57,8 @@
             this.labelBOYwSideColorsEql = new System.Windows.Forms.Label();
             this.cmdSwitchFrontBottomPieces = new System.Windows.Forms.Button();
             this.buttonGetNoSQL = new System.Windows.Forms.Button();
+            this.buttonLoadFromMongo = new System.Windows.Forms.Button();
+            this.buttonSaveToMongo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // progressBar1
@@ -337,7 +339,7 @@
             // 
             // buttonGetNoSQL
             // 
-            this.buttonGetNoSQL.Location = new System.Drawing.Point(28, 266);
+            this.buttonGetNoSQL.Location = new System.Drawing.Point(22, 220);
             this.buttonGetNoSQL.Name = "buttonGetNoSQL";
             this.buttonGetNoSQL.Size = new System.Drawing.Size(153, 36);
             this.buttonGetNoSQL.TabIndex = 27;
@@ -345,11 +347,33 @@
             this.buttonGetNoSQL.UseVisualStyleBackColor = true;
             this.buttonGetNoSQL.Click += new System.EventHandler(this.buttonGetNoSQL_Click);
             // 
+            // buttonLoadFromMongo
+            // 
+            this.buttonLoadFromMongo.Location = new System.Drawing.Point(21, 361);
+            this.buttonLoadFromMongo.Name = "buttonLoadFromMongo";
+            this.buttonLoadFromMongo.Size = new System.Drawing.Size(153, 51);
+            this.buttonLoadFromMongo.TabIndex = 28;
+            this.buttonLoadFromMongo.Text = "Load Cube from Mongo";
+            this.buttonLoadFromMongo.UseVisualStyleBackColor = true;
+            this.buttonLoadFromMongo.Click += new System.EventHandler(this.buttonLoadFromMongo_Click);
+            // 
+            // buttonSaveToMongo
+            // 
+            this.buttonSaveToMongo.Location = new System.Drawing.Point(21, 304);
+            this.buttonSaveToMongo.Name = "buttonSaveToMongo";
+            this.buttonSaveToMongo.Size = new System.Drawing.Size(153, 51);
+            this.buttonSaveToMongo.TabIndex = 29;
+            this.buttonSaveToMongo.Text = "Save Cube to Mongo";
+            this.buttonSaveToMongo.UseVisualStyleBackColor = true;
+            this.buttonSaveToMongo.Click += new System.EventHandler(this.buttonSaveToMongo_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1152, 691);
+            this.Controls.Add(this.buttonSaveToMongo);
+            this.Controls.Add(this.buttonLoadFromMongo);
             this.Controls.Add(this.buttonGetNoSQL);
             this.Controls.Add(this.cmdSwitchFrontBottomPieces);
             this.Controls.Add(this.labelBOYwSideColorsEql);
@@ -422,6 +446,8 @@
         private System.Windows.Forms.Label labelBOYwSideColorsEql;
         private System.Windows.Forms.Button cmdSwitchFrontBottomPieces;
         private System.Windows.Forms.Button buttonGetNoSQL;
+        private System.Windows.Forms.Button buttonLoadFromMongo;
+        private System.Windows.Forms.Button buttonSaveToMongo;
     }
 }
 

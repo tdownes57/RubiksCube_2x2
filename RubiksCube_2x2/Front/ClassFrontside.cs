@@ -98,7 +98,13 @@ namespace RubiksCube_2x2
                 //_pieceGOW.WhichFaceIsFront = _pieceGOW.WhichFaceIsS_of_front;
                 //_pieceGOW.WhichFaceIsS_of_front = _pieceGOW.WhichFaceIsE_of_front;
                 //_pieceGOW.WhichFaceIsE_of_front = temp;
-                _pieceGOW.RotateJustThisPiece_Clockwise();
+
+                //---_pieceGOW.RotateJustThisPiece_Clockwise();
+
+                _pieceBRW.Revolve_Clockwise90();
+                _pieceBWO.Revolve_Clockwise90();
+                _pieceGOW.Revolve_Clockwise90();
+                _pieceGWR.Revolve_Clockwise90();
 
             }
 
