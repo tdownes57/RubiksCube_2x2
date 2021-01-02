@@ -165,15 +165,37 @@ namespace RubiksCube_2x2
 
         }
 
-
-        public Back.ClassBackside BackSide()
+        
+        public Back.ClassBackside BackSide
         {
             // Added 12/13/2020 thomas downes
             //
-            return mod_backside; 
-
+            //----1/2/2021---return mod_backside;  
+            get
+            {
+                return mod_backside;
+            }
+            set
+            {
+                mod_backside = value; 
+            }
         }
 
+
+        public Front.ClassFrontside FrontSide
+        {
+            //
+            // Added 1/02/2021 thomas downes
+            //
+            get
+            {
+                return mod_frontside;
+            }
+            set
+            {
+                mod_frontside = value;
+            }
+        }
 
 
 

@@ -75,15 +75,27 @@ namespace DataLayerNoSQL
 
             Func<RubiksSideConfiguration, bool> test_func1 = s => s.Back_Brief_BOY.StartsWith("B");
 
-            Expression<Func<RubiksSideConfiguration, bool>> my_linq_func = s => s.Back_Brief_BOY.StartsWith("B");
+            //Expression<Func<RubiksSideConfiguration, bool>> my_linq_func = s => s.Back_Brief_BOY.StartsWith("B");
+            //Expression<Func<RubiksSideConfiguration, bool>> my_linq_func = 
+            //s => s.Back_Brief_BOY.StartsWith("B") &&
+            //     s.Back_Brief_BYR.StartsWith("B");
+            Expression<Func<RubiksSideConfiguration, bool>> my_linq_func =
+                s => s.Back_Brief_BOY.StartsWith("B") &&
+                     s.Back_Brief_BYR.StartsWith("B") &&
+                     s.Front_Brief_BRW.StartsWith("B") &&
+                     s.Front_Brief_BWO.StartsWith("B");
 
             var obj_filter = new ExpressionFilterDefinition<RubiksSideConfiguration>(my_linq_func);
             var obj_findOptions = new FindOptions();
             var obj_findResult = objCollection.Find<RubiksSideConfiguration>(my_linq_func, obj_findOptions);
 
             //long intCountDocuments = obj_findResult.CountDocuments();  // Added 12/19/2020 thomas downes
-            return obj_findResult.First<RubiksSideConfiguration>();
-        
+            //return obj_findResult.First<RubiksSideConfiguration>();
+
+            RubiksSideConfiguration objRubikCfg = obj_findResult.First<RubiksSideConfiguration>();
+
+            return objRubikCfg;
+
         }
 
 

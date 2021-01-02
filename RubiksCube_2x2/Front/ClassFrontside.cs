@@ -37,10 +37,10 @@ namespace RubiksCube_2x2
             }
 
 
-            public ClassFrontside(string par_brief_BWO,
-                        string par_brief_BRW,
-                        string par_brief_GWR,
-                        string par_brief_GOW)
+            public ClassFrontside(string par_brief_BRW,
+                        string par_brief_BWO,
+                        string par_brief_GOW,
+                        string par_brief_GWR)
             {
                 //---class ClassRotateRules_Front : BackOrFront
                 //
@@ -347,6 +347,21 @@ namespace RubiksCube_2x2
                      par_piece2 == _pieceGOW || par_piece2 == _pieceGWR);
 
                 return (bPiece1_okay && bPiece2_okay);
+
+            }
+
+
+            public override string ToString()
+            {
+                //
+                // Added 11/20/2020 thomas downes
+                //
+                //return base.ToString();
+
+                //string strBriefDescription = (new Back.ClassBacksideBrief(this)).PositionsBrief;
+                string strBriefDescription = (new Front.ClassFrontsideBrief(this)).PositionsBrief;
+
+                return strBriefDescription;
 
             }
 

@@ -221,6 +221,24 @@ namespace RubiksCube_2x2
 
             }
 
+            public override string ToString()
+            {
+                //
+                // Added 11/19/2020 td
+                //
+                // Example #1:
+                //
+                //     BOY/NE==F1:N_F2:E_F3:F 
+                //
+                // Example #1:
+                //
+                //     BOY/SW==F1:S_F2:W_F3:F
+                //
+                //     (F = Front Face) 
+                //
+                return ("GWR/" + base.ToString());
+
+            }
 
 
         }

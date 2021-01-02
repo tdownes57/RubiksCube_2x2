@@ -1134,8 +1134,11 @@ namespace RubiksCube_2x2
             //if (!boolObjectOkayBOY_1) MessageBox.Show("Object-reference #1 for BOY is broken.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             //if (!boolObjectOkayGRY_1) MessageBox.Show("Object-reference #1 for GRY is broken.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-            bool boolObjectOkayBOY_2 = (mod_BackPieceBOY == mod_cubeWholeBothSides.BackSide()._pieceBOY );
-            bool boolObjectOkayGRY_2 = (mod_BackPieceGRY == mod_cubeWholeBothSides.BackSide()._pieceGRY );
+            // 1-2-2021//bool boolObjectOkayBOY_2 = (mod_BackPieceBOY == mod_cubeWholeBothSides.BackSide()._pieceBOY );
+            // 1-2-2021//bool boolObjectOkayGRY_2 = (mod_BackPieceGRY == mod_cubeWholeBothSides.BackSide()._pieceGRY );
+
+            bool boolObjectOkayBOY_2 = (mod_BackPieceBOY == mod_cubeWholeBothSides.BackSide._pieceBOY);
+            bool boolObjectOkayGRY_2 = (mod_BackPieceGRY == mod_cubeWholeBothSides.BackSide._pieceGRY);
 
             if (!boolObjectOkayBOY_2) MessageBox.Show("Object-reference #2 for BOY is broken.....!!", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             if (!boolObjectOkayGRY_2) MessageBox.Show("Object-reference #2 for GRY is broken.....!!.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -1203,6 +1206,12 @@ namespace RubiksCube_2x2
             //  Added 12/30/2020 td
             //
             MongoDB_Load.GetRubiksSides(out mod_cubeFrontside, out mod_cubeBackside);
+
+            //Added 1/2/2021 Thomas DOWNES
+            //mod_cubeWholeBothSides = new RubiksCubeBothSides(mod_cubeFrontside, mod_cubeBackside);
+            mod_cubeWholeBothSides.BackSide = mod_cubeBackside;
+            mod_cubeWholeBothSides.FrontSide = mod_cubeFrontside;
+
             this.Refresh();
 
         }
