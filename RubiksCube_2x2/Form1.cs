@@ -39,7 +39,10 @@ namespace RubiksCube_2x2
         private bool _godlike_behavior_OK;
 
         //Added 11/20/2020 thomas downes
-        private int mod_countOfComplexMotions = 0;
+        // 1/4/2021 //private int mod_countOfComplexMotions = 0;
+        private int mod_frontCountOfRotateBtmRight = 0;  // Renamed 1/4/2021 thomas
+        private int mod_backCountOfRevolveClockwise = 0;  // Added 1/4/2021 thomas
+        private int mod_backCountOfRevolveCounterClock = 0;  // Added 1/4/2021 thomas
 
         //Added 11/20/2020 thomas downes
         private bool mod_bGiveCompletionMessage = true;
@@ -575,6 +578,10 @@ namespace RubiksCube_2x2
             mod_cubeBackside.Simple_Clockwise90();
             this.Refresh();
 
+            //Added 1/04/2021 thomas downes
+            mod_backCountOfRevolveClockwise += 1;
+            lblCntBacksideSimpleCW.Text = "Count: " + mod_backCountOfRevolveClockwise.ToString();
+
         }
 
         private void buttonRotateComplex_Click(object sender, EventArgs e)
@@ -603,8 +610,8 @@ namespace RubiksCube_2x2
             this.Refresh();
 
             //Added 11/20/2020 thomas downes
-            mod_countOfComplexMotions += 1;
-            labelCountCR.Text = "Count: " + mod_countOfComplexMotions.ToString();
+            mod_frontCountOfRotateBtmRight += 1;
+            lblCntFrontsideRotateBtmRight.Text = "Count: " + mod_frontCountOfRotateBtmRight.ToString();
 
             //Added 11/20/2020 thomas downes
             //string strBriefDescription = mod_RotateBackside.ToString();
@@ -1213,6 +1220,23 @@ namespace RubiksCube_2x2
             mod_cubeWholeBothSides.FrontSide = mod_cubeFrontside;
 
             this.Refresh();
+
+        }
+
+        private void buttonRotateCounter_Click(object sender, EventArgs e)
+        {
+            //
+            // Added 11/12/2020 thomas downes
+            //
+            //Three clockwise 90-degrees = 270 degrees = 360 - 90 degrees
+            mod_cubeBackside.Simple_Clockwise90();  // Step 1 of 3. 3 x 90 = 270 degrees = 360 - 90 degrees
+            mod_cubeBackside.Simple_Clockwise90();  // Step 2 of 3. 3 x 90-degrees = 270 degrees = 360 - 90 degrees
+            mod_cubeBackside.Simple_Clockwise90();  // Step 3 of 3. 3 x 90-degrees = 270 degrees = 360 - 90 degrees
+            this.Refresh();
+
+            //Added 1/04/2021 thomas downes
+            mod_backCountOfRevolveCounterClock += 1;
+            lblCntBacksideSimpleCCW.Text = "Count: " + mod_backCountOfRevolveCounterClock.ToString();
 
         }
     }

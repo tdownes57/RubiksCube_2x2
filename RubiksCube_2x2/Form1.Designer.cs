@@ -34,11 +34,11 @@
             this.buttonRotateClockwise = new System.Windows.Forms.Button();
             this.buttonRotateCounter = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.buttonRotateComplex = new System.Windows.Forms.Button();
+            this.btnFrontRotateBottomRight = new System.Windows.Forms.Button();
             this.labelComplexRotate2 = new System.Windows.Forms.Label();
             this.labelCountCRUndo = new System.Windows.Forms.Label();
-            this.labelSimpleCCW = new System.Windows.Forms.Label();
-            this.labelCountSimpleCW = new System.Windows.Forms.Label();
+            this.lblCntBacksideSimpleCCW = new System.Windows.Forms.Label();
+            this.lblCntBacksideSimpleCW = new System.Windows.Forms.Label();
             this.buttonReplayAllRotation = new System.Windows.Forms.Button();
             this.buttonClearAllRotation = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,7 +51,7 @@
             this.labelBriefSerialization = new System.Windows.Forms.Label();
             this.labelUniquenessIndex = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.labelCountCR = new System.Windows.Forms.Label();
+            this.lblCntFrontsideRotateBtmRight = new System.Windows.Forms.Label();
             this.labelUVW_VWX_WXY_XYZ = new System.Windows.Forms.Label();
             this.comboGodlikePowers = new System.Windows.Forms.ComboBox();
             this.labelBOYwSideColorsEql = new System.Windows.Forms.Label();
@@ -84,7 +84,7 @@
             this.buttonRotateClockwise.Name = "buttonRotateClockwise";
             this.buttonRotateClockwise.Size = new System.Drawing.Size(153, 36);
             this.buttonRotateClockwise.TabIndex = 2;
-            this.buttonRotateClockwise.Text = "Clockwise";
+            this.buttonRotateClockwise.Text = "Clockwise (Back)";
             this.buttonRotateClockwise.UseVisualStyleBackColor = true;
             this.buttonRotateClockwise.Click += new System.EventHandler(this.buttonRotateClockwise_Click);
             // 
@@ -94,28 +94,29 @@
             this.buttonRotateCounter.Name = "buttonRotateCounter";
             this.buttonRotateCounter.Size = new System.Drawing.Size(234, 36);
             this.buttonRotateCounter.TabIndex = 3;
-            this.buttonRotateCounter.Text = "Counter-Clockwise";
+            this.buttonRotateCounter.Text = "Counter-Clockwise (Back)";
             this.buttonRotateCounter.UseVisualStyleBackColor = true;
+            this.buttonRotateCounter.Click += new System.EventHandler(this.buttonRotateCounter_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(326, 569);
+            this.button1.Location = new System.Drawing.Point(434, 569);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(212, 36);
+            this.button1.Size = new System.Drawing.Size(104, 36);
             this.button1.TabIndex = 6;
             this.button1.Text = "Undo";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Visible = false;
             // 
-            // buttonRotateComplex
+            // btnFrontRotateBottomRight
             // 
-            this.buttonRotateComplex.Location = new System.Drawing.Point(50, 569);
-            this.buttonRotateComplex.Name = "buttonRotateComplex";
-            this.buttonRotateComplex.Size = new System.Drawing.Size(131, 36);
-            this.buttonRotateComplex.TabIndex = 5;
-            this.buttonRotateComplex.Text = "Complex Rules";
-            this.buttonRotateComplex.UseVisualStyleBackColor = true;
-            this.buttonRotateComplex.Click += new System.EventHandler(this.buttonRotateComplex_Click);
+            this.btnFrontRotateBottomRight.Location = new System.Drawing.Point(50, 569);
+            this.btnFrontRotateBottomRight.Name = "btnFrontRotateBottomRight";
+            this.btnFrontRotateBottomRight.Size = new System.Drawing.Size(254, 36);
+            this.btnFrontRotateBottomRight.TabIndex = 5;
+            this.btnFrontRotateBottomRight.Text = "Rotate Bottom Right Piece (Front)";
+            this.btnFrontRotateBottomRight.UseVisualStyleBackColor = true;
+            this.btnFrontRotateBottomRight.Click += new System.EventHandler(this.buttonRotateComplex_Click);
             // 
             // labelComplexRotate2
             // 
@@ -137,23 +138,23 @@
             this.labelCountCRUndo.Text = "Count:";
             this.labelCountCRUndo.Visible = false;
             // 
-            // labelSimpleCCW
+            // lblCntBacksideSimpleCCW
             // 
-            this.labelSimpleCCW.AutoSize = true;
-            this.labelSimpleCCW.Location = new System.Drawing.Point(1042, 544);
-            this.labelSimpleCCW.Name = "labelSimpleCCW";
-            this.labelSimpleCCW.Size = new System.Drawing.Size(49, 17);
-            this.labelSimpleCCW.TabIndex = 10;
-            this.labelSimpleCCW.Text = "Count:";
+            this.lblCntBacksideSimpleCCW.AutoSize = true;
+            this.lblCntBacksideSimpleCCW.Location = new System.Drawing.Point(1042, 544);
+            this.lblCntBacksideSimpleCCW.Name = "lblCntBacksideSimpleCCW";
+            this.lblCntBacksideSimpleCCW.Size = new System.Drawing.Size(49, 17);
+            this.lblCntBacksideSimpleCCW.TabIndex = 10;
+            this.lblCntBacksideSimpleCCW.Text = "Count:";
             // 
-            // labelCountSimpleCW
+            // lblCntBacksideSimpleCW
             // 
-            this.labelCountSimpleCW.AutoSize = true;
-            this.labelCountSimpleCW.Location = new System.Drawing.Point(952, 502);
-            this.labelCountSimpleCW.Name = "labelCountSimpleCW";
-            this.labelCountSimpleCW.Size = new System.Drawing.Size(49, 17);
-            this.labelCountSimpleCW.TabIndex = 9;
-            this.labelCountSimpleCW.Text = "Count:";
+            this.lblCntBacksideSimpleCW.AutoSize = true;
+            this.lblCntBacksideSimpleCW.Location = new System.Drawing.Point(952, 502);
+            this.lblCntBacksideSimpleCW.Name = "lblCntBacksideSimpleCW";
+            this.lblCntBacksideSimpleCW.Size = new System.Drawing.Size(49, 17);
+            this.lblCntBacksideSimpleCW.TabIndex = 9;
+            this.lblCntBacksideSimpleCW.Text = "Count:";
             // 
             // buttonReplayAllRotation
             // 
@@ -285,15 +286,15 @@
             this.label6.Text = "Clockwise from BOY (Blue Orange Yellow):";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // labelCountCR
+            // lblCntFrontsideRotateBtmRight
             // 
-            this.labelCountCR.AutoSize = true;
-            this.labelCountCR.Location = new System.Drawing.Point(209, 579);
-            this.labelCountCR.Name = "labelCountCR";
-            this.labelCountCR.Size = new System.Drawing.Size(49, 17);
-            this.labelCountCR.TabIndex = 7;
-            this.labelCountCR.Tag = "Count: ";
-            this.labelCountCR.Text = "Count:";
+            this.lblCntFrontsideRotateBtmRight.AutoSize = true;
+            this.lblCntFrontsideRotateBtmRight.Location = new System.Drawing.Point(310, 579);
+            this.lblCntFrontsideRotateBtmRight.Name = "lblCntFrontsideRotateBtmRight";
+            this.lblCntFrontsideRotateBtmRight.Size = new System.Drawing.Size(49, 17);
+            this.lblCntFrontsideRotateBtmRight.TabIndex = 7;
+            this.lblCntFrontsideRotateBtmRight.Tag = "Count: ";
+            this.lblCntFrontsideRotateBtmRight.Text = "Count:";
             // 
             // labelUVW_VWX_WXY_XYZ
             // 
@@ -331,9 +332,9 @@
             // 
             this.cmdSwitchFrontBottomPieces.Location = new System.Drawing.Point(50, 611);
             this.cmdSwitchFrontBottomPieces.Name = "cmdSwitchFrontBottomPieces";
-            this.cmdSwitchFrontBottomPieces.Size = new System.Drawing.Size(208, 36);
+            this.cmdSwitchFrontBottomPieces.Size = new System.Drawing.Size(254, 36);
             this.cmdSwitchFrontBottomPieces.TabIndex = 26;
-            this.cmdSwitchFrontBottomPieces.Text = "Switch Bottom 2 Pieces";
+            this.cmdSwitchFrontBottomPieces.Text = "Switch Bottom 2 Pieces (Front)";
             this.cmdSwitchFrontBottomPieces.UseVisualStyleBackColor = true;
             this.cmdSwitchFrontBottomPieces.Click += new System.EventHandler(this.cmdSwitchFrontBottomPieces_Click);
             // 
@@ -391,12 +392,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonClearAllRotation);
             this.Controls.Add(this.buttonReplayAllRotation);
-            this.Controls.Add(this.labelSimpleCCW);
-            this.Controls.Add(this.labelCountSimpleCW);
+            this.Controls.Add(this.lblCntBacksideSimpleCCW);
+            this.Controls.Add(this.lblCntBacksideSimpleCW);
             this.Controls.Add(this.labelCountCRUndo);
-            this.Controls.Add(this.labelCountCR);
+            this.Controls.Add(this.lblCntFrontsideRotateBtmRight);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.buttonRotateComplex);
+            this.Controls.Add(this.btnFrontRotateBottomRight);
             this.Controls.Add(this.labelComplexRotate2);
             this.Controls.Add(this.buttonRotateCounter);
             this.Controls.Add(this.buttonRotateClockwise);
@@ -423,11 +424,11 @@
         private System.Windows.Forms.Button buttonRotateClockwise;
         private System.Windows.Forms.Button buttonRotateCounter;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button buttonRotateComplex;
+        private System.Windows.Forms.Button btnFrontRotateBottomRight;
         private System.Windows.Forms.Label labelComplexRotate2;
         private System.Windows.Forms.Label labelCountCRUndo;
-        private System.Windows.Forms.Label labelSimpleCCW;
-        private System.Windows.Forms.Label labelCountSimpleCW;
+        private System.Windows.Forms.Label lblCntBacksideSimpleCCW;
+        private System.Windows.Forms.Label lblCntBacksideSimpleCW;
         private System.Windows.Forms.Button buttonReplayAllRotation;
         private System.Windows.Forms.Button buttonClearAllRotation;
         private System.Windows.Forms.Label label2;
@@ -440,7 +441,7 @@
         private System.Windows.Forms.Label labelBriefSerialization;
         private System.Windows.Forms.Label labelUniquenessIndex;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label labelCountCR;
+        private System.Windows.Forms.Label lblCntFrontsideRotateBtmRight;
         private System.Windows.Forms.Label labelUVW_VWX_WXY_XYZ;
         private System.Windows.Forms.ComboBox comboGodlikePowers;
         private System.Windows.Forms.Label labelBOYwSideColorsEql;

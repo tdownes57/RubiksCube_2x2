@@ -101,10 +101,16 @@ namespace RubiksCube_2x2
 
                 //---_pieceGOW.RotateJustThisPiece_Clockwise();
 
-                _pieceBRW.Revolve_Clockwise90();
-                _pieceBWO.Revolve_Clockwise90();
-                _pieceGOW.Revolve_Clockwise90();
-                _pieceGWR.Revolve_Clockwise90();
+                // 1/4/2021 //_pieceBRW.Revolve_Clockwise90();
+                // 1/4/2021 //_pieceBWO.Revolve_Clockwise90();
+                // 1/4/2021 //_pieceGOW.Revolve_Clockwise90();
+                // 1/4/2021 //_pieceGWR.Revolve_Clockwise90();
+
+                //
+                // Added 1/4/2021
+                //
+                var bottomRight = this.GetPiece(FrontClockFace.four_thirty);
+                bottomRight.RotateInPlace_PivotPiece120degrees();
 
             }
 
