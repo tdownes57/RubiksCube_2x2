@@ -377,6 +377,24 @@ namespace RubiksCube_2x2
 
             }
 
+
+            //Added 1/07/2021 thomas downes
+            public bool SideIsASolidColor_AndSidesMatch()
+            {
+                //
+                // Added 1/07/2021 thomas downes
+                //
+                bool bSideIsASolidColor = SideIsASolidColor();
+                bool bSidesMatch = false;
+
+
+
+                // Added 1/7/2021 Thomas Downes
+                return (bSideIsASolidColor && bSidesMatch);
+
+            }
+
+
             //Added 11/17/2020 thomas downes
             //
             public override RubikPieceCorner WhichPieceIsClicked(Point par_point)
@@ -582,6 +600,24 @@ namespace RubiksCube_2x2
                 //
                 //  Added 12/01/2020 thomas  
                 //
+                bool priorOutput_BOY_BYR = false;
+                bool bPiecesInOrder_BOY_BYR = PiecesAreCorrectlyOrdered_BOY_BYR(out priorOutput_BOY_BYR);
+
+                bool priorOutput_BOY_GYO = false;
+                bool bPiecesInOrder_BOY_GYO = PiecesAreCorrectlyOrdered_BOY_GYO(out priorOutput_BOY_GYO);
+
+
+
+
+            }
+
+            public bool PiecesAreCorrectlyOrdered_BOY_BYR(out bool par_priorOutput)
+            {
+                //
+                //  Added 12/01/2020 thomas  
+                //
+                //     BOY - BYR - GRY - GYO    
+                //
 
                 //bool bPieceBOY_nextTo_BYR;
                 //bool bPieceBOY_nextTo_GYO;
@@ -610,6 +646,30 @@ namespace RubiksCube_2x2
                 return bNewOutputValue; 
 
             }
+
+            public bool PiecesAreCorrectlyOrdered_BOY_GYO(out bool par_priorOutput)
+            {
+                //
+                //  Added 1/08/2021 thomas  
+                //
+                //     BOY - GYO - GRY - BYR      
+                //
+                bool bPieceBOY_nextClockwiseFrom_GYO = PieceBOY_nextClockwiseFrom_GYO();
+                bool bPieceGYO_nextClockwiseFrom_GRY = PieceGYO_nextClockwiseFrom_GRY();
+                bool bPieceGRY_nextClockwiseFrom_BYR = PieceGRY_nextClockwiseFrom_BYR();
+                bool bPieceBYR_nextClockwiseFrom_BOY = PieceBYR_nextClockwiseFrom_BOY();
+
+                bool boolean1 = (bPieceBOY_nextClockwiseFrom_GYO && bPieceGYO_nextClockwiseFrom_GRY);
+                bool boolean2 = (bPieceGRY_nextClockwiseFrom_BYR && bPieceBYR_nextClockwiseFrom_BOY);
+
+                //return (boolean1 && boolean2);
+                bool bNewOutputValue = (boolean1 && boolean2);
+                par_priorOutput = _bPriorFunctionValue;
+                _bPriorFunctionValue = bNewOutputValue;
+                return bNewOutputValue;
+
+            }
+
 
             private bool PieceBOY_nextClockwiseFrom_BYR()
             {

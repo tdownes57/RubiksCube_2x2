@@ -54,11 +54,12 @@
             this.lblCntFrontsideRotateBtmRight = new System.Windows.Forms.Label();
             this.labelUVW_VWX_WXY_XYZ = new System.Windows.Forms.Label();
             this.comboGodlikePowers = new System.Windows.Forms.ComboBox();
-            this.labelBOYwSideColorsEql = new System.Windows.Forms.Label();
+            this.labelBOYwSideColorsEq1 = new System.Windows.Forms.Label();
             this.cmdSwitchFrontBottomPieces = new System.Windows.Forms.Button();
             this.buttonGetNoSQL = new System.Windows.Forms.Button();
             this.buttonLoadFromMongo = new System.Windows.Forms.Button();
             this.buttonSaveToMongo = new System.Windows.Forms.Button();
+            this.labelBOYwSideColorsEq2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // progressBar1
@@ -319,14 +320,14 @@
             this.comboGodlikePowers.Size = new System.Drawing.Size(281, 24);
             this.comboGodlikePowers.TabIndex = 24;
             // 
-            // labelBOYwSideColorsEql
+            // labelBOYwSideColorsEq1
             // 
-            this.labelBOYwSideColorsEql.AutoSize = true;
-            this.labelBOYwSideColorsEql.Location = new System.Drawing.Point(852, 398);
-            this.labelBOYwSideColorsEql.Name = "labelBOYwSideColorsEql";
-            this.labelBOYwSideColorsEql.Size = new System.Drawing.Size(269, 17);
-            this.labelBOYwSideColorsEql.TabIndex = 25;
-            this.labelBOYwSideColorsEql.Text = "Sides matching: BOY - BYR - GRY - GYO";
+            this.labelBOYwSideColorsEq1.AutoSize = true;
+            this.labelBOYwSideColorsEq1.Location = new System.Drawing.Point(845, 378);
+            this.labelBOYwSideColorsEq1.Name = "labelBOYwSideColorsEq1";
+            this.labelBOYwSideColorsEq1.Size = new System.Drawing.Size(269, 17);
+            this.labelBOYwSideColorsEq1.TabIndex = 25;
+            this.labelBOYwSideColorsEq1.Text = "Sides matching: BOY - BYR - GRY - GYO";
             // 
             // cmdSwitchFrontBottomPieces
             // 
@@ -368,16 +369,26 @@
             this.buttonSaveToMongo.UseVisualStyleBackColor = true;
             this.buttonSaveToMongo.Click += new System.EventHandler(this.buttonSaveToMongo_Click);
             // 
+            // labelBOYwSideColorsEq2
+            // 
+            this.labelBOYwSideColorsEq2.AutoSize = true;
+            this.labelBOYwSideColorsEq2.Location = new System.Drawing.Point(845, 398);
+            this.labelBOYwSideColorsEq2.Name = "labelBOYwSideColorsEq2";
+            this.labelBOYwSideColorsEq2.Size = new System.Drawing.Size(270, 17);
+            this.labelBOYwSideColorsEq2.TabIndex = 30;
+            this.labelBOYwSideColorsEq2.Text = "                     or BOY -  GYO - GRY - BYR";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1152, 691);
+            this.Controls.Add(this.labelBOYwSideColorsEq2);
             this.Controls.Add(this.buttonSaveToMongo);
             this.Controls.Add(this.buttonLoadFromMongo);
             this.Controls.Add(this.buttonGetNoSQL);
             this.Controls.Add(this.cmdSwitchFrontBottomPieces);
-            this.Controls.Add(this.labelBOYwSideColorsEql);
+            this.Controls.Add(this.labelBOYwSideColorsEq1);
             this.Controls.Add(this.comboGodlikePowers);
             this.Controls.Add(this.labelUVW_VWX_WXY_XYZ);
             this.Controls.Add(this.label6);
@@ -444,11 +455,12 @@
         private System.Windows.Forms.Label lblCntFrontsideRotateBtmRight;
         private System.Windows.Forms.Label labelUVW_VWX_WXY_XYZ;
         private System.Windows.Forms.ComboBox comboGodlikePowers;
-        private System.Windows.Forms.Label labelBOYwSideColorsEql;
+        private System.Windows.Forms.Label labelBOYwSideColorsEq1;
         private System.Windows.Forms.Button cmdSwitchFrontBottomPieces;
         private System.Windows.Forms.Button buttonGetNoSQL;
         private System.Windows.Forms.Button buttonLoadFromMongo;
         private System.Windows.Forms.Button buttonSaveToMongo;
+        private System.Windows.Forms.Label labelBOYwSideColorsEq2;
     }
 }
 

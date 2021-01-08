@@ -594,11 +594,19 @@ namespace RubiksCube_2x2
             //if (mod_RotateBackside.SideIsASolidColor())
             if (mod_cubeBackside.SideIsASolidColor() && mod_bGiveCompletionMessage)
             {
-                // Added 11/13/2020 thomas downes
-                MessageBox.Show("The backside of the Cube is completed, i.e. a solid color.", "Completed", 
+                //    // Added 11/13/2020 thomas downes
+                //    MessageBox.Show("The backside of the Cube is completed, i.e. a solid color.", "Completed", 
+                //    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //    mod_bGiveCompletionMessage = false;  //Don't show a second time in a row. 
+                //    return; 
+            }
+            if (mod_cubeBackside.SideIsASolidColor_AndSidesMatch() && mod_bGiveCompletionMessage)
+            {
+                // Added 1/07/2021 thomas downes
+                MessageBox.Show("The backside of the Cube is completed, i.e. a solid color, and the side-colors are arranged correctly.", "Completed",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                 mod_bGiveCompletionMessage = false;  //Don't show a second time in a row. 
-                return; 
+                return;
             }
             else
             {
@@ -627,7 +635,8 @@ namespace RubiksCube_2x2
                 // Added 12/01/2020 thomas downes
                 if (bPriorValue == false) // Only show the message if the value has changed. 
                 {
-                    MessageBox.Show("All the pieces of the backside are correctly placed in relation with each other-- BOY, BYR, GRY, GOY.",
+                    MessageBox.Show("All the pieces of the backside are correctly placed " + 
+                        "in relation with each other-- BOY, BYR, GRY, GOY  (or BOY, GOY, GRY, BYR).",
                         "Pieces in correct order",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
