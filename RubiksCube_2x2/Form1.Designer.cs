@@ -60,6 +60,7 @@
             this.buttonLoadFromMongo = new System.Windows.Forms.Button();
             this.buttonSaveToMongo = new System.Windows.Forms.Button();
             this.labelBOYwSideColorsEq2 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // progressBar1
@@ -378,11 +379,23 @@
             this.labelBOYwSideColorsEq2.TabIndex = 30;
             this.labelBOYwSideColorsEq2.Text = "                     or BOY -  GYO - GRY - BYR";
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.Location = new System.Drawing.Point(466, 332);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(295, 26);
+            this.linkLabel1.TabIndex = 31;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Bookmark backside positions";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1152, 691);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.labelBOYwSideColorsEq2);
             this.Controls.Add(this.buttonSaveToMongo);
             this.Controls.Add(this.buttonLoadFromMongo);
@@ -461,6 +474,7 @@
         private System.Windows.Forms.Button buttonLoadFromMongo;
         private System.Windows.Forms.Button buttonSaveToMongo;
         private System.Windows.Forms.Label labelBOYwSideColorsEq2;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 

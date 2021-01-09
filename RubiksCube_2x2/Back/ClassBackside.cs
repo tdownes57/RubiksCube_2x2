@@ -593,7 +593,8 @@ namespace RubiksCube_2x2
 
             }
 
-            private bool _bPriorFunctionValue; //Added 12/1/2020 td 
+            private bool _bPriorFunctionValue_NotInUse; //Deprecated,   Not in use. 1/9/21 Added 12/1/2020 td 
+            private bool _bPriorFunctionValue_PiecesCorrectlyOrdered; //Added 1/09/2021 td 
 
             public bool PiecesAreCorrectlyOrdered(out bool par_priorOutput)
             {
@@ -606,8 +607,16 @@ namespace RubiksCube_2x2
                 bool priorOutput_BOY_GYO = false;
                 bool bPiecesInOrder_BOY_GYO = PiecesAreCorrectlyOrdered_BOY_GYO(out priorOutput_BOY_GYO);
 
+                //par_priorOutput = priorOutput_BOY_BYR;
+                bool bOutputValue;
+                bOutputValue = (bPiecesInOrder_BOY_BYR && bPiecesInOrder_BOY_GYO);
+                //return bOutputValue;   // (bPiecesInOrder_BOY_BYR && bPiecesInOrder_BOY_GYO);
 
-
+                //return (boolean1 && boolean2);
+                bool bNewOutputValue = bOutputValue; // (boolean1 && boolean2);
+                par_priorOutput = _bPriorFunctionValue_PiecesCorrectlyOrdered;
+                _bPriorFunctionValue_PiecesCorrectlyOrdered = bNewOutputValue;
+                return bNewOutputValue;
 
             }
 
@@ -641,31 +650,31 @@ namespace RubiksCube_2x2
 
                 //return (boolean1 && boolean2);
                 bool bNewOutputValue = (boolean1 && boolean2);
-                par_priorOutput = _bPriorFunctionValue;
-                _bPriorFunctionValue = bNewOutputValue;
+                par_priorOutput = _bPriorFunctionValue_NotInUse;
+                _bPriorFunctionValue_NotInUse = bNewOutputValue;
                 return bNewOutputValue; 
 
             }
 
-            public bool PiecesAreCorrectlyOrdered_BOY_GYO(out bool par_priorOutput)
+            public bool PiecesAreCorrectlyOrdered_BOY_GYO() // (out bool par_bPriorOutput)
             {
                 //
                 //  Added 1/08/2021 thomas  
                 //
                 //     BOY - GYO - GRY - BYR      
                 //
-                bool bPieceBOY_nextClockwiseFrom_GYO = PieceBOY_nextClockwiseFrom_GYO();
-                bool bPieceGYO_nextClockwiseFrom_GRY = PieceGYO_nextClockwiseFrom_GRY();
-                bool bPieceGRY_nextClockwiseFrom_BYR = PieceGRY_nextClockwiseFrom_BYR();
-                bool bPieceBYR_nextClockwiseFrom_BOY = PieceBYR_nextClockwiseFrom_BOY();
+                bool b1PieceBOY_nextClockwiseFrom_GYO = PieceBOY_nextClockwiseFrom_GYO();
+                bool b2PieceGYO_nextClockwiseFrom_GRY = PieceGYO_nextClockwiseFrom_GRY();
+                bool b3PieceGRY_nextClockwiseFrom_BYR = PieceGRY_nextClockwiseFrom_BYR();
+                bool b4PieceBYR_nextClockwiseFrom_BOY = PieceBYR_nextClockwiseFrom_BOY();
 
-                bool boolean1 = (bPieceBOY_nextClockwiseFrom_GYO && bPieceGYO_nextClockwiseFrom_GRY);
-                bool boolean2 = (bPieceGRY_nextClockwiseFrom_BYR && bPieceBYR_nextClockwiseFrom_BOY);
+                bool boolean1_and2 = (b1PieceBOY_nextClockwiseFrom_GYO && b2PieceGYO_nextClockwiseFrom_GRY);
+                bool boolean3_and4 = (b3PieceGRY_nextClockwiseFrom_BYR && b4PieceBYR_nextClockwiseFrom_BOY);
 
                 //return (boolean1 && boolean2);
-                bool bNewOutputValue = (boolean1 && boolean2);
-                par_priorOutput = _bPriorFunctionValue;
-                _bPriorFunctionValue = bNewOutputValue;
+                bool bNewOutputValue = (boolean1_and2 && boolean3_and4);
+                //par_priorOutput = _bPriorFunctionValue;
+                //_bPriorFunctionValue = bNewOutputValue;
                 return bNewOutputValue;
 
             }
@@ -708,8 +717,40 @@ namespace RubiksCube_2x2
                 // Added 12/1/2020 thomas downes
                 //
                 return EnumStaticClass.AdjacentClockwise(_pieceGRY, _pieceBYR);
-
             }
+
+            private bool PieceBOY_nextClockwiseFrom_GYO()
+            {
+                //
+                // Added 1/08/2021 thomas downes
+                //
+                return EnumStaticClass.AdjacentClockwise(_pieceGYO, _pieceBOY);
+            }
+
+            private bool PieceGYO_nextClockwiseFrom_GRY()
+            {
+                //
+                // Added 1/08/2021 thomas downes
+                //
+                return EnumStaticClass.AdjacentClockwise(_pieceGRY, _pieceGYO);
+            }
+
+            private bool PieceGRY_nextClockwiseFrom_BYR()
+            {
+                //
+                // Added 1/08/2021 thomas downes
+                //
+                return EnumStaticClass.AdjacentClockwise(_pieceBYR, _pieceGRY);
+            }
+
+            private bool PieceBYR_nextClockwiseFrom_BOY()
+            {
+                //
+                // Added 1/08/2021 thomas downes
+                //
+                return EnumStaticClass.AdjacentClockwise(_pieceBOY, _pieceBYR);
+            }
+
 
 
             public string BOY_etc_Clockwise()
