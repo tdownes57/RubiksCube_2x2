@@ -605,7 +605,7 @@ namespace RubiksCube_2x2
                 bool bPiecesInOrder_BOY_BYR = PiecesAreCorrectlyOrdered_BOY_BYR(out priorOutput_BOY_BYR);
 
                 bool priorOutput_BOY_GYO = false;
-                bool bPiecesInOrder_BOY_GYO = PiecesAreCorrectlyOrdered_BOY_GYO(out priorOutput_BOY_GYO);
+                bool bPiecesInOrder_BOY_GYO = PiecesAreCorrectlyOrdered_BOY_GYO(); // out priorOutput_BOY_GYO);
 
                 //par_priorOutput = priorOutput_BOY_BYR;
                 bool bOutputValue;

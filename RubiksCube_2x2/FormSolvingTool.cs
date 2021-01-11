@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace RubiksCube_2x2
 {
-    public partial class Form1 : Form
+    public partial class FormSolvingTool : Form
     {
         private Point center_point_form_FRONT; // = new Point(this.Width / 2, this.Height / 2);
         private Point center_point_form_BACK; // Added 11/12/2020 td
@@ -52,7 +52,7 @@ namespace RubiksCube_2x2
         private bool _bClickedBackside = false;  // _bClickedBackside;  // false;
 
 
-        public Form1()
+        public FormSolvingTool()
         {
             InitializeComponent();
 

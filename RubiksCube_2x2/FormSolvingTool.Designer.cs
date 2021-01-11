@@ -1,6 +1,6 @@
 ﻿namespace RubiksCube_2x2
 {
-    partial class Form1
+    partial class FormSolvingTool
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSolvingTool));
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.labelRotateSimpleClock = new System.Windows.Forms.Label();
             this.buttonRotateClockwise = new System.Windows.Forms.Button();
@@ -383,14 +383,14 @@
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(466, 332);
+            this.linkLabel1.Location = new System.Drawing.Point(845, 352);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(295, 26);
             this.linkLabel1.TabIndex = 31;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Bookmark backside positions";
             // 
-            // Form1
+            // FormSolvingTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -427,7 +427,7 @@
             this.Controls.Add(this.buttonRotateClockwise);
             this.Controls.Add(this.labelRotateSimpleClock);
             this.Controls.Add(this.progressBar1);
-            this.Name = "Form1";
+            this.Name = "FormSolvingTool";
             this.Text = "Rubik\'s Cube, Front Half of a 2x2";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);

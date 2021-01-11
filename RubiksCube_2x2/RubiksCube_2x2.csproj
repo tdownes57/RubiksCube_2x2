@@ -112,6 +112,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormRepurcussion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRepurcussion.Designer.cs">
+      <DependentUpon>FormRepurcussion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Front\ClassFrontsideBrief.cs" />
     <Compile Include="MongoDB_Load.cs" />
     <Compile Include="MongoDB_Save.cs" />
@@ -129,11 +135,11 @@
     <Compile Include="Back\ComplexRulesEngine0730.cs" />
     <Compile Include="Back\ComplexRulesEngine1030.cs" />
     <Compile Include="EnumStaticClass.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="FormSolvingTool.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormSolvingTool.Designer.cs">
+      <DependentUpon>FormSolvingTool.cs</DependentUpon>
     </Compile>
     <Compile Include="Front\ClassBlueWhiteOrange.cs" />
     <Compile Include="Front\ClassBlueRedWhite.cs" />
@@ -149,8 +155,11 @@
     <Compile Include="RubiksCubeBothSides.cs" />
     <Compile Include="TestMongoDB.cs" />
     <Compile Include="Uniqueness.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FormRepurcussion.resx">
+      <DependentUpon>FormRepurcussion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSolvingTool.resx">
+      <DependentUpon>FormSolvingTool.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -180,6 +189,7 @@
     <Content Include="20201110_140906_1.jpg" />
     <Content Include="20201110_140914.jpg" />
     <Content Include="20201110_140918.jpg" />
+    <None Include="Resources\manuever_1030.bmp" />
     <None Include="Cursors\custom-cursor-tcd .cur" />
     <Content Include="Back\NotUsed_LoadPiece_BOY.txt" />
     <Content Include="Back\NotUsed_LoadPiece_BYR.txt" />
