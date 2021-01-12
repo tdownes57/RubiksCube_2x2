@@ -166,6 +166,35 @@ namespace RubiksCube_2x2
         }
 
 
+        public void PaintThisSide_Base(System.Drawing.Graphics par_graphics, Point par_pointCenter,
+                          RubikPieceCorner par_piece1, RubikPieceCorner par_piece2,
+                          RubikPieceCorner par_piece3, RubikPieceCorner par_piece4)
+        {
+            //
+            // Added 1/11//2020 thomas downes
+            //
+            // Step 1 of 2.  Paint the front faces.  (vs. sides) 
+            //
+            //   (Code copied from FormSolvingTool.Form1_Paint_BACK(PaintEventArgs e), 1/11/2021.)
+            //
+            par_piece1.PaintByGraphics_FrontFace(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustFront);
+            par_piece2.PaintByGraphics_FrontFace(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustFront);
+            par_piece3.PaintByGraphics_FrontFace(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustFront);
+            par_piece4.PaintByGraphics_FrontFace(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustFront);
+
+            //
+            // Step 2 of 2.  Paint the side faces.  
+            //
+            //   (Code copied from FormSolvingTool.Form1_Paint_BACK(PaintEventArgs e), 1/11/2021.)
+            //
+            par_piece1.PaintByGraphics_SideFaces(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustSides);
+            par_piece2.PaintByGraphics_SideFaces(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustSides);
+            par_piece3.PaintByGraphics_SideFaces(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustSides);
+            par_piece4.PaintByGraphics_SideFaces(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustSides);
+
+        }
+
+
 
 
     }

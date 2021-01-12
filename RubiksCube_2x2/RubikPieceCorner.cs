@@ -161,6 +161,28 @@ namespace RubiksCube_2x2
         }
 
 
+        public void PaintByGraphics_FrontFace(Graphics par_graphics, Point par_center_of_form)
+        {
+            //
+            // Added 1/11/2021 thomas downes
+            //
+            //  "JustFront"   ( EnumWhatToPaint.JustFront )
+            //
+            this.PaintByGraphics(par_graphics, par_center_of_form, EnumWhatToPaint.JustFront);
+
+        }
+
+        public void PaintByGraphics_SideFaces(Graphics par_graphics, Point par_center_of_form)
+        {
+            //
+            // Added 1/11/2021 thomas downes
+            //
+            //  "JustSides"   ( EnumWhatToPaint.JustSides )
+            //
+            this.PaintByGraphics(par_graphics, par_center_of_form, EnumWhatToPaint.JustSides);
+
+        }
+
         public void PaintByGraphics(Graphics par_graphics, Point par_center_of_form,
                           EnumWhatToPaint par_FrontOrSides)
         {

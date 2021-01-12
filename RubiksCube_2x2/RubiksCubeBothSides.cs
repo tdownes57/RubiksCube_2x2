@@ -198,6 +198,38 @@ namespace RubiksCube_2x2
         }
 
 
+        public void PaintThisCube_NotInUse(PaintEventArgs par_e, Form par_form, Panel par_panel = null, FormSolvingTool par_frmSolving = null)
+        {
+            //
+            // Not in use.  See the following:  FormSolvingTool.private void Form1_Paint(object sender, PaintEventArgs e)
+            //
+            //var a_graphics = new System.Drawing.Graphics();  // e.Graphics;
+
+            par_frmSolving.Form1_Paint(par_frmSolving, par_e);
+
+        }
+
+        public void PaintThisCube(System.Drawing.Graphics par_graphics, 
+                                  System.Drawing.Point par_pointCenter_FRONT,
+                                  System.Drawing.Point par_pointCenter_BACK)
+        {
+            //
+             // Not in use.  See the following:  FormSolvingTool.private void Form1_Paint(object sender, PaintEventArgs e)  
+            //
+            //var a_graphics = new System.Drawing.Graphics();  // e.Graphics;
+
+            mod_frontside.PaintThisSide(par_graphics, par_pointCenter_FRONT);
+            mod_backside.PaintThisSide(par_graphics, par_pointCenter_BACK);
+
+        }
+
+        public void RefreshThisCube_NotInUse(Form par_form, Panel par_panel = null)
+        {
+            //
+            // Not in use.  See the following:  
+            //
+        }
+
 
 
 

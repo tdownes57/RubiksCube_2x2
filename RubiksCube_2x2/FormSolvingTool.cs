@@ -424,18 +424,34 @@ namespace RubiksCube_2x2
 
         #endregion
 
-        private void Form1_Paint(object sender, PaintEventArgs e)
+        public void Form1_Paint(object sender, PaintEventArgs e)
         {
+            //---private void Form1_Paint(object sender, PaintEventArgs e)
             //
             //Encapsulated 11/12/2020 td
             //
-            Form1_Paint_BACK(e);
-            Form1_Paint_FRONT(e);
+            const bool c_boolUseObjects = true;
+
+            if (c_boolUseObjects)
+            {
+                mod_cubeWholeBothSides.PaintThisCube(e.Graphics, 
+                        center_point_form_FRONT,
+                        center_point_form_BACK);
+            }
+            else
+            {
+                Form1_Paint_BACK(e);
+                Form1_Paint_FRONT(e);
+            }
 
         }
 
         private void Form1_Paint_BACK(PaintEventArgs e)  //object sender, PaintEventArgs e)
         {
+            //
+            // Called by the following:
+            //    private void Form1_Paint(object sender, PaintEventArgs e)
+            //
             System.Drawing.SolidBrush a_brush_blu = new SolidBrush(Color.Blue);
             System.Drawing.SolidBrush a_brush_green = new SolidBrush(Color.Lime);
             System.Drawing.SolidBrush a_brush_orange = new SolidBrush(Color.Orange);
@@ -451,9 +467,18 @@ namespace RubiksCube_2x2
             //a_graphics.FillRectangle(a_brush, GetRectangle_FrontFace(2));
             //a_graphics.FillRectangle(a_brush, GetRectangle_FrontFace(3));
 
-            const bool c_boolUseObjects = true;
+            const bool c_boolUseObjects1 = true;  // Added 1/11/2021  
+            const bool c_boolUseObjects2 = false; // true;  Suffixed with "2" on 1/11/2021.
 
-            if (c_boolUseObjects)
+            if (c_boolUseObjects1)
+            {
+                //
+                // Added 1/11/2021 Thomas Downes        
+                //
+                mod_cubeWholeBothSides.PaintThisCube(a_graphics, center_point_form_BACK);
+
+            }
+            else if (c_boolUseObjects2)
             {
                 //
                 // Added 11/11/2020 Thomas Downes        
@@ -463,21 +488,37 @@ namespace RubiksCube_2x2
                 //mod_BackPieceGRY.PaintByGraphics(a_graphics, center_point_form_BACK);
                 //mod_BackPieceGYO.PaintByGraphics(a_graphics, center_point_form_BACK);
 
+                ////
+                //// Step 1 of 2.  Paint the front faces.  (vs. sides) 
+                ////
+                //mod_BackPieceBOY.PaintByGraphics(a_graphics, center_point_form_BACK, EnumWhatToPaint.JustFront);
+                //mod_BackPieceBYR.PaintByGraphics(a_graphics, center_point_form_BACK, EnumWhatToPaint.JustFront);
+                //mod_BackPieceGRY.PaintByGraphics(a_graphics, center_point_form_BACK, EnumWhatToPaint.JustFront);
+                //mod_BackPieceGYO.PaintByGraphics(a_graphics, center_point_form_BACK, EnumWhatToPaint.JustFront);
+
+                ////
+                //// Step 2 of 2.  Paint the side faces.  
+                ////
+                //mod_BackPieceBOY.PaintByGraphics(a_graphics, center_point_form_BACK, EnumWhatToPaint.JustSides);
+                //mod_BackPieceBYR.PaintByGraphics(a_graphics, center_point_form_BACK, EnumWhatToPaint.JustSides);
+                //mod_BackPieceGRY.PaintByGraphics(a_graphics, center_point_form_BACK, EnumWhatToPaint.JustSides);
+                //mod_BackPieceGYO.PaintByGraphics(a_graphics, center_point_form_BACK, EnumWhatToPaint.JustSides);
+
                 //
                 // Step 1 of 2.  Paint the front faces.  (vs. sides) 
                 //
-                mod_BackPieceBOY.PaintByGraphics(a_graphics, center_point_form_BACK, EnumWhatToPaint.JustFront);
-                mod_BackPieceBYR.PaintByGraphics(a_graphics, center_point_form_BACK, EnumWhatToPaint.JustFront);
-                mod_BackPieceGRY.PaintByGraphics(a_graphics, center_point_form_BACK, EnumWhatToPaint.JustFront);
-                mod_BackPieceGYO.PaintByGraphics(a_graphics, center_point_form_BACK, EnumWhatToPaint.JustFront);
+                mod_BackPieceBOY.PaintByGraphics_FrontFace(a_graphics, center_point_form_BACK); //, EnumWhatToPaint.JustFront);
+                mod_BackPieceBYR.PaintByGraphics_FrontFace(a_graphics, center_point_form_BACK); //, EnumWhatToPaint.JustFront);
+                mod_BackPieceGRY.PaintByGraphics_FrontFace(a_graphics, center_point_form_BACK); //, EnumWhatToPaint.JustFront);
+                mod_BackPieceGYO.PaintByGraphics_FrontFace(a_graphics, center_point_form_BACK); //, EnumWhatToPaint.JustFront);
 
                 //
                 // Step 2 of 2.  Paint the side faces.  
                 //
-                mod_BackPieceBOY.PaintByGraphics(a_graphics, center_point_form_BACK, EnumWhatToPaint.JustSides);
-                mod_BackPieceBYR.PaintByGraphics(a_graphics, center_point_form_BACK, EnumWhatToPaint.JustSides);
-                mod_BackPieceGRY.PaintByGraphics(a_graphics, center_point_form_BACK, EnumWhatToPaint.JustSides);
-                mod_BackPieceGYO.PaintByGraphics(a_graphics, center_point_form_BACK, EnumWhatToPaint.JustSides);
+                mod_BackPieceBOY.PaintByGraphics_SideFaces(a_graphics, center_point_form_BACK); //, EnumWhatToPaint.JustSides);
+                mod_BackPieceBYR.PaintByGraphics_SideFaces(a_graphics, center_point_form_BACK); //, EnumWhatToPaint.JustSides);
+                mod_BackPieceGRY.PaintByGraphics_SideFaces(a_graphics, center_point_form_BACK); //, EnumWhatToPaint.JustSides);
+                mod_BackPieceGYO.PaintByGraphics_SideFaces(a_graphics, center_point_form_BACK); //, EnumWhatToPaint.JustSides);
 
             }
             else
@@ -510,6 +551,10 @@ namespace RubiksCube_2x2
 
         private void Form1_Paint_FRONT(PaintEventArgs e)  //object sender, PaintEventArgs e)
         {
+            //
+            // Called by the following:
+            //    private void Form1_Paint(object sender, PaintEventArgs e)
+            //
             System.Drawing.SolidBrush a_brush_blu = new SolidBrush(Color.Blue);
             System.Drawing.SolidBrush a_brush_green = new SolidBrush(Color.Lime);
             System.Drawing.SolidBrush a_brush_orange = new SolidBrush(Color.Orange);
@@ -525,9 +570,21 @@ namespace RubiksCube_2x2
             //a_graphics.FillRectangle(a_brush, GetRectangle_FrontFace(2));
             //a_graphics.FillRectangle(a_brush, GetRectangle_FrontFace(3));
 
-            const bool c_boolUseObjects = true;
+            // Jan. 11 //const bool c_boolUseObjects = true;
+            const bool c_boolUseObjects1 = true;  // Added 1/11/2021  
+            const bool c_boolUseObjects2 = false; // true;  Suffixed with "2" on 1/11/2021.
 
-            if (c_boolUseObjects)
+            if (c_boolUseObjects1)
+            {
+                //
+                // Added 1/11/2021 Thomas Downes        
+                //
+                //mod_cubeWholeBothSides.PaintThisCube(a_graphics, center_point_form_FRONT);
+                mod_cubeFrontside.PaintThisSide(a_graphics, center_point_form_BACK);
+
+            }
+
+            else if (c_boolUseObjects2)  //if (c_boolUseObjects)
             {
                 //
                 // Added 11/11/2020 Thomas Downes        

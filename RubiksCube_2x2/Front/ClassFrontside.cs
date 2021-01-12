@@ -441,6 +441,40 @@ namespace RubiksCube_2x2
             }
 
 
+            public void PaintThisSide(System.Drawing.Graphics par_graphics, Point par_pointCenter)
+            {
+                //
+                // Not in use.  See the following:    FormSolvingTool.Form1_Paint(object sender, PaintEventArgs e)
+                //
+                //var a_graphics = new System.Drawing.Graphics();  // e.Graphics;
+
+                base.PaintThisSide_Base(par_graphics, par_pointCenter,
+                            this._pieceBRW, this._pieceBWO,
+                            this._pieceGOW, this._pieceGWR);
+                ////
+                //// Step 1 of 2.  Paint the front faces.  (vs. sides) 
+                ////
+                ////   (Code copied from FormSolvingTool.Form1_Paint_FRONT(PaintEventArgs e), 1/11/2021.)
+                ////
+                //this._pieceBRW.PaintByGraphics_FrontFace(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustFront);
+                //this._pieceBWO.PaintByGraphics_FrontFace(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustFront);
+                //this._pieceGOW.PaintByGraphics_FrontFace(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustFront);
+                //this._pieceGWR.PaintByGraphics_FrontFace(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustFront);
+
+                ////
+                //// Step 2 of 2.  Paint the side faces.  
+                ////
+                ////   (Code copied from FormSolvingTool.Form1_Paint_FRONT(PaintEventArgs e), 1/11/2021.)
+                ////
+                //this._pieceBRW.PaintByGraphics_SideFaces(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustSides);
+                //this._pieceBWO.PaintByGraphics_SideFaces(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustSides);
+                //this._pieceGOW.PaintByGraphics_SideFaces(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustSides);
+                //this._pieceGWR.PaintByGraphics_SideFaces(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustSides);
+
+            }
+
+
+
 
 
         }

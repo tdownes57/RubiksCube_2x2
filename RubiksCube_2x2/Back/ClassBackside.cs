@@ -922,6 +922,66 @@ namespace RubiksCube_2x2
             }
 
 
+            public void PaintThisSide_NotInUse()
+            {
+                //
+                // Not in use.  See the following:  
+                //
+            }
+
+            public void RefreshThisSide_NotInUse()
+            {
+                //
+                // Not in use.  See the following:  
+                //
+            }
+
+            public void PaintThisSide_NotInUse(PaintEventArgs par_e, Form par_form, Panel par_panel = null, FormSolvingTool par_frmSolving = null)
+            {
+                //
+                // Not in use.  See the following:  FormSolvingTool.private void Form1_Paint(object sender, PaintEventArgs e)
+                //
+                //var a_graphics = new System.Drawing.Graphics();  // e.Graphics;
+
+                par_frmSolving.Form1_Paint(par_frmSolving, par_e);
+
+            }
+
+
+            public void PaintThisSide(System.Drawing.Graphics par_graphics, Point par_pointCenter)
+            {
+                //
+                // Not in use.  See the following:    FormSolvingTool.private void Form1_Paint(object sender, PaintEventArgs e)
+                //
+                //var a_graphics = new System.Drawing.Graphics();  // e.Graphics;
+
+                base.PaintThisSide_Base(par_graphics, par_pointCenter,
+                        this._pieceBOY, this._pieceBYR,
+                        this._pieceGRY, this._pieceGYO);
+
+                ////
+                //// Step 1 of 2.  Paint the front faces.  (vs. sides) 
+                ////
+                ////   (Code copied from FormSolvingTool.Form1_Paint_BACK(PaintEventArgs e), 1/11/2021.)
+                ////
+                //this._pieceBOY.PaintByGraphics_FrontFace(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustFront);
+                //this._pieceBYR.PaintByGraphics_FrontFace(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustFront);
+                //this._pieceGRY.PaintByGraphics_FrontFace(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustFront);
+                //this._pieceGYO.PaintByGraphics_FrontFace(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustFront);
+
+                ////
+                //// Step 2 of 2.  Paint the side faces.  
+                ////
+                ////   (Code copied from FormSolvingTool.Form1_Paint_BACK(PaintEventArgs e), 1/11/2021.)
+                ////
+                //this._pieceBOY.PaintByGraphics_SideFaces(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustSides);
+                //this._pieceBYR.PaintByGraphics_SideFaces(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustSides);
+                //this._pieceGRY.PaintByGraphics_SideFaces(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustSides);
+                //this._pieceGYO.PaintByGraphics_SideFaces(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustSides);
+
+            }
+
+
         }
     }
 }
