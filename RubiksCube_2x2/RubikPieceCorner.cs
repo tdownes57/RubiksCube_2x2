@@ -11,6 +11,14 @@ namespace RubiksCube_2x2
     {
         //public System.Drawing.Color Color1of3;
 
+        public string TemporaryTextMarker = "";  // E.g. "10:30".   Added 1/11/2021. 
+        //public EnumFaceNum TemporaryTextMarker_WhichFace = EnumFaceNum.NotSpecified;  // E.g. "10:30".   Added 1/11/2021. 
+        //public bool TemporaryTextMarker_IsNowNorth = false;  // E.g. "10:30".   Added 1/11/2021. 
+        //public bool TemporaryTextMarker_IsSideEast = false;  // E.g. "10:30".   Added 1/11/2021. 
+        //public bool TemporaryTextMarker_IsSideSouth = false;  // E.g. "10:30".   Added 1/11/2021. 
+        //public bool TemporaryTextMarker_IsSideWest = false;  // E.g. "10:30".   Added 1/11/2021. 
+        public Color TemporaryTextMarker_Color = Color.Black;  // Added 1/11/2021. 
+
         //internal BlueOrangeYellow mod_PieceBOY = new BlueOrangeYellow();
         //internal BlueYellowRed mod_PieceBYR = new BlueYellowRed();
         //internal GreenRedYellow mod_PieceGRY = new GreenRedYellow();
@@ -256,9 +264,25 @@ namespace RubiksCube_2x2
             p_pointSE = new Point(frontFace.X + frontFace.Width, frontFace.Y + frontFace.Height);
 
             //Brush a_brush = new SolidBrush(base.GetColorOfFrontFace());
-            Brush a_brush = new SolidBrush(GetColorOfFrontFace());
+            //Brush a_brush = new SolidBrush(GetColorOfFrontFace());
+            Color color_OfFrontFace = GetColorOfFrontFace();
+            Brush a_brush = new SolidBrush(color_OfFrontFace);
 
-            if (p_boolDoPaintTheFront)
+            //Added 1/11/2021 Thomas Downes
+            //bool bTextMarkerIsStillInFront = (this.TemporaryTextMarker_WhichFace == WhichFaceIsFront);
+            bool bTextMarkerIsStillInFront = (this.TemporaryTextMarker_Color == color_OfFrontFace);
+            bool bHasTemporaryTextMarker = (this.TemporaryTextMarker != "") && (bTextMarkerIsStillInFront);
+
+            if (bHasTemporaryTextMarker && p_boolDoPaintTheFront)
+            {
+                //
+                // Added 1/11/2021 
+                //
+                par_graph.DrawString(this.TemporaryTextMarker, new Font("Comic Sans MS", 13), a_brush, 0, 0);
+
+            }
+
+            else if (p_boolDoPaintTheFront)
             {
                 //
                 // We are _not_ merely populating the "out" parameters.
@@ -297,8 +321,33 @@ namespace RubiksCube_2x2
                            in par_pointNW, in par_pointSW,
                            in par_pointNE, in par_pointSE);
 
-            Brush a_brush = new SolidBrush(this.GetColorOfSideFace_ClockwiseFromFront());
-            par_graphics.FillRectangle(a_brush, sideFace);
+            //----Brush a_brush = new SolidBrush(this.GetColorOfSideFace_ClockwiseFromFront());
+            Color color_ofSideFace = this.GetColorOfSideFace_ClockwiseFromFront();
+            Brush a_brush = new SolidBrush(color_ofSideFace);
+
+            //Added 1/11/2021 Thomas Downes
+            //bool bTextMarkerIsClockwiseFromFront = (this.TemporaryTextMarker_IsClockwiseFromFront());
+            bool bTextMarkerIsClockwiseFromFront = (this.TemporaryTextMarker_Color == color_ofSideFace);
+            bool bHasTemporaryTextMarker = (this.TemporaryTextMarker != "") && (bTextMarkerIsClockwiseFromFront);
+
+            if (bHasTemporaryTextMarker)
+            {
+                //
+                // Added 1/11/2021.   E.g. put "4:30" to indicate that the prior front face
+                //   has moved to one of the sides. 
+                //
+                par_graphics.DrawString(this.TemporaryTextMarker, 
+                    new Font("Comic Sans MS", 11),
+                    a_brush, 0, 0);
+
+            }
+            else
+            {
+                //
+                // Fill the side face (a smaller square, to the side of the larger front face (square)).
+                //
+                par_graphics.FillRectangle(a_brush, sideFace);
+            }
 
             //Administrative.
             _rectangleSideFace_CW = sideFace;
@@ -322,8 +371,22 @@ namespace RubiksCube_2x2
                            in par_pointNW, in par_pointSW,
                            in par_pointNE, in par_pointSE);
 
-            Brush a_brush = new SolidBrush(this.GetColorOfSideFace_CounterClockwise());
-            par_graphics.FillRectangle(a_brush, sideFace);
+            // Jan. 11 //Brush a_brush = new SolidBrush(this.GetColorOfSideFace_CounterClockwise());
+            Color color_ofSideFace = this.GetColorOfSideFace_CounterClockwise();
+            Brush a_brush = new SolidBrush(color_ofSideFace);
+
+            //Added 1/11/2021 Thomas Downes
+            bool bTextMarkerIsThisFace = (this.TemporaryTextMarker_Color == color_ofSideFace);
+            bool bHasTemporaryTextMarker = (this.TemporaryTextMarker != "") && (bTextMarkerIsThisFace);
+
+            if (bHasTemporaryTextMarker)
+            {
+
+            }
+            else
+            {
+                par_graphics.FillRectangle(a_brush, sideFace);
+            }
 
             //Administrative.
             _rectangleSideFace_CCW = sideFace;
@@ -1275,6 +1338,61 @@ namespace RubiksCube_2x2
             if (EnumStaticClass.AdjacentClockwise(this, par_backSide._pieceGYO)) return par_backSide._pieceGYO;
 
             return null;
+
+        }
+
+
+        public void SetTemporaryTextMarker_ClockPosition()
+        {
+            //
+            // Added 1/11/2021 thomas downes
+            //
+            if (this.FrontClockFacePosition == FrontClockFace.four_thirty) this.TemporaryTextMarker = "4:30";
+            if (this.FrontClockFacePosition == FrontClockFace.one_thirty) this.TemporaryTextMarker = "1:30";
+            if (this.FrontClockFacePosition == FrontClockFace.ten_thirty) this.TemporaryTextMarker = "10:30";
+            if (this.FrontClockFacePosition == FrontClockFace.seven_thirty) this.TemporaryTextMarker = "7:30";
+
+            //Added 1/11/2021
+            //
+            const bool c_boolCleanColon30 = true; 
+            if (c_boolCleanColon30)
+            {
+                // Remove the ":30" from the text.  --1/11/2021 thomas downes
+                this.TemporaryTextMarker = this.TemporaryTextMarker.Replace(":30", "");
+            }
+
+            //Indicate that the front face has the textual marker.  
+            //this.TemporaryTextMarker_WhichFace = WhichFaceIsFront;
+            Color color_OfFrontFace = Color.Black; 
+            if (this.WhichFaceIsFront == EnumFaceNum.Face1) color_OfFrontFace = this.FaceColor1of3;
+            if (this.WhichFaceIsFront == EnumFaceNum.Face2) color_OfFrontFace = this.FaceColor2of3;
+            if (this.WhichFaceIsFront == EnumFaceNum.Face3) color_OfFrontFace = this.FaceColor3of3;
+            this.TemporaryTextMarker_Color = color_OfFrontFace;
+
+        }
+
+
+        public bool TemporaryTextMarker_IsClockwiseFromFront()
+        {
+            //
+            // Added 1/11/2021
+            //
+            //   This corresponds to:
+            //       PaintSideFace_ClockwiseFromFront
+            //
+            throw new NotImplementedException(); 
+
+        }
+
+        public bool TemporaryTextMarker_IsCounterCWFromFront()
+        {
+            //
+            // Added 1/11/2021
+            //
+            //   This corresponds to:
+            //        PaintSideFace_CounterClockwise
+            //
+            throw new NotImplementedException();
 
         }
 

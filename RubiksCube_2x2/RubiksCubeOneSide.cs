@@ -16,6 +16,12 @@ namespace RubiksCube_2x2
         public abstract void Simple_Clockwise90();
         public abstract void Simple_Counterwise90();
 
+        // Added 1/11/2021 thomas downes
+        public RubikPieceCorner Piece1;
+        public RubikPieceCorner Piece2;
+        public RubikPieceCorner Piece3;
+        public RubikPieceCorner Piece4;
+
 
         //Added 11/13/2020 thomas downes
         public abstract bool SideIsASolidColor();
@@ -195,6 +201,47 @@ namespace RubiksCube_2x2
         }
 
 
+        public void PaintThisSide_Base(System.Drawing.Graphics par_graphics, Point par_pointCenter)
+        {
+            //
+            // Added 1/11//2020 thomas downes
+            //
+            // Step 1 of 2.  Paint the front faces.  (vs. sides) 
+            //
+            //   (Code copied from FormSolvingTool.Form1_Paint_BACK(PaintEventArgs e), 1/11/2021.)
+            //
+            Piece1.PaintByGraphics_FrontFace(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustFront);
+            Piece2.PaintByGraphics_FrontFace(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustFront);
+            Piece3.PaintByGraphics_FrontFace(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustFront);
+            Piece4.PaintByGraphics_FrontFace(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustFront);
+
+            //
+            // Step 2 of 2.  Paint the side faces.  
+            //
+            //   (Code copied from FormSolvingTool.Form1_Paint_BACK(PaintEventArgs e), 1/11/2021.)
+            //
+            Piece1.PaintByGraphics_SideFaces(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustSides);
+            Piece2.PaintByGraphics_SideFaces(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustSides);
+            Piece3.PaintByGraphics_SideFaces(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustSides);
+            Piece4.PaintByGraphics_SideFaces(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustSides);
+
+        }
+
+
+        public void SetTemporaryTextMarkers_ClockPositions()
+        {
+            //
+            // Added 1/11/2021 thomas downes
+            //
+            // Place "1:30", "4:30", "7:30", and "10:30" on the front faces, 
+            //   depending on position.  
+            //
+            this.Piece1.SetTemporaryTextMarker_ClockPosition();
+            this.Piece2.SetTemporaryTextMarker_ClockPosition();
+            this.Piece3.SetTemporaryTextMarker_ClockPosition();
+            this.Piece4.SetTemporaryTextMarker_ClockPosition();
+
+        }
 
 
     }

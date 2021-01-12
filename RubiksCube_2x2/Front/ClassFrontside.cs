@@ -34,6 +34,12 @@ namespace RubiksCube_2x2
                 _pieceGOW = par_GOW;
                 _pieceGWR = par_GWR;
 
+                // Added 1/11/2021 thomas Downes
+                base.Piece1 = _pieceBRW;
+                base.Piece2 = _pieceBWO;
+                base.Piece3 = _pieceGOW;
+                base.Piece4 = _pieceGWR;  
+
             }
 
 
@@ -51,7 +57,13 @@ namespace RubiksCube_2x2
                 _pieceBRW = objFrontside._pieceBRW;
                 _pieceBWO = objFrontside._pieceBWO;
                 _pieceGOW = objFrontside._pieceGOW;
-                _pieceGWR = objFrontside._pieceGWR;  
+                _pieceGWR = objFrontside._pieceGWR;
+
+                // Added 1/11/2021 thomas Downes
+                base.Piece1 = _pieceBRW;
+                base.Piece2 = _pieceBWO;
+                base.Piece3 = _pieceGOW;
+                base.Piece4 = _pieceGWR;
 
             }
 

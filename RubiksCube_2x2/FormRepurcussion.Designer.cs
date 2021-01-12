@@ -47,6 +47,8 @@ namespace RubiksCube_2x2
             this.button1 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.dropdownManeuvers = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,7 +70,7 @@ namespace RubiksCube_2x2
             this.tableLayoutPanel1.Controls.Add(this.panelFrontAfter, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.panelBackBefore, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.panelBackAfter, 1, 4);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(43, 76);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(43, 109);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
@@ -76,13 +78,13 @@ namespace RubiksCube_2x2
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(995, 455);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(995, 456);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(500, 248);
+            this.label7.Location = new System.Drawing.Point(500, 249);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(114, 17);
             this.label7.TabIndex = 6;
@@ -91,7 +93,7 @@ namespace RubiksCube_2x2
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 248);
+            this.label6.Location = new System.Drawing.Point(3, 249);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(126, 17);
             this.label6.TabIndex = 6;
@@ -142,7 +144,7 @@ namespace RubiksCube_2x2
             this.panelFrontBefore.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFrontBefore.Location = new System.Drawing.Point(3, 65);
             this.panelFrontBefore.Name = "panelFrontBefore";
-            this.panelFrontBefore.Size = new System.Drawing.Size(491, 180);
+            this.panelFrontBefore.Size = new System.Drawing.Size(491, 181);
             this.panelFrontBefore.TabIndex = 5;
             // 
             // panelFrontAfter
@@ -150,7 +152,7 @@ namespace RubiksCube_2x2
             this.panelFrontAfter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFrontAfter.Location = new System.Drawing.Point(500, 65);
             this.panelFrontAfter.Name = "panelFrontAfter";
-            this.panelFrontAfter.Size = new System.Drawing.Size(492, 180);
+            this.panelFrontAfter.Size = new System.Drawing.Size(492, 181);
             this.panelFrontAfter.TabIndex = 6;
             // 
             // panelBackBefore
@@ -158,7 +160,7 @@ namespace RubiksCube_2x2
             this.panelBackBefore.BackgroundImage = global::RubiksCube_2x2.Properties.Resources.manuever_1030;
             this.panelBackBefore.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelBackBefore.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelBackBefore.Location = new System.Drawing.Point(3, 271);
+            this.panelBackBefore.Location = new System.Drawing.Point(3, 272);
             this.panelBackBefore.Name = "panelBackBefore";
             this.panelBackBefore.Size = new System.Drawing.Size(491, 181);
             this.panelBackBefore.TabIndex = 7;
@@ -166,7 +168,7 @@ namespace RubiksCube_2x2
             // panelBackAfter
             // 
             this.panelBackAfter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelBackAfter.Location = new System.Drawing.Point(500, 271);
+            this.panelBackAfter.Location = new System.Drawing.Point(500, 272);
             this.panelBackAfter.Name = "panelBackAfter";
             this.panelBackAfter.Size = new System.Drawing.Size(492, 181);
             this.panelBackAfter.TabIndex = 8;
@@ -174,7 +176,7 @@ namespace RubiksCube_2x2
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(342, 37);
+            this.label1.Location = new System.Drawing.Point(341, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(162, 17);
             this.label1.TabIndex = 1;
@@ -184,7 +186,7 @@ namespace RubiksCube_2x2
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(510, 32);
+            this.textBox1.Location = new System.Drawing.Point(509, 60);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(555, 22);
             this.textBox1.TabIndex = 2;
@@ -192,7 +194,7 @@ namespace RubiksCube_2x2
             // buttonOK
             // 
             this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonOK.Location = new System.Drawing.Point(325, 551);
+            this.buttonOK.Location = new System.Drawing.Point(325, 585);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(179, 39);
             this.buttonOK.TabIndex = 3;
@@ -202,7 +204,7 @@ namespace RubiksCube_2x2
             // buttonCancel
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonCancel.Location = new System.Drawing.Point(519, 551);
+            this.buttonCancel.Location = new System.Drawing.Point(519, 585);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(179, 39);
             this.buttonCancel.TabIndex = 4;
@@ -211,7 +213,7 @@ namespace RubiksCube_2x2
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(26, 5);
+            this.button1.Location = new System.Drawing.Point(25, 33);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(287, 39);
             this.button1.TabIndex = 5;
@@ -220,7 +222,7 @@ namespace RubiksCube_2x2
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(510, 5);
+            this.textBox2.Location = new System.Drawing.Point(509, 33);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(298, 22);
             this.textBox2.TabIndex = 7;
@@ -228,17 +230,36 @@ namespace RubiksCube_2x2
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(342, 10);
+            this.label8.Location = new System.Drawing.Point(341, 38);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(128, 17);
             this.label8.TabIndex = 6;
             this.label8.Text = "Name of Maneuver";
             // 
+            // dropdownManeuvers
+            // 
+            this.dropdownManeuvers.FormattingEnabled = true;
+            this.dropdownManeuvers.Location = new System.Drawing.Point(348, 2);
+            this.dropdownManeuvers.Name = "dropdownManeuvers";
+            this.dropdownManeuvers.Size = new System.Drawing.Size(308, 24);
+            this.dropdownManeuvers.TabIndex = 8;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(214, 5);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(114, 17);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "Select Maneuver";
+            // 
             // FormRepurcussion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1077, 602);
+            this.ClientSize = new System.Drawing.Size(1077, 636);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.dropdownManeuvers);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.button1);
@@ -276,5 +297,7 @@ namespace RubiksCube_2x2
         private System.Windows.Forms.Panel panelBackAfter;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox dropdownManeuvers;
+        private System.Windows.Forms.Label label9;
     }
 }

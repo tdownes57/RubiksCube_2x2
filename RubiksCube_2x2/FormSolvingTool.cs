@@ -475,7 +475,9 @@ namespace RubiksCube_2x2
                 //
                 // Added 1/11/2021 Thomas Downes        
                 //
-                mod_cubeWholeBothSides.PaintThisCube(a_graphics, center_point_form_BACK);
+                mod_cubeWholeBothSides.PaintThisCube(a_graphics,
+                    center_point_form_FRONT,
+                    center_point_form_BACK);
 
             }
             else if (c_boolUseObjects2)
@@ -1303,6 +1305,16 @@ namespace RubiksCube_2x2
             //Added 1/04/2021 thomas downes
             mod_backCountOfRevolveCounterClock += 1;
             lblCntBacksideSimpleCCW.Text = "Count: " + mod_backCountOfRevolveCounterClock.ToString();
+
+        }
+
+        private void linkEditManeuvers_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            //
+            // Added 1/11/2021 thomas downes
+            //
+            var objFormToShow = new FormRepurcussion();
+            objFormToShow.Show();
 
         }
     }

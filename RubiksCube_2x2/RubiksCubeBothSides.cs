@@ -228,6 +228,8 @@ namespace RubiksCube_2x2
             //
             // Not in use.  See the following:  
             //
+            //    public void PaintThisCube
+            //
         }
 
 

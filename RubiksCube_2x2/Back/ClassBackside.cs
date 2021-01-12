@@ -34,6 +34,12 @@ namespace RubiksCube_2x2
                 _pieceGRY = par_GRY;
                 _pieceGYO = par_GYO;
 
+                // Added 1/11/2021 thomas Downes
+                base.Piece1 = _pieceBOY;
+                base.Piece2 = _pieceBYR;
+                base.Piece3 = _pieceGRY;
+                base.Piece4 = _pieceGYO;
+
             }
 
 
@@ -52,6 +58,12 @@ namespace RubiksCube_2x2
                 _pieceBYR = objBackside._pieceBYR;
                 _pieceGRY = objBackside._pieceGRY;
                 _pieceGYO = objBackside._pieceGYO;
+
+                // Added 1/11/2021 thomas Downes
+                base.Piece1 = _pieceBOY;
+                base.Piece2 = _pieceBYR;
+                base.Piece3 = _pieceGRY;
+                base.Piece4 = _pieceGYO;
 
             }
 
