@@ -68,6 +68,19 @@ namespace RubiksCube_2x2
             }
 
 
+            public ClassFrontside()
+            {
+                //
+                // Added 1/13/2021 thomas downes  
+                //
+                _pieceBRW = new Front.BlueRedWhite();   base.Piece1 = _pieceBRW;
+                _pieceBWO = new Front.BlueWhiteOrange(); base.Piece2 = _pieceBWO;
+                _pieceGOW = new Front.GreenOrangeWhite(); base.Piece3 = _pieceGOW;
+                _pieceGWR = new Front.GreenWhiteRed(); base.Piece4 = _pieceGWR;
+
+            }
+
+
             public override void LoadInitialPositions()
             {
                 //throw new NotImplementedException();

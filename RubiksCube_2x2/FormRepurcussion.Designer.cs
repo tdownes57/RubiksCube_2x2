@@ -270,6 +270,7 @@ namespace RubiksCube_2x2
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FormRepurcussion";
             this.Text = "After";
+            this.Load += new System.EventHandler(this.FormRepurcussion_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

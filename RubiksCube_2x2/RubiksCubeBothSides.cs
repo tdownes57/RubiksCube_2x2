@@ -44,6 +44,17 @@ namespace RubiksCube_2x2
         }
 
 
+        public RubiksCubeBothSides()
+        {
+            //
+            // Added 1/13/2021 thomas downes  
+            //
+            mod_frontside = new Front.ClassFrontside();
+            mod_backside = new Back.ClassBackside();
+
+        }
+
+
         public void SwitchBottomPieces_Front()
         {
             //
