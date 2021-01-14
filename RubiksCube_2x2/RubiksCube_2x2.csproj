@@ -112,11 +112,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormRepurcussion.cs">
+    <Compile Include="FormManeuvers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormRepurcussion.Designer.cs">
-      <DependentUpon>FormRepurcussion.cs</DependentUpon>
+    <Compile Include="FormManeuvers.Designer.cs">
+      <DependentUpon>FormManeuvers.cs</DependentUpon>
     </Compile>
     <Compile Include="Front\ClassFrontsideBrief.cs" />
     <Compile Include="MongoDB_Load.cs" />
@@ -155,8 +155,8 @@
     <Compile Include="RubiksCubeBothSides.cs" />
     <Compile Include="TestMongoDB.cs" />
     <Compile Include="Uniqueness.cs" />
-    <EmbeddedResource Include="FormRepurcussion.resx">
-      <DependentUpon>FormRepurcussion.cs</DependentUpon>
+    <EmbeddedResource Include="FormManeuvers.resx">
+      <DependentUpon>FormManeuvers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSolvingTool.resx">
       <DependentUpon>FormSolvingTool.cs</DependentUpon>
@@ -215,6 +215,9 @@
       <Project>{8ee87d17-fcff-498c-b4ad-6ee1d1ed783e}</Project>
       <Name>DataLayerNoSQL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Maneuvers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MongoDB.LibMongocrypt.1.1.0-beta02\build\MongoDB.Libmongocrypt.targets" Condition="Exists('..\packages\MongoDB.LibMongocrypt.1.1.0-beta02\build\MongoDB.Libmongocrypt.targets')" />

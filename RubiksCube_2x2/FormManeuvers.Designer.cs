@@ -1,7 +1,7 @@
 ﻿
 namespace RubiksCube_2x2
 {
-    partial class FormRepurcussion
+    partial class FormManeuvers
     {
         /// <summary>
         /// Required designer variable.
@@ -146,6 +146,7 @@ namespace RubiksCube_2x2
             this.panelFrontBefore.Name = "panelFrontBefore";
             this.panelFrontBefore.Size = new System.Drawing.Size(491, 181);
             this.panelFrontBefore.TabIndex = 5;
+            this.panelFrontBefore.Paint += new System.Windows.Forms.PaintEventHandler(this.panelFrontBefore_Paint);
             // 
             // panelFrontAfter
             // 
@@ -154,6 +155,7 @@ namespace RubiksCube_2x2
             this.panelFrontAfter.Name = "panelFrontAfter";
             this.panelFrontAfter.Size = new System.Drawing.Size(492, 181);
             this.panelFrontAfter.TabIndex = 6;
+            this.panelFrontAfter.Paint += new System.Windows.Forms.PaintEventHandler(this.panelFrontAfter_Paint);
             // 
             // panelBackBefore
             // 
@@ -164,6 +166,7 @@ namespace RubiksCube_2x2
             this.panelBackBefore.Name = "panelBackBefore";
             this.panelBackBefore.Size = new System.Drawing.Size(491, 181);
             this.panelBackBefore.TabIndex = 7;
+            this.panelBackBefore.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBackBefore_Paint);
             // 
             // panelBackAfter
             // 
@@ -172,6 +175,7 @@ namespace RubiksCube_2x2
             this.panelBackAfter.Name = "panelBackAfter";
             this.panelBackAfter.Size = new System.Drawing.Size(492, 181);
             this.panelBackAfter.TabIndex = 8;
+            this.panelBackAfter.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBackAfter_Paint);
             // 
             // label1
             // 
