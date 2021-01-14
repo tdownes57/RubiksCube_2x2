@@ -67,6 +67,7 @@ namespace RubiksCube_2x2
         //Added 11/18/2020 thomas downes
         public bool ClockwiseRevolution90_Deprecated;
         //public bool FrontFaceMovement; //Added 12/9/2020 td
+        public bool NothingHappens;  // Added 1/13/2021 thomas downes
     }
 
     // Added 12/09/2020 thomas downes 

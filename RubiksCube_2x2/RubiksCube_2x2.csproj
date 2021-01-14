@@ -112,13 +112,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormManeuvers.cs">
+    <Compile Include="Maneuvers\FormManeuvers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormManeuvers.Designer.cs">
+    <Compile Include="Maneuvers\FormManeuvers.Designer.cs">
       <DependentUpon>FormManeuvers.cs</DependentUpon>
     </Compile>
     <Compile Include="Front\ClassFrontsideBrief.cs" />
+    <Compile Include="Maneuvers\Maneuver.cs" />
+    <Compile Include="Maneuvers\ManeuversList.cs" />
     <Compile Include="MongoDB_Load.cs" />
     <Compile Include="MongoDB_Save.cs" />
     <Compile Include="RubiksCubeOneSide.cs" />
@@ -127,13 +129,13 @@
     <Compile Include="Back\ClassGreenRedYellow.cs" />
     <Compile Include="Back\ClassGreenYellowOrange.cs" />
     <Compile Include="Back\ClassBackside.cs" />
-    <Compile Include="Back\ComplexRotation.cs" />
-    <Compile Include="Back\Rules_AdjacentPairExchange.cs" />
-    <Compile Include="Back\Rules_FrontPieceRotation.cs" />
-    <Compile Include="Back\ComplexRulesEngine0130.cs" />
-    <Compile Include="Back\ComplexRulesEngine0430.cs" />
-    <Compile Include="Back\ComplexRulesEngine0730.cs" />
-    <Compile Include="Back\ComplexRulesEngine1030.cs" />
+    <Compile Include="Maneuvers\ComplexRotation.cs" />
+    <Compile Include="Maneuvers\Rules_AdjacentPairExchange.cs" />
+    <Compile Include="Maneuvers\Rules_FrontPieceRotation.cs" />
+    <Compile Include="Maneuvers\ComplexRulesEngine0130.cs" />
+    <Compile Include="Maneuvers\ComplexRulesEngine0430.cs" />
+    <Compile Include="Maneuvers\ComplexRulesEngine0730.cs" />
+    <Compile Include="Maneuvers\ComplexRulesEngine1030.cs" />
     <Compile Include="EnumStaticClass.cs" />
     <Compile Include="FormSolvingTool.cs">
       <SubType>Form</SubType>
@@ -155,7 +157,7 @@
     <Compile Include="RubiksCubeBothSides.cs" />
     <Compile Include="TestMongoDB.cs" />
     <Compile Include="Uniqueness.cs" />
-    <EmbeddedResource Include="FormManeuvers.resx">
+    <EmbeddedResource Include="Maneuvers\FormManeuvers.resx">
       <DependentUpon>FormManeuvers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSolvingTool.resx">
@@ -216,9 +218,7 @@
       <Name>DataLayerNoSQL</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Maneuvers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MongoDB.LibMongocrypt.1.1.0-beta02\build\MongoDB.Libmongocrypt.targets" Condition="Exists('..\packages\MongoDB.LibMongocrypt.1.1.0-beta02\build\MongoDB.Libmongocrypt.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
