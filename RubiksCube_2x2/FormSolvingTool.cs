@@ -51,6 +51,8 @@ namespace RubiksCube_2x2
         private bool _bClickedFrontside = false;  // _bClickedFrontside; //  false;
         private bool _bClickedBackside = false;  // _bClickedBackside;  // false;
 
+        // added 1/16/2021 td
+        private Maneuvers.ManeuversList mod_listManeuvers = new Maneuvers.ManeuversList();
 
         public FormSolvingTool()
         {
@@ -1313,7 +1315,10 @@ namespace RubiksCube_2x2
             //
             // Added 1/11/2021 thomas downes
             //
-            var objFormToShow = new FormRepurcussion();
+            //----var objFormToShow = new FormRepurcussion();
+
+            int intIndexOfManeuver = (int)(this.comboBox1.SelectedIndex);
+            var objFormToShow = new FormManeuvers(mod_listManeuvers, intIndexOfManeuver);
             objFormToShow.Show();
 
         }

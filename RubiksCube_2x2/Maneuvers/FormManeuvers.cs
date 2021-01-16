@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RubiksCube_2x2.Maneuvers;  // Added 1/15/2021 thomass d.  
 
 namespace RubiksCube_2x2
 {
@@ -17,12 +18,12 @@ namespace RubiksCube_2x2
         private RubiksCubeBothSides mod_cubeBothSides_Before;
         private RubiksCubeBothSides mod_cubeBothSides_After;
 
-        public FormManeuvers(ManueversList par_listManuevers, int par_indexOfManeuver)
+        public FormManeuvers(ManeuversList par_listManuevers, int par_indexOfManeuver)
         {
             InitializeComponent();
 
             //Added 12/8/2020 thomas downes
-            //mod_cubeWholeBothSides = new RubiksCubeBothSides();
+            //  mod_cubeWholeBothSides = new RubiksCubeBothSides();
             mod_cubeBothSides_Before = new RubiksCubeBothSides();
             mod_cubeBothSides_After = new RubiksCubeBothSides();
 
@@ -53,7 +54,7 @@ namespace RubiksCube_2x2
             //
             // Added 1/13/2021 thomas downes
             //
-            mod_cubeBothSides_Before.FrontSide.SetTemporaryTextMarkers_ClockPositions()
+            mod_cubeBothSides_Before.FrontSide.SetTemporaryTextMarkers_ClockPositions();
 
         }
 

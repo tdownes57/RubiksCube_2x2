@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RubiksCube_2x2.Back
+namespace RubiksCube_2x2.Maneuvers  // RubiksCube_2x2.Back
 {
     static class ComplexRulesEngine0430
     {

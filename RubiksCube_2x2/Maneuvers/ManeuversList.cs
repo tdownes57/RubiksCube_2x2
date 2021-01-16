@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RubiksCube_2x2.Maneuvers
 {
-    class ManeuversList
+    public class ManeuversList
     {
         //
         // Added 1/13/2021 Thomas Downes 

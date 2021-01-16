@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;  // Added 11/17/2020 thomas downes
+using RubiksCube_2x2.Maneuvers;  // Added 1/16/2021 thomas
 
 namespace RubiksCube_2x2
 {
@@ -50,6 +51,20 @@ namespace RubiksCube_2x2
 
 
         public abstract RubikPieceCorner GetPiece(FrontClockFace par_enum);
+
+        public RubikPieceCorner GetPieceAtPosition(FrontClockFace par_enum)
+        {
+            //
+            // Added 1/16/2020 thomas downes   
+            //
+            if (this.Piece1.FrontClockFacePosition == par_enum) return this.Piece1;
+            else if (this.Piece2.FrontClockFacePosition == par_enum) return this.Piece2;
+            else if (this.Piece3.FrontClockFacePosition == par_enum) return this.Piece3;
+            else if (this.Piece4.FrontClockFacePosition == par_enum) return this.Piece4;
+            else return null;
+
+        }
+
 
         public bool PiecesAre_BottomSWSE_Base(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2)
         {
@@ -136,27 +151,27 @@ namespace RubiksCube_2x2
             // Move #1 of 5. 
             //
             //ComplexRulesEngine.ReorientPiece_Complex(move1_from130.StartingPoint, move1_from130.EndingPoint);
-            Back.ComplexRulesEngine0130.this_piece_startsAt_130 = piece_starting_at_130;
-            Back.ComplexRulesEngine0130.this_complex_move = par_rules.move1_from130;
-            Back.ComplexRulesEngine0130.FrontFace_130_ReorientTo(); // (move1_from130.StartingPoint, move1_from130.EndingPoint);
+            ComplexRulesEngine0130.this_piece_startsAt_130 = piece_starting_at_130;
+            ComplexRulesEngine0130.this_complex_move = par_rules.move1_from130;
+            ComplexRulesEngine0130.FrontFace_130_ReorientTo(); // (move1_from130.StartingPoint, move1_from130.EndingPoint);
 
             // Move #2 of 5. 
             //ComplexRulesEngine.ReorientPiece_Complex(move1_from130.StartingPoint, move1_from130.EndingPoint);
-            Back.ComplexRulesEngine0430.this_piece_startsAt_430 = piece_starting_at_430;
-            Back.ComplexRulesEngine0430.this_complex_move = par_rules.move2_from430;
-            Back.ComplexRulesEngine0430.FrontFace_430_ReorientTo(); // (move1_from130.StartingPoint, move1_from130.EndingPoint);
+            ComplexRulesEngine0430.this_piece_startsAt_430 = piece_starting_at_430;
+            ComplexRulesEngine0430.this_complex_move = par_rules.move2_from430;
+            ComplexRulesEngine0430.FrontFace_430_ReorientTo(); // (move1_from130.StartingPoint, move1_from130.EndingPoint);
 
             // Move #3 of 5. 
             //ComplexRulesEngine.ReorientPiece_Complex(move1_from130.StartingPoint, move1_from130.EndingPoint);
-            Back.ComplexRulesEngine0730.this_piece_startsAt_730 = piece_starting_at_730;
-            Back.ComplexRulesEngine0730.this_complex_move = par_rules.move3_from730;
-            Back.ComplexRulesEngine0730.FrontFace_730_ReorientTo(); // (move1_from130.StartingPoint, move1_from130.EndingPoint);
+            ComplexRulesEngine0730.this_piece_startsAt_730 = piece_starting_at_730;
+            ComplexRulesEngine0730.this_complex_move = par_rules.move3_from730;
+            ComplexRulesEngine0730.FrontFace_730_ReorientTo(); // (move1_from130.StartingPoint, move1_from130.EndingPoint);
 
             // Move #4 of 5. 
             //ComplexRulesEngine.FrontFace_1030_ReorientTo(move1_from130.StartingPoint, move1_from130.EndingPoint);
-            Back.ComplexRulesEngine1030.this_piece_startsAt_1030 = piece_starting_at_1030;
-            Back.ComplexRulesEngine1030.this_complex_move = par_rules.move4_from1030;
-            Back.ComplexRulesEngine1030.FrontFace_1030_ReorientTo(); // (move1_from130.StartingPoint, move1_from130.EndingPoint);
+            ComplexRulesEngine1030.this_piece_startsAt_1030 = piece_starting_at_1030;
+            ComplexRulesEngine1030.this_complex_move = par_rules.move4_from1030;
+            ComplexRulesEngine1030.FrontFace_1030_ReorientTo(); // (move1_from130.StartingPoint, move1_from130.EndingPoint);
 
             // Move #5 of 5. ----11/18/2020 thomas d. 
             if (par_rules.move5_Clockwise90)  //.ClockwiseRevolution90)

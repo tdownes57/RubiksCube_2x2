@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;  //Added 11/13/2020 thomas downes
 using System.Windows.Forms;  // Added 12/13/2020 td
+using RubiksCube_2x2.Maneuvers;  // Added 1/16/2021 thomas downes
 
 namespace RubiksCube_2x2
 {
