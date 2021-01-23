@@ -8,6 +8,7 @@ using RubiksCube_2x2.Maneuvers;  // Added 1/16/2021 thomas
 
 namespace RubiksCube_2x2
 {
+    //abstract class RubiksCubeOneSide
     abstract class RubiksCubeOneSide
     {
         // Renamed to "RubiksCubeOneSide" from "BackOrFront" on 12/89/2020 td

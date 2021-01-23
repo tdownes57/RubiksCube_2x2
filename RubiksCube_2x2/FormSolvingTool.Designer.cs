@@ -63,6 +63,7 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.linkEditManeuvers = new System.Windows.Forms.LinkLabel();
+            this.linkShowSideSideView = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // progressBar1
@@ -416,11 +417,24 @@
             this.linkEditManeuvers.Text = "Edit Maneuvers";
             this.linkEditManeuvers.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkEditManeuvers_LinkClicked);
             // 
+            // linkShowSideSideView
+            // 
+            this.linkShowSideSideView.AutoSize = true;
+            this.linkShowSideSideView.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkShowSideSideView.Location = new System.Drawing.Point(220, 85);
+            this.linkShowSideSideView.Name = "linkShowSideSideView";
+            this.linkShowSideSideView.Size = new System.Drawing.Size(258, 24);
+            this.linkShowSideSideView.TabIndex = 34;
+            this.linkShowSideSideView.TabStop = true;
+            this.linkShowSideSideView.Text = "Give Side-Side View of Cube.";
+            this.linkShowSideSideView.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            // 
             // FormSolvingTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1152, 691);
+            this.Controls.Add(this.linkShowSideSideView);
             this.Controls.Add(this.linkEditManeuvers);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.linkLabel1);
@@ -505,6 +519,7 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.LinkLabel linkEditManeuvers;
+        private System.Windows.Forms.LinkLabel linkShowSideSideView;
     }
 }
 

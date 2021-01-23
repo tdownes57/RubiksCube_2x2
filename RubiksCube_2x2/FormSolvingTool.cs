@@ -1317,9 +1317,29 @@ namespace RubiksCube_2x2
             //
             //----var objFormToShow = new FormRepurcussion();
 
+            // Added 1/21/2021  
+            int intNumManeuvers = mod_listManeuvers.MyList.Count();
+            if (0 == intNumManeuvers) mod_listManeuvers.Load_HardcodedItems(); 
+
             int intIndexOfManeuver = (int)(this.comboBox1.SelectedIndex);
             var objFormToShow = new FormManeuvers(mod_listManeuvers, intIndexOfManeuver);
             objFormToShow.Show();
+
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            //
+            // Added 1/23/2021 Thomas Downes  
+            //
+            var objSideView1 = new RubiksCubeOneSide();
+            var objSideView2 = new RubiksCubeOneSide();
+
+
+
+
+
+
 
         }
     }

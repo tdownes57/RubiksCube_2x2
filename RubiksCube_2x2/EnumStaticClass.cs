@@ -30,6 +30,9 @@ namespace RubiksCube_2x2
     //
     public enum FrontClockFace { unassigned, one_thirty, four_thirty, seven_thirty, ten_thirty};
 
+    //Added 1/23/2021 thomas downes
+    public enum EnumLeftOrRight { Unassigned, Left, Right };
+
     //
     // A 2x2 Rubik's Cube:   (The [. .] faces are _side_ faces.)  
     //
