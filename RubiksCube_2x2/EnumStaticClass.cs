@@ -33,6 +33,14 @@ namespace RubiksCube_2x2
     //Added 1/23/2021 thomas downes
     public enum EnumLeftOrRight { Unassigned, Left, Right };
 
+
+    //Added 1/28/2021 thomas downes
+    //
+    //   "Primary View" means "The Side (Front, Back, Left, or Right) which is temporarily viewed as Front View." 
+    //
+    public enum EnumPrimaryView { Unassigned, Left, Right, Front, Back };
+
+
     //
     // A 2x2 Rubik's Cube:   (The [. .] faces are _side_ faces.)  
     //

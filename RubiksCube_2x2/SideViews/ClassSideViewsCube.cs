@@ -24,6 +24,8 @@ namespace RubiksCube_2x2.SideViews
             if (par_enum == EnumLeftOrRight.Left) mod_back = new ClassSideViewSide(par_cube, EnumLeftOrRight.Right);
             if (par_enum == EnumLeftOrRight.Right) mod_back = new ClassSideViewSide(par_cube, EnumLeftOrRight.Left);
 
+            //base.FrontSide = mod_front;
+            //base.BackSide = mod_back;  
 
         }
 

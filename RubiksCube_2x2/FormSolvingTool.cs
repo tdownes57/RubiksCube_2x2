@@ -1341,17 +1341,52 @@ namespace RubiksCube_2x2
             //--var objSideView1 = new RubiksCubeOneSide(mod_cubeWholeBothSides);
             //--var objSideView2 = new RubiksCubeOneSide(mod_cubeWholeBothSides);
 
-            var objNewCube_90degreesLeft = new SideViews.ClassSideViewsCube(mod_cubeWholeBothSides, 
-                   EnumLeftOrRight.Left);
-            mod_cubeWholeBothSides = objNewCube_90degreesLeft;
-            //mod_cubeWholeBothSides.PaintThisCube();
+            const bool c_boolPaintTheForm = false;  //Added 1/29/2021 thomas 
+            const bool c_boolPaintThePanels = true;   //Added 1/29/2021 thomas 
 
-            //Paint directly onto the form. 
-            mod_cubeWholeBothSides.Repaint(this, center_point_form_FRONT, 
-                                                 center_point_form_BACK);
+            const bool c_bool_UseFirstIdea = false;  //Added 1/29/2021 thomas 
+            const bool c_bool_Use_2nd_Idea = true;   //Added 1/29/2021 thomas 
 
-            //Paint onto the panels. 
-            mod_cubeWholeBothSides.Repaint(panelFront, panelBack);
+            //
+            // First implementation idea. 
+            //
+            if (c_bool_UseFirstIdea)
+            {
+                //
+                // We will re-generate the module-level Rubik's Cube object. 
+                //
+                var objNewCube_90degreesLeft = new SideViews.ClassSideViewsCube(mod_cubeWholeBothSides,
+                       EnumLeftOrRight.Left);
+                mod_cubeWholeBothSides = objNewCube_90degreesLeft;
+                //mod_cubeWholeBothSides.PaintThisCube();
+
+                //Paint directly onto the form. 
+                if (c_boolPaintTheForm)
+                {
+                    mod_cubeWholeBothSides.Repaint(this, center_point_form_FRONT,
+                                                      center_point_form_BACK);
+                }
+
+                //Paint onto the panels.
+                if (c_boolPaintThePanels)
+                    mod_cubeWholeBothSides.Repaint(panelFront, panelBack);
+
+            }
+
+            //
+            // Added 1/29/2021 thomas downes  
+            //
+            else if (c_bool_Use_2nd_Idea && c_boolPaintThePanels)
+            {
+                //
+                // We will keep the primary Rubik's Cube object, but 
+                //     display it from a side perspective. 
+                //
+                mod_cubeWholeBothSides.Repaint(panelFront, panelBack, EnumPrimaryView.Left);
+            
+            }
+
+
 
         }
 

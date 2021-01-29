@@ -14,7 +14,8 @@ namespace RubiksCube_2x2
         // Added 12/8/2020 thomas downes
         //
         Front.ClassFrontside mod_frontside;
-        Back.ClassBackside mod_backside;  
+        Back.ClassBackside mod_backside;
+
 
         private struct OrientationWork
         {
@@ -273,6 +274,107 @@ namespace RubiksCube_2x2
             // 2 of 2. Paint the back side. 
             Point pointCenter_Back = new Point(par_panelBackside.Width / 2, par_panelBackside.Height / 2);
             mod_backside.PaintThisSide_Base(graphicsBack, pointCenter_Back);
+
+        }
+
+
+        // Added 1/28/2021 thomas downes
+        SideViews.ClassSideViewSide mod_leftside;     // Added 1/28/2021 thomas downes
+        SideViews.ClassSideViewSide mod_rightside;    // Added 1/28/2021 thomas downes
+
+        public void RefreshSideViews()   //public ClassSideViewsCube(RubiksCubeBothSides par_cube, EnumLeftOrRight par_enum)
+        {
+            //-----public ClassSideViewsCube (RubiksCubeBothSides par_cube, EnumLeftOrRight par_enum)
+            //
+            // Added 1/23/2021 Thomas Downes
+            //
+            // mod_leftside = new ClassSideViewSide(this, par_enum);
+            // if (par_enum == EnumLeftOrRight.Left) mod_back = new ClassSideViewSide(par_cube, EnumLeftOrRight.Right);
+            // if (par_enum == EnumLeftOrRight.Right) mod_back = new ClassSideViewSide(par_cube, EnumLeftOrRight.Left);
+
+            //
+            // Added 1/28/2021 thomas downes 
+            //
+            mod_leftside = new SideViews.ClassSideViewSide(this, EnumLeftOrRight.Left);
+            mod_rightside = new SideViews.ClassSideViewSide(this, EnumLeftOrRight.Right);
+
+        }
+
+
+        public void Repaint(Panel par_panelViewableFront, Panel par_panelViewableBackside, EnumPrimaryView par_enum)
+        {
+            //
+            // Added 1/28/2021 Thomas Downes  
+            //
+            //par_form.Refresh();
+            var graphicsViewableFront = par_panelViewableFront.CreateGraphics();
+            var graphicsViewableBack = par_panelViewableBackside.CreateGraphics();
+
+            Point pointCenter_ViewableFront; // = null;
+            Point pointCenter_ViewableBack; // = null;
+
+            pointCenter_ViewableFront = new Point(par_panelViewableFront.Width / 2,
+                                    par_panelViewableFront.Height / 2);
+            pointCenter_ViewableBack = new Point(par_panelViewableBackside.Width / 2,
+                                                 par_panelViewableBackside.Height / 2);
+
+            switch (par_enum) {
+
+                case EnumPrimaryView.Front: 
+                    //
+                    // The Default View 
+                    //
+                    // 1 of 2. Paint the front side. 
+                    mod_frontside.PaintThisSide_Base(graphicsViewableFront, pointCenter_ViewableFront);
+
+                    // 2 of 2. Paint the back side. 
+                    mod_backside.PaintThisSide_Base(graphicsViewableBack, pointCenter_ViewableBack);
+                    break;
+
+
+                case EnumPrimaryView.Back:
+                    //
+                    // The Backside View
+                    //
+                    // 1 of 2. Paint the backside onto the "primary view front side" panel. 
+                    mod_backside.PaintThisSide_Base(graphicsViewableFront, pointCenter_ViewableFront);
+
+                    // 2 of 2. Paint the frontside onto the "primary view back side" panel. 
+                    mod_frontside.PaintThisSide_Base(graphicsViewableBack, pointCenter_ViewableBack);
+                    break;
+
+
+                case EnumPrimaryView.Left:
+                    //
+                    // The Left-Side View 
+                    //
+                    RefreshSideViews();  //Important!!  
+
+                    // 1 of 2. Paint the Left Side onto the "primary view front side" panel. 
+                    mod_leftside.PaintThisSide_Base(graphicsViewableFront, pointCenter_ViewableFront);
+
+                    // 2 of 2. Paint the Right Side onto the "primary view back side" panel.
+                    mod_rightside.PaintThisSide_Base(graphicsViewableBack, pointCenter_ViewableBack);
+                    break;
+
+
+                case EnumPrimaryView.Right:
+                    //
+                    // The Right-Side View 
+                    //
+                    RefreshSideViews();  //Important!!  
+
+                    // 1 of 2. Paint the Right Side onto the "primary view front side" panel. 
+                    mod_rightside.PaintThisSide_Base(graphicsViewableFront, pointCenter_ViewableFront);
+
+                    // 2 of 2. Paint the Left Side onto the "primary view back side" panel. 
+                    mod_leftside.PaintThisSide_Base(graphicsViewableBack, pointCenter_ViewableBack);
+                    break;
+
+                default:
+                    throw new NotImplementedException("This enum value has not been specified.");
+
+            }
 
         }
 
