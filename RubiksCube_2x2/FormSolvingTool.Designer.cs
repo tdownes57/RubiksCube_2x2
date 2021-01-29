@@ -64,6 +64,8 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.linkEditManeuvers = new System.Windows.Forms.LinkLabel();
             this.linkShowSideSideView = new System.Windows.Forms.LinkLabel();
+            this.panelFront = new System.Windows.Forms.Panel();
+            this.panelBack = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // progressBar1
@@ -421,13 +423,31 @@
             // 
             this.linkShowSideSideView.AutoSize = true;
             this.linkShowSideSideView.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkShowSideSideView.Location = new System.Drawing.Point(220, 85);
+            this.linkShowSideSideView.Location = new System.Drawing.Point(589, 7);
             this.linkShowSideSideView.Name = "linkShowSideSideView";
             this.linkShowSideSideView.Size = new System.Drawing.Size(258, 24);
             this.linkShowSideSideView.TabIndex = 34;
             this.linkShowSideSideView.TabStop = true;
             this.linkShowSideSideView.Text = "Give Side-Side View of Cube.";
-            this.linkShowSideSideView.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            this.linkShowSideSideView.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkShowSideSideView_Click);
+            // 
+            // panelFront
+            // 
+            this.panelFront.BackColor = System.Drawing.Color.Gray;
+            this.panelFront.Location = new System.Drawing.Point(195, 85);
+            this.panelFront.Name = "panelFront";
+            this.panelFront.Size = new System.Drawing.Size(326, 293);
+            this.panelFront.TabIndex = 35;
+            this.panelFront.Paint += new System.Windows.Forms.PaintEventHandler(this.panelFront_Paint);
+            // 
+            // panelBack
+            // 
+            this.panelBack.BackColor = System.Drawing.Color.Silver;
+            this.panelBack.Location = new System.Drawing.Point(540, 85);
+            this.panelBack.Name = "panelBack";
+            this.panelBack.Size = new System.Drawing.Size(318, 293);
+            this.panelBack.TabIndex = 36;
+            this.panelBack.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBack_Paint);
             // 
             // FormSolvingTool
             // 
@@ -469,6 +489,8 @@
             this.Controls.Add(this.buttonRotateClockwise);
             this.Controls.Add(this.labelRotateSimpleClock);
             this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.panelBack);
+            this.Controls.Add(this.panelFront);
             this.Name = "FormSolvingTool";
             this.Text = "Rubik\'s Cube, Front Half of a 2x2";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
@@ -520,6 +542,8 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.LinkLabel linkEditManeuvers;
         private System.Windows.Forms.LinkLabel linkShowSideSideView;
+        private System.Windows.Forms.Panel panelFront;
+        private System.Windows.Forms.Panel panelBack;
     }
 }
 

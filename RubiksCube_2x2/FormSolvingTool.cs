@@ -436,9 +436,15 @@ namespace RubiksCube_2x2
 
             if (c_boolUseObjects)
             {
-                mod_cubeWholeBothSides.PaintThisCube(e.Graphics, 
-                        center_point_form_FRONT,
-                        center_point_form_BACK);
+                //mod_cubeWholeBothSides.PaintThisCube(e.Graphics, 
+                //        center_point_form_FRONT,
+                //        center_point_form_BACK);
+
+                //Paint onto the panels.  ----1/28/2021
+                //mod_cubeWholeBothSides.Repaint(panelFront, panelBack);
+                panelFront.Refresh();
+                panelBack.Refresh();
+
             }
             else
             {
@@ -1327,19 +1333,45 @@ namespace RubiksCube_2x2
 
         }
 
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linkShowSideSideView_Click(object sender, LinkLabelLinkClickedEventArgs e)
         {
             //
             // Added 1/23/2021 Thomas Downes  
             //
-            var objSideView1 = new RubiksCubeOneSide();
-            var objSideView2 = new RubiksCubeOneSide();
+            //--var objSideView1 = new RubiksCubeOneSide(mod_cubeWholeBothSides);
+            //--var objSideView2 = new RubiksCubeOneSide(mod_cubeWholeBothSides);
 
+            var objNewCube_90degreesLeft = new SideViews.ClassSideViewsCube(mod_cubeWholeBothSides, 
+                   EnumLeftOrRight.Left);
+            mod_cubeWholeBothSides = objNewCube_90degreesLeft;
+            //mod_cubeWholeBothSides.PaintThisCube();
 
+            //Paint directly onto the form. 
+            mod_cubeWholeBothSides.Repaint(this, center_point_form_FRONT, 
+                                                 center_point_form_BACK);
 
+            //Paint onto the panels. 
+            mod_cubeWholeBothSides.Repaint(panelFront, panelBack);
 
+        }
 
+        private void panelFront_Paint(object sender, PaintEventArgs e)
+        {
+            //
+            // Added 1/28/2021 thomas downes
+            //
+            var panel_sender = (Panel)sender; 
+            mod_cubeWholeBothSides.FrontSide.Repaint(panel_sender);
 
+        }
+
+        private void panelBack_Paint(object sender, PaintEventArgs e)
+        {
+            //
+            // Added 1/28/2021 thomas downes
+            //
+            var panel_sender = (Panel)sender;
+            mod_cubeWholeBothSides.BackSide.Repaint(panel_sender);
 
         }
     }

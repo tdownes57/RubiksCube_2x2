@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;    //Added 12/13/2020 thomas downes
+using System.Windows.Forms;    //Added 12/13/2020 thomas  downes
+using System.Drawing;  //Added 1/28/2021 Thomas Downes  
 
 namespace RubiksCube_2x2
 {
@@ -243,6 +244,37 @@ namespace RubiksCube_2x2
             //
         }
 
+
+        public void Repaint(Form par_form, Point par_pointCenter_FRONT, Point par_pointCenter_BACK)
+        {
+            //
+            // Added 1/28/2021 Thomas Downes  
+            //
+            //par_form.Refresh();
+            var objGraphics = par_form.CreateGraphics();
+            PaintThisCube(objGraphics, par_pointCenter_FRONT, par_pointCenter_BACK);
+
+        }
+
+
+        public void Repaint(Panel par_panelFront, Panel par_panelBackside)
+        {
+            //
+            // Added 1/28/2021 Thomas Downes  
+            //
+            //par_form.Refresh();
+            var graphicsFront = par_panelFront.CreateGraphics();
+            var graphicsBack = par_panelBackside.CreateGraphics();
+
+            // 1 of 2. Paint the front side. 
+            Point pointCenter_Front = new Point(par_panelFront.Width / 2, par_panelFront.Height / 2);
+            mod_frontside.PaintThisSide_Base(graphicsFront, pointCenter_Front);
+
+            // 2 of 2. Paint the back side. 
+            Point pointCenter_Back = new Point(par_panelBackside.Width / 2, par_panelBackside.Height / 2);
+            mod_backside.PaintThisSide_Base(graphicsBack, pointCenter_Back);
+
+        }
 
 
 

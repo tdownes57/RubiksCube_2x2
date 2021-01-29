@@ -260,5 +260,29 @@ namespace RubiksCube_2x2
         }
 
 
+        public void Repaint(System.Windows.Forms.Panel par_panel)
+        {
+            //
+            // Added 1/28/2021 thomas downes
+            //
+            //var graphicsFront = par_panelFront.CreateGraphics();
+            //var graphicsBack = par_panelBackside.CreateGraphics();
+
+            // 1 of 2. Paint the front side. 
+            //Point pointCenter_Front = new Point(par_panelFront.Width / 2, par_panelFront.Height / 2);
+            //mod_frontside.PaintThisSide_Base(graphicsFront, pointCenter_Front);
+
+            // 2 of 2. Paint the back side. 
+            //Point pointCenter_Back = new Point(par_panelBackside.Width / 2, par_panelBackside.Height / 2);
+            //mod_backside.PaintThisSide_Base(graphicsBack, pointCenter_Back);
+
+            var a_graphics = par_panel.CreateGraphics();
+            Point pointCenter = new Point(par_panel.Width / 2, par_panel.Height / 2);
+            this.PaintThisSide_Base(a_graphics, pointCenter);
+
+
+        }
+
+
     }
 }
