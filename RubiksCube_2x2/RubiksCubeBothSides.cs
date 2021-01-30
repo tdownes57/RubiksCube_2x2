@@ -13,8 +13,8 @@ namespace RubiksCube_2x2
         //
         // Added 12/8/2020 thomas downes
         //
-        Front.ClassFrontside mod_frontside;
-        Back.ClassBackside mod_backside;
+        Front.ClassFrontside mod_mainside_front;
+        Back.ClassBackside mod_mainside_back;
 
 
         private struct OrientationWork
@@ -40,8 +40,8 @@ namespace RubiksCube_2x2
             //
             // Added 12/8/2020 thomas downes
             //
-            mod_backside = par_backside;
-            mod_frontside = par_frontside;
+            mod_mainside_back = par_backside;
+            mod_mainside_front = par_frontside;
 
         }
 
@@ -51,8 +51,8 @@ namespace RubiksCube_2x2
             //
             // Added 1/13/2021 thomas downes  
             //
-            mod_frontside = new Front.ClassFrontside();
-            mod_backside = new Back.ClassBackside();
+            mod_mainside_front = new Front.ClassFrontside();
+            mod_mainside_back = new Back.ClassBackside();
 
         }
 
@@ -62,7 +62,7 @@ namespace RubiksCube_2x2
             //
             // Added 12/9/2020 td 
             //
-            if (false) mod_frontside.GodlikeSwitch(null, null);
+            if (false) mod_mainside_front.GodlikeSwitch(null, null);
 
             //var pieceSW = mod_frontside.GetPiece(FrontClockFace.seven_thirty);
             //var pieceSE = mod_frontside.GetPiece(FrontClockFace.four_thirty);
@@ -71,12 +71,12 @@ namespace RubiksCube_2x2
             //
             // Major call!! 
             //
-            mod_frontside.GodlikeSwitch_BottomPieces();
+            mod_mainside_front.GodlikeSwitch_BottomPieces();
 
             //
             // Major call!! 
             //
-            mod_backside.ComplexRules_AdjacentPairExchange();
+            mod_mainside_back.ComplexRules_AdjacentPairExchange();
 
             //
             // Feedback after work. 
@@ -186,11 +186,11 @@ namespace RubiksCube_2x2
             //----1/2/2021---return mod_backside;  
             get
             {
-                return mod_backside;
+                return mod_mainside_back;
             }
             set
             {
-                mod_backside = value; 
+                mod_mainside_back = value; 
             }
         }
 
@@ -202,11 +202,11 @@ namespace RubiksCube_2x2
             //
             get
             {
-                return mod_frontside;
+                return mod_mainside_front;
             }
             set
             {
-                mod_frontside = value;
+                mod_mainside_front = value;
             }
         }
 
@@ -231,8 +231,8 @@ namespace RubiksCube_2x2
             //
             //var a_graphics = new System.Drawing.Graphics();  // e.Graphics;
 
-            mod_frontside.PaintThisSide(par_graphics, par_pointCenter_FRONT);
-            mod_backside.PaintThisSide(par_graphics, par_pointCenter_BACK);
+            mod_mainside_front.PaintThisSide(par_graphics, par_pointCenter_FRONT);
+            mod_mainside_back.PaintThisSide(par_graphics, par_pointCenter_BACK);
 
         }
 
@@ -269,18 +269,20 @@ namespace RubiksCube_2x2
 
             // 1 of 2. Paint the front side. 
             Point pointCenter_Front = new Point(par_panelFront.Width / 2, par_panelFront.Height / 2);
-            mod_frontside.PaintThisSide_Base(graphicsFront, pointCenter_Front);
+            mod_mainside_front.PaintThisSide_Base(graphicsFront, pointCenter_Front);
 
             // 2 of 2. Paint the back side. 
             Point pointCenter_Back = new Point(par_panelBackside.Width / 2, par_panelBackside.Height / 2);
-            mod_backside.PaintThisSide_Base(graphicsBack, pointCenter_Back);
+            mod_mainside_back.PaintThisSide_Base(graphicsBack, pointCenter_Back);
 
         }
 
 
         // Added 1/28/2021 thomas downes
-        SideViews.ClassSideViewSide mod_leftside;     // Added 1/28/2021 thomas downes
-        SideViews.ClassSideViewSide mod_rightside;    // Added 1/28/2021 thomas downes
+        SideViews.ClassSideViewSide mod_sideview_left;     // Added 1/28/2021 thomas downes
+        SideViews.ClassSideViewSide mod_sideview_right;    // Added 1/28/2021 thomas downes
+        SideViews.ClassSideViewSide mod_sideview_front;     // Added 1/28/2021 thomas downes
+        SideViews.ClassSideViewSide mod_sideview_back;    // Added 1/28/2021 thomas downes
 
         public void RefreshSideViews()   //public ClassSideViewsCube(RubiksCubeBothSides par_cube, EnumLeftOrRight par_enum)
         {
@@ -295,8 +297,8 @@ namespace RubiksCube_2x2
             //
             // Added 1/28/2021 thomas downes 
             //
-            mod_leftside = new SideViews.ClassSideViewSide(this, EnumLeftOrRight.Left);
-            mod_rightside = new SideViews.ClassSideViewSide(this, EnumLeftOrRight.Right);
+            mod_sideview_left = new SideViews.ClassSideViewSide(this, EnumLeftOrRight.Left);
+            mod_sideview_right = new SideViews.ClassSideViewSide(this, EnumLeftOrRight.Right);
 
         }
 
@@ -325,10 +327,10 @@ namespace RubiksCube_2x2
                     // The Default View 
                     //
                     // 1 of 2. Paint the front side. 
-                    mod_frontside.PaintThisSide_Base(graphicsViewableFront, pointCenter_ViewableFront);
+                    mod_mainside_front.PaintThisSide_Base(graphicsViewableFront, pointCenter_ViewableFront);
 
                     // 2 of 2. Paint the back side. 
-                    mod_backside.PaintThisSide_Base(graphicsViewableBack, pointCenter_ViewableBack);
+                    mod_mainside_back.PaintThisSide_Base(graphicsViewableBack, pointCenter_ViewableBack);
                     break;
 
 
@@ -337,10 +339,10 @@ namespace RubiksCube_2x2
                     // The Backside View
                     //
                     // 1 of 2. Paint the backside onto the "primary view front side" panel. 
-                    mod_backside.PaintThisSide_Base(graphicsViewableFront, pointCenter_ViewableFront);
+                    mod_mainside_back.PaintThisSide_Base(graphicsViewableFront, pointCenter_ViewableFront);
 
                     // 2 of 2. Paint the frontside onto the "primary view back side" panel. 
-                    mod_frontside.PaintThisSide_Base(graphicsViewableBack, pointCenter_ViewableBack);
+                    mod_mainside_front.PaintThisSide_Base(graphicsViewableBack, pointCenter_ViewableBack);
                     break;
 
 
@@ -351,10 +353,10 @@ namespace RubiksCube_2x2
                     RefreshSideViews();  //Important!!  
 
                     // 1 of 2. Paint the Left Side onto the "primary view front side" panel. 
-                    mod_leftside.PaintThisSide_Base(graphicsViewableFront, pointCenter_ViewableFront);
+                    mod_sideview_left.PaintThisSide_Base(graphicsViewableFront, pointCenter_ViewableFront);
 
                     // 2 of 2. Paint the Right Side onto the "primary view back side" panel.
-                    mod_rightside.PaintThisSide_Base(graphicsViewableBack, pointCenter_ViewableBack);
+                    mod_sideview_right.PaintThisSide_Base(graphicsViewableBack, pointCenter_ViewableBack);
                     break;
 
 
@@ -365,10 +367,10 @@ namespace RubiksCube_2x2
                     RefreshSideViews();  //Important!!  
 
                     // 1 of 2. Paint the Right Side onto the "primary view front side" panel. 
-                    mod_rightside.PaintThisSide_Base(graphicsViewableFront, pointCenter_ViewableFront);
+                    mod_sideview_right.PaintThisSide_Base(graphicsViewableFront, pointCenter_ViewableFront);
 
                     // 2 of 2. Paint the Left Side onto the "primary view back side" panel. 
-                    mod_leftside.PaintThisSide_Base(graphicsViewableBack, pointCenter_ViewableBack);
+                    mod_sideview_left.PaintThisSide_Base(graphicsViewableBack, pointCenter_ViewableBack);
                     break;
 
                 default:

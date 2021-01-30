@@ -720,7 +720,7 @@ namespace RubiksCube_2x2
 
         }
 
-        private void Form1_Enter(object sender, EventArgs e)
+        private void Panel_Enter(object sender, EventArgs e)
         {
             //
             // Added 11/17/2020 thomas downes
@@ -740,12 +740,13 @@ namespace RubiksCube_2x2
             //
             //this.Cursor = new Cursor(Properties.Resources.custom_cursor_tcd2);
 
-            var ms = new System.IO.MemoryStream(Properties.Resources.custom_cursor_tcd2);  // (My.Resources.Cursor1)
-            this.Cursor = new Cursor(ms);
+            var ms_stream = new System.IO.MemoryStream(Properties.Resources.custom_cursor_tcd2);  // (My.Resources.Cursor1)
+            //this.Cursor = new Cursor(ms_stream);
+            ((Panel)sender).Cursor = new Cursor(ms_stream);
 
         }
 
-        private void Form1_MouseEnter(object sender, EventArgs e)
+        private void Panel_MouseEnter(object sender, EventArgs e)
         {
             //
             // Added 11/17/2020 thomas downes
@@ -776,7 +777,7 @@ namespace RubiksCube_2x2
 
         }
 
-        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        private void Panel_MouseMove(object sender, MouseEventArgs e)
         {
             //
             // Added 11/17/2020 thomas downes 
@@ -790,7 +791,8 @@ namespace RubiksCube_2x2
             //
             if (whichPiece == null)
             {
-                whichPiece = mod_cubeBackside.WhichPieceHasMouseHover(currentLocation);
+                if (sender == panelBack) // Added 1/29/2021 thomas downes
+                    whichPiece = mod_cubeBackside.WhichPieceHasMouseHover(currentLocation);
             }
 
             //
@@ -800,11 +802,12 @@ namespace RubiksCube_2x2
             if (whichPiece == null)
             {
                 //Added 12/6/2020 thomas downes
-                whichPiece = mod_cubeFrontside.WhichPieceHasMouseHover(currentLocation);
+                if (sender == panelFront) // Added 1/29/2021 thomas downes
+                    whichPiece = mod_cubeFrontside.WhichPieceHasMouseHover(currentLocation);
 
                 //Added 12/6/2020 thomas downes
                 if (false && whichPiece != null)
-                MessageBox.Show("You have placed the mouse over the front side of the Rubik's Cube.");
+                    MessageBox.Show("You have placed the mouse over the front side of the Rubik's Cube.");
             }
 
             //
@@ -814,7 +817,8 @@ namespace RubiksCube_2x2
             {
                 if (_rubiksPiece_Dragged == null)
                 {
-                    this.Cursor = Cursors.Default;
+                    //this.Cursor = Cursors.Default;
+                    ((Panel)sender).Cursor = Cursors.Default;
                 }
             }
             else
@@ -825,7 +829,7 @@ namespace RubiksCube_2x2
                     // We are dragging a piece. Don't modify the cursor. 
                     //
                 }
-                else 
+                else
                 {
                     //
                     // Let's apply the Ring cursor, "ring_cursor" (formerly "transparent2").  
@@ -834,17 +838,19 @@ namespace RubiksCube_2x2
                     {
                         //var ms = new System.IO.MemoryStream(Properties.Resources.custom_cursor_tcd2);  // (My.Resources.Cursor1)
                         //var ms = new System.IO.MemoryStream(Properties.Resources.transparent2);  // (My.Resources.Cursor1)
-                        var ms = new System.IO.MemoryStream(Properties.Resources.ring_cursor);  // (My.Resources.Cursor1)
-                        _customCursorRing = new Cursor(ms);
+                        var ms_stream = new System.IO.MemoryStream(Properties.Resources.ring_cursor);  // (My.Resources.Cursor1)
+                        _customCursorRing = new Cursor(ms_stream);
                     }
                     //this.Cursor = new Cursor(ms);
-                    this.Cursor = _customCursorRing;
+                    //this.Cursor = _customCursorRing;
+                    ((Panel)sender).Cursor = _customCursorRing;
+
                 }
             }
 
         }
 
-        private void Form1_MouseClick(object sender, MouseEventArgs e)
+        private void Panel_MouseClick(object sender, MouseEventArgs e)
         {
             //
             // Added 11/17/2020 thomas downes  
@@ -853,6 +859,16 @@ namespace RubiksCube_2x2
             bool bClickedBackside = false;  // _bClickedBackside;  // false;
             bool bAllowGodlikeOperations = (1 == comboGodlikePowers.SelectedIndex);
 
+            //Added 1/29/2021
+            if (false == bAllowGodlikeOperations)
+            {
+                labelHowToMoveAPiece.Text = "You have not specified godlike operations.";
+                labelHowToMoveAPiece.ForeColor = Color.Red;
+                labelHowToMoveAPiece.Visible = true;
+                return; 
+            }
+
+
             RubikPieceCorner piece_clicked = null;
 
             //Front Side
@@ -860,7 +876,8 @@ namespace RubiksCube_2x2
             //
             if (piece_clicked == null)
             {
-                piece_clicked = mod_cubeFrontside.WhichPieceIsClicked(e.X, e.Y);
+                if (sender == panelFront) // Added 1/29/2021 thomas downes
+                    piece_clicked = mod_cubeFrontside.WhichPieceIsClicked(e.X, e.Y);
                 if (piece_clicked != null) bClickedFrontside = true;
             }
 
@@ -872,7 +889,8 @@ namespace RubiksCube_2x2
             //
             if (piece_clicked == null)
             {
-                piece_clicked = mod_cubeBackside.WhichPieceIsClicked(e.X, e.Y);
+                if (sender == panelBack) // Added 1/29/2021 thomas downes
+                    piece_clicked = mod_cubeBackside.WhichPieceIsClicked(e.X, e.Y);
                 if (piece_clicked != null) bClickedBackside = true;
             }
 
@@ -887,7 +905,8 @@ namespace RubiksCube_2x2
                 labelHowToMoveAPiece.Visible = false;
 
                 //Added 11/17/2020 thomas d.
-                CheckIfSideFaceWasClicked(e.X, e.Y);
+                //CheckIfSideFaceWasClicked(e.X, e.Y);
+                CheckIfSideFaceWasClicked(e.X, e.Y, (Panel)sender);
 
                 //Added 12/6/2020 thomas downes
                 _bClickedFrontside = bClickedFrontside;
@@ -931,7 +950,7 @@ namespace RubiksCube_2x2
                         //
                         // Allow only adjacent pieces to be swapped. 
                         //
-                        bool bPiecesAreAdjacent_Front = (bClickedFrontside 
+                        bool bPiecesAreAdjacent_Front = (bClickedFrontside
                             && mod_cubeFrontside.AdjacentPieces(_rubiksPiece_Dragged, _rubiksPiece_Replaced));
                         bool bPiecesAreAdjacent_Back = (bClickedBackside
                             && mod_cubeBackside.AdjacentPieces(_rubiksPiece_Dragged, _rubiksPiece_Replaced));
@@ -948,10 +967,10 @@ namespace RubiksCube_2x2
                                 mod_cubeWholeBothSides.OrientCube_Step1Rotate(_rubiksPiece_Dragged,
                                  _rubiksPiece_Replaced, true,
                                  mod_cubeFrontside, mod_cubeBackside);
-                            if (bClickedBackside) 
-                                  mod_cubeWholeBothSides.OrientCube_Step1Rotate(_rubiksPiece_Dragged, 
-                                   _rubiksPiece_Replaced, true, 
-                                   mod_cubeBackside, mod_cubeFrontside);
+                            if (bClickedBackside)
+                                mod_cubeWholeBothSides.OrientCube_Step1Rotate(_rubiksPiece_Dragged,
+                                 _rubiksPiece_Replaced, true,
+                                 mod_cubeBackside, mod_cubeFrontside);
                             mod_cubeWholeBothSides.SwitchBottomPieces_Front();
                             mod_cubeWholeBothSides.OrientCube_Step2Restore();
 
@@ -979,7 +998,7 @@ namespace RubiksCube_2x2
                     labelUVW_VWX_WXY_XYZ.Text = mod_cubeBackside.BOY_etc_Clockwise();
                     //Added 12/6/2020 td
                     _bClickedBackside = false;
-                    _bClickedFrontside = false; 
+                    _bClickedFrontside = false;
 
                     //Added 12/1/2020 thomas
                     bool bPriorValue = false;
@@ -1006,8 +1025,12 @@ namespace RubiksCube_2x2
                             var ms = new System.IO.MemoryStream(Properties.Resources.plussign_cursor);  // (My.Resources.Cursor1)
                             _customCursorPlus = new Cursor(ms);
                         }
-                        this.Cursor = _customCursorPlus;
+
+                        //this.Cursor = _customCursorPlus;
+                        ((Panel)sender).Cursor = _customCursorPlus;
                         labelHowToMoveAPiece.Visible = true;
+                        labelHowToMoveAPiece.ForeColor = Color.Black;  // Added 1/29/2021 td 
+                        labelHowToMoveAPiece.Text = labelHowToMoveAPiece.Tag.ToString();  //Added 1/29/2021
                     }
                 }
 
@@ -1018,7 +1041,7 @@ namespace RubiksCube_2x2
 
         }
 
-        private void CheckIfSideFaceWasClicked(int e_X, int e_Y)  // (object sender, MouseEventArgs e)
+        private void CheckIfSideFaceWasClicked(int e_X, int e_Y, Panel par_panel)  // (object sender, MouseEventArgs e)
         {
             //---private void Form1_MouseDoubleClick(object sender, MouseEventArgs e)
             //
@@ -1027,12 +1050,15 @@ namespace RubiksCube_2x2
             RubikPieceCorner piece_clicked = null; // = mod_RotateBackside.WhichPiece_SideFaceClicked(e_X, e_Y);
 
             //Added 12/05/2020 thomas downes 
+            //---if (null == piece_clicked)
             if (null == piece_clicked)
-                piece_clicked = mod_cubeFrontside.WhichPiece_SideFaceClicked(e_X, e_Y);
+                if (par_panel == panelFront)
+                    piece_clicked = mod_cubeFrontside.WhichPiece_SideFaceClicked(e_X, e_Y);
 
             //Conditioned 12/05/2020 thomas downes 
-            if (null == piece_clicked) 
-                piece_clicked = mod_cubeBackside.WhichPiece_SideFaceClicked(e_X, e_Y);
+            if (null == piece_clicked)
+                if (par_panel == panelBack)
+                    piece_clicked = mod_cubeBackside.WhichPiece_SideFaceClicked(e_X, e_Y);
 
             //if (piece_clicked != null && _rubiksPiece_Dragged != null)
             if (_rubiksPiece_Dragged != null)
@@ -1082,6 +1108,12 @@ namespace RubiksCube_2x2
             //
             // Added 11/17/2020 thoms downes
             //
+            bool boolComboGodlikeOkay = (0 != comboGodlikePowers.SelectedIndex); // Added 1/29/2021 
+            return boolComboGodlikeOkay;  // Added 1/29/2021
+
+            //
+            // Obselete code. 
+            //
             if (_godlike_behavior_OK == false)
             {
                 DialogResult user_response;
@@ -1100,6 +1132,12 @@ namespace RubiksCube_2x2
         {
             //
             // Added 11/17/2020 thoms downes
+            //
+            bool boolComboGodlikeOkay = (0 != comboGodlikePowers.SelectedIndex); // Added 1/29/2021 
+            return boolComboGodlikeOkay;  // Added 1/29/2021
+
+            //
+            // Obselete code. 
             //
             if (_godlike_behavior_OK == false)
             {

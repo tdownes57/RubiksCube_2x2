@@ -65,7 +65,11 @@
             this.linkEditManeuvers = new System.Windows.Forms.LinkLabel();
             this.linkShowSideSideView = new System.Windows.Forms.LinkLabel();
             this.panelFront = new System.Windows.Forms.Panel();
+            this.labelCaptionFront = new System.Windows.Forms.Label();
             this.panelBack = new System.Windows.Forms.Panel();
+            this.labelCaptionBack = new System.Windows.Forms.Label();
+            this.panelFront.SuspendLayout();
+            this.panelBack.SuspendLayout();
             this.SuspendLayout();
             // 
             // progressBar1
@@ -249,6 +253,7 @@
             this.labelHowToMoveAPiece.Name = "labelHowToMoveAPiece";
             this.labelHowToMoveAPiece.Size = new System.Drawing.Size(592, 25);
             this.labelHowToMoveAPiece.TabIndex = 18;
+            this.labelHowToMoveAPiece.Tag = "You have selected a Rubik\'s piece.  Now drop it onto another piece.";
             this.labelHowToMoveAPiece.Text = "You have selected a Rubik\'s piece.  Now drop it onto another piece.";
             this.labelHowToMoveAPiece.Visible = false;
             // 
@@ -434,20 +439,48 @@
             // panelFront
             // 
             this.panelFront.BackColor = System.Drawing.Color.Gray;
+            this.panelFront.Controls.Add(this.labelCaptionFront);
             this.panelFront.Location = new System.Drawing.Point(195, 85);
             this.panelFront.Name = "panelFront";
             this.panelFront.Size = new System.Drawing.Size(326, 293);
             this.panelFront.TabIndex = 35;
             this.panelFront.Paint += new System.Windows.Forms.PaintEventHandler(this.panelFront_Paint);
+            this.panelFront.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Panel_MouseClick);
+            this.panelFront.MouseEnter += new System.EventHandler(this.Panel_Enter);
+            this.panelFront.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel_MouseMove);
+            // 
+            // labelCaptionFront
+            // 
+            this.labelCaptionFront.AutoSize = true;
+            this.labelCaptionFront.BackColor = System.Drawing.Color.Transparent;
+            this.labelCaptionFront.ForeColor = System.Drawing.Color.White;
+            this.labelCaptionFront.Location = new System.Drawing.Point(9, 8);
+            this.labelCaptionFront.Name = "labelCaptionFront";
+            this.labelCaptionFront.Size = new System.Drawing.Size(74, 17);
+            this.labelCaptionFront.TabIndex = 0;
+            this.labelCaptionFront.Text = "Front View";
             // 
             // panelBack
             // 
             this.panelBack.BackColor = System.Drawing.Color.Silver;
+            this.panelBack.Controls.Add(this.labelCaptionBack);
             this.panelBack.Location = new System.Drawing.Point(540, 85);
             this.panelBack.Name = "panelBack";
             this.panelBack.Size = new System.Drawing.Size(318, 293);
             this.panelBack.TabIndex = 36;
             this.panelBack.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBack_Paint);
+            this.panelBack.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Panel_MouseClick);
+            this.panelBack.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
+            this.panelBack.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel_MouseMove);
+            // 
+            // labelCaptionBack
+            // 
+            this.labelCaptionBack.AutoSize = true;
+            this.labelCaptionBack.Location = new System.Drawing.Point(7, 8);
+            this.labelCaptionBack.Name = "labelCaptionBack";
+            this.labelCaptionBack.Size = new System.Drawing.Size(72, 17);
+            this.labelCaptionBack.TabIndex = 1;
+            this.labelCaptionBack.Text = "Back View";
             // 
             // FormSolvingTool
             // 
@@ -496,10 +529,11 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
-            this.Enter += new System.EventHandler(this.Form1_Enter);
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
-            this.MouseEnter += new System.EventHandler(this.Form1_MouseEnter);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
+            this.Enter += new System.EventHandler(this.Panel_Enter);
+            this.panelFront.ResumeLayout(false);
+            this.panelFront.PerformLayout();
+            this.panelBack.ResumeLayout(false);
+            this.panelBack.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -544,6 +578,8 @@
         private System.Windows.Forms.LinkLabel linkShowSideSideView;
         private System.Windows.Forms.Panel panelFront;
         private System.Windows.Forms.Panel panelBack;
+        private System.Windows.Forms.Label labelCaptionFront;
+        private System.Windows.Forms.Label labelCaptionBack;
     }
 }
 
