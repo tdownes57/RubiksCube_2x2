@@ -68,8 +68,11 @@
             this.labelCaptionFront = new System.Windows.Forms.Label();
             this.panelBack = new System.Windows.Forms.Panel();
             this.labelCaptionBack = new System.Windows.Forms.Label();
+            this.panelSideRight = new System.Windows.Forms.Panel();
+            this.labelCaptionLeftSide = new System.Windows.Forms.Label();
             this.panelFront.SuspendLayout();
             this.panelBack.SuspendLayout();
+            this.panelSideRight.SuspendLayout();
             this.SuspendLayout();
             // 
             // progressBar1
@@ -169,7 +172,7 @@
             // 
             // buttonReplayAllRotation
             // 
-            this.buttonReplayAllRotation.Location = new System.Drawing.Point(949, 85);
+            this.buttonReplayAllRotation.Location = new System.Drawing.Point(1192, 531);
             this.buttonReplayAllRotation.Name = "buttonReplayAllRotation";
             this.buttonReplayAllRotation.Size = new System.Drawing.Size(191, 31);
             this.buttonReplayAllRotation.TabIndex = 11;
@@ -179,7 +182,7 @@
             // 
             // buttonClearAllRotation
             // 
-            this.buttonClearAllRotation.Location = new System.Drawing.Point(949, 119);
+            this.buttonClearAllRotation.Location = new System.Drawing.Point(1192, 565);
             this.buttonClearAllRotation.Name = "buttonClearAllRotation";
             this.buttonClearAllRotation.Size = new System.Drawing.Size(191, 31);
             this.buttonClearAllRotation.TabIndex = 12;
@@ -214,7 +217,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(761, 62);
+            this.label4.Location = new System.Drawing.Point(1232, 304);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(170, 153);
             this.label4.TabIndex = 16;
@@ -291,7 +294,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(375, 395);
+            this.label6.Location = new System.Drawing.Point(241, 392);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(276, 17);
             this.label6.TabIndex = 22;
@@ -312,7 +315,7 @@
             // 
             this.labelUVW_VWX_WXY_XYZ.AutoSize = true;
             this.labelUVW_VWX_WXY_XYZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUVW_VWX_WXY_XYZ.Location = new System.Drawing.Point(657, 395);
+            this.labelUVW_VWX_WXY_XYZ.Location = new System.Drawing.Point(523, 392);
             this.labelUVW_VWX_WXY_XYZ.Name = "labelUVW_VWX_WXY_XYZ";
             this.labelUVW_VWX_WXY_XYZ.Size = new System.Drawing.Size(176, 20);
             this.labelUVW_VWX_WXY_XYZ.TabIndex = 23;
@@ -334,7 +337,7 @@
             // labelBOYwSideColorsEq1
             // 
             this.labelBOYwSideColorsEq1.AutoSize = true;
-            this.labelBOYwSideColorsEq1.Location = new System.Drawing.Point(845, 378);
+            this.labelBOYwSideColorsEq1.Location = new System.Drawing.Point(851, 388);
             this.labelBOYwSideColorsEq1.Name = "labelBOYwSideColorsEq1";
             this.labelBOYwSideColorsEq1.Size = new System.Drawing.Size(269, 17);
             this.labelBOYwSideColorsEq1.TabIndex = 25;
@@ -383,7 +386,7 @@
             // labelBOYwSideColorsEq2
             // 
             this.labelBOYwSideColorsEq2.AutoSize = true;
-            this.labelBOYwSideColorsEq2.Location = new System.Drawing.Point(845, 398);
+            this.labelBOYwSideColorsEq2.Location = new System.Drawing.Point(851, 408);
             this.labelBOYwSideColorsEq2.Name = "labelBOYwSideColorsEq2";
             this.labelBOYwSideColorsEq2.Size = new System.Drawing.Size(270, 17);
             this.labelBOYwSideColorsEq2.TabIndex = 30;
@@ -393,7 +396,7 @@
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(845, 352);
+            this.linkLabel1.Location = new System.Drawing.Point(1053, 611);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(295, 26);
             this.linkLabel1.TabIndex = 31;
@@ -464,7 +467,7 @@
             // 
             this.panelBack.BackColor = System.Drawing.Color.Silver;
             this.panelBack.Controls.Add(this.labelCaptionBack);
-            this.panelBack.Location = new System.Drawing.Point(540, 85);
+            this.panelBack.Location = new System.Drawing.Point(868, 85);
             this.panelBack.Name = "panelBack";
             this.panelBack.Size = new System.Drawing.Size(318, 293);
             this.panelBack.TabIndex = 36;
@@ -482,11 +485,30 @@
             this.labelCaptionBack.TabIndex = 1;
             this.labelCaptionBack.Text = "Back View";
             // 
+            // panelSideRight
+            // 
+            this.panelSideRight.BackColor = System.Drawing.Color.Silver;
+            this.panelSideRight.Controls.Add(this.labelCaptionLeftSide);
+            this.panelSideRight.Location = new System.Drawing.Point(544, 85);
+            this.panelSideRight.Name = "panelSideRight";
+            this.panelSideRight.Size = new System.Drawing.Size(318, 293);
+            this.panelSideRight.TabIndex = 37;
+            // 
+            // labelCaptionLeftSide
+            // 
+            this.labelCaptionLeftSide.AutoSize = true;
+            this.labelCaptionLeftSide.Location = new System.Drawing.Point(3, 8);
+            this.labelCaptionLeftSide.Name = "labelCaptionLeftSide";
+            this.labelCaptionLeftSide.Size = new System.Drawing.Size(107, 17);
+            this.labelCaptionLeftSide.TabIndex = 1;
+            this.labelCaptionLeftSide.Text = "Right-Side View";
+            // 
             // FormSolvingTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1152, 691);
+            this.ClientSize = new System.Drawing.Size(1414, 691);
+            this.Controls.Add(this.panelSideRight);
             this.Controls.Add(this.linkShowSideSideView);
             this.Controls.Add(this.linkEditManeuvers);
             this.Controls.Add(this.comboBox1);
@@ -534,6 +556,8 @@
             this.panelFront.PerformLayout();
             this.panelBack.ResumeLayout(false);
             this.panelBack.PerformLayout();
+            this.panelSideRight.ResumeLayout(false);
+            this.panelSideRight.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -580,6 +604,8 @@
         private System.Windows.Forms.Panel panelBack;
         private System.Windows.Forms.Label labelCaptionFront;
         private System.Windows.Forms.Label labelCaptionBack;
+        private System.Windows.Forms.Panel panelSideRight;
+        private System.Windows.Forms.Label labelCaptionLeftSide;
     }
 }
 

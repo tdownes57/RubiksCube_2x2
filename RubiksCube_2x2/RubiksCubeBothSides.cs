@@ -195,6 +195,21 @@ namespace RubiksCube_2x2
         }
 
 
+        public SideViews.ClassSideViewSide SideViewRight
+        {
+            //
+            // Added 1/31/2021 thomas downes
+            //
+            get
+            {
+                return mod_sideview_right;
+            }
+            set
+            {
+                mod_sideview_right = value;
+            }
+        }
+
         public Front.ClassFrontside FrontSide
         {
             //
@@ -381,6 +396,18 @@ namespace RubiksCube_2x2
         }
 
 
+        public void Repaint(Panel par_panelViewableFront, Panel par_panelViewableBackside, 
+                            Panel par_panelViewableRight)
+        {
+            //
+            // Added 1/31/2021 Thomas Downes  
+            //
+            this.Repaint(par_panelViewableFront, par_panelViewableBackside, EnumPrimaryView.Front);
+            RefreshSideViews();
+            mod_sideview_right.Repaint(par_panelViewableRight);
 
+        }
+
+
+        }
     }
-}

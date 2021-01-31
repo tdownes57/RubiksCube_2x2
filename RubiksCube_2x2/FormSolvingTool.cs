@@ -162,7 +162,10 @@ namespace RubiksCube_2x2
             labelUVW_VWX_WXY_XYZ.Text = mod_cubeBackside.BOY_etc_Clockwise();
 
             //Added 12/06/2020 td
-            comboGodlikePowers.SelectedIndex = 0;  
+            comboGodlikePowers.SelectedIndex = 0;
+
+            //Added 1/31/2021 td
+            mod_cubeWholeBothSides.Repaint(panelFront, panelBack, panelSideRight);
 
         }
 
@@ -1447,5 +1450,17 @@ namespace RubiksCube_2x2
             mod_cubeWholeBothSides.BackSide.Repaint(panel_sender);
 
         }
+
+        private void panelSideRight_Paint(object sender, PaintEventArgs e)
+        {
+            //
+            // Added 1/31/2021 thomas downes
+            //
+            var panel_sender = (Panel)sender;
+            mod_cubeWholeBothSides.SideViewRight.Repaint(panel_sender);
+
+        }
+
+
     }
 }
