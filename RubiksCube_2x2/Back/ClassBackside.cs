@@ -983,7 +983,8 @@ namespace RubiksCube_2x2
 
                 base.PaintThisSide_Base(par_graphics, par_pointCenter,
                         this._pieceBOY, this._pieceBYR,
-                        this._pieceGRY, this._pieceGYO);
+                        this._pieceGRY, this._pieceGYO, 
+                        EnumPrimaryView.Back);
 
                 ////
                 //// Step 1 of 2.  Paint the front faces.  (vs. sides) 

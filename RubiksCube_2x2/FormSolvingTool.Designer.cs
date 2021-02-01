@@ -493,6 +493,7 @@
             this.panelSideRight.Name = "panelSideRight";
             this.panelSideRight.Size = new System.Drawing.Size(318, 293);
             this.panelSideRight.TabIndex = 37;
+            this.panelSideRight.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSideRight_Paint);
             // 
             // labelCaptionLeftSide
             // 

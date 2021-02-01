@@ -190,7 +190,8 @@ namespace RubiksCube_2x2
 
         public void PaintThisSide_Base(System.Drawing.Graphics par_graphics, Point par_pointCenter,
                           RubikPieceCorner par_piece1, RubikPieceCorner par_piece2,
-                          RubikPieceCorner par_piece3, RubikPieceCorner par_piece4)
+                          RubikPieceCorner par_piece3, RubikPieceCorner par_piece4,
+                          EnumPrimaryView par_enumView)
         {
             //
             // Added 1/11//2020 thomas downes
@@ -199,20 +200,49 @@ namespace RubiksCube_2x2
             //
             //   (Code copied from FormSolvingTool.Form1_Paint_BACK(PaintEventArgs e), 1/11/2021.)
             //
-            par_piece1.PaintByGraphics_FrontFace(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustFront);
-            par_piece2.PaintByGraphics_FrontFace(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustFront);
-            par_piece3.PaintByGraphics_FrontFace(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustFront);
-            par_piece4.PaintByGraphics_FrontFace(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustFront);
+            if (par_enumView == EnumPrimaryView.Front || par_enumView == EnumPrimaryView.Back)
+            {
+                // Step 1 of 2.  Paint the front faces.  (vs. sides) 
+                //
+                //   (Code copied from FormSolvingTool.Form1_Paint_BACK(PaintEventArgs e), 1/11/2021.)
+                //
+                par_piece1.PaintByGraphics_FrontFace(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustFront);
+                par_piece2.PaintByGraphics_FrontFace(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustFront);
+                par_piece3.PaintByGraphics_FrontFace(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustFront);
+                par_piece4.PaintByGraphics_FrontFace(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustFront);
 
-            //
-            // Step 2 of 2.  Paint the side faces.  
-            //
-            //   (Code copied from FormSolvingTool.Form1_Paint_BACK(PaintEventArgs e), 1/11/2021.)
-            //
-            par_piece1.PaintByGraphics_SideFaces(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustSides);
-            par_piece2.PaintByGraphics_SideFaces(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustSides);
-            par_piece3.PaintByGraphics_SideFaces(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustSides);
-            par_piece4.PaintByGraphics_SideFaces(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustSides);
+                //
+                // Step 2 of 2.  Paint the side faces.  
+                //
+                //   (Code copied from FormSolvingTool.Form1_Paint_BACK(PaintEventArgs e), 1/11/2021.)
+                //
+                par_piece1.PaintByGraphics_SideFaces(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustSides);
+                par_piece2.PaintByGraphics_SideFaces(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustSides);
+                par_piece3.PaintByGraphics_SideFaces(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustSides);
+                par_piece4.PaintByGraphics_SideFaces(par_graphics, par_pointCenter); //, EnumWhatToPaint.JustSides);
+
+            }
+            else if (par_enumView == EnumPrimaryView.Right)
+            {
+                //
+                // Added 1/31/2021 thomas downes
+                //
+                Exception a_exception; 
+
+                par_piece1.PaintByGraphics(par_graphics, par_pointCenter, par_enumView, out a_exception);
+                par_piece2.PaintByGraphics(par_graphics, par_pointCenter, par_enumView, out a_exception);
+                par_piece3.PaintByGraphics(par_graphics, par_pointCenter, par_enumView, out a_exception);
+                par_piece4.PaintByGraphics(par_graphics, par_pointCenter, par_enumView, out a_exception);
+
+
+            }
+            else if (par_enumView == EnumPrimaryView.Unassigned)
+            {
+                //Added 1/31/2021 thomas downes
+                throw new NotImplementedException();
+
+            }
+
 
         }
 
@@ -244,6 +274,25 @@ namespace RubiksCube_2x2
         }
 
 
+        public void PaintThisSide_Base(System.Drawing.Graphics par_graphics, Point par_pointCenter, EnumPrimaryView par_view)
+        {
+            // 
+            // Added 2/1/2021 thomas downes  
+            //
+            Exception an_error;
+
+            //Piece1.PaintByGraphics(par_graphics, par_pointCenter, par_view, out an_error);
+            //Piece2.PaintByGraphics(par_graphics, par_pointCenter, par_view, out an_error);
+            //Piece3.PaintByGraphics(par_graphics, par_pointCenter, par_view, out an_error);
+            //Piece4.PaintByGraphics(par_graphics, par_pointCenter, par_view, out an_error);
+
+            Piece1.PaintByGraphics_IfVisible(par_graphics, par_pointCenter, par_view, out an_error);  
+            Piece2.PaintByGraphics_IfVisible(par_graphics, par_pointCenter, par_view, out an_error);  
+            Piece3.PaintByGraphics_IfVisible(par_graphics, par_pointCenter, par_view, out an_error);  
+            Piece4.PaintByGraphics_IfVisible(par_graphics, par_pointCenter, par_view, out an_error);  
+
+        }
+
         public void SetTemporaryTextMarkers_ClockPositions()
         {
             //
@@ -260,7 +309,8 @@ namespace RubiksCube_2x2
         }
 
 
-        public void Repaint(System.Windows.Forms.Panel par_panel)
+        public void Repaint(System.Windows.Forms.Panel par_panel, bool par_bIsASideView, 
+                            EnumPrimaryView par_enumView_Optional = EnumPrimaryView.Unassigned)
         {
             //
             // Added 1/28/2021 thomas downes
@@ -278,7 +328,12 @@ namespace RubiksCube_2x2
 
             var a_graphics = par_panel.CreateGraphics();
             Point pointCenter = new Point(par_panel.Width / 2, par_panel.Height / 2);
-            this.PaintThisSide_Base(a_graphics, pointCenter);
+
+            //----Jan. 31, 2021--this.PaintThisSide_Base(a_graphics, pointCenter);
+
+            //Bifurcated 2/1/2021 thomas 
+            if (par_bIsASideView) this.PaintThisSide_Base(a_graphics, pointCenter, par_enumView_Optional);
+            else this.PaintThisSide_Base(a_graphics, pointCenter);
 
 
         }

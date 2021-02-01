@@ -342,9 +342,11 @@ namespace RubiksCube_2x2
                     // The Default View 
                     //
                     // 1 of 2. Paint the front side. 
+                    //---mod_mainside_front.PaintThisSide_Base(graphicsViewableFront, pointCenter_ViewableFront);
                     mod_mainside_front.PaintThisSide_Base(graphicsViewableFront, pointCenter_ViewableFront);
 
                     // 2 of 2. Paint the back side. 
+                    //---mod_mainside_back.PaintThisSide_Base(graphicsViewableBack, pointCenter_ViewableBack);
                     mod_mainside_back.PaintThisSide_Base(graphicsViewableBack, pointCenter_ViewableBack);
                     break;
 
@@ -354,9 +356,11 @@ namespace RubiksCube_2x2
                     // The Backside View
                     //
                     // 1 of 2. Paint the backside onto the "primary view front side" panel. 
+                    //---mod_mainside_back.PaintThisSide_Base(graphicsViewableFront, pointCenter_ViewableFront);
                     mod_mainside_back.PaintThisSide_Base(graphicsViewableFront, pointCenter_ViewableFront);
 
                     // 2 of 2. Paint the frontside onto the "primary view back side" panel. 
+                    //---mod_mainside_front.PaintThisSide_Base(graphicsViewableBack, pointCenter_ViewableBack);
                     mod_mainside_front.PaintThisSide_Base(graphicsViewableBack, pointCenter_ViewableBack);
                     break;
 
@@ -368,12 +372,14 @@ namespace RubiksCube_2x2
                     RefreshSideViews();  //Important!!  
 
                     // 1 of 2. Paint the Left Side onto the "primary view front side" panel. 
-                    mod_sideview_left.PaintThisSide_Base(graphicsViewableFront, pointCenter_ViewableFront);
+                    //----mod_sideview_left.PaintThisSide_Base(graphicsViewableFront, pointCenter_ViewableFront);
+                    //mod_sideview_left.PaintThisSide_Base(graphicsViewable, pointCenter_ViewableFront, par_enum);
 
                     // 2 of 2. Paint the Right Side onto the "primary view back side" panel.
-                    mod_sideview_right.PaintThisSide_Base(graphicsViewableBack, pointCenter_ViewableBack);
-                    break;
-
+                    //----mod_sideview_right.PaintThisSide_Base(graphicsViewableBack, pointCenter_ViewableBack);
+                    //mod_sideview_right.PaintThisSide_Base(graphicsViewableBack, pointCenter_ViewableBack, par_enum);
+                    //break;
+                    throw new NotImplementedException();
 
                 case EnumPrimaryView.Right:
                     //
@@ -382,11 +388,14 @@ namespace RubiksCube_2x2
                     RefreshSideViews();  //Important!!  
 
                     // 1 of 2. Paint the Right Side onto the "primary view front side" panel. 
-                    mod_sideview_right.PaintThisSide_Base(graphicsViewableFront, pointCenter_ViewableFront);
+                    //----mod_sideview_right.PaintThisSide_Base(graphicsViewableFront, pointCenter_ViewableFront);
+                    //mod_sideview_right.PaintThisSide_Base(graphicsViewableFront, pointCenter_ViewableFront, par_enum);
 
                     // 2 of 2. Paint the Left Side onto the "primary view back side" panel. 
-                    mod_sideview_left.PaintThisSide_Base(graphicsViewableBack, pointCenter_ViewableBack);
-                    break;
+                    //----mod_sideview_left.PaintThisSide_Base(graphicsViewableBack, pointCenter_ViewableBack);
+                    //mod_sideview_left.PaintThisSide_Base(graphicsViewableBack, pointCenter_ViewableBack, par_enum);
+                    //break;
+                    throw new NotImplementedException();
 
                 default:
                     throw new NotImplementedException("This enum value has not been specified.");
@@ -403,11 +412,16 @@ namespace RubiksCube_2x2
             // Added 1/31/2021 Thomas Downes  
             //
             this.Repaint(par_panelViewableFront, par_panelViewableBackside, EnumPrimaryView.Front);
+
+            //
+            // Side Views. 
+            //
             RefreshSideViews();
-            mod_sideview_right.Repaint(par_panelViewableRight);
+            //----mod_sideview_right.Repaint(par_panelViewableRight);
+            mod_sideview_right.Repaint(par_panelViewableRight, true, EnumPrimaryView.Right);
 
         }
 
 
-        }
+    }
     }

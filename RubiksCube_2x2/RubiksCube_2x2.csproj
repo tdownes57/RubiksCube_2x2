@@ -157,6 +157,7 @@
     <Compile Include="RubiksCubeBothSides.cs" />
     <Compile Include="SideViews\ClassSideViewSide.cs" />
     <Compile Include="SideViews\ClassSideViewsCube.cs" />
+    <Compile Include="SideViews\RubikPieceSideView.cs" />
     <Compile Include="TestMongoDB.cs" />
     <Compile Include="Uniqueness.cs" />
     <EmbeddedResource Include="Maneuvers\FormManeuvers.resx">

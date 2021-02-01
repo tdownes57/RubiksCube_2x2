@@ -447,12 +447,15 @@ namespace RubiksCube_2x2
                 //mod_cubeWholeBothSides.Repaint(panelFront, panelBack);
                 panelFront.Refresh();
                 panelBack.Refresh();
+                panelSideRight.Refresh();     // Added 1/31/2021 thomas downes  
 
             }
             else
             {
                 Form1_Paint_BACK(e);
                 Form1_Paint_FRONT(e);
+                //Added 1/31/2021 thomas downes
+                Form1_Paint_RIGHT(e);
             }
 
         }
@@ -640,7 +643,19 @@ namespace RubiksCube_2x2
             }
         }
 
-        private void buttonRotateClockwise_Click(object sender, EventArgs e)
+        private void Form1_Paint_RIGHT(PaintEventArgs e)  //object sender, PaintEventArgs e)
+        {
+            //
+            // Called by the following:
+            //    private void Form1_Paint(object sender, PaintEventArgs e)
+            //
+            //----mod_cubeWholeBothSides.SideViewRight.Repaint(panelSideRight);
+            mod_cubeWholeBothSides.SideViewRight.Repaint(panelSideRight, true, EnumPrimaryView.Right);
+
+
+        }
+
+            private void buttonRotateClockwise_Click(object sender, EventArgs e)
         {
             //
             // Added 11/12/2020 thomas downes
@@ -1187,7 +1202,20 @@ namespace RubiksCube_2x2
             //
             //  Added 12/30/2020 td
             //
-            MongoDB_Save.SaveRubiksSides(in mod_cubeFrontside, in mod_cubeBackside);
+            try
+            {
+                MongoDB_Save.SaveRubiksSides(in mod_cubeFrontside, in mod_cubeBackside);
+            }
+            catch (Exception ex_save)
+            {
+                //
+                //Added 1/31/2021 
+                //
+                MessageBox.Show(ex_save.Message, "", 
+                    MessageBoxButtons.OKCancel, 
+                    MessageBoxIcon.Exclamation);
+
+            }
 
         }
 
@@ -1437,7 +1465,8 @@ namespace RubiksCube_2x2
             // Added 1/28/2021 thomas downes
             //
             var panel_sender = (Panel)sender; 
-            mod_cubeWholeBothSides.FrontSide.Repaint(panel_sender);
+            //----mod_cubeWholeBothSides.FrontSide.Repaint(panel_sender);
+            mod_cubeWholeBothSides.FrontSide.Repaint(panel_sender, false);
 
         }
 
@@ -1447,7 +1476,8 @@ namespace RubiksCube_2x2
             // Added 1/28/2021 thomas downes
             //
             var panel_sender = (Panel)sender;
-            mod_cubeWholeBothSides.BackSide.Repaint(panel_sender);
+            //----mod_cubeWholeBothSides.BackSide.Repaint(panel_sender);
+            mod_cubeWholeBothSides.BackSide.Repaint(panel_sender, false);
 
         }
 
@@ -1457,7 +1487,8 @@ namespace RubiksCube_2x2
             // Added 1/31/2021 thomas downes
             //
             var panel_sender = (Panel)sender;
-            mod_cubeWholeBothSides.SideViewRight.Repaint(panel_sender);
+            //----mod_cubeWholeBothSides.SideViewRight.Repaint(panel_sender);
+            mod_cubeWholeBothSides.SideViewRight.Repaint(panel_sender, true, EnumPrimaryView.Right);
 
         }
 

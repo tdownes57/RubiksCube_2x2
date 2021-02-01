@@ -24,17 +24,25 @@ namespace RubiksCube_2x2.SideViews
 
             if (par_enum == EnumLeftOrRight.Left)
             {
+                //Copy 2 of 4 pieces from the front side. 
                 base.Piece1 = par_cubeFrontAndBack.FrontSide.GetPiece(FrontClockFace.ten_thirty);
                 base.Piece2 = par_cubeFrontAndBack.FrontSide.GetPiece(FrontClockFace.seven_thirty);
+
+                //Copy 2 of 4 pieces from the back side. 
                 base.Piece3 = par_cubeFrontAndBack.BackSide.GetPiece(FrontClockFace.one_thirty);
                 base.Piece4 = par_cubeFrontAndBack.BackSide.GetPiece(FrontClockFace.four_thirty);
+
             }
             else if (par_enum == EnumLeftOrRight.Right)
             {
+                //Copy 2 of 4 pieces from the front side. 
                 base.Piece1 = par_cubeFrontAndBack.FrontSide.GetPiece(FrontClockFace.one_thirty);
                 base.Piece2 = par_cubeFrontAndBack.FrontSide.GetPiece(FrontClockFace.four_thirty);
+
+                //Copy 2 of 4 pieces from the back side. 
                 base.Piece3 = par_cubeFrontAndBack.BackSide.GetPiece(FrontClockFace.ten_thirty);
                 base.Piece4 = par_cubeFrontAndBack.BackSide.GetPiece(FrontClockFace.seven_thirty);
+
             }
 
 

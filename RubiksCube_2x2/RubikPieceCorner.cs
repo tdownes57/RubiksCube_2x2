@@ -7,6 +7,7 @@ using System.Drawing;  // Added 11/11/2020 thomas downes
 
 namespace RubiksCube_2x2
 {
+    //abstract class RubikPieceCorner
     abstract class RubikPieceCorner
     {
         //public System.Drawing.Color Color1of3;
@@ -169,6 +170,17 @@ namespace RubiksCube_2x2
         }
 
 
+        public void PaintByGraphics(Graphics par_graphics, Point par_center_of_form)
+        {
+            //
+            // Added 1/31/2021 thomas downes
+            //
+            this.PaintByGraphics_FrontFace(par_graphics, par_center_of_form);
+            this.PaintByGraphics_SideFaces(par_graphics, par_center_of_form);
+
+        }
+
+
         public void PaintByGraphics_FrontFace(Graphics par_graphics, Point par_center_of_form)
         {
             //
@@ -226,7 +238,7 @@ namespace RubiksCube_2x2
                 //
                 // Step 1 of 2:  Get the larger "front" rectangle (vs. the side rectangles). 
                 //
-                boolPaintTheFront = false; 
+                boolPaintTheFront = false;
                 PaintFrontFace_Base(par_graphics, par_center_of_form,
                      out point_NW, out point_SW, out point_NE, out point_SE, boolPaintTheFront);
 
@@ -294,6 +306,101 @@ namespace RubiksCube_2x2
         }
 
 
+        public void PaintByGraphics_IfVisible(Graphics par_graphics, Point par_center_of_form,
+               EnumPrimaryView par_enumView, out Exception par_error)
+        {
+            //
+            // Added 1/31/2021 thomas downes
+            //
+            par_error = null;
+
+            if (par_enumView == EnumPrimaryView.Right)
+            {
+                //
+                // The pieces in the 7:30 & 10:30 positions won't be painted. 
+                //
+                if (this.FrontClockFacePosition == FrontClockFace.ten_thirty) return;
+                if (this.FrontClockFacePosition == FrontClockFace.seven_thirty) return;
+
+                //Check to see if the piece is "ready" to be painted. 
+                bool boolNotYetReady;
+                boolNotYetReady = (this.WhichFaceIsE_of_front == EnumFaceNum.NotSpecified);
+                if (boolNotYetReady) return;  
+
+            }
+
+            else if (par_enumView == EnumPrimaryView.Left)
+            {
+                //
+                // The pieces in the 1:30 & 4:30 positions won't be painted. 
+                //
+                if (this.FrontClockFacePosition == FrontClockFace.one_thirty) return;
+                if (this.FrontClockFacePosition == FrontClockFace.four_thirty) return;
+
+                //Check to see if the piece is "ready" to be painted. 
+                bool boolNotYetReady;
+                boolNotYetReady = (this.WhichFaceIsW_of_front == EnumFaceNum.NotSpecified);
+                if (boolNotYetReady) return;
+
+            }
+
+            //
+            // Major call!!!  Finally. 
+            //
+            PaintByGraphics(par_graphics, par_center_of_form, par_enumView, out par_error);
+            return; 
+
+        }
+
+        public void PaintByGraphics(Graphics par_graphics, Point par_center_of_form, 
+                       EnumPrimaryView par_enumView, out Exception par_error)
+        {
+            //
+            // Added 1/31/2021 thomas downes
+            //
+            par_error = null;
+
+            if (par_enumView == EnumPrimaryView.Front)
+            {
+                PaintByGraphics(par_graphics, par_center_of_form);
+            }
+            else if (par_enumView == EnumPrimaryView.Back)
+            {
+                PaintByGraphics(par_graphics, par_center_of_form);
+            }
+
+            else if (par_enumView == EnumPrimaryView.Right)
+            {
+                //
+                // Paint the piece, but from a 90-degre (profile) perspective rather than a head-on view. 
+                //
+                //var a_temp = new RubikPieceCorner(par_enumView);
+                var a_temp = new SideViews.RubikPieceSideView(this, par_enumView);
+                a_temp.PaintByGraphics(par_graphics, par_center_of_form);
+
+            }
+            else if (par_enumView == EnumPrimaryView.Left)
+            {
+                //
+                // Paint the piece, but from a 90-degre (profile) perspective rather than a head-on view. 
+                //
+                //var a_temp = new RubikPieceCorner(par_enumView);
+                var a_temp = new SideViews.RubikPieceSideView(this, par_enumView);
+                a_temp.PaintByGraphics(par_graphics, par_center_of_form);
+
+            }
+            else if (par_enumView == EnumPrimaryView.Unassigned)
+            {
+                //
+                // Paint the piece, but from a 90-degre (profile) perspective rather than a head-on view. 
+                //
+                throw new NotImplementedException();  //Added 1/31/2021 thomas d. 
+
+            }
+
+
+        }
+
         //public abstract void PaintFrontFace(Graphics par_graphics, Point par_center_of_form,
         //    out Point par_pointNW, out Point par_pointSW, 
         //    out Point par_pointNE, out Point par_pointSE);
@@ -309,9 +416,9 @@ namespace RubiksCube_2x2
         //    in Point par_pointNE, in Point par_pointSE);
 
         public void PaintSideFace_ClockwiseFromFront(Graphics par_graphics,
-                   Point p_center_of_form,
-                   in Point par_pointNW, in Point par_pointSW,
-                   in Point par_pointNE, in Point par_pointSE)
+                Point p_center_of_form,
+                in Point par_pointNW, in Point par_pointSW,
+                in Point par_pointNE, in Point par_pointSE)
         {
             //
             // Added 11/12/2020 thomas downes
