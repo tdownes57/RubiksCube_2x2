@@ -7,22 +7,22 @@ using System.Windows.Forms;   // Added 2/1/2021 thomas downes
 
 namespace HorizontalScroller
 {
-    class PanelAndLinksList 
+    class PanelAndLinksList
     {
         //
         // Added 2/1/2021 thomas
         //
         public List<PanelAndLinks> myList = new List<PanelAndLinks>();
 
-        private static int CompareDinosByLength(PanelAndLinks par_x, PanelAndLinks par_y)
-        {
-            //
-            //   https://stackoverflow.com/questions/20902248/sorting-a-list-in-c-sharp-using-list-sortcomparisont-comparison
-            //
-            return (par_x.PanelLeft() - par_y.PanelLeft());
-            
-       }
-   
+        // private static int CompareDinosByLength(PanelAndLinks par_x, PanelAndLinks par_y)
+        // {
+        //     //
+        //     //   https://stackoverflow.com/questions/20902248/sorting-a-list-in-c-sharp-using-list-sortcomparisont-comparison
+        //     //
+        //     return (par_x.PanelLeft() - par_y.PanelLeft());
+
+        //}
+
 
         public PanelAndLinksList()
         {
@@ -52,7 +52,10 @@ namespace HorizontalScroller
             objNew.myRotateCCW = par_linkCCW;
             this.myList.Add(objNew);
 
-            this.myList.Sort();
+            //
+            // Sort the objects, by the Panel.Left property. 
+            //
+            this.myList.Sort();  // This will use the public int CompareTo method of the class PanelAndLinks.cs.
 
         }
 
@@ -81,3 +84,4 @@ namespace HorizontalScroller
 
 
     }
+}

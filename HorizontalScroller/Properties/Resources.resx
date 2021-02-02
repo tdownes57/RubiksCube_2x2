@@ -121,4 +121,7 @@
   <data name="1959" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1959.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="blue_star" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blue_star.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

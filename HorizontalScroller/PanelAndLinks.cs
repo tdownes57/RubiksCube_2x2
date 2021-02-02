@@ -36,9 +36,13 @@ namespace HorizontalScroller
             //
             // Added 2/1/2021 thomas
             //
-            myPanel.Left += par_left_subtract;
-            myRotateCCW.Left += par_left_subtract;
-            myRotateCW.Left += par_left_subtract;
+            //myPanel.Left += par_left_subtract;
+            //myRotateCCW.Left += par_left_subtract;
+            //myRotateCW.Left += par_left_subtract;
+
+            myPanel.Left -= par_left_subtract;
+            myRotateCCW.Left -= par_left_subtract;
+            myRotateCW.Left -= par_left_subtract;
 
         }
 
@@ -58,8 +62,10 @@ namespace HorizontalScroller
         {
             //
             // See https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.sort?view=net-5.0
+            //----throw new NotImplementedException();
             //
-            throw new NotImplementedException();
+            return this.myPanel.Left.CompareTo(other.myPanel.Left);
+
         }
     }
 }
