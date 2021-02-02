@@ -33,7 +33,8 @@ namespace RubiksCube_2x2.SideViews
                 case FrontClockFace.four_thirty: this.FrontClockFacePosition = FrontClockFace.seven_thirty; break;
                 case FrontClockFace.one_thirty: this.FrontClockFacePosition = FrontClockFace.ten_thirty; break;
                 case FrontClockFace.seven_thirty: this.FrontClockFacePosition = FrontClockFace.four_thirty; break;
-                case FrontClockFace.ten_thirty: par_piece.FrontClockFacePosition = FrontClockFace.one_thirty; break;
+                //case FrontClockFace.ten_thirty: par_piece.FrontClockFacePosition = FrontClockFace.one_thirty; break;
+                case FrontClockFace.ten_thirty: this.FrontClockFacePosition = FrontClockFace.one_thirty; break;
             }
 
             //---bool bValidFace_East = (EnumFaceNum.NotApplicable_DifferentPiece != this.WhichFaceIsE_of_front);
@@ -46,7 +47,7 @@ namespace RubiksCube_2x2.SideViews
             bool bValidFace_West = (EnumFaceNum.NotApplicable_DifferentPiece != par_piece.WhichFaceIsW_of_front
                                      && EnumFaceNum.NotSpecified != par_piece.WhichFaceIsW_of_front);
 
-            if (bValidFace_West) this.WhichFaceIsFront = par_piece.WhichFaceIsE_of_front;
+            if (bValidFace_West) this.WhichFaceIsFront = par_piece.WhichFaceIsW_of_front;
 
             //
             // Error handling!!!!

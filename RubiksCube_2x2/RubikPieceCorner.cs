@@ -313,19 +313,22 @@ namespace RubiksCube_2x2
             // Added 1/31/2021 thomas downes
             //
             par_error = null;
+            bool bMaybeNotYetReady = false;
+            bool bFarSoPerhapsNotVisible = false; 
 
             if (par_enumView == EnumPrimaryView.Right)
             {
                 //
                 // The pieces in the 7:30 & 10:30 positions won't be painted. 
                 //
-                if (this.FrontClockFacePosition == FrontClockFace.ten_thirty) return;
-                if (this.FrontClockFacePosition == FrontClockFace.seven_thirty) return;
+                //---if (this.FrontClockFacePosition == FrontClockFace.ten_thirty) return;
+                //--if (this.FrontClockFacePosition == FrontClockFace.seven_thirty) return;
+                if (this.FrontClockFacePosition == FrontClockFace.ten_thirty) bFarSoPerhapsNotVisible = true;
+                if (this.FrontClockFacePosition == FrontClockFace.seven_thirty) bFarSoPerhapsNotVisible = true;
 
                 //Check to see if the piece is "ready" to be painted. 
-                bool boolNotYetReady;
-                boolNotYetReady = (this.WhichFaceIsE_of_front == EnumFaceNum.NotSpecified);
-                if (boolNotYetReady) return;  
+                bMaybeNotYetReady = (this.WhichFaceIsE_of_front == EnumFaceNum.NotSpecified);
+                //---if (boolNotYetReady) return;  
 
             }
 
@@ -334,20 +337,33 @@ namespace RubiksCube_2x2
                 //
                 // The pieces in the 1:30 & 4:30 positions won't be painted. 
                 //
-                if (this.FrontClockFacePosition == FrontClockFace.one_thirty) return;
-                if (this.FrontClockFacePosition == FrontClockFace.four_thirty) return;
+                //---if (this.FrontClockFacePosition == FrontClockFace.one_thirty) return;
+                //--if (this.FrontClockFacePosition == FrontClockFace.four_thirty) return;
+                if (this.FrontClockFacePosition == FrontClockFace.one_thirty) bFarSoPerhapsNotVisible = true;
+                if (this.FrontClockFacePosition == FrontClockFace.four_thirty) bFarSoPerhapsNotVisible = true;
 
                 //Check to see if the piece is "ready" to be painted. 
-                bool boolNotYetReady;
-                boolNotYetReady = (this.WhichFaceIsW_of_front == EnumFaceNum.NotSpecified);
-                if (boolNotYetReady) return;
+                //bool boolNotYetReady;
+                bMaybeNotYetReady = (this.WhichFaceIsW_of_front == EnumFaceNum.NotSpecified);
+                //if (boolNotYetReady) return;
 
             }
 
             //
             // Major call!!!  Finally. 
             //
-            PaintByGraphics(par_graphics, par_center_of_form, par_enumView, out par_error);
+            if (bFarSoPerhapsNotVisible)
+            {
+                // Should we paint this piece???
+                PaintByGraphics(par_graphics, par_center_of_form, par_enumView, out par_error);
+            }
+            else if (bMaybeNotYetReady)
+            {
+                // Should we paint this piece???
+                PaintByGraphics(par_graphics, par_center_of_form, par_enumView, out par_error);
+            }
+            else PaintByGraphics(par_graphics, par_center_of_form, par_enumView, out par_error);
+            
             return; 
 
         }
