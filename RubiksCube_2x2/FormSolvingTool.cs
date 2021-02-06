@@ -661,7 +661,12 @@ namespace RubiksCube_2x2
             // Added 11/12/2020 thomas downes
             //
             mod_cubeBackside.Simple_Clockwise90();
-            this.Refresh();
+
+            //---this.Refresh();
+            // Modified 2/2/2021 thomas downes
+            mod_cubeWholeBothSides.RefreshSideViews();
+            panelBack.Refresh();
+            panelSideRight.Refresh(); 
 
             //Added 1/04/2021 thomas downes
             mod_backCountOfRevolveClockwise += 1;
@@ -700,7 +705,12 @@ namespace RubiksCube_2x2
 
             mod_cubeFrontside.ComplexRevolution();
             mod_cubeBackside.ComplexRevolution();
-            this.Refresh();
+            mod_cubeWholeBothSides.RefreshSideViews();  // Added 2/2/2021 td
+
+            //---this.Refresh();
+            panelFront.Refresh();
+            panelBack.Refresh();
+            panelSideRight.Refresh();  
 
             //Added 11/20/2020 thomas downes
             mod_frontCountOfRotateBtmRight += 1;
@@ -1260,7 +1270,15 @@ namespace RubiksCube_2x2
             // Major call !!   Do the work!
             //
             mod_cubeWholeBothSides.SwitchBottomPieces_Front();
-            this.Refresh();
+
+            //Refresh the side view(s).  
+            mod_cubeWholeBothSides.RefreshSideViews();  // Added 2/2/2021 td
+
+            //Repaint the form.  
+            //----this.Refresh();
+            panelFront.Refresh();
+            panelBack.Refresh();
+            panelSideRight.Refresh();  
 
             //
             // Testing, after. 
@@ -1377,7 +1395,12 @@ namespace RubiksCube_2x2
             mod_cubeBackside.Simple_Clockwise90();  // Step 1 of 3. 3 x 90 = 270 degrees = 360 - 90 degrees
             mod_cubeBackside.Simple_Clockwise90();  // Step 2 of 3. 3 x 90-degrees = 270 degrees = 360 - 90 degrees
             mod_cubeBackside.Simple_Clockwise90();  // Step 3 of 3. 3 x 90-degrees = 270 degrees = 360 - 90 degrees
-            this.Refresh();
+            
+            //----this.Refresh();
+            //---- Modified 2/2/2021 thomas downes
+            mod_cubeWholeBothSides.RefreshSideViews();
+            panelBack.Refresh();
+            panelSideRight.Refresh();
 
             //Added 1/04/2021 thomas downes
             mod_backCountOfRevolveCounterClock += 1;

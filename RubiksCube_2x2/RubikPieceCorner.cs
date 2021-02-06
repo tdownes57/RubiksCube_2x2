@@ -57,6 +57,12 @@ namespace RubiksCube_2x2
         /// </summary>
         public abstract void LoadInitialState_NotInUse();
 
+        //Added 2/5/2021 thomas downes
+        //  This determines if the front face & sides are filled in with color 
+        //  or not.  
+        public bool FillFacesWithText = false;  // Default to False. 
+        public bool FillFacesWithColor = true; // Default to True. 
+
         //
         //          [.N.]   [.N.]
         //   [.W.] [10:30] [1:30]  [.E.]
@@ -277,8 +283,9 @@ namespace RubiksCube_2x2
 
             //Brush a_brush = new SolidBrush(base.GetColorOfFrontFace());
             //Brush a_brush = new SolidBrush(GetColorOfFrontFace());
-            Color color_OfFrontFace = GetColorOfFrontFace();
-            Brush a_brush = new SolidBrush(color_OfFrontFace);
+
+            //See below.//Color color_OfFrontFace = GetColorOfFrontFace();
+            //See below.//Brush a_brush = new SolidBrush(color_OfFrontFace);
 
             //Added 1/11/2021 Thomas Downes
             //bool bTextMarkerIsStillInFront = (this.TemporaryTextMarker_WhichFace == WhichFaceIsFront);
@@ -290,7 +297,8 @@ namespace RubiksCube_2x2
                 //
                 // Added 1/11/2021 
                 //
-                par_graph.DrawString(this.TemporaryTextMarker, new Font("Comic Sans MS", 13), a_brush, 0, 0);
+                Brush a_brush_black = new SolidBrush(Color.Black);
+                par_graph.DrawString(this.TemporaryTextMarker, new Font("Comic Sans MS", 13), a_brush_black, 0, 0);
 
             }
 
@@ -300,6 +308,8 @@ namespace RubiksCube_2x2
                 // We are _not_ merely populating the "out" parameters.
                 //   We _do_ in fact want to paint the front face. 
                 //
+                Color color_OfFrontFace = GetColorOfFrontFace();
+                Brush a_brush = new SolidBrush(color_OfFrontFace);
                 par_graph.FillRectangle(a_brush, frontFace);
             }
 
@@ -1470,6 +1480,9 @@ namespace RubiksCube_2x2
             //
             // Added 1/11/2021 thomas downes
             //
+            this.FillFacesWithText = true;  // Added 2/5/2021 td 
+            this.FillFacesWithColor = false;  // Added 2/5/2021 td 
+
             if (this.FrontClockFacePosition == FrontClockFace.four_thirty) this.TemporaryTextMarker = "4:30";
             if (this.FrontClockFacePosition == FrontClockFace.one_thirty) this.TemporaryTextMarker = "1:30";
             if (this.FrontClockFacePosition == FrontClockFace.ten_thirty) this.TemporaryTextMarker = "10:30";
@@ -1477,7 +1490,7 @@ namespace RubiksCube_2x2
 
             //Added 1/11/2021
             //
-            const bool c_boolCleanColon30 = true; 
+            const bool c_boolCleanColon30 = false;  // true; 
             if (c_boolCleanColon30)
             {
                 // Remove the ":30" from the text.  --1/11/2021 thomas downes
@@ -1517,7 +1530,29 @@ namespace RubiksCube_2x2
             //
             throw new NotImplementedException();
 
+            //SetTemporaryTextMarker_ClockPosition();
+
         }
+
+
+        public void ClearTemporaryTextMarker_ClockPosition()
+        {
+            //
+            // Added 2/5/2021 thomas downes
+            //
+            this.FillFacesWithText = false;  // Added 2/5/2021 td 
+            this.FillFacesWithColor = true;  // Added 2/5/2021 td 
+
+            this.TemporaryTextMarker = "";  // Remove the string. 
+
+
+
+        }
+
+
+
+
+
 
 
     }

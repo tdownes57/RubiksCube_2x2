@@ -24,8 +24,10 @@ namespace RubiksCube_2x2
 
             //Added 12/8/2020 thomas downes
             //  mod_cubeWholeBothSides = new RubiksCubeBothSides();
-            mod_cubeBothSides_Before = new RubiksCubeBothSides();
-            mod_cubeBothSides_After = new RubiksCubeBothSides();
+            //[[[[[--mod_cubeBothSides_Before = new RubiksCubeBothSides();
+            //[[[[[--mod_cubeBothSides_After = new RubiksCubeBothSides();
+            mod_cubeBothSides_Before = new RubiksCubeBothSides(EnumColorIsHardcoded.True);
+            mod_cubeBothSides_After = new RubiksCubeBothSides(EnumColorIsHardcoded.True);
 
             // Before the Maneuver & Repurcussions. 
             mod_cubeBothSides_Before.FrontSide.SetTemporaryTextMarkers_ClockPositions();
@@ -46,6 +48,10 @@ namespace RubiksCube_2x2
 
         private void FormRepurcussion_Load(object sender, EventArgs e)
         {
+            //
+            // Added 2/5/2021  
+            //
+            
 
         }
 
@@ -56,20 +62,33 @@ namespace RubiksCube_2x2
             //
             mod_cubeBothSides_Before.FrontSide.SetTemporaryTextMarkers_ClockPositions();
 
+            //Added 2/5/2021 thomas downes
+            Point pointCenter = new Point(((Panel)sender).Width / 2, ((Panel)sender).Height / 2); 
+            mod_cubeBothSides_After.FrontSide.PaintThisSide(e.Graphics, pointCenter);
+
         }
 
         private void panelBackAfter_Paint(object sender, PaintEventArgs e)
         {
+            //Added 2/5/2021 thomas downes
+            Point pointCenter = new Point(((Panel)sender).Width / 2, ((Panel)sender).Height / 2);
+            mod_cubeBothSides_After.BackSide.PaintThisSide(e.Graphics, pointCenter);
 
         }
 
         private void panelBackBefore_Paint(object sender, PaintEventArgs e)
         {
+            //Added 2/5/2021 thomas downes
+            Point pointCenter = new Point(((Panel)sender).Width / 2, ((Panel)sender).Height / 2);
+            mod_cubeBothSides_Before.BackSide.PaintThisSide(e.Graphics, pointCenter);
 
         }
 
         private void panelFrontBefore_Paint(object sender, PaintEventArgs e)
         {
+            //Added 2/5/2021 thomas downes
+            Point pointCenter = new Point(((Panel)sender).Width / 2, ((Panel)sender).Height / 2);
+            mod_cubeBothSides_Before.FrontSide.PaintThisSide(e.Graphics, pointCenter);
 
         }
     }

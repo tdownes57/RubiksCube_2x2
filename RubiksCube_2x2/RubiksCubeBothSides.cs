@@ -13,8 +13,10 @@ namespace RubiksCube_2x2
         //
         // Added 12/8/2020 thomas downes
         //
-        Front.ClassFrontside mod_mainside_front;
-        Back.ClassBackside mod_mainside_back;
+        //---Front.ClassFrontside mod_mainside_front;
+        //---Back.ClassBackside mod_mainside_back;
+        RubiksCubeOneSide mod_mainside_front;
+        RubiksCubeOneSide mod_mainside_back;
 
 
         private struct OrientationWork
@@ -57,6 +59,28 @@ namespace RubiksCube_2x2
         }
 
 
+        public RubiksCubeBothSides(EnumColorIsHardcoded par_enum)
+        {
+            //
+            // Added 2/05/2021 thomas downes  
+            //
+            if (par_enum == EnumColorIsHardcoded.True)
+            {
+                mod_mainside_front = new Front.ClassFrontside();
+                mod_mainside_back = new Back.ClassBackside();
+            }
+            else
+            {
+                //
+                // Colors of the pieces are _NOT_ hard-coded.  
+                //
+                mod_mainside_front = new SideViews.ClassSideViewSide(this, EnumLeftOrRight.Unassigned);
+                mod_mainside_back = new SideViews.ClassSideViewSide(this, EnumLeftOrRight.Unassigned);
+            }
+
+        }
+
+
         public void SwitchBottomPieces_Front()
         {
             //
@@ -71,12 +95,20 @@ namespace RubiksCube_2x2
             //
             // Major call!! 
             //
-            mod_mainside_front.GodlikeSwitch_BottomPieces();
+            //----mod_mainside_front.GodlikeSwitch_BottomPieces();
+            if (mod_mainside_front is Front.ClassFrontside) // Added 2/5/2021 thomas downes 
+            {
+                (mod_mainside_front as Front.ClassFrontside).GodlikeSwitch_BottomPieces();
+            }
 
             //
             // Major call!! 
             //
-            mod_mainside_back.ComplexRules_AdjacentPairExchange();
+            //----mod_mainside_back.ComplexRules_AdjacentPairExchange();
+            if (mod_mainside_back is Back.ClassBackside) // Added 2/5/2021 thomas downes 
+            {
+                (mod_mainside_back as Back.ClassBackside).ComplexRules_AdjacentPairExchange();
+            }
 
             //
             // Feedback after work. 
@@ -186,7 +218,8 @@ namespace RubiksCube_2x2
             //----1/2/2021---return mod_backside;  
             get
             {
-                return mod_mainside_back;
+                //----return mod_mainside_back;
+                return (mod_mainside_back as Back.ClassBackside);
             }
             set
             {
@@ -242,12 +275,29 @@ namespace RubiksCube_2x2
                                   System.Drawing.Point par_pointCenter_BACK)
         {
             //
-             // Not in use.  See the following:  FormSolvingTool.private void Form1_Paint(object sender, PaintEventArgs e)  
+            // Not in use.  See the following:  FormSolvingTool.private void Form1_Paint(object sender, PaintEventArgs e)  
             //
             //var a_graphics = new System.Drawing.Graphics();  // e.Graphics;
 
-            mod_mainside_front.PaintThisSide(par_graphics, par_pointCenter_FRONT);
-            mod_mainside_back.PaintThisSide(par_graphics, par_pointCenter_BACK);
+            // Added 2/5/2021 thomas downes
+            bool bHardCodedColors = (mod_mainside_front is Front.ClassFrontside);
+
+            //mod_mainside_Front.PaintThisSide(par_graphics, par_pointCenter_FRONT);
+            //mod_mainside_back.PaintThisSide(par_graphics, par_pointCenter_BACK);
+            if (bHardCodedColors)
+            {
+                //mod_mainside_Front.PaintThisSide(par_graphics, par_pointCenter_FRONT);
+                //mod_mainside_back.PaintThisSide(par_graphics, par_pointCenter_BACK);
+                (mod_mainside_front as Front.ClassFrontside).PaintThisSide(par_graphics, par_pointCenter_FRONT);
+                (mod_mainside_back as Back.ClassBackside).PaintThisSide(par_graphics, par_pointCenter_BACK);
+            }
+            else
+            {
+                // Added 2/5/2021 thomas downes
+                mod_mainside_front.PaintThisSide_Base(par_graphics, par_pointCenter_FRONT);
+                mod_mainside_back.PaintThisSide_Base(par_graphics, par_pointCenter_BACK);
+            }
+
 
         }
 

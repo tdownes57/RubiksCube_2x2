@@ -309,6 +309,22 @@ namespace RubiksCube_2x2
         }
 
 
+        public void ClearTemporaryTextMarkers_ClockPositions()
+        {
+            //
+            // Added 2/05/2021 thomas downes
+            // 
+            // Place "1:30", "4:30", "7:30", and "10:30" on the front faces, 
+            //   depending on position.  
+            //
+            this.Piece1.ClearTemporaryTextMarker_ClockPosition();
+            this.Piece2.ClearTemporaryTextMarker_ClockPosition();
+            this.Piece3.ClearTemporaryTextMarker_ClockPosition();
+            this.Piece4.ClearTemporaryTextMarker_ClockPosition();
+
+        }
+
+
         public void Repaint(System.Windows.Forms.Panel par_panel, bool par_bIsASideView, 
                             EnumPrimaryView par_enumView_Optional = EnumPrimaryView.Unassigned)
         {

@@ -112,10 +112,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Maneuvers\FormManeuvers.cs">
+    <Compile Include="FormManeuvers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Maneuvers\FormManeuvers.Designer.cs">
+    <Compile Include="FormManeuvers.Designer.cs">
       <DependentUpon>FormManeuvers.cs</DependentUpon>
     </Compile>
     <Compile Include="Front\ClassFrontsideBrief.cs" />
@@ -160,7 +160,7 @@
     <Compile Include="SideViews\RubikPieceSideView.cs" />
     <Compile Include="TestMongoDB.cs" />
     <Compile Include="Uniqueness.cs" />
-    <EmbeddedResource Include="Maneuvers\FormManeuvers.resx">
+    <EmbeddedResource Include="FormManeuvers.resx">
       <DependentUpon>FormManeuvers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSolvingTool.resx">

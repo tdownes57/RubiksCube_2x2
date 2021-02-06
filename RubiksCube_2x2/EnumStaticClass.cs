@@ -40,6 +40,8 @@ namespace RubiksCube_2x2
     //
     public enum EnumPrimaryView { Unassigned, Left, Right, Front, Back };
 
+    // Added 2/5/2021 thomas downes
+    public enum EnumColorIsHardcoded { Undetermined, True, False };
 
     //
     // A 2x2 Rubik's Cube:   (The [. .] faces are _side_ faces.)  
