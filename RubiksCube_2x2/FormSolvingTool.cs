@@ -93,6 +93,8 @@ namespace RubiksCube_2x2
 
             center_point_form_FRONT = new Point(this.Width / 3, 1 * this.Height / 3);
             center_point_form_BACK = new Point(this.Width * 2 / 3, 1 * this.Height / 3);
+            // Added 3/31/2021 Thomas Downes
+            //----center_point_form_LEFT = new Point(this.Width / 3, 1 * this.Height / 3);
 
             //
             // Added 11/17/2020 td 
@@ -165,7 +167,10 @@ namespace RubiksCube_2x2
             comboGodlikePowers.SelectedIndex = 0;
 
             //Added 1/31/2021 td
-            mod_cubeWholeBothSides.Repaint(panelFront, panelBack, panelSideRight);
+            //----mod_cubeWholeBothSides.Repaint(panelFront, panelBack, panelSideRight);
+
+            //Added 3/31/2021 td
+            mod_cubeWholeBothSides.Repaint(panelFront, panelBack, panelSideRight, panelSideLeft);
 
         }
 
@@ -448,6 +453,7 @@ namespace RubiksCube_2x2
                 panelFront.Refresh();
                 panelBack.Refresh();
                 panelSideRight.Refresh();     // Added 1/31/2021 thomas downes  
+                panelSideLeft.Refresh();  // Added 3/31/2021 Thomas Downes
 
             }
             else
@@ -666,7 +672,8 @@ namespace RubiksCube_2x2
             // Modified 2/2/2021 thomas downes
             mod_cubeWholeBothSides.RefreshSideViews();
             panelBack.Refresh();
-            panelSideRight.Refresh(); 
+            panelSideRight.Refresh();
+            panelSideLeft.Refresh();   // Added 3/31/2021 Thomas Downes 
 
             //Added 1/04/2021 thomas downes
             mod_backCountOfRevolveClockwise += 1;
@@ -710,7 +717,8 @@ namespace RubiksCube_2x2
             //---this.Refresh();
             panelFront.Refresh();
             panelBack.Refresh();
-            panelSideRight.Refresh();  
+            panelSideRight.Refresh();
+            panelSideLeft.Refresh();  // Added 3/31/2021 Thomas D. 
 
             //Added 11/20/2020 thomas downes
             mod_frontCountOfRotateBtmRight += 1;
@@ -1021,7 +1029,12 @@ namespace RubiksCube_2x2
                     _rubiksPiece_Replaced = null;
                     labelHowToMoveAPiece.Visible = false;
                     this.Cursor = Cursors.Default;
-                    this.Refresh();
+                    //----this.Refresh();
+                    panelFront.Refresh();  // Added 3/31/2021 td
+                    panelBack.Refresh();  // Added 3/31/2021 td
+                    panelSideLeft.Refresh();     // Added 3/31/2021 td
+                    panelSideRight.Refresh();    // Added 3/31/2021 td
+
                     // Added 12/4/2020 td
                     labelUVW_VWX_WXY_XYZ.Text = mod_cubeBackside.BOY_etc_Clockwise();
                     //Added 12/6/2020 td
@@ -1278,7 +1291,8 @@ namespace RubiksCube_2x2
             //----this.Refresh();
             panelFront.Refresh();
             panelBack.Refresh();
-            panelSideRight.Refresh();  
+            panelSideRight.Refresh();
+            panelSideLeft.Refresh();  // Added 3/31/2021 Thomas Downes
 
             //
             // Testing, after. 
@@ -1382,7 +1396,12 @@ namespace RubiksCube_2x2
             mod_cubeWholeBothSides.BackSide = mod_cubeBackside;
             mod_cubeWholeBothSides.FrontSide = mod_cubeFrontside;
 
-            this.Refresh();
+            //----this.Refresh();
+            panelFront.Refresh();
+            panelBack.Refresh();
+            mod_cubeWholeBothSides.RefreshSideViews();  
+            panelSideLeft.Refresh();
+            panelSideRight.Refresh(); 
 
         }
 
@@ -1401,6 +1420,7 @@ namespace RubiksCube_2x2
             mod_cubeWholeBothSides.RefreshSideViews();
             panelBack.Refresh();
             panelSideRight.Refresh();
+            panelSideLeft.Refresh();  // Added 3/31/2021 Thomas Downes
 
             //Added 1/04/2021 thomas downes
             mod_backCountOfRevolveCounterClock += 1;
@@ -1515,6 +1535,14 @@ namespace RubiksCube_2x2
 
         }
 
+        private void panelSideLeft_Paint(object sender, PaintEventArgs e)
+        {
+            //
+            // Added 3/31/2021 thomas downes
+            //
+            var panel_sender = (Panel)sender;
+            mod_cubeWholeBothSides.SideViewLeft.Repaint(panel_sender, true, EnumPrimaryView.Left);
 
+        }
     }
 }

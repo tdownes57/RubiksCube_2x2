@@ -15,8 +15,8 @@ namespace RubiksCube_2x2
         //
         //---Front.ClassFrontside mod_mainside_front;
         //---Back.ClassBackside mod_mainside_back;
-        RubiksCubeOneSide mod_mainside_front;
-        RubiksCubeOneSide mod_mainside_back;
+        RubiksCubeOneSide mod_mainside_front;  // This might be instantiated as an object of a child class Front.ClassFrontside.
+        RubiksCubeOneSide mod_mainside_back;   // This might be instantiated as an object of a child class.  Back.ClassBackside 
 
 
         private struct OrientationWork
@@ -243,6 +243,23 @@ namespace RubiksCube_2x2
             }
         }
 
+
+        public SideViews.ClassSideViewSide SideViewLeft
+        {
+            //
+            // Added 3/31/2021 thomas downes
+            //
+            get
+            {
+                return mod_sideview_left;
+            }
+            set
+            {
+                mod_sideview_left = value;
+            }
+        }
+
+
         public Front.ClassFrontside FrontSide
         {
             //
@@ -250,7 +267,12 @@ namespace RubiksCube_2x2
             //
             get
             {
-                return mod_mainside_front;
+                //---return mod_mainside_front;
+                //----return (mod_mainside_front as RubiksCubeOneSide );
+                //---if (mod_mainside_front is RubiksCubeOneSide) return (Front.ClassFrontside)mod_mainside_front;
+
+                return (mod_mainside_front as Front.ClassFrontside);
+
             }
             set
             {
@@ -473,5 +495,24 @@ namespace RubiksCube_2x2
         }
 
 
+        public void Repaint(Panel par_panelViewableFront, Panel par_panelViewableBackside,
+                    Panel par_panelViewableRight, Panel par_panelViewableLeft)
+        {
+            //
+            // Added 3/31/2021 Thomas Downes  
+            //
+            this.Repaint(par_panelViewableFront, par_panelViewableBackside, EnumPrimaryView.Front);
+
+            //
+            // Side Views. 
+            //
+            RefreshSideViews();
+             
+            mod_sideview_right.Repaint(par_panelViewableRight, true, EnumPrimaryView.Right);
+            mod_sideview_left.Repaint(par_panelViewableLeft, true, EnumPrimaryView.Left);
+
+        }
+
+
     }
-    }
+}

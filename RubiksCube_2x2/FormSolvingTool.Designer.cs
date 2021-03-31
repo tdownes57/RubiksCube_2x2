@@ -69,10 +69,13 @@
             this.panelBack = new System.Windows.Forms.Panel();
             this.labelCaptionBack = new System.Windows.Forms.Label();
             this.panelSideRight = new System.Windows.Forms.Panel();
+            this.labelCaptionRightSide = new System.Windows.Forms.Label();
+            this.panelSideLeft = new System.Windows.Forms.Panel();
             this.labelCaptionLeftSide = new System.Windows.Forms.Label();
             this.panelFront.SuspendLayout();
             this.panelBack.SuspendLayout();
             this.panelSideRight.SuspendLayout();
+            this.panelSideLeft.SuspendLayout();
             this.SuspendLayout();
             // 
             // progressBar1
@@ -217,7 +220,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(1232, 304);
+            this.label4.Location = new System.Drawing.Point(1407, 392);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(170, 153);
             this.label4.TabIndex = 16;
@@ -443,7 +446,7 @@
             // 
             this.panelFront.BackColor = System.Drawing.Color.Gray;
             this.panelFront.Controls.Add(this.labelCaptionFront);
-            this.panelFront.Location = new System.Drawing.Point(195, 85);
+            this.panelFront.Location = new System.Drawing.Point(257, 79);
             this.panelFront.Name = "panelFront";
             this.panelFront.Size = new System.Drawing.Size(326, 293);
             this.panelFront.TabIndex = 35;
@@ -467,7 +470,7 @@
             // 
             this.panelBack.BackColor = System.Drawing.Color.Silver;
             this.panelBack.Controls.Add(this.labelCaptionBack);
-            this.panelBack.Location = new System.Drawing.Point(868, 85);
+            this.panelBack.Location = new System.Drawing.Point(930, 79);
             this.panelBack.Name = "panelBack";
             this.panelBack.Size = new System.Drawing.Size(318, 293);
             this.panelBack.TabIndex = 36;
@@ -488,27 +491,47 @@
             // panelSideRight
             // 
             this.panelSideRight.BackColor = System.Drawing.Color.Silver;
-            this.panelSideRight.Controls.Add(this.labelCaptionLeftSide);
-            this.panelSideRight.Location = new System.Drawing.Point(544, 85);
+            this.panelSideRight.Controls.Add(this.labelCaptionRightSide);
+            this.panelSideRight.Location = new System.Drawing.Point(606, 79);
             this.panelSideRight.Name = "panelSideRight";
             this.panelSideRight.Size = new System.Drawing.Size(318, 293);
             this.panelSideRight.TabIndex = 37;
             this.panelSideRight.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSideRight_Paint);
+            // 
+            // labelCaptionRightSide
+            // 
+            this.labelCaptionRightSide.AutoSize = true;
+            this.labelCaptionRightSide.Location = new System.Drawing.Point(3, 8);
+            this.labelCaptionRightSide.Name = "labelCaptionRightSide";
+            this.labelCaptionRightSide.Size = new System.Drawing.Size(107, 17);
+            this.labelCaptionRightSide.TabIndex = 1;
+            this.labelCaptionRightSide.Text = "Right-Side View";
+            // 
+            // panelSideLeft
+            // 
+            this.panelSideLeft.BackColor = System.Drawing.Color.Silver;
+            this.panelSideLeft.Controls.Add(this.labelCaptionLeftSide);
+            this.panelSideLeft.Location = new System.Drawing.Point(1254, 79);
+            this.panelSideLeft.Name = "panelSideLeft";
+            this.panelSideLeft.Size = new System.Drawing.Size(318, 293);
+            this.panelSideLeft.TabIndex = 38;
+            this.panelSideLeft.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSideLeft_Paint);
             // 
             // labelCaptionLeftSide
             // 
             this.labelCaptionLeftSide.AutoSize = true;
             this.labelCaptionLeftSide.Location = new System.Drawing.Point(3, 8);
             this.labelCaptionLeftSide.Name = "labelCaptionLeftSide";
-            this.labelCaptionLeftSide.Size = new System.Drawing.Size(107, 17);
+            this.labelCaptionLeftSide.Size = new System.Drawing.Size(98, 17);
             this.labelCaptionLeftSide.TabIndex = 1;
-            this.labelCaptionLeftSide.Text = "Right-Side View";
+            this.labelCaptionLeftSide.Text = "Left-Side View";
             // 
             // FormSolvingTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1414, 691);
+            this.ClientSize = new System.Drawing.Size(1658, 691);
+            this.Controls.Add(this.panelSideLeft);
             this.Controls.Add(this.panelSideRight);
             this.Controls.Add(this.linkShowSideSideView);
             this.Controls.Add(this.linkEditManeuvers);
@@ -559,6 +582,8 @@
             this.panelBack.PerformLayout();
             this.panelSideRight.ResumeLayout(false);
             this.panelSideRight.PerformLayout();
+            this.panelSideLeft.ResumeLayout(false);
+            this.panelSideLeft.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -606,6 +631,8 @@
         private System.Windows.Forms.Label labelCaptionFront;
         private System.Windows.Forms.Label labelCaptionBack;
         private System.Windows.Forms.Panel panelSideRight;
+        private System.Windows.Forms.Label labelCaptionRightSide;
+        private System.Windows.Forms.Panel panelSideLeft;
         private System.Windows.Forms.Label labelCaptionLeftSide;
     }
 }

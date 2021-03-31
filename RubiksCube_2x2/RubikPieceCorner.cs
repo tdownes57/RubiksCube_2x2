@@ -289,7 +289,7 @@ namespace RubiksCube_2x2
 
             //Added 1/11/2021 Thomas Downes
             //bool bTextMarkerIsStillInFront = (this.TemporaryTextMarker_WhichFace == WhichFaceIsFront);
-            bool bTextMarkerIsStillInFront = (this.TemporaryTextMarker_Color == color_OfFrontFace);
+            bool bTextMarkerIsStillInFront = (this.TemporaryTextMarker_Color == Color_OfFrontFace());
             bool bHasTemporaryTextMarker = (this.TemporaryTextMarker != "") && (bTextMarkerIsStillInFront);
 
             if (bHasTemporaryTextMarker && p_boolDoPaintTheFront)
@@ -1550,6 +1550,23 @@ namespace RubiksCube_2x2
         }
 
 
+        public Color Color_OfFrontFace()
+        {
+            //
+            // Added 2/14/2021 Thomas C. Downes 
+            //
+            Color colorFace1 = this.FaceColor1of3;
+            Color colorFace2 = this.FaceColor2of3;
+            Color colorFace3 = this.FaceColor3of3;
+
+            if (EnumFaceNum.Face1 == this.WhichFaceIsFront) return colorFace1;
+            if (EnumFaceNum.Face2 == this.WhichFaceIsFront) return colorFace2;
+            if (EnumFaceNum.Face3 == this.WhichFaceIsFront) return colorFace3;
+
+            // Added 2/14/2021 thomas downes
+            throw new NotImplementedException(); 
+
+        }
 
 
 
