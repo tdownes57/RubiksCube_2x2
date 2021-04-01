@@ -18,6 +18,13 @@ namespace RubiksCube_2x2
         RubiksCubeOneSide mod_mainside_front;  // This might be instantiated as an object of a child class Front.ClassFrontside.
         RubiksCubeOneSide mod_mainside_back;   // This might be instantiated as an object of a child class.  Back.ClassBackside 
 
+        //Added 4/1/2021 thomas downes
+        //   Save a back-up copy of the original Front & Back,
+        //   in case they are needed after a Pivot Perspective
+        //   has taken place. 
+        //   ----4/1/2021 thomas downes
+        Front.ClassFrontside mod_mainside_front_original;
+        Back.ClassBackside mod_mainside_back_original;
 
         private struct OrientationWork
         {
@@ -45,6 +52,13 @@ namespace RubiksCube_2x2
             mod_mainside_back = par_backside;
             mod_mainside_front = par_frontside;
 
+            // Added 4/1/2021 thomas downes
+            //   Save a backup copy of the reference, in case a
+            //   Pivot-Perspective operation takes place.
+            //
+            mod_mainside_back_original = par_backside;
+            mod_mainside_front_original = par_frontside;
+
         }
 
 
@@ -55,6 +69,13 @@ namespace RubiksCube_2x2
             //
             mod_mainside_front = new Front.ClassFrontside();
             mod_mainside_back = new Back.ClassBackside();
+
+            // Added 4/1/2021 thomas downes
+            //   Save a backup copy of the reference, in case a
+            //   Pivot-Perspective operation takes place.
+            //
+            mod_mainside_back_original = (mod_mainside_back as Back.ClassBackside);
+            mod_mainside_front_original = (mod_mainside_front as Front.ClassFrontside);
 
         }
 
@@ -77,6 +98,13 @@ namespace RubiksCube_2x2
                 mod_mainside_front = new SideViews.ClassSideViewSide(this, EnumLeftOrRight.Unassigned);
                 mod_mainside_back = new SideViews.ClassSideViewSide(this, EnumLeftOrRight.Unassigned);
             }
+
+            // Added 4/1/2021 thomas downes
+            //   Save a backup copy of the reference, in case a
+            //   Pivot-Perspective operation takes place.
+            //
+            mod_mainside_back_original = (mod_mainside_back as Back.ClassBackside);
+            mod_mainside_front_original = (mod_mainside_front as Front.ClassFrontside);
 
         }
 
@@ -219,11 +247,43 @@ namespace RubiksCube_2x2
             get
             {
                 //----return mod_mainside_back;
-                return (mod_mainside_back as Back.ClassBackside);
+                //---return (mod_mainside_back as Back.ClassBackside);
+
+                var temp_back = (mod_mainside_back as Back.ClassBackside);
+
+                //Added 4/1/2021 thomas downes
+                //if (temp_back == null) System.Diagnostics.Debugger.Break();
+                //if (temp_back == null) throw new NotImplementedException("Maybe I should rethink the Pivot Perspective routine.");
+
+                return temp_back;
+
             }
             set
             {
                 mod_mainside_back = value; 
+            }
+        }
+
+
+        public RubiksCubeOneSide BackSide_GenericCubeSide
+        {
+            //
+            // Added 4/01/2021 thomas downes
+            //
+            // If (mod_mainside_back as Back.ClassBackSide) is Nothing (null), then
+            //    it's a good bet that the Pivot Perspective Button has been pressed,
+            //    so the current "BackSide" is not the original BackSide.  The 
+            //    BackSide_GenericCubeSide may be a former side view. 
+            //    ----4/1/2021 Thomas Downes
+            // 
+            get
+            {
+                return mod_mainside_back;
+
+            }
+            set
+            {
+                mod_mainside_back = value;
             }
         }
 
@@ -272,6 +332,29 @@ namespace RubiksCube_2x2
                 //---if (mod_mainside_front is RubiksCubeOneSide) return (Front.ClassFrontside)mod_mainside_front;
 
                 return (mod_mainside_front as Front.ClassFrontside);
+
+            }
+            set
+            {
+                mod_mainside_front = value;
+            }
+        }
+
+
+        public RubiksCubeOneSide FrontSide_GenericCubeSide
+        {
+            //
+            // Added 4/01/2021 thomas downes
+            //
+            // If (mod_mainside_front as Front.ClassFrontSide) is Nothing (null), then
+            //    it's a good bet that the Pivot Perspective Button has been pressed,
+            //    so the current "FrontSide" is not the original FrontSide.  The 
+            //    FrontSide_GenericCubeSide may be a former side view. 
+            //    ----4/1/2021 Thomas Downes
+            // 
+            get
+            {
+                return mod_mainside_front;
 
             }
             set
@@ -388,6 +471,58 @@ namespace RubiksCube_2x2
             mod_sideview_right = new SideViews.ClassSideViewSide(this, EnumLeftOrRight.Right);
 
         }
+
+
+        public void PivotPerspective_Left()
+        {
+            //
+            // Added 4/1/2021 Thomas Downes  
+            //
+            var temp_side = mod_sideview_left;
+            
+            if (mod_mainside_front == null) System.Diagnostics.Debugger.Break();
+            if (mod_mainside_back == null) System.Diagnostics.Debugger.Break();
+
+            // Added 4/1/2021 thomas downes
+            if (mod_sideview_left == null) System.Diagnostics.Debugger.Break();
+            if (mod_sideview_right == null) System.Diagnostics.Debugger.Break();
+
+            //mod_sideview_left = mod_mainside_front;
+            mod_sideview_left = new SideViews.ClassSideViewSide(mod_mainside_front, EnumLeftOrRight.Left);
+            mod_mainside_front = mod_sideview_right;
+            //mod_sideview_right = mod_mainside_back;
+            mod_sideview_right = new SideViews.ClassSideViewSide(mod_mainside_back, EnumLeftOrRight.Right);
+
+            //mod_mainside_back = temp_side; 
+            //mod_mainside_back = new Back.ClassBackside(temp_side);
+            mod_mainside_back = temp_side;
+
+        }
+
+
+        public void PivotPerspective_Right()
+        {
+            //
+            // Added 4/1/2021 Thomas Downes  
+            //
+            var temp_side = mod_sideview_right;
+
+            if (mod_mainside_front == null) System.Diagnostics.Debugger.Break();
+            if (mod_mainside_back == null) System.Diagnostics.Debugger.Break();
+
+            // Added 4/1/2021 thomas downes
+            if (mod_sideview_left == null) System.Diagnostics.Debugger.Break();
+            if (mod_sideview_right == null) System.Diagnostics.Debugger.Break();
+
+            //mod_sideview_right = mod_mainside_front;
+            mod_sideview_right = new SideViews.ClassSideViewSide(mod_mainside_front, EnumLeftOrRight.Right);
+            mod_mainside_front = mod_sideview_left;
+            //mod_sideview_left = mod_mainside_back;
+            mod_sideview_left = new SideViews.ClassSideViewSide(mod_mainside_back, EnumLeftOrRight.Left);
+            mod_mainside_back = temp_side;
+
+        }
+
 
 
         public void Repaint(Panel par_panelViewableFront, Panel par_panelViewableBackside, EnumPrimaryView par_enum)
@@ -515,4 +650,5 @@ namespace RubiksCube_2x2
 
 
     }
+
 }

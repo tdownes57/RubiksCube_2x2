@@ -1509,7 +1509,19 @@ namespace RubiksCube_2x2
             //
             var panel_sender = (Panel)sender; 
             //----mod_cubeWholeBothSides.FrontSide.Repaint(panel_sender);
-            mod_cubeWholeBothSides.FrontSide.Repaint(panel_sender, false);
+            //mod_cubeWholeBothSides.FrontSide.Repaint(panel_sender, false);
+
+            if (mod_cubeWholeBothSides.FrontSide == null)
+            {
+                //
+                // It's a good bet that the Pivot Perspective Button has been pressed,
+                //    so the current "FrontSide" is not the original FrontSide.  The 
+                //    FrontSide_GenericCubeSide may be a former side view. 
+                //    ----4/1/2021 Thomas Downes
+                //
+                mod_cubeWholeBothSides.FrontSide_GenericCubeSide.Repaint(panel_sender, false);
+            }
+            else mod_cubeWholeBothSides.FrontSide.Repaint(panel_sender, false);
 
         }
 
@@ -1520,7 +1532,20 @@ namespace RubiksCube_2x2
             //
             var panel_sender = (Panel)sender;
             //----mod_cubeWholeBothSides.BackSide.Repaint(panel_sender);
-            mod_cubeWholeBothSides.BackSide.Repaint(panel_sender, false);
+            //mod_cubeWholeBothSides.BackSide.Repaint(panel_sender, false);
+
+            if (mod_cubeWholeBothSides.BackSide == null)
+            {
+                //
+                // It's a good bet that the Pivot Perspective Button has been pressed,
+                //    so the current "BackSide" is not the original BackSide.  The 
+                //    BackSide_GenericCubeSide may be a former side view. 
+                //    ----4/1/2021 Thomas Downes
+                //
+                mod_cubeWholeBothSides.BackSide_GenericCubeSide.Repaint(panel_sender, false);
+            }
+            else mod_cubeWholeBothSides.BackSide.Repaint(panel_sender, false);
+
 
         }
 
@@ -1542,6 +1567,61 @@ namespace RubiksCube_2x2
             //
             var panel_sender = (Panel)sender;
             mod_cubeWholeBothSides.SideViewLeft.Repaint(panel_sender, true, EnumPrimaryView.Left);
+
+        }
+
+        private void labelMajorRotateCubeLeft_Click(object sender, EventArgs e)
+        {
+            //
+            // Added 3/31/2021 Thomas Downes  
+            //
+            //  The Left Side will become the front, and so forth. 
+            //
+            mod_cubeWholeBothSides.PivotPerspective_Left();
+
+            // Added 4/1/2021 thomas downes  
+            panelBack.Refresh();
+            panelFront.Refresh();
+            panelSideLeft.Refresh();
+            panelSideRight.Refresh();
+
+        }
+
+        private void labelMajorRotateRight_Click(object sender, EventArgs e)
+        {
+            //
+            // Added 3/31/2021 Thomas Downes  
+            //
+            //  The Right Side will become the front, and so forth. 
+            //
+            mod_cubeWholeBothSides.PivotPerspective_Right();
+
+            // Added 4/1/2021 thomas downes  
+            panelBack.Refresh();
+            panelFront.Refresh();
+            panelSideLeft.Refresh();
+            panelSideRight.Refresh();
+
+        }
+
+        private void checkUseAllAbstractObjects_Click(object sender, EventArgs e)
+        {
+            //
+            // Added 3/31/2021 thomas downes
+            //
+
+
+
+        }
+
+        private void checkUseAllAbstractObjects_CheckedChanged(object sender, EventArgs e)
+        {
+            //
+            // Added 3/31/2021 Thomas Downes
+            //
+            MongoDB_Save.SaveRubiksSides(in mod_cubeFrontside, in mod_cubeBackside);
+
+
 
         }
     }

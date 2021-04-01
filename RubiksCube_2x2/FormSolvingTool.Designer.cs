@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSolvingTool));
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.labelRotateSimpleClock = new System.Windows.Forms.Label();
@@ -72,6 +73,10 @@
             this.labelCaptionRightSide = new System.Windows.Forms.Label();
             this.panelSideLeft = new System.Windows.Forms.Panel();
             this.labelCaptionLeftSide = new System.Windows.Forms.Label();
+            this.labelMajorRotateCubeLeft = new System.Windows.Forms.Label();
+            this.labelMajorRotateCubeRight = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.checkUseAllAbstractObjects = new System.Windows.Forms.CheckBox();
             this.panelFront.SuspendLayout();
             this.panelBack.SuspendLayout();
             this.panelSideRight.SuspendLayout();
@@ -215,6 +220,7 @@
             this.label3.TabIndex = 14;
             this.label3.Text = resources.GetString("label3.Text");
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label3.Visible = false;
             // 
             // label4
             // 
@@ -434,19 +440,20 @@
             // 
             this.linkShowSideSideView.AutoSize = true;
             this.linkShowSideSideView.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkShowSideSideView.Location = new System.Drawing.Point(589, 7);
+            this.linkShowSideSideView.Location = new System.Drawing.Point(12, 189);
             this.linkShowSideSideView.Name = "linkShowSideSideView";
-            this.linkShowSideSideView.Size = new System.Drawing.Size(258, 24);
+            this.linkShowSideSideView.Size = new System.Drawing.Size(355, 24);
             this.linkShowSideSideView.TabIndex = 34;
             this.linkShowSideSideView.TabStop = true;
-            this.linkShowSideSideView.Text = "Give Side-Side View of Cube.";
+            this.linkShowSideSideView.Text = "_obselete_ Give Side-Side View of Cube.";
+            this.linkShowSideSideView.Visible = false;
             this.linkShowSideSideView.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkShowSideSideView_Click);
             // 
             // panelFront
             // 
             this.panelFront.BackColor = System.Drawing.Color.Gray;
             this.panelFront.Controls.Add(this.labelCaptionFront);
-            this.panelFront.Location = new System.Drawing.Point(257, 79);
+            this.panelFront.Location = new System.Drawing.Point(195, 79);
             this.panelFront.Name = "panelFront";
             this.panelFront.Size = new System.Drawing.Size(326, 293);
             this.panelFront.TabIndex = 35;
@@ -470,7 +477,7 @@
             // 
             this.panelBack.BackColor = System.Drawing.Color.Silver;
             this.panelBack.Controls.Add(this.labelCaptionBack);
-            this.panelBack.Location = new System.Drawing.Point(930, 79);
+            this.panelBack.Location = new System.Drawing.Point(868, 79);
             this.panelBack.Name = "panelBack";
             this.panelBack.Size = new System.Drawing.Size(318, 293);
             this.panelBack.TabIndex = 36;
@@ -492,7 +499,7 @@
             // 
             this.panelSideRight.BackColor = System.Drawing.Color.Silver;
             this.panelSideRight.Controls.Add(this.labelCaptionRightSide);
-            this.panelSideRight.Location = new System.Drawing.Point(606, 79);
+            this.panelSideRight.Location = new System.Drawing.Point(544, 79);
             this.panelSideRight.Name = "panelSideRight";
             this.panelSideRight.Size = new System.Drawing.Size(318, 293);
             this.panelSideRight.TabIndex = 37;
@@ -511,7 +518,7 @@
             // 
             this.panelSideLeft.BackColor = System.Drawing.Color.Silver;
             this.panelSideLeft.Controls.Add(this.labelCaptionLeftSide);
-            this.panelSideLeft.Location = new System.Drawing.Point(1254, 79);
+            this.panelSideLeft.Location = new System.Drawing.Point(1192, 79);
             this.panelSideLeft.Name = "panelSideLeft";
             this.panelSideLeft.Size = new System.Drawing.Size(318, 293);
             this.panelSideLeft.TabIndex = 38;
@@ -522,15 +529,56 @@
             this.labelCaptionLeftSide.AutoSize = true;
             this.labelCaptionLeftSide.Location = new System.Drawing.Point(3, 8);
             this.labelCaptionLeftSide.Name = "labelCaptionLeftSide";
-            this.labelCaptionLeftSide.Size = new System.Drawing.Size(98, 17);
+            this.labelCaptionLeftSide.Size = new System.Drawing.Size(152, 17);
             this.labelCaptionLeftSide.TabIndex = 1;
-            this.labelCaptionLeftSide.Text = "Left-Side View";
+            this.labelCaptionLeftSide.Text = "Left-of-Front Side View";
+            // 
+            // labelMajorRotateCubeLeft
+            // 
+            this.labelMajorRotateCubeLeft.AutoSize = true;
+            this.labelMajorRotateCubeLeft.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.labelMajorRotateCubeLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMajorRotateCubeLeft.Location = new System.Drawing.Point(83, 76);
+            this.labelMajorRotateCubeLeft.Name = "labelMajorRotateCubeLeft";
+            this.labelMajorRotateCubeLeft.Size = new System.Drawing.Size(106, 113);
+            this.labelMajorRotateCubeLeft.TabIndex = 39;
+            this.labelMajorRotateCubeLeft.Text = "<";
+            this.toolTip1.SetToolTip(this.labelMajorRotateCubeLeft, "Pivot Perspective so left-hand side view becomes Front View.");
+            this.labelMajorRotateCubeLeft.Click += new System.EventHandler(this.labelMajorRotateCubeLeft_Click);
+            // 
+            // labelMajorRotateCubeRight
+            // 
+            this.labelMajorRotateCubeRight.AutoSize = true;
+            this.labelMajorRotateCubeRight.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.labelMajorRotateCubeRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMajorRotateCubeRight.Location = new System.Drawing.Point(1516, 79);
+            this.labelMajorRotateCubeRight.Name = "labelMajorRotateCubeRight";
+            this.labelMajorRotateCubeRight.Size = new System.Drawing.Size(106, 113);
+            this.labelMajorRotateCubeRight.TabIndex = 40;
+            this.labelMajorRotateCubeRight.Text = ">";
+            this.toolTip1.SetToolTip(this.labelMajorRotateCubeRight, "Pivot Perspective so right-hand side view becomes Front View.");
+            this.labelMajorRotateCubeRight.Click += new System.EventHandler(this.labelMajorRotateRight_Click);
+            // 
+            // checkUseAllAbstractObjects
+            // 
+            this.checkUseAllAbstractObjects.AutoSize = true;
+            this.checkUseAllAbstractObjects.Location = new System.Drawing.Point(673, 5);
+            this.checkUseAllAbstractObjects.Name = "checkUseAllAbstractObjects";
+            this.checkUseAllAbstractObjects.Size = new System.Drawing.Size(322, 21);
+            this.checkUseAllAbstractObjects.TabIndex = 41;
+            this.checkUseAllAbstractObjects.Text = "Use an abstract object for Front && Back Views.";
+            this.checkUseAllAbstractObjects.UseVisualStyleBackColor = true;
+            this.checkUseAllAbstractObjects.CheckedChanged += new System.EventHandler(this.checkUseAllAbstractObjects_CheckedChanged);
+            this.checkUseAllAbstractObjects.Click += new System.EventHandler(this.checkUseAllAbstractObjects_Click);
             // 
             // FormSolvingTool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1658, 691);
+            this.ClientSize = new System.Drawing.Size(1701, 691);
+            this.Controls.Add(this.checkUseAllAbstractObjects);
+            this.Controls.Add(this.labelMajorRotateCubeRight);
+            this.Controls.Add(this.labelMajorRotateCubeLeft);
             this.Controls.Add(this.panelSideLeft);
             this.Controls.Add(this.panelSideRight);
             this.Controls.Add(this.linkShowSideSideView);
@@ -634,6 +682,10 @@
         private System.Windows.Forms.Label labelCaptionRightSide;
         private System.Windows.Forms.Panel panelSideLeft;
         private System.Windows.Forms.Label labelCaptionLeftSide;
+        private System.Windows.Forms.Label labelMajorRotateCubeLeft;
+        private System.Windows.Forms.Label labelMajorRotateCubeRight;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.CheckBox checkUseAllAbstractObjects;
     }
 }
 

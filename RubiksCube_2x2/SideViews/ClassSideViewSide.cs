@@ -49,6 +49,22 @@ namespace RubiksCube_2x2.SideViews
         }
 
 
+        public ClassSideViewSide(RubiksCubeOneSide par_cubeSideToCopy, EnumLeftOrRight par_enum)
+        {
+            //
+            // Added 4/01/2021 thomas downes 
+            //
+            //Copy 2 of 4 pieces from the front side. 
+            base.Piece1 = par_cubeSideToCopy.GetPiece(FrontClockFace.one_thirty);
+            base.Piece2 = par_cubeSideToCopy.GetPiece(FrontClockFace.four_thirty);
+
+            //Copy 2 of 4 pieces from the back side. 
+            base.Piece3 = par_cubeSideToCopy.GetPiece(FrontClockFace.ten_thirty);
+            base.Piece4 = par_cubeSideToCopy.GetPiece(FrontClockFace.seven_thirty);
+
+        }
+
+
         public override void ComplexRevolution()
         {
             throw new NotImplementedException();
