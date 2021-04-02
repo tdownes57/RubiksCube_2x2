@@ -24,6 +24,8 @@ namespace RubiksCube_2x2
         public RubikPieceCorner Piece3;
         public RubikPieceCorner Piece4;
 
+        // Added 4/2/2021 thomas downes 
+        public bool OriginalFront;
 
         //Added 11/13/2020 thomas downes
         public abstract bool SideIsASolidColor();

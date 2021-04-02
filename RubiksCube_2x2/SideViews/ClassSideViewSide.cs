@@ -51,7 +51,8 @@ namespace RubiksCube_2x2.SideViews
 
         public ClassSideViewSide(RubiksCubeOneSide par_cubeSideToCopy, 
                    EnumLeftOrRight par_enumSideViewIsLeftOrRight,
-                   bool par_bPivotPerspective_BackOrFrontToSide)
+                   bool par_bPivotPerspective_BackOrFrontToSide,
+                   EnumCubeRotation_NorthPole par_cubeRotation = EnumCubeRotation_NorthPole.Unassigned)
         {
             //
             // Added 4/01/2021 thomas downes 
@@ -85,11 +86,14 @@ namespace RubiksCube_2x2.SideViews
             if (par_bPivotPerspective_BackOrFrontToSide)
             {
                 //Added 4/2/2021 thomas downes
-                this.Piece1.PivotPerspective_BackOrFrontToSide();
-                this.Piece2.PivotPerspective_BackOrFrontToSide();
-                this.Piece3.PivotPerspective_BackOrFrontToSide();
-                this.Piece4.PivotPerspective_BackOrFrontToSide();
+                this.Piece1.PivotPerspective_BackOrFrontToSide(par_cubeRotation);
+                this.Piece2.PivotPerspective_BackOrFrontToSide(par_cubeRotation);
+                this.Piece3.PivotPerspective_BackOrFrontToSide(par_cubeRotation);
+                this.Piece4.PivotPerspective_BackOrFrontToSide(par_cubeRotation);
             }
+
+            // Added 4/2/2021 thomas downes
+            this.OriginalFront = par_cubeSideToCopy.OriginalFront; 
 
         }
 

@@ -77,6 +77,10 @@
             this.labelMajorRotateCubeRight = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.checkUseAllAbstractObjects = new System.Windows.Forms.CheckBox();
+            this.labelOriginalFrontR = new System.Windows.Forms.Label();
+            this.labelOriginalFrontB = new System.Windows.Forms.Label();
+            this.labelOriginalFrontL = new System.Windows.Forms.Label();
+            this.labelOriginalFrontF = new System.Windows.Forms.Label();
             this.panelFront.SuspendLayout();
             this.panelBack.SuspendLayout();
             this.panelSideRight.SuspendLayout();
@@ -452,6 +456,7 @@
             // panelFront
             // 
             this.panelFront.BackColor = System.Drawing.Color.Gray;
+            this.panelFront.Controls.Add(this.labelOriginalFrontF);
             this.panelFront.Controls.Add(this.labelCaptionFront);
             this.panelFront.Location = new System.Drawing.Point(195, 79);
             this.panelFront.Name = "panelFront";
@@ -476,6 +481,7 @@
             // panelBack
             // 
             this.panelBack.BackColor = System.Drawing.Color.Silver;
+            this.panelBack.Controls.Add(this.labelOriginalFrontB);
             this.panelBack.Controls.Add(this.labelCaptionBack);
             this.panelBack.Location = new System.Drawing.Point(868, 79);
             this.panelBack.Name = "panelBack";
@@ -498,6 +504,7 @@
             // panelSideRight
             // 
             this.panelSideRight.BackColor = System.Drawing.Color.Silver;
+            this.panelSideRight.Controls.Add(this.labelOriginalFrontR);
             this.panelSideRight.Controls.Add(this.labelCaptionRightSide);
             this.panelSideRight.Location = new System.Drawing.Point(544, 79);
             this.panelSideRight.Name = "panelSideRight";
@@ -517,6 +524,7 @@
             // panelSideLeft
             // 
             this.panelSideLeft.BackColor = System.Drawing.Color.Silver;
+            this.panelSideLeft.Controls.Add(this.labelOriginalFrontL);
             this.panelSideLeft.Controls.Add(this.labelCaptionLeftSide);
             this.panelSideLeft.Location = new System.Drawing.Point(1192, 79);
             this.panelSideLeft.Name = "panelSideLeft";
@@ -570,6 +578,46 @@
             this.checkUseAllAbstractObjects.UseVisualStyleBackColor = true;
             this.checkUseAllAbstractObjects.CheckedChanged += new System.EventHandler(this.checkUseAllAbstractObjects_CheckedChanged);
             this.checkUseAllAbstractObjects.Click += new System.EventHandler(this.checkUseAllAbstractObjects_Click);
+            // 
+            // labelOriginalFrontR
+            // 
+            this.labelOriginalFrontR.AutoSize = true;
+            this.labelOriginalFrontR.Location = new System.Drawing.Point(3, 276);
+            this.labelOriginalFrontR.Name = "labelOriginalFrontR";
+            this.labelOriginalFrontR.Size = new System.Drawing.Size(94, 17);
+            this.labelOriginalFrontR.TabIndex = 2;
+            this.labelOriginalFrontR.Text = "Original Front";
+            this.labelOriginalFrontR.Visible = false;
+            // 
+            // labelOriginalFrontB
+            // 
+            this.labelOriginalFrontB.AutoSize = true;
+            this.labelOriginalFrontB.Location = new System.Drawing.Point(7, 276);
+            this.labelOriginalFrontB.Name = "labelOriginalFrontB";
+            this.labelOriginalFrontB.Size = new System.Drawing.Size(94, 17);
+            this.labelOriginalFrontB.TabIndex = 3;
+            this.labelOriginalFrontB.Text = "Original Front";
+            this.labelOriginalFrontB.Visible = false;
+            // 
+            // labelOriginalFrontL
+            // 
+            this.labelOriginalFrontL.AutoSize = true;
+            this.labelOriginalFrontL.Location = new System.Drawing.Point(3, 276);
+            this.labelOriginalFrontL.Name = "labelOriginalFrontL";
+            this.labelOriginalFrontL.Size = new System.Drawing.Size(94, 17);
+            this.labelOriginalFrontL.TabIndex = 3;
+            this.labelOriginalFrontL.Text = "Original Front";
+            // 
+            // labelOriginalFrontF
+            // 
+            this.labelOriginalFrontF.AutoSize = true;
+            this.labelOriginalFrontF.BackColor = System.Drawing.Color.Transparent;
+            this.labelOriginalFrontF.ForeColor = System.Drawing.Color.White;
+            this.labelOriginalFrontF.Location = new System.Drawing.Point(3, 276);
+            this.labelOriginalFrontF.Name = "labelOriginalFrontF";
+            this.labelOriginalFrontF.Size = new System.Drawing.Size(94, 17);
+            this.labelOriginalFrontF.TabIndex = 1;
+            this.labelOriginalFrontF.Text = "Original Front";
             // 
             // FormSolvingTool
             // 
@@ -686,6 +734,10 @@
         private System.Windows.Forms.Label labelMajorRotateCubeRight;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.CheckBox checkUseAllAbstractObjects;
+        private System.Windows.Forms.Label labelOriginalFrontF;
+        private System.Windows.Forms.Label labelOriginalFrontB;
+        private System.Windows.Forms.Label labelOriginalFrontR;
+        private System.Windows.Forms.Label labelOriginalFrontL;
     }
 }
 
