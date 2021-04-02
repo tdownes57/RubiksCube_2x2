@@ -69,10 +69,18 @@ namespace RubiksCube_2x2
         //   [.W.]  [ 7:30] [3:30]  [.E.]
         //           [.S.]   [.S.]
         //
-        // (The [. .] faces are _side_ faces.) 
+        // (The [._.] faces are _side_ faces, e.g. [.W.].) 
+        //
+        //  ----DIFFICULT & CONFUSING-----
+        //  FrontClockFacePosition is where the piece appears on the Clock Dial (Face),
+        //    ONLY FROM THE FRONT OR BACK PERSPECTIVE.  NOT FROM THE SIDEVIEW. 
+        //    ----4/2/2021 Thomas C. Downes
         //
         public FrontClockFace FrontClockFacePosition;
         public FrontClockFace FrontClockFacePosition_Prior;
+
+        // Added 4/2/2021 thomas downes
+        public EnumFrontOrBack FrontOrBackOfCube;
 
         //public FacePositionNSWE FaceColor1Position_NotInUse;
         //public FacePositionNSWE FaceColor2Position_NotInUse;
@@ -1569,7 +1577,67 @@ namespace RubiksCube_2x2
         }
 
 
+        public void PivotPerspective_BackOrFrontToSide(EnumCubeRotation_NorthPole par_enumRotation)
+        {
+            //
+            // Added 4/2/2021 Thomas Downes  
+            //
+            //  ----DIFFICULT & CONFUSING-----
+            //  FrontClockFacePosition is where the piece appears on the Clock Dial (Face),
+            //    ONLY FROM THE FRONT OR BACK PERSPECTIVE.  NOT FROM THE SIDEVIEW. 
+            //    ----4/2/2021 Thomas C. Downes
+            //
+            var temp_WhichFaceIsFront = this.WhichFaceIsFront;
 
+            //Added 4/2/2021 td
+            EnumLeftOrRight temp_FrontClock_LeftOrRight = EnumLeftOrRight.Unassigned;
+
+            if (this.FrontClockFacePosition == FrontClockFace.one_thirty) temp_FrontClock_LeftOrRight = EnumLeftOrRight.Right;
+            if (this.FrontClockFacePosition == FrontClockFace.four_thirty) temp_FrontClock_LeftOrRight = EnumLeftOrRight.Right;
+            if (this.FrontClockFacePosition == FrontClockFace.seven_thirty) temp_FrontClock_LeftOrRight = EnumLeftOrRight.Left;
+            if (this.FrontClockFacePosition == FrontClockFace.ten_thirty) temp_FrontClock_LeftOrRight = EnumLeftOrRight.Left;
+
+            bool boolSide_Left = (temp_FrontClock_LeftOrRight == EnumLeftOrRight.Left);
+            bool boolSide_Right = (temp_FrontClock_LeftOrRight == EnumLeftOrRight.Right);
+
+            //
+            // Part 1 of 2. Account for right-hand positions (4:30 & 1:30). 
+            //
+            if (boolSide_Right)
+            {
+                if (this.FrontClockFacePosition == FrontClockFace.one_thirty) this.FrontClockFacePosition = FrontClockFace.ten_thirty;
+                if (this.FrontClockFacePosition == FrontClockFace.four_thirty) this.FrontClockFacePosition = FrontClockFace.seven_thirty;
+
+                //Almost forgot the following....
+                this.WhichFaceIsFront = this.WhichFaceIsE_of_front;
+                this.WhichFaceIsW_of_front = temp_WhichFaceIsFront;
+                this.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+
+            }
+
+            //
+            // Part 2 of 2. Account for left-hand positions (10:30 & 7:30).  
+            //
+            if (boolSide_Left) 
+            {
+                if (this.FrontClockFacePosition == FrontClockFace.seven_thirty) this.FrontClockFacePosition = FrontClockFace.four_thirty;
+                if (this.FrontClockFacePosition == FrontClockFace.ten_thirty) this.FrontClockFacePosition = FrontClockFace.one_thirty;
+
+                //Almost forgot the following....
+                this.WhichFaceIsFront = this.WhichFaceIsW_of_front;
+                this.WhichFaceIsE_of_front = temp_WhichFaceIsFront;
+                this.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
+            }
+
+            //
+            // Last step, toggle the property EnumFrontOrBackOfCube.
+            //
+            bool bClockwise = (par_enumRotation == EnumCubeRotation_NorthPole.Clockwise);
+            bool bCounterclock = (par_enumRotation == EnumCubeRotation_NorthPole.Counterclock);
+            EnumStaticClass.SwitchFrontAndBack_IfNeeded(this, bClockwise, bCounterclock);
+
+
+        }
 
 
     }

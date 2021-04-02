@@ -33,6 +33,10 @@ namespace RubiksCube_2x2
     //Added 1/23/2021 thomas downes
     public enum EnumLeftOrRight { Unassigned, Left, Right };
 
+    //Added 4/02/2021 thomas downes
+    public enum EnumFrontOrBack { Unassigned, Front, Back };
+    public enum EnumCubeRotation_NorthPole { Unassigned, Clockwise, Counterclock };
+
 
     //Added 1/28/2021 thomas downes
     //
@@ -382,6 +386,45 @@ namespace RubiksCube_2x2
 
         }
 
+        internal static void SwitchFrontAndBack_IfNeeded(RubikPieceCorner par_piece, bool p_bClockwise, bool p_bCounterclock)
+        {
+            //
+            // Added 4/2/2021 thomas downes
+            //
+            //Added 4/2/2021 td
+            EnumLeftOrRight temp_FrontClock_LeftOrRight = EnumLeftOrRight.Unassigned;
+
+            if (par_piece.FrontClockFacePosition == FrontClockFace.one_thirty) temp_FrontClock_LeftOrRight = EnumLeftOrRight.Right;
+            if (par_piece.FrontClockFacePosition == FrontClockFace.four_thirty) temp_FrontClock_LeftOrRight = EnumLeftOrRight.Right;
+            if (par_piece.FrontClockFacePosition == FrontClockFace.seven_thirty) temp_FrontClock_LeftOrRight = EnumLeftOrRight.Left;
+            if (par_piece.FrontClockFacePosition == FrontClockFace.ten_thirty) temp_FrontClock_LeftOrRight = EnumLeftOrRight.Left;
+
+            bool bSide_Left = (temp_FrontClock_LeftOrRight == EnumLeftOrRight.Left);
+            bool bSide_Right = (temp_FrontClock_LeftOrRight == EnumLeftOrRight.Right);
+
+            if (bSide_Right && p_bCounterclock)
+            {
+                SwitchFrontAndBack(par_piece);
+            }
+
+            if (bSide_Left && p_bClockwise)
+            {
+                SwitchFrontAndBack(par_piece);
+            }
+
+
+        }
+
+
+        private static void SwitchFrontAndBack(RubikPieceCorner par_piece)
+        {
+            //
+            // Added 4/2/2021 thomas downes
+            //
+            if (par_piece.FrontOrBackOfCube == EnumFrontOrBack.Back) par_piece.FrontOrBackOfCube = EnumFrontOrBack.Front;
+            if (par_piece.FrontOrBackOfCube == EnumFrontOrBack.Front) par_piece.FrontOrBackOfCube = EnumFrontOrBack.Back;
+
+        }
 
 
 

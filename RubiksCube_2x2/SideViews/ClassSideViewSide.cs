@@ -49,18 +49,47 @@ namespace RubiksCube_2x2.SideViews
         }
 
 
-        public ClassSideViewSide(RubiksCubeOneSide par_cubeSideToCopy, EnumLeftOrRight par_enum)
+        public ClassSideViewSide(RubiksCubeOneSide par_cubeSideToCopy, 
+                   EnumLeftOrRight par_enumSideViewIsLeftOrRight,
+                   bool par_bPivotPerspective_BackOrFrontToSide)
         {
             //
             // Added 4/01/2021 thomas downes 
             //
             //Copy 2 of 4 pieces from the front side. 
-            base.Piece1 = par_cubeSideToCopy.GetPiece(FrontClockFace.one_thirty);
-            base.Piece2 = par_cubeSideToCopy.GetPiece(FrontClockFace.four_thirty);
+            const bool boolUseKeywordBase = false;
+            if (boolUseKeywordBase)
+            {
+                base.Piece1 = par_cubeSideToCopy.GetPiece(FrontClockFace.one_thirty);
+                base.Piece2 = par_cubeSideToCopy.GetPiece(FrontClockFace.four_thirty);
 
-            //Copy 2 of 4 pieces from the back side. 
-            base.Piece3 = par_cubeSideToCopy.GetPiece(FrontClockFace.ten_thirty);
-            base.Piece4 = par_cubeSideToCopy.GetPiece(FrontClockFace.seven_thirty);
+                //Copy 2 of 4 pieces from the back side. 
+                base.Piece3 = par_cubeSideToCopy.GetPiece(FrontClockFace.ten_thirty);
+                base.Piece4 = par_cubeSideToCopy.GetPiece(FrontClockFace.seven_thirty);
+            }
+
+            //Added 4/1/2021 thomas downes
+            //Copy 2 of 4 pieces from the front side.
+            //
+            const bool boolUseKeywordThis = (!boolUseKeywordBase);
+            if (boolUseKeywordThis)
+            {
+                 this.Piece1 = par_cubeSideToCopy.GetPiece(FrontClockFace.one_thirty);
+                this.Piece2 = par_cubeSideToCopy.GetPiece(FrontClockFace.four_thirty);
+                //Copy 2 of 4 pieces from the back side. 
+                this.Piece3 = par_cubeSideToCopy.GetPiece(FrontClockFace.ten_thirty);
+                this.Piece4 = par_cubeSideToCopy.GetPiece(FrontClockFace.seven_thirty);
+            }
+
+            //Added 4/2/2021 thomas downes
+            if (par_bPivotPerspective_BackOrFrontToSide)
+            {
+                //Added 4/2/2021 thomas downes
+                this.Piece1.PivotPerspective_BackOrFrontToSide();
+                this.Piece2.PivotPerspective_BackOrFrontToSide();
+                this.Piece3.PivotPerspective_BackOrFrontToSide();
+                this.Piece4.PivotPerspective_BackOrFrontToSide();
+            }
 
         }
 
@@ -72,7 +101,16 @@ namespace RubiksCube_2x2.SideViews
 
         public override RubikPieceCorner GetPiece(FrontClockFace par_enum)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            //
+            // Added 4/1/2020 thomas d. 
+            //
+            if (par_enum == Piece1.FrontClockFacePosition) return Piece1;
+            if (par_enum == Piece2.FrontClockFacePosition) return Piece2;
+            if (par_enum == Piece3.FrontClockFacePosition) return Piece3;
+            if (par_enum == Piece4.FrontClockFacePosition) return Piece4;
+            throw new ArgumentOutOfRangeException(); //return null; 
+
         }
 
         public override void GodlikeSwitch(RubikPieceCorner par_dragged, RubikPieceCorner par_replaced)

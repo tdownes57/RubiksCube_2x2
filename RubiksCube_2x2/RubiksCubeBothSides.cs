@@ -478,8 +478,13 @@ namespace RubiksCube_2x2
             //
             // Added 4/1/2021 Thomas Downes  
             //
-            var temp_side = mod_sideview_left;
-            
+            //var temp_side_front = mod_sideview_front;
+            var temp_side_front = this.mod_mainside_front; //  mod_sideview_front;
+            //var temp_side_back = mod_sideview_back;
+            var temp_side_back = this.mod_mainside_back; //  mod_sideview_front;
+            var temp_side_left = mod_sideview_left;
+            var temp_side_right = mod_sideview_right;
+
             if (mod_mainside_front == null) System.Diagnostics.Debugger.Break();
             if (mod_mainside_back == null) System.Diagnostics.Debugger.Break();
 
@@ -488,14 +493,17 @@ namespace RubiksCube_2x2
             if (mod_sideview_right == null) System.Diagnostics.Debugger.Break();
 
             //mod_sideview_left = mod_mainside_front;
-            mod_sideview_left = new SideViews.ClassSideViewSide(mod_mainside_front, EnumLeftOrRight.Left);
-            mod_mainside_front = mod_sideview_right;
+            //mod_sideview_left = new SideViews.ClassSideViewSide(mod_mainside_front, EnumLeftOrRight.Left);
+            mod_sideview_left = new SideViews.ClassSideViewSide(temp_side_back, EnumLeftOrRight.Left, true);
+            //mod_mainside_front = mod_sideview_right;
+            mod_mainside_front = temp_side_left;
             //mod_sideview_right = mod_mainside_back;
-            mod_sideview_right = new SideViews.ClassSideViewSide(mod_mainside_back, EnumLeftOrRight.Right);
+            //mod_sideview_right = new SideViews.ClassSideViewSide(mod_mainside_back, EnumLeftOrRight.Right);
+            mod_sideview_right = new SideViews.ClassSideViewSide(temp_side_front, EnumLeftOrRight.Right, true);
 
             //mod_mainside_back = temp_side; 
             //mod_mainside_back = new Back.ClassBackside(temp_side);
-            mod_mainside_back = temp_side;
+            mod_mainside_back = temp_side_right;
 
         }
 
@@ -505,7 +513,11 @@ namespace RubiksCube_2x2
             //
             // Added 4/1/2021 Thomas Downes  
             //
-            var temp_side = mod_sideview_right;
+            //var temp_side = mod_sideview_right;
+            var temp_side_front = mod_sideview_front;
+            var temp_side_back = mod_sideview_back;
+            var temp_side_left = mod_sideview_left;
+            var temp_side_right = mod_sideview_right;
 
             if (mod_mainside_front == null) System.Diagnostics.Debugger.Break();
             if (mod_mainside_back == null) System.Diagnostics.Debugger.Break();
@@ -515,11 +527,15 @@ namespace RubiksCube_2x2
             if (mod_sideview_right == null) System.Diagnostics.Debugger.Break();
 
             //mod_sideview_right = mod_mainside_front;
-            mod_sideview_right = new SideViews.ClassSideViewSide(mod_mainside_front, EnumLeftOrRight.Right);
-            mod_mainside_front = mod_sideview_left;
+            //---mod_sideview_right = new SideViews.ClassSideViewSide(mode_mainside_front, EnumLeftOrRight.Right);
+            mod_sideview_right = new SideViews.ClassSideViewSide(temp_side_back, EnumLeftOrRight.Right, true);
+            //mod_mainside_front = mod_sideview_left;
+            mod_mainside_front = temp_side_right;
             //mod_sideview_left = mod_mainside_back;
-            mod_sideview_left = new SideViews.ClassSideViewSide(mod_mainside_back, EnumLeftOrRight.Left);
-            mod_mainside_back = temp_side;
+            //mod_sideview_left = new SideViews.ClassSideViewSide(mod_mainside_back, EnumLeftOrRight.Left);
+            mod_sideview_left = new SideViews.ClassSideViewSide(temp_side_front, EnumLeftOrRight.Left, true);
+            //mod_mainside_back = temp_side;
+            mod_mainside_back = temp_side_left;
 
         }
 

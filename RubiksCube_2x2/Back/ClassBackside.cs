@@ -41,6 +41,12 @@ namespace RubiksCube_2x2
                 base.Piece3 = _pieceGRY;
                 base.Piece4 = _pieceGYO;
 
+                // Added 4/02/2021 thomas Downes
+                base.Piece1.FrontOrBackOfCube = EnumFrontOrBack.Back;
+                base.Piece2.FrontOrBackOfCube = EnumFrontOrBack.Back;
+                base.Piece3.FrontOrBackOfCube = EnumFrontOrBack.Back;
+                base.Piece4.FrontOrBackOfCube = EnumFrontOrBack.Back;
+
             }
 
 
@@ -66,6 +72,12 @@ namespace RubiksCube_2x2
                 base.Piece3 = _pieceGRY;
                 base.Piece4 = _pieceGYO;
 
+                // Added 4/02/2021 thomas Downes
+                base.Piece1.FrontOrBackOfCube = EnumFrontOrBack.Back;
+                base.Piece2.FrontOrBackOfCube = EnumFrontOrBack.Back;
+                base.Piece3.FrontOrBackOfCube = EnumFrontOrBack.Back;
+                base.Piece4.FrontOrBackOfCube = EnumFrontOrBack.Back;
+
             }
 
 
@@ -78,6 +90,18 @@ namespace RubiksCube_2x2
                 _pieceBYR = new Back.BlueYellowRed(); base.Piece2 = _pieceBYR;
                 _pieceGRY = new Back.GreenRedYellow(); base.Piece3 = _pieceGRY;
                 _pieceGYO = new Back.GreenYellowOrange(); base.Piece4 = _pieceGYO;
+
+                // Added 1/11/2021 thomas Downes
+                base.Piece1 = _pieceBOY;
+                base.Piece2 = _pieceBYR;
+                base.Piece3 = _pieceGRY;
+                base.Piece4 = _pieceGYO;
+
+                // Added 4/02/2021 thomas Downes
+                base.Piece1.FrontOrBackOfCube = EnumFrontOrBack.Back;
+                base.Piece2.FrontOrBackOfCube = EnumFrontOrBack.Back;
+                base.Piece3.FrontOrBackOfCube = EnumFrontOrBack.Back;
+                base.Piece4.FrontOrBackOfCube = EnumFrontOrBack.Back;
 
             }
 
