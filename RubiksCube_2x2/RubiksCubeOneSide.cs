@@ -26,6 +26,7 @@ namespace RubiksCube_2x2
 
         // Added 4/2/2021 thomas downes 
         public bool OriginalFront;
+        public bool OriginalBack;   // Added 4/3/2021 Thomas Downes
 
         //Added 11/13/2020 thomas downes
         public abstract bool SideIsASolidColor();

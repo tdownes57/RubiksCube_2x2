@@ -485,6 +485,47 @@ namespace RubiksCube_2x2
             var temp_side_left = this.mod_sideview_left;
             var temp_side_right = this.mod_sideview_right;
 
+            //Added 4/3/2021 thomas downes
+            bool bOriginalFront_temp_front = this.mod_mainside_front.OriginalFront;
+            bool bOriginalFront_temp_back = this.mod_mainside_back.OriginalFront;
+            bool bOriginalFront_temp_left = this.mod_sideview_left.OriginalFront;
+            bool bOriginalFront_temp_right = this.mod_sideview_right.OriginalFront;
+
+            // Added 4/3/2021 Thomas Downes  
+            const bool c_boolDoublecheckF1 = true;
+            if (c_boolDoublecheckF1)
+            {
+                // Added 4/3/2021 Thomas Downes  
+                int intAddBooleanValuesF1 =
+                       (Convert.ToInt32(bOriginalFront_temp_back) +
+                        Convert.ToInt32(bOriginalFront_temp_front) +
+                        Convert.ToInt32(bOriginalFront_temp_left) +
+                        Convert.ToInt32(bOriginalFront_temp_right));
+                if (intAddBooleanValuesF1 != 1) throw new Exception(String.Format("There should be one(1) Original Back Side, _NOT_ {0}.", intAddBooleanValuesF1));
+
+            }
+
+            //Added 4/3/2021 thomas downes
+            bool bOriginalBack_temp_front = this.mod_mainside_front.OriginalBack;
+            bool bOriginalBack_temp_back = this.mod_mainside_back.OriginalBack;
+            bool bOriginalBack_temp_left = this.mod_sideview_left.OriginalBack;
+            bool bOriginalBack_temp_right = this.mod_sideview_right.OriginalBack;
+
+            // Added 4/3/2021 Thomas Downes  
+            const bool c_boolDoublecheckB1 = true;
+            if (c_boolDoublecheckB1)
+            {
+                // Added 4/3/2021 Thomas Downes  
+                int intAddBooleanValuesB1 =
+                       (Convert.ToInt32(bOriginalBack_temp_back) +
+                        Convert.ToInt32(bOriginalBack_temp_front) +
+                        Convert.ToInt32(bOriginalBack_temp_left) +
+                        Convert.ToInt32(bOriginalBack_temp_right));
+                if (intAddBooleanValuesB1 != 1) throw new Exception(String.Format("There should be one(1) Original Back Side, _NOT_ {0}.", intAddBooleanValuesB1));
+
+            }
+
+
             if (mod_mainside_front == null) System.Diagnostics.Debugger.Break();
             if (mod_mainside_back == null) System.Diagnostics.Debugger.Break();
 
@@ -511,15 +552,70 @@ namespace RubiksCube_2x2
             mod_mainside_back = temp_side_right;
 
             //Added 4/2/2021 thomas downes
-            if (temp_side_front.OriginalFront) { mod_sideview_right.OriginalFront = true; /* Next, clear the True value.*/ temp_side_front.OriginalFront = false; }
-            else if (temp_side_back.OriginalFront) { mod_sideview_left.OriginalFront = true; /* Next, clear the True value.*/ temp_side_back.OriginalFront = false; }
-            else if (temp_side_left.OriginalFront) { mod_mainside_front.OriginalFront = true; /* Next, clear the True value.*/ temp_side_left.OriginalFront = false; }
-            else if (temp_side_right.OriginalFront) { mod_mainside_back.OriginalFront = true; /* Next, clear the True value.*/ temp_side_right.OriginalFront = false; }
+            //if (temp_side_front.OriginalFront) { mod_sideview_right.OriginalFront = true; /* Next, clear the True value.*/ temp_side_front.OriginalFront = false; }
+            //else if (temp_side_back.OriginalFront) { mod_sideview_left.OriginalFront = true; /* Next, clear the True value.*/ temp_side_back.OriginalFront = false; }
+            //else if (temp_side_left.OriginalFront) { mod_mainside_front.OriginalFront = true; /* Next, clear the True value.*/ temp_side_left.OriginalFront = false; }
+            //else if (temp_side_right.OriginalFront) { mod_mainside_back.OriginalFront = true; /* Next, clear the True value.*/ temp_side_right.OriginalFront = false; }
 
-            if (true)
+            //Added 4/3/2021 thomas downes
+            //
+            // Part 1 of 2: Frontside (Original Front) 
+            //
+            // Which side was the Frontside originally, i.e. before the user started pressing the Pivot Perspective buttons?
+            //
+            mod_mainside_front.OriginalFront = false;   // First, clear any True values. 
+            mod_mainside_back.OriginalFront = false;   // First, clear any True values. 
+            mod_sideview_left.OriginalFront = false;   // First, clear any True values. 
+            mod_sideview_right.OriginalFront = false;   // First, clear any True values. 
+            if (bOriginalFront_temp_front) { mod_sideview_right.OriginalFront = true;    }
+            else if (bOriginalFront_temp_back) { mod_sideview_left.OriginalFront = true;    }
+            else if (bOriginalFront_temp_left) { mod_mainside_front.OriginalFront = true;   }
+            else if (bOriginalFront_temp_right) { mod_mainside_back.OriginalFront = true;   }
+
+            // Added 4/3/2021 Thomas Downes  
+            const bool c_boolDoublecheckF = true;
+            if (c_boolDoublecheckF)
             {
+                // Added 4/3/2021 Thomas Downes  
+                int intAddBooleanValuesF =
+                       (Convert.ToInt32(mod_mainside_front.OriginalFront) +
+                        Convert.ToInt32(mod_mainside_back.OriginalFront) +
+                        Convert.ToInt32(mod_sideview_left.OriginalFront) +
+                        Convert.ToInt32(mod_sideview_right.OriginalFront)) ;
+                //if (intAddBooleanValues != 1) throw new Exception("There should be one Front Side.");
+                if (intAddBooleanValuesF != 1) throw new Exception(String.Format("There should be one(1) Original Front Side, _NOT_ {0}.", intAddBooleanValuesF));
 
             }
+
+            //Added 4/3/2021 thomas downes
+            //
+            // Part 2 of 2: Backside (Orginal Back)  
+            //
+            // Which side was the Backside originally, i.e. before the user started pressing the Pivot Perspective buttons?
+            //
+            mod_mainside_front.OriginalBack = false;   // First, clear any True values. 
+            mod_mainside_back.OriginalBack = false;   // First, clear any True values. 
+            mod_sideview_left.OriginalBack = false;   // First, clear any True values. 
+            mod_sideview_right.OriginalBack = false;   // First, clear any True values. 
+            if (bOriginalBack_temp_front) { mod_sideview_right.OriginalBack = true; }
+            else if (bOriginalBack_temp_back) { mod_sideview_left.OriginalBack = true; }
+            else if (bOriginalBack_temp_left) { mod_mainside_front.OriginalBack = true; }
+            else if (bOriginalBack_temp_right) { mod_mainside_back.OriginalBack = true; }
+
+            // Added 4/3/2021 Thomas Downes  
+            const bool c_boolDoublecheckB2 = true;
+            if (c_boolDoublecheckB2)
+            {
+                // Added 4/3/2021 Thomas Downes  
+                int intAddBooleanValuesB2 =
+                       (Convert.ToInt32(mod_mainside_front.OriginalBack) +
+                        Convert.ToInt32(mod_mainside_back.OriginalBack) +
+                        Convert.ToInt32(mod_sideview_left.OriginalBack) +
+                        Convert.ToInt32(mod_sideview_right.OriginalBack));
+                if (intAddBooleanValuesB2 != 1) throw new Exception(String.Format("There should be one(1) Original Back Side, _NOT_ {0}.", intAddBooleanValuesB2));
+
+            }
+
 
         }
 

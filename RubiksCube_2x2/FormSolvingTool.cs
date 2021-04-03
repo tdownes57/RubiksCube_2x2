@@ -86,8 +86,9 @@ namespace RubiksCube_2x2
             System.Drawing.SolidBrush a_brush = new SolidBrush(Color.Red);
 
             //Added 4/2/2021 td
-            mod_cubeFrontside.OriginalFront = true; 
-
+            mod_cubeFrontside.OriginalFront = true;
+            mod_cubeBackside.OriginalBack = true;  // Added 4/3/2021 Thomas Downes
+            
             //center_point_form = new Point(this.Width / 2, this.Height / 2);
             //center_point_form = new Point(this.Width / 2, this.Height / 4);
             //center_point_form = new Point(this.Width / 2, 2 * this.Height / 5);
@@ -1525,6 +1526,7 @@ namespace RubiksCube_2x2
                 mod_cubeWholeBothSides.FrontSide_GenericCubeSide.Repaint(panel_sender, false);
                 // Added 4/2/2021 thomas downes
                 labelOriginalFrontF.Visible = mod_cubeWholeBothSides.FrontSide_GenericCubeSide.OriginalFront;
+                labelOriginalBackF.Visible = mod_cubeWholeBothSides.FrontSide_GenericCubeSide.OriginalBack;
             }
             else
             {
@@ -1532,6 +1534,8 @@ namespace RubiksCube_2x2
 
                 // Added 4/2/2021 thomas downes
                 labelOriginalFrontF.Visible = mod_cubeWholeBothSides.FrontSide.OriginalFront;
+                labelOriginalBackF.Visible = mod_cubeWholeBothSides.FrontSide.OriginalBack;
+
             }
 
         }
@@ -1556,12 +1560,16 @@ namespace RubiksCube_2x2
                 mod_cubeWholeBothSides.BackSide_GenericCubeSide.Repaint(panel_sender, false);
                 // Added 4/2/2021 thomas downes
                 labelOriginalFrontB.Visible = mod_cubeWholeBothSides.BackSide_GenericCubeSide.OriginalFront;
+                labelOriginalBackB.Visible = mod_cubeWholeBothSides.BackSide_GenericCubeSide.OriginalBack;
+
             }
             else
             {
                 mod_cubeWholeBothSides.BackSide.Repaint(panel_sender, false);
                 // Added 4/2/2021 thomas downes
                 labelOriginalFrontB.Visible = mod_cubeWholeBothSides.BackSide.OriginalFront;
+                labelOriginalBackB.Visible = mod_cubeWholeBothSides.BackSide.OriginalBack;
+
             }
 
         }
@@ -1579,6 +1587,7 @@ namespace RubiksCube_2x2
             // Added 4/2/2021 thomas downes
             //
             labelOriginalFrontR.Visible = mod_cubeWholeBothSides.SideViewRight.OriginalFront;
+            labelOriginalBackR.Visible = mod_cubeWholeBothSides.SideViewRight.OriginalBack;
 
         }
 
@@ -1594,6 +1603,7 @@ namespace RubiksCube_2x2
             // Added 4/2/2021 thomas downes
             //
             labelOriginalFrontL.Visible = mod_cubeWholeBothSides.SideViewLeft.OriginalFront;
+            labelOriginalBackL.Visible = mod_cubeWholeBothSides.SideViewLeft.OriginalBack;
 
         }
 

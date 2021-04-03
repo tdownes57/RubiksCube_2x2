@@ -66,21 +66,25 @@
             this.linkEditManeuvers = new System.Windows.Forms.LinkLabel();
             this.linkShowSideSideView = new System.Windows.Forms.LinkLabel();
             this.panelFront = new System.Windows.Forms.Panel();
+            this.labelOriginalFrontF = new System.Windows.Forms.Label();
             this.labelCaptionFront = new System.Windows.Forms.Label();
             this.panelBack = new System.Windows.Forms.Panel();
+            this.labelOriginalFrontB = new System.Windows.Forms.Label();
             this.labelCaptionBack = new System.Windows.Forms.Label();
             this.panelSideRight = new System.Windows.Forms.Panel();
+            this.labelOriginalFrontR = new System.Windows.Forms.Label();
             this.labelCaptionRightSide = new System.Windows.Forms.Label();
             this.panelSideLeft = new System.Windows.Forms.Panel();
+            this.labelOriginalFrontL = new System.Windows.Forms.Label();
             this.labelCaptionLeftSide = new System.Windows.Forms.Label();
             this.labelMajorRotateCubeLeft = new System.Windows.Forms.Label();
             this.labelMajorRotateCubeRight = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.checkUseAllAbstractObjects = new System.Windows.Forms.CheckBox();
-            this.labelOriginalFrontR = new System.Windows.Forms.Label();
-            this.labelOriginalFrontB = new System.Windows.Forms.Label();
-            this.labelOriginalFrontL = new System.Windows.Forms.Label();
-            this.labelOriginalFrontF = new System.Windows.Forms.Label();
+            this.labelOriginalBackF = new System.Windows.Forms.Label();
+            this.labelOriginalBackR = new System.Windows.Forms.Label();
+            this.labelOriginalBackB = new System.Windows.Forms.Label();
+            this.labelOriginalBackL = new System.Windows.Forms.Label();
             this.panelFront.SuspendLayout();
             this.panelBack.SuspendLayout();
             this.panelSideRight.SuspendLayout();
@@ -456,6 +460,7 @@
             // panelFront
             // 
             this.panelFront.BackColor = System.Drawing.Color.Gray;
+            this.panelFront.Controls.Add(this.labelOriginalBackF);
             this.panelFront.Controls.Add(this.labelOriginalFrontF);
             this.panelFront.Controls.Add(this.labelCaptionFront);
             this.panelFront.Location = new System.Drawing.Point(195, 79);
@@ -466,6 +471,17 @@
             this.panelFront.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Panel_MouseClick);
             this.panelFront.MouseEnter += new System.EventHandler(this.Panel_Enter);
             this.panelFront.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel_MouseMove);
+            // 
+            // labelOriginalFrontF
+            // 
+            this.labelOriginalFrontF.AutoSize = true;
+            this.labelOriginalFrontF.BackColor = System.Drawing.Color.Transparent;
+            this.labelOriginalFrontF.ForeColor = System.Drawing.Color.White;
+            this.labelOriginalFrontF.Location = new System.Drawing.Point(3, 276);
+            this.labelOriginalFrontF.Name = "labelOriginalFrontF";
+            this.labelOriginalFrontF.Size = new System.Drawing.Size(94, 17);
+            this.labelOriginalFrontF.TabIndex = 1;
+            this.labelOriginalFrontF.Text = "Original Front";
             // 
             // labelCaptionFront
             // 
@@ -481,6 +497,7 @@
             // panelBack
             // 
             this.panelBack.BackColor = System.Drawing.Color.Silver;
+            this.panelBack.Controls.Add(this.labelOriginalBackB);
             this.panelBack.Controls.Add(this.labelOriginalFrontB);
             this.panelBack.Controls.Add(this.labelCaptionBack);
             this.panelBack.Location = new System.Drawing.Point(868, 79);
@@ -491,6 +508,16 @@
             this.panelBack.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Panel_MouseClick);
             this.panelBack.MouseEnter += new System.EventHandler(this.Panel_MouseEnter);
             this.panelBack.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel_MouseMove);
+            // 
+            // labelOriginalFrontB
+            // 
+            this.labelOriginalFrontB.AutoSize = true;
+            this.labelOriginalFrontB.Location = new System.Drawing.Point(7, 276);
+            this.labelOriginalFrontB.Name = "labelOriginalFrontB";
+            this.labelOriginalFrontB.Size = new System.Drawing.Size(94, 17);
+            this.labelOriginalFrontB.TabIndex = 3;
+            this.labelOriginalFrontB.Text = "Original Front";
+            this.labelOriginalFrontB.Visible = false;
             // 
             // labelCaptionBack
             // 
@@ -504,6 +531,7 @@
             // panelSideRight
             // 
             this.panelSideRight.BackColor = System.Drawing.Color.Silver;
+            this.panelSideRight.Controls.Add(this.labelOriginalBackR);
             this.panelSideRight.Controls.Add(this.labelOriginalFrontR);
             this.panelSideRight.Controls.Add(this.labelCaptionRightSide);
             this.panelSideRight.Location = new System.Drawing.Point(544, 79);
@@ -511,6 +539,16 @@
             this.panelSideRight.Size = new System.Drawing.Size(318, 293);
             this.panelSideRight.TabIndex = 37;
             this.panelSideRight.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSideRight_Paint);
+            // 
+            // labelOriginalFrontR
+            // 
+            this.labelOriginalFrontR.AutoSize = true;
+            this.labelOriginalFrontR.Location = new System.Drawing.Point(3, 276);
+            this.labelOriginalFrontR.Name = "labelOriginalFrontR";
+            this.labelOriginalFrontR.Size = new System.Drawing.Size(94, 17);
+            this.labelOriginalFrontR.TabIndex = 2;
+            this.labelOriginalFrontR.Text = "Original Front";
+            this.labelOriginalFrontR.Visible = false;
             // 
             // labelCaptionRightSide
             // 
@@ -524,6 +562,7 @@
             // panelSideLeft
             // 
             this.panelSideLeft.BackColor = System.Drawing.Color.Silver;
+            this.panelSideLeft.Controls.Add(this.labelOriginalBackL);
             this.panelSideLeft.Controls.Add(this.labelOriginalFrontL);
             this.panelSideLeft.Controls.Add(this.labelCaptionLeftSide);
             this.panelSideLeft.Location = new System.Drawing.Point(1192, 79);
@@ -531,6 +570,15 @@
             this.panelSideLeft.Size = new System.Drawing.Size(318, 293);
             this.panelSideLeft.TabIndex = 38;
             this.panelSideLeft.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSideLeft_Paint);
+            // 
+            // labelOriginalFrontL
+            // 
+            this.labelOriginalFrontL.AutoSize = true;
+            this.labelOriginalFrontL.Location = new System.Drawing.Point(3, 276);
+            this.labelOriginalFrontL.Name = "labelOriginalFrontL";
+            this.labelOriginalFrontL.Size = new System.Drawing.Size(94, 17);
+            this.labelOriginalFrontL.TabIndex = 3;
+            this.labelOriginalFrontL.Text = "Original Front";
             // 
             // labelCaptionLeftSide
             // 
@@ -579,45 +627,52 @@
             this.checkUseAllAbstractObjects.CheckedChanged += new System.EventHandler(this.checkUseAllAbstractObjects_CheckedChanged);
             this.checkUseAllAbstractObjects.Click += new System.EventHandler(this.checkUseAllAbstractObjects_Click);
             // 
-            // labelOriginalFrontR
+            // labelOriginalBackF
             // 
-            this.labelOriginalFrontR.AutoSize = true;
-            this.labelOriginalFrontR.Location = new System.Drawing.Point(3, 276);
-            this.labelOriginalFrontR.Name = "labelOriginalFrontR";
-            this.labelOriginalFrontR.Size = new System.Drawing.Size(94, 17);
-            this.labelOriginalFrontR.TabIndex = 2;
-            this.labelOriginalFrontR.Text = "Original Front";
-            this.labelOriginalFrontR.Visible = false;
+            this.labelOriginalBackF.AutoSize = true;
+            this.labelOriginalBackF.BackColor = System.Drawing.Color.Transparent;
+            this.labelOriginalBackF.ForeColor = System.Drawing.Color.White;
+            this.labelOriginalBackF.Location = new System.Drawing.Point(228, 276);
+            this.labelOriginalBackF.Name = "labelOriginalBackF";
+            this.labelOriginalBackF.Size = new System.Drawing.Size(92, 17);
+            this.labelOriginalBackF.TabIndex = 2;
+            this.labelOriginalBackF.Text = "Original Back";
+            this.labelOriginalBackF.Visible = false;
             // 
-            // labelOriginalFrontB
+            // labelOriginalBackR
             // 
-            this.labelOriginalFrontB.AutoSize = true;
-            this.labelOriginalFrontB.Location = new System.Drawing.Point(7, 276);
-            this.labelOriginalFrontB.Name = "labelOriginalFrontB";
-            this.labelOriginalFrontB.Size = new System.Drawing.Size(94, 17);
-            this.labelOriginalFrontB.TabIndex = 3;
-            this.labelOriginalFrontB.Text = "Original Front";
-            this.labelOriginalFrontB.Visible = false;
+            this.labelOriginalBackR.AutoSize = true;
+            this.labelOriginalBackR.BackColor = System.Drawing.Color.Transparent;
+            this.labelOriginalBackR.ForeColor = System.Drawing.Color.Black;
+            this.labelOriginalBackR.Location = new System.Drawing.Point(221, 276);
+            this.labelOriginalBackR.Name = "labelOriginalBackR";
+            this.labelOriginalBackR.Size = new System.Drawing.Size(92, 17);
+            this.labelOriginalBackR.TabIndex = 3;
+            this.labelOriginalBackR.Text = "Original Back";
+            this.labelOriginalBackR.Visible = false;
             // 
-            // labelOriginalFrontL
+            // labelOriginalBackB
             // 
-            this.labelOriginalFrontL.AutoSize = true;
-            this.labelOriginalFrontL.Location = new System.Drawing.Point(3, 276);
-            this.labelOriginalFrontL.Name = "labelOriginalFrontL";
-            this.labelOriginalFrontL.Size = new System.Drawing.Size(94, 17);
-            this.labelOriginalFrontL.TabIndex = 3;
-            this.labelOriginalFrontL.Text = "Original Front";
+            this.labelOriginalBackB.AutoSize = true;
+            this.labelOriginalBackB.BackColor = System.Drawing.Color.Transparent;
+            this.labelOriginalBackB.ForeColor = System.Drawing.Color.Black;
+            this.labelOriginalBackB.Location = new System.Drawing.Point(223, 276);
+            this.labelOriginalBackB.Name = "labelOriginalBackB";
+            this.labelOriginalBackB.Size = new System.Drawing.Size(92, 17);
+            this.labelOriginalBackB.TabIndex = 4;
+            this.labelOriginalBackB.Text = "Original Back";
             // 
-            // labelOriginalFrontF
+            // labelOriginalBackL
             // 
-            this.labelOriginalFrontF.AutoSize = true;
-            this.labelOriginalFrontF.BackColor = System.Drawing.Color.Transparent;
-            this.labelOriginalFrontF.ForeColor = System.Drawing.Color.White;
-            this.labelOriginalFrontF.Location = new System.Drawing.Point(3, 276);
-            this.labelOriginalFrontF.Name = "labelOriginalFrontF";
-            this.labelOriginalFrontF.Size = new System.Drawing.Size(94, 17);
-            this.labelOriginalFrontF.TabIndex = 1;
-            this.labelOriginalFrontF.Text = "Original Front";
+            this.labelOriginalBackL.AutoSize = true;
+            this.labelOriginalBackL.BackColor = System.Drawing.Color.Transparent;
+            this.labelOriginalBackL.ForeColor = System.Drawing.Color.Black;
+            this.labelOriginalBackL.Location = new System.Drawing.Point(223, 276);
+            this.labelOriginalBackL.Name = "labelOriginalBackL";
+            this.labelOriginalBackL.Size = new System.Drawing.Size(92, 17);
+            this.labelOriginalBackL.TabIndex = 5;
+            this.labelOriginalBackL.Text = "Original Back";
+            this.labelOriginalBackL.Visible = false;
             // 
             // FormSolvingTool
             // 
@@ -738,6 +793,10 @@
         private System.Windows.Forms.Label labelOriginalFrontB;
         private System.Windows.Forms.Label labelOriginalFrontR;
         private System.Windows.Forms.Label labelOriginalFrontL;
+        private System.Windows.Forms.Label labelOriginalBackF;
+        private System.Windows.Forms.Label labelOriginalBackB;
+        private System.Windows.Forms.Label labelOriginalBackR;
+        private System.Windows.Forms.Label labelOriginalBackL;
     }
 }
 

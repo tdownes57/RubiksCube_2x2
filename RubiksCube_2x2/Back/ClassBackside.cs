@@ -47,6 +47,10 @@ namespace RubiksCube_2x2
                 base.Piece3.FrontOrBackOfCube = EnumFrontOrBack.Back;
                 base.Piece4.FrontOrBackOfCube = EnumFrontOrBack.Back;
 
+                // Added 4/3/2021 thomas downes
+                base.OriginalBack = true;
+                base.OriginalFront = false;
+
             }
 
 
@@ -78,6 +82,10 @@ namespace RubiksCube_2x2
                 base.Piece3.FrontOrBackOfCube = EnumFrontOrBack.Back;
                 base.Piece4.FrontOrBackOfCube = EnumFrontOrBack.Back;
 
+                // Added 4/3/2021 thomas downes
+                base.OriginalBack = true;
+                base.OriginalFront = false;
+
             }
 
 
@@ -102,6 +110,10 @@ namespace RubiksCube_2x2
                 base.Piece2.FrontOrBackOfCube = EnumFrontOrBack.Back;
                 base.Piece3.FrontOrBackOfCube = EnumFrontOrBack.Back;
                 base.Piece4.FrontOrBackOfCube = EnumFrontOrBack.Back;
+
+                // Added 4/3/2021 thomas downes
+                base.OriginalBack = true;
+                base.OriginalFront = false;
 
             }
 
