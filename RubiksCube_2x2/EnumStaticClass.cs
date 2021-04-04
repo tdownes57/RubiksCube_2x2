@@ -103,7 +103,7 @@ namespace RubiksCube_2x2
         //
         // Added 11/14/2020 thomas downes
         //
-        public const bool PiecesLoadTheirInitialState = false;  // true; 
+        public const bool PiecesLoadTheirInitialState = true;  // 4 April 2021 // false;  // true; 
         public const bool Sides_BackOrFront_LoadInitialState = true; 
 
         public static Rectangle GetRectangle_Front(Point p_centerOfForm, FrontClockFace p_face_position, int p_margin)
