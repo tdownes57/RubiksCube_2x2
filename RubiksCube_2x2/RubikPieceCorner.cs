@@ -49,8 +49,8 @@ namespace RubiksCube_2x2
         //     
         //
         public abstract System.Drawing.Color FaceColor1of3 { get; }
-        public abstract System.Drawing.Color FaceColor2of3 { get;  }
-        public abstract System.Drawing.Color FaceColor3of3 { get;  }
+        public abstract System.Drawing.Color FaceColor2of3 { get; }
+        public abstract System.Drawing.Color FaceColor3of3 { get; }
 
         /// <summary>
         /// Added 11/13/2020 
@@ -332,7 +332,7 @@ namespace RubiksCube_2x2
             //
             par_error = null;
             bool bMaybeNotYetReady = false;
-            bool bFarSoPerhapsNotVisible = false; 
+            bool bFarSoPerhapsNotVisible = false;
 
             if (par_enumView == EnumPrimaryView.Right)
             {
@@ -381,12 +381,12 @@ namespace RubiksCube_2x2
                 PaintByGraphics(par_graphics, par_center_of_form, par_enumView, out par_error);
             }
             else PaintByGraphics(par_graphics, par_center_of_form, par_enumView, out par_error);
-            
-            return; 
+
+            return;
 
         }
 
-        public void PaintByGraphics(Graphics par_graphics, Point par_center_of_form, 
+        public void PaintByGraphics(Graphics par_graphics, Point par_center_of_form,
                        EnumPrimaryView par_enumView, out Exception par_error)
         {
             //
@@ -465,21 +465,35 @@ namespace RubiksCube_2x2
             //----Brush a_brush = new SolidBrush(this.GetColorOfSideFace_ClockwiseFromFront());
             Color color_ofSideFace = this.GetColorOfSideFace_ClockwiseFromFront();
             Brush a_brush = new SolidBrush(color_ofSideFace);
+            Pen a_pen = new System.Drawing.Pen(color_ofSideFace);
 
             //Added 1/11/2021 Thomas Downes
             //bool bTextMarkerIsClockwiseFromFront = (this.TemporaryTextMarker_IsClockwiseFromFront());
             bool bTextMarkerIsClockwiseFromFront = (this.TemporaryTextMarker_Color == color_ofSideFace);
-            bool bHasTemporaryTextMarker = (this.TemporaryTextMarker != "") && (bTextMarkerIsClockwiseFromFront);
 
-            if (bHasTemporaryTextMarker)
+            //---bool bHasTemporaryTextMarker = (this.TemporaryTextMarker != "") && (bTextMarkerIsClockwiseFromFront);
+            bool bHasTemporaryTextMarker_Piece = (this.TemporaryTextMarker != ""); // && (bTextMarkerIsClockwiseFromFront);
+            bool bHasTemporaryTextMarker_Side = (this.TemporaryTextMarker != "") && (bTextMarkerIsClockwiseFromFront);
+
+            //---if (bHasTemporaryTextMarker)
+            if (bHasTemporaryTextMarker_Side)
             {
                 //
                 // Added 1/11/2021.   E.g. put "4:30" to indicate that the prior front face
                 //   has moved to one of the sides. 
                 //
-                par_graphics.DrawString(this.TemporaryTextMarker, 
-                    new Font("Comic Sans MS", 11),
-                    a_brush, 0, 0);
+                par_graphics.DrawString(this.TemporaryTextMarker,
+                new Font("Comic Sans MS", 11),
+                a_brush, 0, 0);
+                par_graphics.DrawRectangle(a_pen, sideFace);  // Added 4/10/2021
+
+            }
+            else if (bHasTemporaryTextMarker_Piece)
+            {
+                //
+                // Added 4/10/2021.  Don't fill the rectangle. 
+                //
+                par_graphics.DrawRectangle(a_pen, sideFace);
 
             }
             else
@@ -1323,7 +1337,7 @@ namespace RubiksCube_2x2
                 //
                 case (FrontClockFace.one_thirty): strNE_SE_SW_NW = "NE"; break;
                 case (FrontClockFace.four_thirty): strNE_SE_SW_NW = "SE"; break;
-                case (FrontClockFace.seven_thirty): strNE_SE_SW_NW = "SW"; break; 
+                case (FrontClockFace.seven_thirty): strNE_SE_SW_NW = "SW"; break;
                 case (FrontClockFace.ten_thirty): strNE_SE_SW_NW = "NW"; break;
                 default:
                     strNE_SE_SW_NW = "__";
@@ -1372,7 +1386,7 @@ namespace RubiksCube_2x2
             //
             //     (F = Front Face) 
             //
-            strOutput = (strNE_SE_SW_NW + "==" + 
+            strOutput = (strNE_SE_SW_NW + "==" +
                 strDirectionF1 + "_" + strDirectionF2 + "_" + strDirectionF3);
 
             return strOutput;
@@ -1507,7 +1521,7 @@ namespace RubiksCube_2x2
 
             //Indicate that the front face has the textual marker.  
             //this.TemporaryTextMarker_WhichFace = WhichFaceIsFront;
-            Color color_OfFrontFace = Color.Black; 
+            Color color_OfFrontFace = Color.Black;
             if (this.WhichFaceIsFront == EnumFaceNum.Face1) color_OfFrontFace = this.FaceColor1of3;
             if (this.WhichFaceIsFront == EnumFaceNum.Face2) color_OfFrontFace = this.FaceColor2of3;
             if (this.WhichFaceIsFront == EnumFaceNum.Face3) color_OfFrontFace = this.FaceColor3of3;
@@ -1524,7 +1538,7 @@ namespace RubiksCube_2x2
             //   This corresponds to:
             //       PaintSideFace_ClockwiseFromFront
             //
-            throw new NotImplementedException(); 
+            throw new NotImplementedException();
 
         }
 
@@ -1572,7 +1586,7 @@ namespace RubiksCube_2x2
             if (EnumFaceNum.Face3 == this.WhichFaceIsFront) return colorFace3;
 
             // Added 2/14/2021 thomas downes
-            throw new NotImplementedException(); 
+            throw new NotImplementedException();
 
         }
 
@@ -1618,7 +1632,7 @@ namespace RubiksCube_2x2
             //
             // Part 2 of 2. Account for left-hand positions (10:30 & 7:30).  
             //
-            if (boolSide_Left) 
+            if (boolSide_Left)
             {
                 if (this.FrontClockFacePosition == FrontClockFace.seven_thirty) this.FrontClockFacePosition = FrontClockFace.four_thirty;
                 if (this.FrontClockFacePosition == FrontClockFace.ten_thirty) this.FrontClockFacePosition = FrontClockFace.one_thirty;
