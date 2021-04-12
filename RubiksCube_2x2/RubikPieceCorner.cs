@@ -306,7 +306,13 @@ namespace RubiksCube_2x2
                 // Added 1/11/2021 
                 //
                 Brush a_brush_black = new SolidBrush(Color.Black);
-                par_graph.DrawString(this.TemporaryTextMarker, new Font("Comic Sans MS", 13), a_brush_black, 0, 0);
+                //----par_graph.DrawString(this.TemporaryTextMarker, new Font("Comic Sans MS", 13), a_brush_black, 0, 0);
+                par_graph.DrawString(this.TemporaryTextMarker, new Font("Comic Sans MS", 13), 
+                    a_brush_black, frontFace.X, frontFace.Y);
+
+                // Added 4/12/2021 td
+                Pen a_pen_black = new Pen(Color.Black);
+                par_graph.DrawRectangle(a_pen_black, frontFace);
 
             }
 
@@ -483,8 +489,8 @@ namespace RubiksCube_2x2
                 //   has moved to one of the sides. 
                 //
                 par_graphics.DrawString(this.TemporaryTextMarker,
-                new Font("Comic Sans MS", 11),
-                a_brush, 0, 0);
+                                        new Font("Comic Sans MS", 11),
+                                        a_brush, sideFace.X, sideFace.Y);   // a_brush, 0, 0);
                 par_graphics.DrawRectangle(a_pen, sideFace);  // Added 4/10/2021
 
             }
@@ -530,12 +536,28 @@ namespace RubiksCube_2x2
             Color color_ofSideFace = this.GetColorOfSideFace_CounterClockwise();
             Brush a_brush = new SolidBrush(color_ofSideFace);
 
+            // Added 4/12/2021 Thomas Downes
+            Pen a_drawingPen = new Pen(color_ofSideFace);
+
             //Added 1/11/2021 Thomas Downes
             bool bTextMarkerIsThisFace = (this.TemporaryTextMarker_Color == color_ofSideFace);
-            bool bHasTemporaryTextMarker = (this.TemporaryTextMarker != "") && (bTextMarkerIsThisFace);
+            //--April 10---bool bHasTemporaryTextMarker = (this.TemporaryTextMarker != "") && (bTextMarkerIsThisFace);
+            bool bHasTemporaryTextMarker_Piece = (this.TemporaryTextMarker != ""); // && (bTextMarkerIsThisFace);
+            bool bHasTemporaryTextMarker_Face = (this.TemporaryTextMarker != "") && (bTextMarkerIsThisFace);
 
-            if (bHasTemporaryTextMarker)
+            if (bHasTemporaryTextMarker_Face)
             {
+                // Added 4/12/2021 Thomas DOWNES
+                par_graphics.DrawRectangle(a_drawingPen, sideFace);
+                par_graphics.DrawString(this.TemporaryTextMarker,
+                        new Font("Comic Sans MS", 11),
+                                        a_brush, sideFace.X, sideFace.Y);   // a_brush, 0, 0);
+
+            }
+            if (bHasTemporaryTextMarker_Piece)
+            {
+                // Added 4/12/2021 Thomas DOWNES
+                par_graphics.DrawRectangle(a_drawingPen, sideFace);
 
             }
             else
