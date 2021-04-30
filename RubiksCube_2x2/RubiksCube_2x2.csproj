@@ -118,7 +118,19 @@
     <Compile Include="FormManeuvers.Designer.cs">
       <DependentUpon>FormManeuvers.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTestingUserControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTestingUserControl.Designer.cs">
+      <DependentUpon>FormTestingUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Front\ClassFrontsideBrief.cs" />
+    <Compile Include="GodControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GodControl.Designer.cs">
+      <DependentUpon>GodControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Maneuvers\Maneuver.cs" />
     <Compile Include="Maneuvers\ManeuversList.cs" />
     <Compile Include="MongoDB_Load.cs" />
@@ -165,6 +177,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSolvingTool.resx">
       <DependentUpon>FormSolvingTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTestingUserControl.resx">
+      <DependentUpon>FormTestingUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GodControl.resx">
+      <DependentUpon>GodControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

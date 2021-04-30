@@ -37,7 +37,8 @@ namespace RubiksCube_2x2
             mod_cubeBothSides_After.FrontSide.SetTemporaryTextMarkers_ClockPositions();
             mod_cubeBothSides_After.BackSide.SetTemporaryTextMarkers_ClockPositions();
 
-
+            // 4/30/2021 thomas downes
+            //mod_cubeBothSides_After.FrontSide.
 
         }
 
@@ -51,7 +52,8 @@ namespace RubiksCube_2x2
             //
             // Added 2/5/2021  
             //
-            
+            godControlFront.ThisCubeSide = mod_cubeBothSides_After.FrontSide;
+            godControlBack.ThisCubeSide = mod_cubeBothSides_After.BackSide;
 
         }
 
@@ -89,6 +91,164 @@ namespace RubiksCube_2x2
             //Added 2/5/2021 thomas downes
             Point pointCenter = new Point(((Panel)sender).Width / 2, ((Panel)sender).Height / 2);
             mod_cubeBothSides_Before.FrontSide.PaintThisSide(e.Graphics, pointCenter);
+
+        }
+
+        private void panelFrontBefore_MouseClick(object sender, MouseEventArgs e)
+        {
+            //
+            // Added 4/30/2021 thomas downes
+            //
+            //MessageBox.Show("Please focus on the \"After\" boxes, not the Before boxes.", "",
+            //    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+        }
+
+        private void panelFrontBefore_MouseDown(object sender, MouseEventArgs e)
+        {
+            //
+            // Added 4/30/2021 thomas downes
+            //
+            MessageBox.Show("Please focus on the \"After\" boxes, not the Before boxes.", "",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void panelBackBefore_MouseDown(object sender, MouseEventArgs e)
+        {
+            //
+            // Added 4/30/2021 thomas downes
+            //
+            MessageBox.Show("Please focus on the \"After\" boxes, not the Before boxes.", "",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void panelFrontAfter_MouseEnter(object sender, EventArgs e)
+        {
+            //
+            // Added 11/17/2020 thomas downes
+            //
+            //this.Cursor
+            //
+            //  C# Winforms - change cursor icon of mouse
+            //  https://stackoverflow.com/questions/2902327/c-sharp-winforms-change-cursor-icon-of-mouse
+            //  https://stackoverflow.com/questions/432379/set-custom-cursor-from-resource-file
+            //  https://www.youtube.com/watch?v=mTuVpfsPX1k
+            //  https://convertico.com/
+            //
+            //
+            //I have the answer for a picturebox
+            //
+            //    Picturebox1.cursor = new cursor(Properties.Resources.CURSOR NAME.GetHicon());
+            //
+            //this.Cursor = new Cursor(Properties.Resources.custom_cursor_tcd2);
+
+            //var ms_stream = new System.IO.MemoryStream(Properties.Resources.custom_cursor_tcd2);  // (My.Resources.Cursor1)
+            ////this.Cursor = new Cursor(ms_stream);
+            //((Panel)sender).Cursor = new Cursor(ms_stream);
+
+
+        }
+
+        private void panelBackAfter_MouseEnter(object sender, EventArgs e)
+        {
+            //
+            // Added 11/17/2020 thomas downes
+            //
+            //this.Cursor
+            //
+            //  C# Winforms - change cursor icon of mouse
+            //  https://stackoverflow.com/questions/2902327/c-sharp-winforms-change-cursor-icon-of-mouse
+            //  https://stackoverflow.com/questions/432379/set-custom-cursor-from-resource-file
+            //  https://www.youtube.com/watch?v=mTuVpfsPX1k
+            //  https://convertico.com/
+            //
+            //
+            //I have the answer for a picturebox
+            //
+            //    Picturebox1.cursor = new cursor(Properties.Resources.CURSOR NAME.GetHicon());
+            //
+            //this.Cursor = new Cursor(Properties.Resources.custom_cursor_tcd2);
+
+            //var ms_stream = new System.IO.MemoryStream(Properties.Resources.custom_cursor_tcd2);  // (My.Resources.Cursor1)
+            ////this.Cursor = new Cursor(ms_stream);
+            //((Panel)sender).Cursor = new Cursor(ms_stream);
+
+
+        }
+
+        private void panelFrontAfter_MouseMove(object sender, MouseEventArgs e)
+        {
+            //
+            // Added 11/17/2020 thomas downes 
+            //
+            //Point currentLocation = new Point(e.X, e.Y);
+
+            //RubikPieceCorner whichPiece = null;
+
+            ////
+            //// Back Side 
+            ////
+            //if (whichPiece == null)
+            //{
+            //    if (sender == panelBack) // Added 1/29/2021 thomas downes
+            //        whichPiece = mod_cubeBackside.WhichPieceHasMouseHover(currentLocation);
+            //}
+
+            ////
+            //// Front Side
+            ////
+            ////Added 12/6/2020 thomas downes
+            //if (whichPiece == null)
+            //{
+            //    //Added 12/6/2020 thomas downes
+            //    if (sender == panelFront) // Added 1/29/2021 thomas downes
+            //        whichPiece = mod_cubeFrontside.WhichPieceHasMouseHover(currentLocation);
+
+            //    //Added 12/6/2020 thomas downes
+            //    if (false && whichPiece != null)
+            //        MessageBox.Show("You have placed the mouse over the front side of the Rubik's Cube.");
+            //}
+
+            ////
+            //// Take a look at whether or not we have identified a clicked piece. 
+            ////
+            //if (whichPiece == null)
+            //{
+            //    if (_rubiksPiece_Dragged == null)
+            //    {
+            //        //this.Cursor = Cursors.Default;
+            //        ((Panel)sender).Cursor = Cursors.Default;
+            //    }
+            //}
+            //else
+            //{
+            //    if (_rubiksPiece_Dragged != null)
+            //    {
+            //        //
+            //        // We are dragging a piece. Don't modify the cursor. 
+            //        //
+            //    }
+            //    else
+            //    {
+            //        //
+            //        // Let's apply the Ring cursor, "ring_cursor" (formerly "transparent2").  
+            //        //
+            //        if (_customCursorRing == null)
+            //        {
+            //            //var ms = new System.IO.MemoryStream(Properties.Resources.custom_cursor_tcd2);  // (My.Resources.Cursor1)
+            //            //var ms = new System.IO.MemoryStream(Properties.Resources.transparent2);  // (My.Resources.Cursor1)
+            //            var ms_stream = new System.IO.MemoryStream(Properties.Resources.ring_cursor);  // (My.Resources.Cursor1)
+            //            _customCursorRing = new Cursor(ms_stream);
+            //        }
+            //        //this.Cursor = new Cursor(ms);
+            //        //this.Cursor = _customCursorRing;
+            //        ((Panel)sender).Cursor = _customCursorRing;
+
+            //    }
+            //}
 
         }
     }
