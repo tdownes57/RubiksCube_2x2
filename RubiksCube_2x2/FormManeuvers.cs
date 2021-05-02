@@ -15,8 +15,11 @@ namespace RubiksCube_2x2
     {
         //Added 1/13/2021 thomas downes
         //--private RubiksCubeBothSides mod_cubeWholeBothSides;
-        private RubiksCubeBothSides mod_cubeBothSides_Before;
-        private RubiksCubeBothSides mod_cubeBothSides_After;
+        private RubiksCubeBothSides mod_cubeBothSides_BeforeFront_NotInUse;
+        private RubiksCubeBothSides mod_cubeBothSides_BeforeBack_NotInUse;
+
+        private RubiksCubeBothSides mod_cubeBothSides_AfterFront;
+        private RubiksCubeBothSides mod_cubeBothSides_AfterBack; // Added 5/2/2021 thomas d.
 
         public FormManeuvers(ManeuversList par_listManuevers, int par_indexOfManeuver)
         {
@@ -26,16 +29,18 @@ namespace RubiksCube_2x2
             //  mod_cubeWholeBothSides = new RubiksCubeBothSides();
             //[[[[[--mod_cubeBothSides_Before = new RubiksCubeBothSides();
             //[[[[[--mod_cubeBothSides_After = new RubiksCubeBothSides();
-            mod_cubeBothSides_Before = new RubiksCubeBothSides(EnumColorIsHardcoded.True);
-            mod_cubeBothSides_After = new RubiksCubeBothSides(EnumColorIsHardcoded.True);
+            //---mod_cubeBothSides_Before = new RubiksCubeBothSides(EnumColorIsHardcoded.True);
+            //---mod_cubeBothSides_After = new RubiksCubeBothSides(EnumColorIsHardcoded.True);
+            mod_cubeBothSides_AfterFront = new RubiksCubeBothSides(EnumColorIsHardcoded.True);
+            mod_cubeBothSides_AfterBack = new RubiksCubeBothSides(EnumColorIsHardcoded.True);
 
             // Before the Maneuver & Repurcussions. 
-            mod_cubeBothSides_Before.FrontSide.SetTemporaryTextMarkers_ClockPositions();
-            mod_cubeBothSides_Before.BackSide.SetTemporaryTextMarkers_ClockPositions();
+            mod_cubeBothSides_AfterFront.FrontSide.SetTemporaryTextMarkers_ClockPositions();
+            mod_cubeBothSides_AfterFront.BackSide.SetTemporaryTextMarkers_ClockPositions();
 
             // After the Manuever & Repurcussions.  
-            mod_cubeBothSides_After.FrontSide.SetTemporaryTextMarkers_ClockPositions();
-            mod_cubeBothSides_After.BackSide.SetTemporaryTextMarkers_ClockPositions();
+            mod_cubeBothSides_AfterBack.FrontSide.SetTemporaryTextMarkers_ClockPositions();
+            mod_cubeBothSides_AfterBack.BackSide.SetTemporaryTextMarkers_ClockPositions();
 
             // 4/30/2021 thomas downes
             //mod_cubeBothSides_After.FrontSide.
@@ -52,8 +57,12 @@ namespace RubiksCube_2x2
             //
             // Added 2/5/2021  
             //
-            godControlFront.ThisCubeSide = mod_cubeBothSides_After.FrontSide;
-            godControlBack.ThisCubeSide = mod_cubeBothSides_After.BackSide;
+            //------godControlFront.ThisCubeSide_Front = mod_cubeBothSides_After.FrontSide;
+            godControlAfterBack.ThisCubeSide_Deprecated = mod_cubeBothSides_After.BackSide;
+
+            // Added 4/30/2021  
+            godControlAfterFront.ThisCubeEntire = mod_cubeBothSides_After;
+            godControlAfterBack.ThisCubeEntire = mod_cubeBothSides_After;
 
         }
 
@@ -62,7 +71,8 @@ namespace RubiksCube_2x2
             //
             // Added 1/13/2021 thomas downes
             //
-            mod_cubeBothSides_Before.FrontSide.SetTemporaryTextMarkers_ClockPositions();
+            mod_cubeBothSides_BeforeFront_NotInUse.FrontSide.SetTemporaryTextMarkers_ClockPositions();
+            mod_cubeBothSides_BeforeAfter_NotInUse.FrontSide.SetTemporaryTextMarkers_ClockPositions();
 
             //Added 2/5/2021 thomas downes
             Point pointCenter = new Point(((Panel)sender).Width / 2, ((Panel)sender).Height / 2); 
@@ -249,6 +259,14 @@ namespace RubiksCube_2x2
 
             //    }
             //}
+
+        }
+
+        private void FormManeuvers_Resize(object sender, EventArgs e)
+        {
+            // Added 5/2/2021 thomas downes
+            godControlAfterBack.Refresh();
+            godControlAfterFront.Refresh(); 
 
         }
     }

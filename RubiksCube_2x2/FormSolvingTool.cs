@@ -1086,6 +1086,7 @@ namespace RubiksCube_2x2
 
         }
 
+
         private void CheckIfSideFaceWasClicked(int e_X, int e_Y, Panel par_panel)  // (object sender, MouseEventArgs e)
         {
             //---private void Form1_MouseDoubleClick(object sender, MouseEventArgs e)

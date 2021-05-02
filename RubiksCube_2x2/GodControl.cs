@@ -16,11 +16,14 @@ namespace RubiksCube_2x2
         // Added 4/30/2021 thoimas downes
         //
         //internal RubiksCubeOneSide ThisCubeSide;
-        private RubiksCubeOneSide mod_cubeBackside;
-        private RubiksCubeOneSide mod_cubeFrontside_NotInUse;
+        //private RubiksCubeOneSide mod_cubeBackside;
+        //private RubiksCubeOneSide mod_cubeFrontside_NotInUse;
+        private Back.ClassBackside mod_cubeBackside;
+        private Front.ClassFrontside mod_cubeFrontside_NotInUse;
+        private RubiksCubeBothSides mod_cubeWholeBothSides;
+        internal Panel panelFront_NotInUse;
 
-
-        internal RubiksCubeOneSide ThisCubeSide
+        internal RubiksCubeOneSide ThisCubeSide_Deprecated
         {
             get 
             {
@@ -30,11 +33,35 @@ namespace RubiksCube_2x2
             set
             {
                 // Added 4/30/2021 
-                mod_cubeBackside = value;
+                //mod_cubeBackside = value;
+                //mod_cubeBackside = (Back.ClassBackside)value;
+
+                mod_cubeBackside = (value as Back.ClassBackside);
+                //Just in case we've been passed a FrontSide!!
+                if (mod_cubeBackside == null) mod_cubeFrontside_NotInUse = (value as Front.ClassFrontside);
+
             }
         }
 
-        internal Panel panelFront_NotInUse;
+        internal RubiksCubeBothSides ThisCubeEntire
+        {
+            get
+            {
+                // Added 4/30/2021 
+                return mod_cubeWholeBothSides;
+            }
+            set
+            {
+                // Added 4/30/2021 
+                mod_cubeWholeBothSides = value;
+
+                //Added 5/2/2021 Thomas Downes  
+                mod_cubeFrontside_NotInUse = value.FrontSide;
+
+            }
+        }
+
+        //-----internal Panel panelFront_NotInUse;
         //internal Panel panelBack;
 
         //Added 11/17/2020 thomas downes
@@ -53,6 +80,21 @@ namespace RubiksCube_2x2
         public GodControl()
         {
             InitializeComponent();
+        }
+
+        private bool CheckForGodlikeBehavior_MovePiece()
+        {
+            //
+            // Added 4/30/2021 thoms downes
+            //
+            return true; 
+        }
+        private bool CheckForGodlikeBehavior_RotatePiece()
+        {
+            //
+            // Added 4/30/2021 thoms downes
+            //
+            return true;
         }
 
         private void GodControl_Load(object sender, EventArgs e)
@@ -115,6 +157,12 @@ namespace RubiksCube_2x2
             {
                 //if (sender == this.panelBack_NotInUse) // Added 1/29/2021 thomas downes
                 //whichPiece = mod_cubeBackside.WhichPieceHasMouseHover(currentLocation);
+
+                if (this.ThisCubeSide == null)
+                {
+                    MessageBox.Show("Not sure which cube side you are on.  Front, maybe??");
+                    return;
+                }
                 whichPiece = this.ThisCubeSide.WhichPieceHasMouseHover(currentLocation);
             }
 
@@ -345,7 +393,7 @@ namespace RubiksCube_2x2
                         //
                         // Allow only adjacent pieces to be swapped. 
                         //
-                        bool bPiecesAreAdjacent_Front = (bClickedFrontside
+                        bool bPiecesAreAdjacent_Front = (bClickedFrontside_NotInUse
                             && mod_cubeFrontside_NotInUse.AdjacentPieces(_rubiksPiece_Dragged, _rubiksPiece_Replaced));
                         bool bPiecesAreAdjacent_Back = (bClickedBackside
                             && mod_cubeBackside.AdjacentPieces(_rubiksPiece_Dragged, _rubiksPiece_Replaced));
@@ -358,14 +406,15 @@ namespace RubiksCube_2x2
                             MessageBox.Show("Great, the pieces are adjacent.  Okay to effect the consequences to the other side?");
 
                             //Added 12/9/2020 thomas downes  
-                            if (bClickedFrontside)
+                            if (bClickedFrontside_NotInUse)
                                 mod_cubeWholeBothSides.OrientCube_Step1Rotate(_rubiksPiece_Dragged,
                                  _rubiksPiece_Replaced, true,
-                                 mod_cubeFrontside, mod_cubeBackside);
+                                 mod_cubeFrontside_NotInUse, mod_cubeBackside);
                             if (bClickedBackside)
                                 mod_cubeWholeBothSides.OrientCube_Step1Rotate(_rubiksPiece_Dragged,
                                  _rubiksPiece_Replaced, true,
-                                 mod_cubeBackside, mod_cubeFrontside);
+                                 mod_cubeBackside, mod_cubeFrontside_NotInUse);
+
                             mod_cubeWholeBothSides.SwitchBottomPieces_Front();
                             mod_cubeWholeBothSides.OrientCube_Step2Restore();
 
@@ -391,14 +440,14 @@ namespace RubiksCube_2x2
                     //----this.Refresh();
                     panelBack.Refresh();  // Added 3/31/2021 td
                     panelBack.Refresh();  // Added 3/31/2021 td
-                    panelSideLeft.Refresh();     // Added 3/31/2021 td
-                    panelSideRight.Refresh();    // Added 3/31/2021 td
+                    //panelSideLeft.Refresh();     // Added 3/31/2021 td
+                    //panelSideRight.Refresh();    // Added 3/31/2021 td
 
                     // Added 12/4/2020 td
-                    labelUVW_VWX_WXY_XYZ.Text = mod_cubeBackside.BOY_etc_Clockwise();
+                    //labelUVW_VWX_WXY_XYZ.Text = mod_cubeBackside.BOY_etc_Clockwise();
                     //Added 12/6/2020 td
                     _bClickedBackside = false;
-                    _bClickedFrontside = false;
+                    _bClickedFrontside_NotInUse = false;
 
                     //Added 12/1/2020 thomas
                     bool bPriorValue = false;
@@ -440,5 +489,73 @@ namespace RubiksCube_2x2
             }
 
         }
+
+
+        private void CheckIfSideFaceWasClicked(int e_X, int e_Y, Panel par_panel)  // (object sender, MouseEventArgs e)
+        {
+            //---private void Form1_MouseDoubleClick(object sender, MouseEventArgs e)
+            //
+            // Added 11/17/2020 thomas downes
+            //
+            RubikPieceCorner piece_clicked = null; // = mod_RotateBackside.WhichPiece_SideFaceClicked(e_X, e_Y);
+
+            //Added 12/05/2020 thomas downes 
+            //---if (null == piece_clicked)
+            if (null == piece_clicked)
+                if (par_panel == panelFront_NotInUse)
+                    piece_clicked = mod_cubeFrontside_NotInUse.WhichPiece_SideFaceClicked(e_X, e_Y);
+
+            //Conditioned 12/05/2020 thomas downes 
+            if (null == piece_clicked)
+                if (par_panel == panelBack)
+                    piece_clicked = mod_cubeBackside.WhichPiece_SideFaceClicked(e_X, e_Y);
+
+            //if (piece_clicked != null && _rubiksPiece_Dragged != null)
+            if (_rubiksPiece_Dragged != null)
+            {
+                //
+                // The user has double-clicked, but seems to be in the 
+                //    middle of a select-then-drop process.  
+                //
+                // This is confusing behavior by the user. 
+                //
+                // Let's "punish" the user by reverting to an earlier state of things. 
+                //
+                // Clean up time!!   Then exit Sub.
+                //
+                _rubiksPiece_Dragged = null;
+                _rubiksPiece_Replaced = null;
+                this.Cursor = Cursors.Default;
+                labelHowToMoveAPiece.Visible = false;
+                _bClickedFrontside_NotInUse = false;  //Added 12/6/2020 thomas downes
+                _bClickedBackside = false;  //Added 12/6/2020 thomas downes
+                return;
+            }
+
+            if (piece_clicked != null)
+            {
+                //
+                // Rotate the piece clockwise.  
+                //
+                // First, check with the user if he or she wants to 
+                //   perform a godlike behavior. 
+                //
+                if (true) // CheckForGodlikeBehavior_RotateInPlace())
+                {
+                    //piece_clicked.RotateInPlace_Clockwise120();
+                    piece_clicked.RotateInPlace_PivotPiece120degrees();
+                    this.Refresh();
+                }
+
+            }
+
+
+        }
+
+
+
+
+
+
     }
 }

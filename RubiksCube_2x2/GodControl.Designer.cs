@@ -35,9 +35,8 @@ namespace RubiksCube_2x2
             // 
             // panelBack
             // 
-            this.panelBack.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelBack.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.panelBack.BackColor = System.Drawing.Color.Gray;
             this.panelBack.Location = new System.Drawing.Point(0, 31);
             this.panelBack.Name = "panelBack";
@@ -51,6 +50,7 @@ namespace RubiksCube_2x2
             // labelHowToMoveAPiece
             // 
             this.labelHowToMoveAPiece.AutoSize = true;
+            this.labelHowToMoveAPiece.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.labelHowToMoveAPiece.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHowToMoveAPiece.Location = new System.Drawing.Point(3, 3);
             this.labelHowToMoveAPiece.Name = "labelHowToMoveAPiece";
