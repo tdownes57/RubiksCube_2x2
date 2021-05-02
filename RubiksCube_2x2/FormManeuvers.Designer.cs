@@ -38,8 +38,8 @@ namespace RubiksCube_2x2
             this.label2 = new System.Windows.Forms.Label();
             this.panelFrontBefore = new System.Windows.Forms.Panel();
             this.panelBackBefore = new System.Windows.Forms.Panel();
-            this.godControlAfterBack = new RubiksCube_2x2.GodControl();
-            this.godControlAfterFront = new RubiksCube_2x2.GodControl();
+            this.godControlBackAfter = new RubiksCube_2x2.GodControl();
+            this.godControlFrontAfter = new RubiksCube_2x2.GodControl();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.buttonOK = new System.Windows.Forms.Button();
@@ -70,8 +70,8 @@ namespace RubiksCube_2x2
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panelFrontBefore, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.panelBackBefore, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.godControlAfterBack, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.godControlAfterFront, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.godControlBackAfter, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.godControlFrontAfter, 1, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(43, 109);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
@@ -88,36 +88,36 @@ namespace RubiksCube_2x2
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(430, 338);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(114, 17);
+            this.label7.Size = new System.Drawing.Size(225, 17);
             this.label7.TabIndex = 6;
-            this.label7.Text = "Back Side - After";
+            this.label7.Text = "Back Side - After   (May be edited)";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(3, 338);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(126, 17);
+            this.label6.Size = new System.Drawing.Size(211, 17);
             this.label6.TabIndex = 6;
-            this.label6.Text = "Back Side - Before";
+            this.label6.Text = "Back Side - Before  (__Static__)";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(430, 42);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(116, 17);
+            this.label5.Size = new System.Drawing.Size(223, 17);
             this.label5.TabIndex = 6;
-            this.label5.Text = "Front Side - After";
+            this.label5.Text = "Front Side - After  (May be edited)";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(3, 42);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(128, 17);
+            this.label4.Size = new System.Drawing.Size(209, 17);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Front Side - Before";
+            this.label4.Text = "Front Side - Before (__Static__)";
             // 
             // label3
             // 
@@ -164,23 +164,23 @@ namespace RubiksCube_2x2
             this.panelBackBefore.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBackBefore_Paint);
             this.panelBackBefore.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelBackBefore_MouseDown);
             // 
-            // godControlAfterBack
+            // godControlBackAfter
             // 
-            this.godControlAfterBack.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.godControlBackAfter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.godControlAfterBack.Location = new System.Drawing.Point(430, 361);
-            this.godControlAfterBack.Name = "godControlAfterBack";
-            this.godControlAfterBack.Size = new System.Drawing.Size(335, 271);
-            this.godControlAfterBack.TabIndex = 8;
+            this.godControlBackAfter.Location = new System.Drawing.Point(430, 361);
+            this.godControlBackAfter.Name = "godControlBackAfter";
+            this.godControlBackAfter.Size = new System.Drawing.Size(335, 271);
+            this.godControlBackAfter.TabIndex = 8;
             // 
-            // godControlAfterFront
+            // godControlFrontAfter
             // 
-            this.godControlAfterFront.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.godControlFrontAfter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.godControlAfterFront.Location = new System.Drawing.Point(430, 65);
-            this.godControlAfterFront.Name = "godControlAfterFront";
-            this.godControlAfterFront.Size = new System.Drawing.Size(335, 270);
-            this.godControlAfterFront.TabIndex = 9;
+            this.godControlFrontAfter.Location = new System.Drawing.Point(430, 65);
+            this.godControlFrontAfter.Name = "godControlFrontAfter";
+            this.godControlFrontAfter.Size = new System.Drawing.Size(335, 270);
+            this.godControlFrontAfter.TabIndex = 9;
             // 
             // label1
             // 
@@ -317,7 +317,7 @@ namespace RubiksCube_2x2
         private System.Windows.Forms.ComboBox dropdownManeuvers;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panelBeforeZ;
-        private GodControl godControlAfterBack;
-        private GodControl godControlAfterFront;
+        private GodControl godControlBackAfter;
+        private GodControl godControlFrontAfter;
     }
 }

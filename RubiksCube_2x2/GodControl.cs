@@ -158,12 +158,14 @@ namespace RubiksCube_2x2
                 //if (sender == this.panelBack_NotInUse) // Added 1/29/2021 thomas downes
                 //whichPiece = mod_cubeBackside.WhichPieceHasMouseHover(currentLocation);
 
-                if (this.ThisCubeSide == null)
-                {
-                    MessageBox.Show("Not sure which cube side you are on.  Front, maybe??");
-                    return;
-                }
-                whichPiece = this.ThisCubeSide.WhichPieceHasMouseHover(currentLocation);
+                //if (this.ThisCubeSide_Deprecated == null)
+                //{
+                //    MessageBox.Show("Not sure which cube side you are on.  Front, maybe??");
+                //    return;
+                //}
+                //whichPiece = this.ThisCubeSide.WhichPieceHasMouseHover(currentLocation);
+                whichPiece = mod_cubeBackside.WhichPieceHasMouseHover(currentLocation);
+
             }
 
             //
@@ -253,8 +255,11 @@ namespace RubiksCube_2x2
             center_point_form_FRONT = new Point(this.Width / 3, 1 * this.Height / 3);
             center_point_form_BACK = new Point(this.Width * 2 / 3, 1 * this.Height / 3);
 
-            if (this.ThisCubeSide != null)
-            this.ThisCubeSide.Repaint(panel_sender, false);
+            //if (this.ThisCubeSide != null)
+            //this.ThisCubeSide.Repaint(panel_sender, false);
+
+            if (mod_cubeBackside != null)
+                mod_cubeBackside.Repaint(panel_sender, false);
 
             // Added 4/2/2021 thomas downes
             //labelOriginalFrontF.Visible = mod_cubeWholeBothSides.FrontSide.OriginalFront;
