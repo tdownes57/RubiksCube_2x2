@@ -31,6 +31,10 @@ namespace RubiksCube_2x2
         {
             this.panelBack = new System.Windows.Forms.Panel();
             this.labelHowToMoveAPiece = new System.Windows.Forms.Label();
+            this.labelPanelWidth = new System.Windows.Forms.Label();
+            this.labelPanelHeight = new System.Windows.Forms.Label();
+            this.labelCenterX = new System.Windows.Forms.Label();
+            this.labelCenterY = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // panelBack
@@ -40,7 +44,7 @@ namespace RubiksCube_2x2
             this.panelBack.BackColor = System.Drawing.Color.Gray;
             this.panelBack.Location = new System.Drawing.Point(0, 31);
             this.panelBack.Name = "panelBack";
-            this.panelBack.Size = new System.Drawing.Size(312, 272);
+            this.panelBack.Size = new System.Drawing.Size(312, 260);
             this.panelBack.TabIndex = 36;
             this.panelBack.Paint += new System.Windows.Forms.PaintEventHandler(this.panelAnySide_Paint);
             this.panelBack.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelAnySide_MouseClick);
@@ -60,10 +64,51 @@ namespace RubiksCube_2x2
             this.labelHowToMoveAPiece.Text = "You have selected a Rubik\'s piece.  Now drop it onto another piece.";
             this.labelHowToMoveAPiece.Visible = false;
             // 
+            // labelPanelWidth
+            // 
+            this.labelPanelWidth.AutoSize = true;
+            this.labelPanelWidth.Location = new System.Drawing.Point(319, 33);
+            this.labelPanelWidth.Name = "labelPanelWidth";
+            this.labelPanelWidth.Size = new System.Drawing.Size(46, 17);
+            this.labelPanelWidth.TabIndex = 38;
+            this.labelPanelWidth.Text = "label1";
+            this.labelPanelWidth.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // labelPanelHeight
+            // 
+            this.labelPanelHeight.AutoSize = true;
+            this.labelPanelHeight.Location = new System.Drawing.Point(318, 59);
+            this.labelPanelHeight.Name = "labelPanelHeight";
+            this.labelPanelHeight.Size = new System.Drawing.Size(46, 17);
+            this.labelPanelHeight.TabIndex = 39;
+            this.labelPanelHeight.Text = "label2";
+            // 
+            // labelCenterX
+            // 
+            this.labelCenterX.AutoSize = true;
+            this.labelCenterX.Location = new System.Drawing.Point(319, 85);
+            this.labelCenterX.Name = "labelCenterX";
+            this.labelCenterX.Size = new System.Drawing.Size(46, 17);
+            this.labelCenterX.TabIndex = 40;
+            this.labelCenterX.Text = "label3";
+            // 
+            // labelCenterY
+            // 
+            this.labelCenterY.AutoSize = true;
+            this.labelCenterY.Location = new System.Drawing.Point(319, 111);
+            this.labelCenterY.Name = "labelCenterY";
+            this.labelCenterY.Size = new System.Drawing.Size(46, 17);
+            this.labelCenterY.TabIndex = 41;
+            this.labelCenterY.Text = "label4";
+            // 
             // GodControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.labelCenterY);
+            this.Controls.Add(this.labelCenterX);
+            this.Controls.Add(this.labelPanelHeight);
+            this.Controls.Add(this.labelPanelWidth);
             this.Controls.Add(this.labelHowToMoveAPiece);
             this.Controls.Add(this.panelBack);
             this.Name = "GodControl";
@@ -81,5 +126,9 @@ namespace RubiksCube_2x2
 
         private System.Windows.Forms.Panel panelBack;
         private System.Windows.Forms.Label labelHowToMoveAPiece;
+        private System.Windows.Forms.Label labelPanelWidth;
+        private System.Windows.Forms.Label labelPanelHeight;
+        private System.Windows.Forms.Label labelCenterX;
+        private System.Windows.Forms.Label labelCenterY;
     }
 }

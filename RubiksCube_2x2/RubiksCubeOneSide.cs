@@ -56,6 +56,12 @@ namespace RubiksCube_2x2
 
         public abstract RubikPieceCorner GetPiece(FrontClockFace par_enum);
 
+        // Added 5/6/2021 td 
+        internal int Output_PanelWidth;
+        internal int Output_PanelHeight;
+        internal int Output_CenterX;
+        internal int Output_CenterY;
+
         public RubikPieceCorner GetPieceAtPosition(FrontClockFace par_enum)
         {
             //
@@ -338,15 +344,28 @@ namespace RubiksCube_2x2
             //var graphicsBack = par_panelBackside.CreateGraphics();
 
             // 1 of 2. Paint the front side. 
-            //Point pointCenter_Front = new Point(par_panelFront.Width / 2, par_panelFront.Height / 2);
-            //mod_frontside.PaintThisSide_Base(graphicsFront, pointCenter_Front);
+            //    Point pointCenter_Front = new Point(par_panelFront.Width / 2, par_panelFront.Height / 2);
+            //    mod_frontside.PaintThisSide_Base(graphicsFront, pointCenter_Front);
+            //
 
             // 2 of 2. Paint the back side. 
-            //Point pointCenter_Back = new Point(par_panelBackside.Width / 2, par_panelBackside.Height / 2);
-            //mod_backside.PaintThisSide_Base(graphicsBack, pointCenter_Back);
+            //    Point pointCenter_Back = new Point(par_panelBackside.Width / 2, par_panelBackside.Height / 2);
+            //    mod_backside.PaintThisSide_Base(graphicsBack, pointCenter_Back);
+            //
 
             var a_graphics = par_panel.CreateGraphics();
-            Point pointCenter = new Point(par_panel.Width / 2, par_panel.Height / 2);
+
+            int intCenterX = par_panel.Width / 2;
+            int intCenterY = par_panel.Height / 2;
+
+            // Let's try to fix a baffling bug which is pushing our graphic
+            //   down ( w/ greater Y than expected) and causing the graphic 
+            //   to be off-center (too far in the six 0'clock direction).
+            //   ----5/6/2021 td
+            if (intCenterY > intCenterX) intCenterY = intCenterX;
+
+            //Point pointCenter = new Point(par_panel.Width / 2, par_panel.Height / 2);
+            Point pointCenter = new Point(intCenterX, intCenterY);
 
             //----Jan. 31, 2021--this.PaintThisSide_Base(a_graphics, pointCenter);
 
@@ -354,6 +373,11 @@ namespace RubiksCube_2x2
             if (par_bIsASideView) this.PaintThisSide_Base(a_graphics, pointCenter, par_enumView_Optional);
             else this.PaintThisSide_Base(a_graphics, pointCenter);
 
+            // Added 5/6/2021  thomas downes
+            this.Output_PanelHeight = par_panel.Height;
+            this.Output_PanelWidth = par_panel.Width;
+            this.Output_CenterX = pointCenter.X;
+            this.Output_CenterY = pointCenter.Y; 
 
         }
 

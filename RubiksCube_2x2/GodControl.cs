@@ -61,6 +61,7 @@ namespace RubiksCube_2x2
             }
         }
 
+
         //-----internal Panel panelFront_NotInUse;
         //internal Panel panelBack;
 
@@ -164,7 +165,8 @@ namespace RubiksCube_2x2
                 //    return;
                 //}
                 //whichPiece = this.ThisCubeSide.WhichPieceHasMouseHover(currentLocation);
-                whichPiece = mod_cubeBackside.WhichPieceHasMouseHover(currentLocation);
+                if (mod_cubeBackside != null)
+                    whichPiece = mod_cubeBackside.WhichPieceHasMouseHover(currentLocation);
 
             }
 
@@ -265,6 +267,13 @@ namespace RubiksCube_2x2
             //labelOriginalFrontF.Visible = mod_cubeWholeBothSides.FrontSide.OriginalFront;
             //labelOriginalBackF.Visible = mod_cubeWholeBothSides.FrontSide.OriginalBack;
 
+            // Added 5/6/2021
+            labelPanelHeight.Text = "Panel Height = " + mod_cubeBackside.Output_PanelHeight.ToString();
+            labelPanelWidth.Text = "Panel Width = " + mod_cubeBackside.Output_PanelWidth.ToString();
+
+            labelCenterX.Text = "Center X = " + mod_cubeBackside.Output_CenterX.ToString();
+            labelCenterY.Text = "Center Y = " + mod_cubeBackside.Output_CenterY.ToString();
+
         }
 
         private void panelAnySide_MouseEnter(object sender, EventArgs e)
@@ -318,13 +327,13 @@ namespace RubiksCube_2x2
             //Front Side
             //  Check the Front Side for a clicked piece. 
             //
-            if (piece_clicked == null)
-            {
-                //if (sender == panelBack_NotInUse) // Added 1/29/2021 thomas downes
-                if (sender == panelBack) // Added 1/29/2021 thomas downes
-                        piece_clicked = mod_cubeBackside.WhichPieceIsClicked(e.X, e.Y);
-                if (piece_clicked != null) bClickedFrontside_NotInUse = true;
-            }
+            //if (piece_clicked == null)
+            //{
+            //    //if (sender == panelBack_NotInUse) // Added 1/29/2021 thomas downes
+            //    if (sender == panelBack) // Added 1/29/2021 thomas downes
+            //            piece_clicked = mod_cubeBackside.WhichPieceIsClicked(e.X, e.Y);
+            //    if (piece_clicked != null) bClickedFrontside_NotInUse = true;
+            //}
 
             // Sloan says, look here, there's a bug!!!
             // AccessibleDefaultActionDescription ----- 
@@ -334,8 +343,9 @@ namespace RubiksCube_2x2
             //
             if (piece_clicked == null)
             {
+                //if (sender == panelBack) // Added 1/29/2021 thomas downes
                 if (sender == panelBack) // Added 1/29/2021 thomas downes
-                    piece_clicked = mod_cubeBackside.WhichPieceIsClicked(e.X, e.Y);
+                        piece_clicked = mod_cubeBackside.WhichPieceIsClicked(e.X, e.Y);
                 if (piece_clicked != null) bClickedBackside = true;
             }
 
@@ -557,10 +567,9 @@ namespace RubiksCube_2x2
 
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
 
-
-
-
-
+        }
     }
 }

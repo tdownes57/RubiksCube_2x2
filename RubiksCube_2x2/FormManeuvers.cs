@@ -31,14 +31,20 @@ namespace RubiksCube_2x2
             //[[[[[--mod_cubeBothSides_After = new RubiksCubeBothSides();
             //---mod_cubeBothSides_Before = new RubiksCubeBothSides(EnumColorIsHardcoded.True);
             //---mod_cubeBothSides_After = new RubiksCubeBothSides(EnumColorIsHardcoded.True);
+            mod_cubeBothSides_FrontBefore_Static = new RubiksCubeBothSides(EnumColorIsHardcoded.True);
+            mod_cubeBothSides_BackBefore_Static = new RubiksCubeBothSides(EnumColorIsHardcoded.True);
             mod_cubeBothSides_FrontAfter = new RubiksCubeBothSides(EnumColorIsHardcoded.True);
             mod_cubeBothSides_BackAfter = new RubiksCubeBothSides(EnumColorIsHardcoded.True);
 
             // Before the Maneuver & Repurcussions. 
-            mod_cubeBothSides_FrontAfter.FrontSide.SetTemporaryTextMarkers_ClockPositions();
-            mod_cubeBothSides_FrontAfter.BackSide.SetTemporaryTextMarkers_ClockPositions();
+            mod_cubeBothSides_FrontBefore_Static.FrontSide.SetTemporaryTextMarkers_ClockPositions();
+            mod_cubeBothSides_FrontBefore_Static.BackSide.SetTemporaryTextMarkers_ClockPositions();
+            mod_cubeBothSides_BackBefore_Static.FrontSide.SetTemporaryTextMarkers_ClockPositions();
+            mod_cubeBothSides_BackBefore_Static.BackSide.SetTemporaryTextMarkers_ClockPositions();
 
             // After the Manuever & Repurcussions.  
+            mod_cubeBothSides_FrontAfter.FrontSide.SetTemporaryTextMarkers_ClockPositions();
+            mod_cubeBothSides_FrontAfter.BackSide.SetTemporaryTextMarkers_ClockPositions();
             mod_cubeBothSides_BackAfter.FrontSide.SetTemporaryTextMarkers_ClockPositions();
             mod_cubeBothSides_BackAfter.BackSide.SetTemporaryTextMarkers_ClockPositions();
 
@@ -58,6 +64,7 @@ namespace RubiksCube_2x2
             // Added 2/5/2021  
             //
             //------godControlFront.ThisCubeSide_Front = mod_cubeBothSides_After.FrontSide;
+            godControlFrontAfter.ThisCubeSide_Deprecated = mod_cubeBothSides_FrontAfter.BackSide;
             godControlBackAfter.ThisCubeSide_Deprecated = mod_cubeBothSides_BackAfter.BackSide;
 
             // Added 4/30/2021  

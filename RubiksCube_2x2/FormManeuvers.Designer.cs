@@ -80,13 +80,13 @@ namespace RubiksCube_2x2
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(993, 635);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(993, 721);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(430, 338);
+            this.label7.Location = new System.Drawing.Point(430, 381);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(225, 17);
             this.label7.TabIndex = 6;
@@ -95,7 +95,7 @@ namespace RubiksCube_2x2
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 338);
+            this.label6.Location = new System.Drawing.Point(3, 381);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(211, 17);
             this.label6.TabIndex = 6;
@@ -147,7 +147,7 @@ namespace RubiksCube_2x2
             this.panelFrontBefore.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFrontBefore.Location = new System.Drawing.Point(3, 65);
             this.panelFrontBefore.Name = "panelFrontBefore";
-            this.panelFrontBefore.Size = new System.Drawing.Size(421, 270);
+            this.panelFrontBefore.Size = new System.Drawing.Size(421, 313);
             this.panelFrontBefore.TabIndex = 5;
             this.panelFrontBefore.Paint += new System.Windows.Forms.PaintEventHandler(this.panelFrontBefore_Paint);
             this.panelFrontBefore.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelFrontBefore_MouseClick);
@@ -157,9 +157,9 @@ namespace RubiksCube_2x2
             // 
             this.panelBackBefore.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelBackBefore.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelBackBefore.Location = new System.Drawing.Point(3, 361);
+            this.panelBackBefore.Location = new System.Drawing.Point(3, 404);
             this.panelBackBefore.Name = "panelBackBefore";
-            this.panelBackBefore.Size = new System.Drawing.Size(421, 271);
+            this.panelBackBefore.Size = new System.Drawing.Size(421, 314);
             this.panelBackBefore.TabIndex = 7;
             this.panelBackBefore.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBackBefore_Paint);
             this.panelBackBefore.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelBackBefore_MouseDown);
@@ -168,9 +168,9 @@ namespace RubiksCube_2x2
             // 
             this.godControlBackAfter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.godControlBackAfter.Location = new System.Drawing.Point(430, 361);
+            this.godControlBackAfter.Location = new System.Drawing.Point(430, 404);
             this.godControlBackAfter.Name = "godControlBackAfter";
-            this.godControlBackAfter.Size = new System.Drawing.Size(335, 271);
+            this.godControlBackAfter.Size = new System.Drawing.Size(534, 314);
             this.godControlBackAfter.TabIndex = 8;
             // 
             // godControlFrontAfter
@@ -179,7 +179,7 @@ namespace RubiksCube_2x2
             | System.Windows.Forms.AnchorStyles.Left)));
             this.godControlFrontAfter.Location = new System.Drawing.Point(430, 65);
             this.godControlFrontAfter.Name = "godControlFrontAfter";
-            this.godControlFrontAfter.Size = new System.Drawing.Size(335, 270);
+            this.godControlFrontAfter.Size = new System.Drawing.Size(534, 313);
             this.godControlFrontAfter.TabIndex = 9;
             // 
             // label1
@@ -273,7 +273,7 @@ namespace RubiksCube_2x2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1694, 756);
+            this.ClientSize = new System.Drawing.Size(1694, 842);
             this.Controls.Add(this.panelBeforeZ);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dropdownManeuvers);
