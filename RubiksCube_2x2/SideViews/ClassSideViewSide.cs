@@ -103,7 +103,7 @@ namespace RubiksCube_2x2.SideViews
             throw new NotImplementedException();
         }
 
-        public override RubikPieceCorner GetPiece(FrontClockFace par_enum)
+        public override RubiksPieceCorner GetPiece(FrontClockFace par_enum)
         {
             //throw new NotImplementedException();
             //
@@ -117,7 +117,7 @@ namespace RubiksCube_2x2.SideViews
 
         }
 
-        public override void GodlikeSwitch(RubikPieceCorner par_dragged, RubikPieceCorner par_replaced)
+        public override void GodlikeSwitch(RubiksPieceCorner par_dragged, RubiksPieceCorner par_replaced)
         {
             throw new NotImplementedException();
         }
@@ -127,22 +127,22 @@ namespace RubiksCube_2x2.SideViews
             throw new NotImplementedException();
         }
 
-        public override bool PiecesAreAdjacent(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2)
+        public override bool PiecesAreAdjacent(RubiksPieceCorner par_piece1, RubiksPieceCorner par_piece2)
         {
             throw new NotImplementedException();
         }
 
-        public override bool PiecesAreAdjacent_Clockwise(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2)
+        public override bool PiecesAreAdjacent_Clockwise(RubiksPieceCorner par_piece1, RubiksPieceCorner par_piece2)
         {
             throw new NotImplementedException();
         }
 
-        public override bool PiecesAre_BottomSWSE(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2)
+        public override bool PiecesAre_BottomSWSE(RubiksPieceCorner par_piece1, RubiksPieceCorner par_piece2)
         {
             throw new NotImplementedException();
         }
 
-        public override bool PiecesBelongToThisSide(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2)
+        public override bool PiecesBelongToThisSide(RubiksPieceCorner par_piece1, RubiksPieceCorner par_piece2)
         {
             throw new NotImplementedException();
         }
@@ -162,12 +162,12 @@ namespace RubiksCube_2x2.SideViews
             throw new NotImplementedException();
         }
 
-        public override RubikPieceCorner WhichPieceHasMouseHover(Point par_point)
+        public override RubiksPieceCorner WhichPieceHasMouseHover(Point par_point)
         {
             throw new NotImplementedException();
         }
 
-        public override RubikPieceCorner WhichPieceIsClicked(Point par_point)
+        public override RubiksPieceCorner WhichPieceIsClicked(Point par_point)
         {
             throw new NotImplementedException();
         }

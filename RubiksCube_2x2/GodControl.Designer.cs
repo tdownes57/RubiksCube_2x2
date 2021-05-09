@@ -35,6 +35,9 @@ namespace RubiksCube_2x2
             this.labelPanelHeight = new System.Windows.Forms.Label();
             this.labelCenterX = new System.Windows.Forms.Label();
             this.labelCenterY = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelBack.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelBack
@@ -42,6 +45,7 @@ namespace RubiksCube_2x2
             this.panelBack.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panelBack.BackColor = System.Drawing.Color.Gray;
+            this.panelBack.Controls.Add(this.pictureBox1);
             this.panelBack.Location = new System.Drawing.Point(0, 31);
             this.panelBack.Name = "panelBack";
             this.panelBack.Size = new System.Drawing.Size(312, 260);
@@ -101,6 +105,14 @@ namespace RubiksCube_2x2
             this.labelCenterY.TabIndex = 41;
             this.labelCenterY.Text = "label4";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(106, 80);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(97, 94);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // GodControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -117,6 +129,8 @@ namespace RubiksCube_2x2
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.GodControl_Paint);
             this.MouseEnter += new System.EventHandler(this.GodControl_MouseEnter);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.GodControl_MouseMove);
+            this.panelBack.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,5 +144,6 @@ namespace RubiksCube_2x2
         private System.Windows.Forms.Label labelPanelHeight;
         private System.Windows.Forms.Label labelCenterX;
         private System.Windows.Forms.Label labelCenterY;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -34,8 +34,8 @@ namespace RubiksCube_2x2
         //Added 11/17/2020 thomas downes
         private Cursor _customCursorRing = null;
         private Cursor _customCursorPlus = null;
-        private RubikPieceCorner _rubiksPiece_Dragged = null;
-        private RubikPieceCorner _rubiksPiece_Replaced = null;
+        private RubiksPieceCorner _rubiksPiece_Dragged = null;
+        private RubiksPieceCorner _rubiksPiece_Replaced = null;
         private bool _godlike_behavior_OK;
 
         //Added 11/20/2020 thomas downes
@@ -824,7 +824,7 @@ namespace RubiksCube_2x2
             //
             Point currentLocation = new Point(e.X, e.Y);
 
-            RubikPieceCorner whichPiece = null;
+            RubiksPieceCorner whichPiece = null;
 
             //
             // Back Side 
@@ -909,7 +909,7 @@ namespace RubiksCube_2x2
             }
 
 
-            RubikPieceCorner piece_clicked = null;
+            RubiksPieceCorner piece_clicked = null;
 
             //Front Side
             //  Check the Front Side for a clicked piece. 
@@ -1093,7 +1093,7 @@ namespace RubiksCube_2x2
             //
             // Added 11/17/2020 thomas downes
             //
-            RubikPieceCorner piece_clicked = null; // = mod_RotateBackside.WhichPiece_SideFaceClicked(e_X, e_Y);
+            RubiksPieceCorner piece_clicked = null; // = mod_RotateBackside.WhichPiece_SideFaceClicked(e_X, e_Y);
 
             //Added 12/05/2020 thomas downes 
             //---if (null == piece_clicked)
@@ -1265,8 +1265,8 @@ namespace RubiksCube_2x2
             //
             //  Added 12/9/2020 thomas d.
             //
-            RubikPieceCorner beforePiece430;  // For testing only. 
-            RubikPieceCorner beforePiece1030;   // For testing only. 
+            RubiksPieceCorner beforePiece430;  // For testing only. 
+            RubiksPieceCorner beforePiece1030;   // For testing only. 
             FrontClockFace test_position430_Before;
             FrontClockFace test_position430_After;
             FrontClockFace test_position1030_Before;

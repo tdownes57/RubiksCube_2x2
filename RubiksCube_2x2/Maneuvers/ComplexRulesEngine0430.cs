@@ -11,7 +11,7 @@ namespace RubiksCube_2x2.Maneuvers  // RubiksCube_2x2.Back
         //
         // This static class implements moves by the Bottom-Right piece, in the 4:30 pm position. 
         //
-        public static RubikPieceCorner this_piece_startsAt_430;
+        public static RubiksPieceCorner this_piece_startsAt_430;
         public static ComplexPieceMove this_complex_move;
 
         public static void FrontFace_430_ReorientTo()   // (EnumAll12Faces par_enum)

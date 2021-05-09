@@ -342,7 +342,7 @@ namespace RubiksCube_2x2
         }
 
 
-        internal static bool AdjacentClockwise(RubikPieceCorner p_PieceFirst, RubikPieceCorner p_PieceNext)
+        internal static bool AdjacentClockwise(RubiksPieceCorner p_PieceFirst, RubiksPieceCorner p_PieceNext)
         {
             //
             // Added 12/1/2020 
@@ -386,7 +386,7 @@ namespace RubiksCube_2x2
 
         }
 
-        internal static void SwitchFrontAndBack_IfNeeded(RubikPieceCorner par_piece, bool p_bClockwise, bool p_bCounterclock)
+        internal static void SwitchFrontAndBack_IfNeeded(RubiksPieceCorner par_piece, bool p_bClockwise, bool p_bCounterclock)
         {
             //
             // Added 4/2/2021 thomas downes
@@ -416,7 +416,7 @@ namespace RubiksCube_2x2
         }
 
 
-        private static void SwitchFrontAndBack(RubikPieceCorner par_piece)
+        private static void SwitchFrontAndBack(RubiksPieceCorner par_piece)
         {
             //
             // Added 4/2/2021 thomas downes

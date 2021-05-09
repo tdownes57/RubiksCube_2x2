@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace RubiksCube_2x2.SideViews
 {
-    class RubikPieceSideView : RubikPieceCorner
+    class RubikPieceSideView : RubiksPieceCorner
     {
         //
         // Added 1/31/2021 thomas downes
         //
-        public RubikPieceCorner BasePiece;  //Added 2/1/2021 td 
+        public RubiksPieceCorner BasePiece;  //Added 2/1/2021 td 
 
         public override System.Drawing.Color FaceColor1of3 
         { get 
@@ -33,7 +33,7 @@ namespace RubiksCube_2x2.SideViews
             } 
         }
 
-        public RubikPieceSideView(RubikPieceCorner par_piece, EnumPrimaryView par_enum)
+        public RubikPieceSideView(RubiksPieceCorner par_piece, EnumPrimaryView par_enum)
         {
             //
             // Added 1/31/2021 thomas downes

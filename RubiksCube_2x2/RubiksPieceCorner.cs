@@ -8,7 +8,7 @@ using System.Drawing;  // Added 11/11/2020 thomas downes
 namespace RubiksCube_2x2
 {
     //abstract class RubikPieceCorner
-    abstract class RubikPieceCorner
+    abstract class RubiksPieceCorner
     {
         //public System.Drawing.Color Color1of3;
 
@@ -1501,7 +1501,7 @@ namespace RubiksCube_2x2
         }
 
 
-        public RubikPieceCorner NextPieceClockwise(Back.ClassBackside par_backSide)
+        public RubiksPieceCorner NextPieceClockwise(Back.ClassBackside par_backSide)
         {
             //
             // Added 12/3/2020 Thomas Downes 

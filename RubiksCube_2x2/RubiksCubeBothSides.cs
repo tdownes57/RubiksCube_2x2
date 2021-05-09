@@ -30,8 +30,8 @@ namespace RubiksCube_2x2
         {
             public RubiksCubeOneSide MainSide;
             //public BackOrFront OtherSide;
-            public RubikPieceCorner AdjacentPiece1;
-            public RubikPieceCorner AdjacentPiece2;
+            public RubiksPieceCorner AdjacentPiece1;
+            public RubiksPieceCorner AdjacentPiece2;
             public RubiksCubeOneSide OtherSide;
 
             public bool SomeWorkIsNeeded;
@@ -148,7 +148,7 @@ namespace RubiksCube_2x2
         }
 
 
-        public void OrientCube_Step1Rotate(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2,
+        public void OrientCube_Step1Rotate(RubiksPieceCorner par_piece1, RubiksPieceCorner par_piece2,
                                              bool par_bOrientPiecesToBottom, 
                                              RubiksCubeOneSide par_sideParentOfPieces,
                                              RubiksCubeOneSide par_sideOther)

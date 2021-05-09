@@ -177,8 +177,8 @@ namespace RubiksCube_2x2
                 //move3_from730 = Rules_AdjacentPairExchange.backside_move3_from730;
                 //move4_from1030 = Rules_AdjacentPairExchange.backside_move4_from1030;
 
-                RubikPieceCorner beforePiece430;  // For testing only. 
-                RubikPieceCorner beforePiece1030;   // For testing only. 
+                RubiksPieceCorner beforePiece430;  // For testing only. 
+                RubiksPieceCorner beforePiece1030;   // For testing only. 
                 FrontClockFace test_position430_Before;
                 FrontClockFace test_position430_After;
                 FrontClockFace test_position1030_Before;
@@ -276,10 +276,10 @@ namespace RubiksCube_2x2
                 //
                 // Implementing the movements described above, as follows: 
                 //
-                RubikPieceCorner piece_starting_at_130 = GetPieceAtPosition(FrontClockFace.one_thirty);
-                RubikPieceCorner piece_starting_at_430 = GetPieceAtPosition(FrontClockFace.four_thirty);
-                RubikPieceCorner piece_starting_at_730 = GetPieceAtPosition(FrontClockFace.seven_thirty);
-                RubikPieceCorner piece_starting_at_1030 = GetPieceAtPosition(FrontClockFace.ten_thirty);
+                RubiksPieceCorner piece_starting_at_130 = GetPieceAtPosition(FrontClockFace.one_thirty);
+                RubiksPieceCorner piece_starting_at_430 = GetPieceAtPosition(FrontClockFace.four_thirty);
+                RubiksPieceCorner piece_starting_at_730 = GetPieceAtPosition(FrontClockFace.seven_thirty);
+                RubiksPieceCorner piece_starting_at_1030 = GetPieceAtPosition(FrontClockFace.ten_thirty);
 
                 //piece_starting_at_130.ReorientPiece_Complex(move1.EndingPoint);
                 //piece_starting_at_430.ReorientPiece_Complex(move2.EndingPoint);
@@ -402,7 +402,7 @@ namespace RubiksCube_2x2
 
             }
 
-            private RubikPieceCorner GetPieceAtPosition(FrontClockFace par_enum)
+            private RubiksPieceCorner GetPieceAtPosition(FrontClockFace par_enum)
             {
                 //
                 // Added 11/14/2020 thomas downes   
@@ -459,7 +459,7 @@ namespace RubiksCube_2x2
 
             //Added 11/17/2020 thomas downes
             //
-            public override RubikPieceCorner WhichPieceIsClicked(Point par_point)
+            public override RubiksPieceCorner WhichPieceIsClicked(Point par_point)
             {
                 //
                 // Added 11/17/2020 thomas downes
@@ -470,7 +470,7 @@ namespace RubiksCube_2x2
 
             //Added 11/17/2020 thomas downes
             //
-            public RubikPieceCorner WhichPieceIsClicked(int par_pointX, int par_pointY)
+            public RubiksPieceCorner WhichPieceIsClicked(int par_pointX, int par_pointY)
             {
                 //
                 // Added 11/17/2020 thomas downes
@@ -481,7 +481,7 @@ namespace RubiksCube_2x2
 
             //Added 11/17/2020 thomas downes
             //
-            public override RubikPieceCorner WhichPieceHasMouseHover(Point par_point)
+            public override RubiksPieceCorner WhichPieceHasMouseHover(Point par_point)
             {
                 //
                 //Added 11/17/2020 thomas downes
@@ -492,13 +492,16 @@ namespace RubiksCube_2x2
                 if (_pieceBYR.FrontFaceWasClicked(par_point)) return _pieceBYR;
                 if (_pieceGRY.FrontFaceWasClicked(par_point)) return _pieceGRY;
                 if (_pieceGYO.FrontFaceWasClicked(par_point)) return _pieceGYO;
-                return null;
+                //return null;
+
+                //Let's check to see if perhaps a Side Face was clicked. ----5/6/2021 Thomas Downes
+                return WhichPiece_SideFaceClicked(par_point.X, par_point.Y);
 
             }
 
             //Added 11/17/2020 thomas downes
             //
-            public RubikPieceCorner WhichPiece_SideFaceClicked(int par_pointX, int par_pointY)
+            public RubiksPieceCorner WhichPiece_SideFaceClicked(int par_pointX, int par_pointY)
             {
                 //
                 // Added 11/17/2020 thomas downes
@@ -529,8 +532,8 @@ namespace RubiksCube_2x2
                 //       [ NW ] [ NE ]  
                 //       [ SW ] [ SE ]   
                 //
-                RubikPieceCorner pieceSW = this.GetPiece(FrontClockFace.seven_thirty);
-                RubikPieceCorner pieceSE = this.GetPiece(FrontClockFace.four_thirty);
+                RubiksPieceCorner pieceSW = this.GetPiece(FrontClockFace.seven_thirty);
+                RubiksPieceCorner pieceSE = this.GetPiece(FrontClockFace.four_thirty);
 
                 GodlikeSwitch(pieceSW, pieceSE);
 
@@ -538,7 +541,7 @@ namespace RubiksCube_2x2
 
 
 
-            public override void GodlikeSwitch(RubikPieceCorner par_dragged, RubikPieceCorner par_replaced)
+            public override void GodlikeSwitch(RubiksPieceCorner par_dragged, RubiksPieceCorner par_replaced)
             {
                 //
                 // Added 11/17/2020 thomas downes
@@ -822,10 +825,10 @@ namespace RubiksCube_2x2
                 //
                 string strOutput = "BOY, ";
 
-                RubikPieceCorner piece1 = _pieceBOY;
-                RubikPieceCorner piece2 = _pieceBOY.NextPieceClockwise(this);
-                RubikPieceCorner piece3 = piece2.NextPieceClockwise(this);
-                RubikPieceCorner piece4 = piece3.NextPieceClockwise(this);
+                RubiksPieceCorner piece1 = _pieceBOY;
+                RubiksPieceCorner piece2 = _pieceBOY.NextPieceClockwise(this);
+                RubiksPieceCorner piece3 = piece2.NextPieceClockwise(this);
+                RubiksPieceCorner piece4 = piece3.NextPieceClockwise(this);
 
                 strOutput += piece2.GetColorAbbreviationXYZ() + ", ";
                 strOutput += piece3.GetColorAbbreviationXYZ() + ", ";
@@ -836,7 +839,7 @@ namespace RubiksCube_2x2
             }
 
 
-            public bool AdjacentPieces(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2)
+            public bool AdjacentPieces(RubiksPieceCorner par_piece1, RubiksPieceCorner par_piece2)
             {
                 //
                 // Added 12/07/2020 thomas downes
@@ -867,7 +870,7 @@ namespace RubiksCube_2x2
             //}
 
 
-            public override bool PiecesAreAdjacent(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2)
+            public override bool PiecesAreAdjacent(RubiksPieceCorner par_piece1, RubiksPieceCorner par_piece2)
             {
                 //
                 // Added 12/07/2020 thomas downes
@@ -884,7 +887,7 @@ namespace RubiksCube_2x2
             }
 
 
-            public override bool PiecesAreAdjacent_Clockwise(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2)
+            public override bool PiecesAreAdjacent_Clockwise(RubiksPieceCorner par_piece1, RubiksPieceCorner par_piece2)
             {
                 //
                 // Added 12/07/2020 thomas downes
@@ -903,7 +906,7 @@ namespace RubiksCube_2x2
             }
 
 
-            public override bool PiecesAre_BottomSWSE(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2)
+            public override bool PiecesAre_BottomSWSE(RubiksPieceCorner par_piece1, RubiksPieceCorner par_piece2)
             {
                 //
                 // Added 12/8/2020 Thomas Downes 
@@ -933,7 +936,7 @@ namespace RubiksCube_2x2
             }
 
 
-            public override bool PiecesBelongToThisSide(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2)
+            public override bool PiecesBelongToThisSide(RubiksPieceCorner par_piece1, RubiksPieceCorner par_piece2)
             {
                 //
                 // Added 12/8/2020 Thomas Downes 
@@ -954,7 +957,7 @@ namespace RubiksCube_2x2
             }
 
 
-            public override RubikPieceCorner GetPiece(FrontClockFace par_enum)
+            public override RubiksPieceCorner GetPiece(FrontClockFace par_enum)
             {
                 //
                 // Added 12/9/2020 thomas d. 

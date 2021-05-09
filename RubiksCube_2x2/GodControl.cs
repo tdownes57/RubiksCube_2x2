@@ -68,8 +68,8 @@ namespace RubiksCube_2x2
         //Added 11/17/2020 thomas downes
         private Cursor _customCursorRing = null;
         private Cursor _customCursorPlus = null;
-        private RubikPieceCorner _rubiksPiece_Dragged = null;
-        private RubikPieceCorner _rubiksPiece_Replaced = null;
+        private RubiksPieceCorner _rubiksPiece_Dragged = null;
+        private RubiksPieceCorner _rubiksPiece_Replaced = null;
 
         //Added 4/30/2021 thomas downes
         private Point center_point_form_FRONT; // = new Point(this.Width / 2, this.Height / 2);
@@ -149,7 +149,7 @@ namespace RubiksCube_2x2
             //
             Point currentLocation = new Point(e.X, e.Y);
 
-            RubikPieceCorner whichPiece = null;
+            RubiksPieceCorner whichPiece = null;
 
             //
             // Back Side 
@@ -217,6 +217,7 @@ namespace RubiksCube_2x2
                         var ms_stream = new System.IO.MemoryStream(Properties.Resources.ring_cursor);  // (My.Resources.Cursor1)
                         _customCursorRing = new Cursor(ms_stream);
                     }
+
                     //this.Cursor = new Cursor(ms);
                     //this.Cursor = _customCursorRing;
                     ((Panel)sender).Cursor = _customCursorRing;
@@ -268,11 +269,14 @@ namespace RubiksCube_2x2
             //labelOriginalBackF.Visible = mod_cubeWholeBothSides.FrontSide.OriginalBack;
 
             // Added 5/6/2021
-            labelPanelHeight.Text = "Panel Height = " + mod_cubeBackside.Output_PanelHeight.ToString();
-            labelPanelWidth.Text = "Panel Width = " + mod_cubeBackside.Output_PanelWidth.ToString();
+            if (mod_cubeBackside != null)
+            {
+                labelPanelHeight.Text = "Panel Height = " + mod_cubeBackside.Output_PanelHeight.ToString();
+                labelPanelWidth.Text = "Panel Width = " + mod_cubeBackside.Output_PanelWidth.ToString();
 
-            labelCenterX.Text = "Center X = " + mod_cubeBackside.Output_CenterX.ToString();
-            labelCenterY.Text = "Center Y = " + mod_cubeBackside.Output_CenterY.ToString();
+                labelCenterX.Text = "Center X = " + mod_cubeBackside.Output_CenterX.ToString();
+                labelCenterY.Text = "Center Y = " + mod_cubeBackside.Output_CenterY.ToString();
+            }
 
         }
 
@@ -322,7 +326,7 @@ namespace RubiksCube_2x2
             }
 
 
-            RubikPieceCorner piece_clicked = null;
+            RubiksPieceCorner piece_clicked = null;
 
             //Front Side
             //  Check the Front Side for a clicked piece. 
@@ -512,7 +516,7 @@ namespace RubiksCube_2x2
             //
             // Added 11/17/2020 thomas downes
             //
-            RubikPieceCorner piece_clicked = null; // = mod_RotateBackside.WhichPiece_SideFaceClicked(e_X, e_Y);
+            RubiksPieceCorner piece_clicked = null; // = mod_RotateBackside.WhichPiece_SideFaceClicked(e_X, e_Y);
 
             //Added 12/05/2020 thomas downes 
             //---if (null == piece_clicked)

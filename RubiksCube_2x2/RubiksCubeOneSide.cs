@@ -19,10 +19,10 @@ namespace RubiksCube_2x2
         public abstract void Simple_Counterwise90();
 
         // Added 1/11/2021 thomas downes
-        public RubikPieceCorner Piece1;
-        public RubikPieceCorner Piece2;
-        public RubikPieceCorner Piece3;
-        public RubikPieceCorner Piece4;
+        public RubiksPieceCorner Piece1;
+        public RubiksPieceCorner Piece2;
+        public RubiksPieceCorner Piece3;
+        public RubiksPieceCorner Piece4;
 
         // Added 4/2/2021 thomas downes 
         public bool OriginalFront;
@@ -39,22 +39,24 @@ namespace RubiksCube_2x2
         //
         //Added 11/17/2020 thomas downes
         //
-        public abstract RubikPieceCorner WhichPieceIsClicked(Point par_point);
-        public abstract RubikPieceCorner WhichPieceHasMouseHover(Point par_point);
+        public abstract RubiksPieceCorner WhichPieceIsClicked(Point par_point);
+        public abstract RubiksPieceCorner WhichPieceHasMouseHover(Point par_point);
 
         //
         //Added 12/08/2020 thomas downes
         //
-        public abstract bool PiecesAreAdjacent(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2);
-        public abstract bool PiecesAre_BottomSWSE(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2);
-        public abstract bool PiecesAreAdjacent_Clockwise(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2);
-        public abstract bool PiecesBelongToThisSide(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2);
+        public abstract bool PiecesAreAdjacent(RubiksPieceCorner par_piece1, RubiksPieceCorner par_piece2);
+        public abstract bool PiecesAre_BottomSWSE(RubiksPieceCorner par_piece1, RubiksPieceCorner par_piece2);
+        public abstract bool PiecesAreAdjacent_Clockwise(RubiksPieceCorner par_piece1, RubiksPieceCorner par_piece2);
+        public abstract bool PiecesBelongToThisSide(RubiksPieceCorner par_piece1, RubiksPieceCorner par_piece2);
 
         //Added 12/9/2020 thomas downes 
-        public abstract void GodlikeSwitch(RubikPieceCorner par_dragged, RubikPieceCorner par_replaced);
+        public abstract void GodlikeSwitch(RubiksPieceCorner par_dragged, RubiksPieceCorner par_replaced);
 
+        // Added 5/8/2021 Thomas Downes  
+        public abstract void GodlikeSwitch(RubiksFaceTile par_dragged, RubiksFaceTile par_replaced);
 
-        public abstract RubikPieceCorner GetPiece(FrontClockFace par_enum);
+        public abstract RubiksPieceCorner GetPiece(FrontClockFace par_enum);
 
         // Added 5/6/2021 td 
         internal int Output_PanelWidth;
@@ -62,7 +64,7 @@ namespace RubiksCube_2x2
         internal int Output_CenterX;
         internal int Output_CenterY;
 
-        public RubikPieceCorner GetPieceAtPosition(FrontClockFace par_enum)
+        public RubiksPieceCorner GetPieceAtPosition(FrontClockFace par_enum)
         {
             //
             // Added 1/16/2020 thomas downes   
@@ -76,7 +78,7 @@ namespace RubiksCube_2x2
         }
 
 
-        public bool PiecesAre_BottomSWSE_Base(RubikPieceCorner par_piece1, RubikPieceCorner par_piece2)
+        public bool PiecesAre_BottomSWSE_Base(RubiksPieceCorner par_piece1, RubiksPieceCorner par_piece2)
         {
             //throw new NotImplementedException();
             //bool bPiecesAreRecognized = PiecesBelongToThisSide(par_piece1, par_piece2);
@@ -99,7 +101,7 @@ namespace RubiksCube_2x2
         }
 
 
-        public void GodlikeSwitch_Base(RubikPieceCorner par_dragged, RubikPieceCorner par_replaced)
+        public void GodlikeSwitch_Base(RubiksPieceCorner par_dragged, RubiksPieceCorner par_replaced)
         {
             //
             // Added 11/17/2020 thomas downes
@@ -141,10 +143,10 @@ namespace RubiksCube_2x2
             //
             // Implementing the movements described above, as follows: 
             //
-            RubikPieceCorner piece_starting_at_130 = GetPiece(FrontClockFace.one_thirty);
-            RubikPieceCorner piece_starting_at_430 = GetPiece(FrontClockFace.four_thirty);
-            RubikPieceCorner piece_starting_at_730 = GetPiece(FrontClockFace.seven_thirty);
-            RubikPieceCorner piece_starting_at_1030 = GetPiece(FrontClockFace.ten_thirty);
+            RubiksPieceCorner piece_starting_at_130 = GetPiece(FrontClockFace.one_thirty);
+            RubiksPieceCorner piece_starting_at_430 = GetPiece(FrontClockFace.four_thirty);
+            RubiksPieceCorner piece_starting_at_730 = GetPiece(FrontClockFace.seven_thirty);
+            RubiksPieceCorner piece_starting_at_1030 = GetPiece(FrontClockFace.ten_thirty);
 
             //First, set the clock position of the piece.   
             //    ----11/18/2020 thomas downes
@@ -198,8 +200,8 @@ namespace RubiksCube_2x2
 
 
         public void PaintThisSide_Base(System.Drawing.Graphics par_graphics, Point par_pointCenter,
-                          RubikPieceCorner par_piece1, RubikPieceCorner par_piece2,
-                          RubikPieceCorner par_piece3, RubikPieceCorner par_piece4,
+                          RubiksPieceCorner par_piece1, RubiksPieceCorner par_piece2,
+                          RubiksPieceCorner par_piece3, RubiksPieceCorner par_piece4,
                           EnumPrimaryView par_enumView)
         {
             //

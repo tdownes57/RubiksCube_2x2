@@ -12,7 +12,7 @@ namespace RubiksCube_2x2
     //
     namespace Back
     {
-        class BlueOrangeYellow : RubikPieceCorner
+        class BlueOrangeYellow : RubiksPieceCorner
         {
             //
             // Colors must be expressed in partial-alphabetical order,
@@ -522,7 +522,7 @@ namespace RubiksCube_2x2
             }
 
 
-            public RubikPieceCorner NextPieceClockwise()
+            public RubiksPieceCorner NextPieceClockwise()
             {
                 //
                 // Added 12/3/2020 Thomas Downes 

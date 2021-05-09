@@ -164,9 +164,10 @@
     <Compile Include="JsonStaticClass_Save.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RubikPieceCorner.cs" />
+    <Compile Include="RubiksPieceCorner.cs" />
     <Compile Include="Back\ClassBacksideBrief.cs" />
     <Compile Include="RubiksCubeBothSides.cs" />
+    <Compile Include="RubiksFaceTile.cs" />
     <Compile Include="SideViews\ClassSideViewSide.cs" />
     <Compile Include="SideViews\ClassSideViewsCube.cs" />
     <Compile Include="SideViews\RubikPieceSideView.cs" />
@@ -214,6 +215,7 @@
     <Content Include="20201110_140918.jpg" />
     <None Include="Resources\manuever_1030.bmp" />
     <None Include="Cursors\custom-cursor-tcd .cur" />
+    <Content Include="ArrowToBottomRight.bmp" />
     <Content Include="Back\NotUsed_LoadPiece_BOY.txt" />
     <Content Include="Back\NotUsed_LoadPiece_BYR.txt" />
     <Content Include="Back\NotUsed_LoadPiece_GRY.txt" />
