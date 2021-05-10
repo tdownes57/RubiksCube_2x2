@@ -576,7 +576,17 @@ namespace RubiksCube_2x2
             }
 
 
-            public string Brief_BOY ()
+            public override void GodlikeSwitch(RubiksFaceTile par_dragged, RubiksFaceTile par_replaced)
+            {
+                //
+                // Added 5/9/2021 thomas downes
+                //
+                base.GodlikeSwitch_Base(par_dragged, par_replaced);
+
+            }
+
+
+                public string Brief_BOY ()
             {
                 //Added 11/19/2020 thomas downes
                 //

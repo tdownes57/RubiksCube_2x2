@@ -134,6 +134,21 @@ namespace RubiksCube_2x2
         }
 
 
+        public override void GodlikeSwitch_Base(RubiksFaceTile par_dragged, RubiksFaceTile par_replaced)
+        {
+            //
+            // Added 5/9/2021 thomas downes
+            //
+            //base.GodlikeSwitch_Base(par_dragged, par_replaced);
+
+
+
+
+
+        }
+
+
+
         public void ComplexRules_Perform(ComplexPieceMoves_Five par_rules)
         {
             //
