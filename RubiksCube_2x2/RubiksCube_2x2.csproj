@@ -118,6 +118,12 @@
     <Compile Include="FormManeuvers.Designer.cs">
       <DependentUpon>FormManeuvers.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPickMode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPickMode.Designer.cs">
+      <DependentUpon>FormPickMode.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTestingUserControl.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +182,9 @@
     <EmbeddedResource Include="FormManeuvers.resx">
       <DependentUpon>FormManeuvers.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormPickMode.resx">
+      <DependentUpon>FormPickMode.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSolvingTool.resx">
       <DependentUpon>FormSolvingTool.cs</DependentUpon>
     </EmbeddedResource>
@@ -213,6 +222,8 @@
     <Content Include="20201110_140906_1.jpg" />
     <Content Include="20201110_140914.jpg" />
     <Content Include="20201110_140918.jpg" />
+    <None Include="Resources\RubiksCube2x2_promo2.PNG" />
+    <None Include="Resources\RubiksCube2x2_promo.PNG" />
     <None Include="Resources\manuever_1030.bmp" />
     <None Include="Cursors\custom-cursor-tcd .cur" />
     <Content Include="ArrowToBottomRight.bmp" />

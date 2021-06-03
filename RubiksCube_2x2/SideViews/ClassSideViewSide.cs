@@ -117,7 +117,7 @@ namespace RubiksCube_2x2.SideViews
 
         }
 
-        public override void GodlikeSwitch(RubiksPieceCorner par_dragged, RubiksPieceCorner par_replaced)
+        public override void GodlikeSwitch_Piece(RubiksPieceCorner par_dragged, RubiksPieceCorner par_replaced)
         {
             throw new NotImplementedException();
         }
@@ -171,5 +171,17 @@ namespace RubiksCube_2x2.SideViews
         {
             throw new NotImplementedException();
         }
+
+        public override void GodlikeSwitch_Tile(RubiksFaceTile par_dragged, RubiksFaceTile par_replaced)
+        {
+            //
+            // Added 5/12/2021 thomas downes
+            //
+            //  www ww,w,,,,,w,w,w,w,,
+            throw new NotImplementedException();
+
+        }
+
+
     }
 }

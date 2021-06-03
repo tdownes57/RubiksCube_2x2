@@ -535,13 +535,23 @@ namespace RubiksCube_2x2
                 RubiksPieceCorner pieceSW = this.GetPiece(FrontClockFace.seven_thirty);
                 RubiksPieceCorner pieceSE = this.GetPiece(FrontClockFace.four_thirty);
 
-                GodlikeSwitch(pieceSW, pieceSE);
+                GodlikeSwitch_Piece(pieceSW, pieceSE);
 
             }
 
 
+            public override void GodlikeSwitch_Tile(RubiksFaceTile par_dragged, RubiksFaceTile par_replaced)
+            {
+                //
+                // Added 5/12/2021 thomas downes
+                //
+                //  www ww,w,,,,,w,w,w,w,,
+                throw new NotImplementedException();
 
-            public override void GodlikeSwitch(RubiksPieceCorner par_dragged, RubiksPieceCorner par_replaced)
+            }
+
+
+            public override void GodlikeSwitch_Piece(RubiksPieceCorner par_dragged, RubiksPieceCorner par_replaced)
             {
                 //
                 // Added 11/17/2020 thomas downes
@@ -576,14 +586,14 @@ namespace RubiksCube_2x2
             }
 
 
-            public override void GodlikeSwitch(RubiksFaceTile par_dragged, RubiksFaceTile par_replaced)
-            {
-                //
-                // Added 5/9/2021 thomas downes
-                //
-                base.GodlikeSwitch_Base(par_dragged, par_replaced);
+            //public override void GodlikeSwitch(RubiksFaceTile par_dragged, RubiksFaceTile par_replaced)
+            //{
+            //    //
+            //    // Added 5/9/2021 thomas downes
+            //    //
+            //    base.GodlikeSwitch_Base(par_dragged, par_replaced);
 
-            }
+            //}
 
 
                 public string Brief_BOY ()

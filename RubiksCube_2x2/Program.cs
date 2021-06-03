@@ -16,7 +16,8 @@ namespace RubiksCube_2x2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormSolvingTool());
+            //Application.Run(new FormSolvingTool());
+            Application.Run(new FormPickMode());
         }
     }
 }

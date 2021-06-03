@@ -30,12 +30,12 @@ namespace RubiksCube_2x2
         private void InitializeComponent()
         {
             this.panelBack = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelHowToMoveAPiece = new System.Windows.Forms.Label();
             this.labelPanelWidth = new System.Windows.Forms.Label();
             this.labelPanelHeight = new System.Windows.Forms.Label();
             this.labelCenterX = new System.Windows.Forms.Label();
             this.labelCenterY = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelBack.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -54,6 +54,15 @@ namespace RubiksCube_2x2
             this.panelBack.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelAnySide_MouseClick);
             this.panelBack.MouseEnter += new System.EventHandler(this.panelAnySide_MouseEnter);
             this.panelBack.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelAnySide_MouseMove);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Location = new System.Drawing.Point(106, 80);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(97, 94);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // labelHowToMoveAPiece
             // 
@@ -104,14 +113,6 @@ namespace RubiksCube_2x2
             this.labelCenterY.Size = new System.Drawing.Size(46, 17);
             this.labelCenterY.TabIndex = 41;
             this.labelCenterY.Text = "label4";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(106, 80);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(97, 94);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // GodControl
             // 

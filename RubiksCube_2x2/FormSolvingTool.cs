@@ -979,7 +979,7 @@ namespace RubiksCube_2x2
 
                         if (bClickedFrontside) cubeSide = mod_cubeFrontside;
                         if (bClickedBackside) cubeSide = mod_cubeBackside;
-                        cubeSide.GodlikeSwitch(_rubiksPiece_Dragged, _rubiksPiece_Replaced);
+                        cubeSide.GodlikeSwitch_Piece(_rubiksPiece_Dragged, _rubiksPiece_Replaced);
 
                         // Condition (& function call) added 12/06/2020 thomas downes
                         //if (bClickedFrontside) mod_cubeFrontside
