@@ -34,21 +34,87 @@ namespace RubiksCube_2x2
                 _pieceGOW = par_GOW;
                 _pieceGWR = par_GWR;
 
+                //// Added 1/11/2021 thomas Downes
+                //base.Piece1 = _pieceBRW;
+                //base.Piece2 = _pieceBWO;
+                //base.Piece3 = _pieceGOW;
+                //base.Piece4 = _pieceGWR;
+
+                //// Added 4/2/2021 thomas Downes
+                //base.Piece1.FrontOrBackOfCube = EnumFrontOrBack.Front;
+                //base.Piece2.FrontOrBackOfCube = EnumFrontOrBack.Front;
+                //base.Piece3.FrontOrBackOfCube = EnumFrontOrBack.Front;
+                //base.Piece4.FrontOrBackOfCube = EnumFrontOrBack.Front;
+
+                //// Added 4/3/2021 thomas downes
+                //base.OriginalBack = false;
+                //base.OriginalFront = true;
+
+                // Encapsulated 6/3/2021 thomas downes
+                //
+                CommonConstructorWork();
+
+            }
+
+
+            public ClassFrontside(string par_strDescriptionBrief)
+            {
+                //
+                // Added 6/3/2021 Thomas Downes  
+                //
+                //--ClassFrontside objBrief = ClassFrontsideBrief.Deserialize(par_strDescriptionBrief);
+
+                //
+                // Added 6/3/2021 & 12/13/2020 thomas downes  
+                //
+                // Example #1:
+                //
+                //     BOY/NE==F1:N_F2:E_F3:F  BYR/SE==F1:S_F2:E_F3:F  GRY/SW==F1:F_F2:W_F3:S  GYO/NW==F1:N_F2:F_F3:W
+                //
+                // Example #2:
+                //
+                //     BOY/SW==F1:S_F2:W_F3:F  BYR/NE==F1:N_F2:E_F3:F  GRY/SE==F1:F_F2:E_F3:S  GYO/NW==F1:N_F2:F_F3:W
+                //
+                //     (F = Front Face) 
+                //
+                char[] separators = new char[] { ' ' };
+                string[] parsedByFour = par_strDescriptionBrief.Split(separators, 4);
+
+                //--BlueRedWhite outputBRW = new BlueRedWhite(parsedByFour[0]);
+                //--BlueWhiteOrange outputBWO = new BlueWhiteOrange(parsedByFour[1]);
+                //--GreenOrangeWhite outputGOW = new GreenOrangeWhite(parsedByFour[2]);
+                //--GreenWhiteRed outputGWR = new GreenWhiteRed(parsedByFour[3]);
+
+                //----ClassFrontside outputFrontside = new ClassFrontside(outputBWO, outputBRW, outputGWR, outputGOW);
+                //----
+                //----return outputFrontside;
+
+                //---------------ClassFrontside(outputBWO, outputBRW, outputGWR, outputGOW);
+
+                _pieceBRW = new BlueRedWhite(parsedByFour[0]);
+                _pieceBWO = new BlueWhiteOrange(parsedByFour[1]);
+                _pieceGOW = new GreenOrangeWhite(parsedByFour[2]);
+                _pieceGWR = new GreenWhiteRed(parsedByFour[3]);
+
                 // Added 1/11/2021 thomas Downes
-                base.Piece1 = _pieceBRW;
-                base.Piece2 = _pieceBWO;
-                base.Piece3 = _pieceGOW;
-                base.Piece4 = _pieceGWR;
+                //base.Piece1 = _pieceBRW;
+                //base.Piece2 = _pieceBWO;
+                //base.Piece3 = _pieceGOW;
+                //base.Piece4 = _pieceGWR;
 
-                // Added 4/2/2021 thomas Downes
-                base.Piece1.FrontOrBackOfCube = EnumFrontOrBack.Front;
-                base.Piece2.FrontOrBackOfCube = EnumFrontOrBack.Front;
-                base.Piece3.FrontOrBackOfCube = EnumFrontOrBack.Front;
-                base.Piece4.FrontOrBackOfCube = EnumFrontOrBack.Front;
+                //// Added 4/2/2021 thomas Downes
+                //base.Piece1.FrontOrBackOfCube = EnumFrontOrBack.Front;
+                //base.Piece2.FrontOrBackOfCube = EnumFrontOrBack.Front;
+                //base.Piece3.FrontOrBackOfCube = EnumFrontOrBack.Front;
+                //base.Piece4.FrontOrBackOfCube = EnumFrontOrBack.Front;
 
-                // Added 4/3/2021 thomas downes
-                base.OriginalBack = false;
-                base.OriginalFront = true; 
+                //// Added 4/3/2021 thomas downes
+                //base.OriginalBack = false;
+                //base.OriginalFront = true;
+
+                // Encapsulated 6/3/2021 thomas downes
+                //
+                CommonConstructorWork();
 
             }
 
@@ -70,20 +136,24 @@ namespace RubiksCube_2x2
                 _pieceGWR = objFrontside._pieceGWR;
 
                 // Added 1/11/2021 thomas Downes
-                base.Piece1 = _pieceBRW;
-                base.Piece2 = _pieceBWO;
-                base.Piece3 = _pieceGOW;
-                base.Piece4 = _pieceGWR;
+                //base.Piece1 = _pieceBRW;
+                //base.Piece2 = _pieceBWO;
+                //base.Piece3 = _pieceGOW;
+                //base.Piece4 = _pieceGWR;
 
-                // Added 4/2/2021 thomas Downes
-                base.Piece1.FrontOrBackOfCube = EnumFrontOrBack.Front;
-                base.Piece2.FrontOrBackOfCube = EnumFrontOrBack.Front;
-                base.Piece3.FrontOrBackOfCube = EnumFrontOrBack.Front;
-                base.Piece4.FrontOrBackOfCube = EnumFrontOrBack.Front;
+                //// Added 4/2/2021 thomas Downes
+                //base.Piece1.FrontOrBackOfCube = EnumFrontOrBack.Front;
+                //base.Piece2.FrontOrBackOfCube = EnumFrontOrBack.Front;
+                //base.Piece3.FrontOrBackOfCube = EnumFrontOrBack.Front;
+                //base.Piece4.FrontOrBackOfCube = EnumFrontOrBack.Front;
 
-                // Added 4/3/2021 thomas downes
-                base.OriginalBack = false;
-                base.OriginalFront = true;
+                //// Added 4/3/2021 thomas downes
+                //base.OriginalBack = false;
+                //base.OriginalFront = true;
+
+                // Encapsulated 6/3/2021 thomas downes
+                //
+                CommonConstructorWork();
 
             }
 
@@ -99,12 +169,38 @@ namespace RubiksCube_2x2
                 _pieceGWR = new Front.GreenWhiteRed(); base.Piece4 = _pieceGWR;
 
                 // Added 4/02/2021 thomas Downes
+                //base.Piece1 = _pieceBRW;
+                //base.Piece2 = _pieceBWO;
+                //base.Piece3 = _pieceGOW;
+                //base.Piece4 = _pieceGWR;
+
+                //// Added 4/02/2021 thomas Downes
+                //base.Piece1.FrontOrBackOfCube = EnumFrontOrBack.Front;
+                //base.Piece2.FrontOrBackOfCube = EnumFrontOrBack.Front;
+                //base.Piece3.FrontOrBackOfCube = EnumFrontOrBack.Front;
+                //base.Piece4.FrontOrBackOfCube = EnumFrontOrBack.Front;
+
+                //// Added 4/3/2021 thomas downes
+                //base.OriginalBack = false;
+                //base.OriginalFront = true;
+
+                // Encapsulated 6/3/2021 thomas downes
+                //
+                CommonConstructorWork();
+
+            }
+
+            private void CommonConstructorWork()
+            {
+                // Encapsulated 6/3/2021 thomas downes
+                
+                // Added 1/11/2021 thomas Downes
                 base.Piece1 = _pieceBRW;
                 base.Piece2 = _pieceBWO;
                 base.Piece3 = _pieceGOW;
                 base.Piece4 = _pieceGWR;
 
-                // Added 4/02/2021 thomas Downes
+                // Added 4/2/2021 thomas Downes
                 base.Piece1.FrontOrBackOfCube = EnumFrontOrBack.Front;
                 base.Piece2.FrontOrBackOfCube = EnumFrontOrBack.Front;
                 base.Piece3.FrontOrBackOfCube = EnumFrontOrBack.Front;

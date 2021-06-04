@@ -53,7 +53,7 @@ namespace RubiksCube_2x2
             this.buttonCompleteIterations.Name = "buttonCompleteIterations";
             this.buttonCompleteIterations.Size = new System.Drawing.Size(260, 56);
             this.buttonCompleteIterations.TabIndex = 1;
-            this.buttonCompleteIterations.Text = "Map All Combinations";
+            this.buttonCompleteIterations.Text = "Map All Combinations (Graph Building)";
             this.buttonCompleteIterations.UseVisualStyleBackColor = true;
             // 
             // buttonVisualManual

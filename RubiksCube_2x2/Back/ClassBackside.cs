@@ -54,10 +54,42 @@ namespace RubiksCube_2x2
             }
 
 
+            public ClassBackside(string par_stringBriefToBeParsed)
+            {
+                //
+                // Added 11/20/2020 thomas downes  
+                //
+                // Example #1:
+                //
+                //     BOY/NE==F1:N_F2:E_F3:F  BYR/SE==F1:S_F2:E_F3:F  GRY/SW==F1:F_F2:W_F3:S  GYO/NW==F1:N_F2:F_F3:W
+                //
+                // Example #2:
+                //
+                //     BOY/SW==F1:S_F2:W_F3:F  BYR/NE==F1:N_F2:E_F3:F  GRY/SE==F1:F_F2:E_F3:S  GYO/NW==F1:N_F2:F_F3:W
+                //
+                //     (F = Front Face) 
+                //
+                char[] separators = new char[] { ' ' };
+                string[] parsedByFour = par_stringBriefToBeParsed.Split(separators, 4);
+
+                _pieceBOY = new BlueOrangeYellow(parsedByFour[0]);
+                _pieceBYR = new BlueYellowRed(parsedByFour[1]);
+                _pieceGRY = new GreenRedYellow(parsedByFour[2]);
+                _pieceGYO = new GreenYellowOrange(parsedByFour[3]);
+
+                //
+                // Encapsulated 6/3/2021
+                //
+                CommonConstructorWork();
+
+
+            }
+
+
             public ClassBackside(string par_briefDescription_BOY,
-              string par_briefDescription_BYR,
-              string par_briefDescription_GRY,
-              string par_briefDescription_GYO)
+                string par_briefDescription_BYR,
+                string par_briefDescription_GRY,
+                string par_briefDescription_GYO)
             {
                 //
                 // Added 12/20/2020 thomas downes
@@ -71,20 +103,26 @@ namespace RubiksCube_2x2
                 _pieceGYO = objBackside._pieceGYO;
 
                 // Added 1/11/2021 thomas Downes
-                base.Piece1 = _pieceBOY;
-                base.Piece2 = _pieceBYR;
-                base.Piece3 = _pieceGRY;
-                base.Piece4 = _pieceGYO;
+                //base.Piece1 = _pieceBOY;
+                //base.Piece2 = _pieceBYR;
+                //base.Piece3 = _pieceGRY;
+                //base.Piece4 = _pieceGYO;
 
-                // Added 4/02/2021 thomas Downes
-                base.Piece1.FrontOrBackOfCube = EnumFrontOrBack.Back;
-                base.Piece2.FrontOrBackOfCube = EnumFrontOrBack.Back;
-                base.Piece3.FrontOrBackOfCube = EnumFrontOrBack.Back;
-                base.Piece4.FrontOrBackOfCube = EnumFrontOrBack.Back;
+                //// Added 4/02/2021 thomas Downes
+                //base.Piece1.FrontOrBackOfCube = EnumFrontOrBack.Back;
+                //base.Piece2.FrontOrBackOfCube = EnumFrontOrBack.Back;
+                //base.Piece3.FrontOrBackOfCube = EnumFrontOrBack.Back;
+                //base.Piece4.FrontOrBackOfCube = EnumFrontOrBack.Back;
 
-                // Added 4/3/2021 thomas downes
-                base.OriginalBack = true;
-                base.OriginalFront = false;
+                //// Added 4/3/2021 thomas downes
+                //base.OriginalBack = true;
+                //base.OriginalFront = false;
+
+                //
+                // Encapsulated 6/3/2021 
+                //
+                CommonConstructorWork();
+
 
             }
 
@@ -100,6 +138,36 @@ namespace RubiksCube_2x2
                 _pieceGYO = new Back.GreenYellowOrange(); base.Piece4 = _pieceGYO;
 
                 // Added 1/11/2021 thomas Downes
+                //base.Piece1 = _pieceBOY;
+                //base.Piece2 = _pieceBYR;
+                //base.Piece3 = _pieceGRY;
+                //base.Piece4 = _pieceGYO;
+
+                //// Added 4/02/2021 thomas Downes
+                //base.Piece1.FrontOrBackOfCube = EnumFrontOrBack.Back;
+                //base.Piece2.FrontOrBackOfCube = EnumFrontOrBack.Back;
+                //base.Piece3.FrontOrBackOfCube = EnumFrontOrBack.Back;
+                //base.Piece4.FrontOrBackOfCube = EnumFrontOrBack.Back;
+
+                //// Added 4/3/2021 thomas downes
+                //base.OriginalBack = true;
+                //base.OriginalFront = false;
+
+                //
+                // Encapsulated 6/3/2021 
+                //
+                CommonConstructorWork();
+
+            }
+
+
+            private void CommonConstructorWork()
+            {
+                //
+                // Copied & encapsulated 6/3/2021 thomas downes
+                //
+
+                // Added 1/11/2021 thomas Downes
                 base.Piece1 = _pieceBOY;
                 base.Piece2 = _pieceBYR;
                 base.Piece3 = _pieceGRY;
@@ -116,6 +184,7 @@ namespace RubiksCube_2x2
                 base.OriginalFront = false;
 
             }
+
 
 
             public override void LoadInitialPositions()
@@ -680,6 +749,21 @@ namespace RubiksCube_2x2
 
             private bool _bPriorFunctionValue_NotInUse; //Deprecated,   Not in use. 1/9/21 Added 12/1/2020 td 
             private bool _bPriorFunctionValue_PiecesCorrectlyOrdered; //Added 1/09/2021 td 
+
+            public bool IsSolved()
+            {
+                //
+                // Added 6/3/2021 thomas downes  
+                //
+                //Added 12/1/2020 thomas
+                bool bPriorValue = false; //Added 12/1/2020 thomas
+                bool bCorrectlyOrdered = (this.PiecesAreCorrectlyOrdered(out bPriorValue));
+
+
+
+
+            }
+
 
             public bool PiecesAreCorrectlyOrdered(out bool par_priorOutput)
             {

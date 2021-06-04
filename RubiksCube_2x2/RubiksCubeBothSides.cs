@@ -109,6 +109,32 @@ namespace RubiksCube_2x2
         }
 
 
+        public RubiksCubeBothSides(string par_strBrief_Front, string par_strBrief_Back)
+        {
+            //
+            // Added 6/3/2021  
+            //
+
+            //mod_mainside_back = par_backside;
+            //mod_mainside_front = par_frontside;
+
+            mod_mainside_front = new Front.ClassFrontside(par_strBrief_Front);
+            mod_mainside_back = new Back.ClassBackside(par_strBrief_Back);
+
+            // Added 4/1/2021 thomas downes
+            //   Save a backup copy of the reference, in case a
+            //   Pivot-Perspective operation takes place.
+            //
+            //mod_mainside_back_original = par_backside;
+            //mod_mainside_front_original = par_frontside;
+            //mod_mainside_back_original = mod_mainside_back;
+            //mod_mainside_front_original = mod_mainside_front;
+            mod_mainside_back_original = (mod_mainside_back as Back.ClassBackside);
+            mod_mainside_front_original = (mod_mainside_front as Front.ClassFrontside);
+
+        }
+
+
         public void SwitchBottomPieces_Front()
         {
             //
