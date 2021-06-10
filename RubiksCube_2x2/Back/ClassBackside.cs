@@ -759,8 +759,21 @@ namespace RubiksCube_2x2
                 bool bPriorValue = false; //Added 12/1/2020 thomas
                 bool bCorrectlyOrdered = (this.PiecesAreCorrectlyOrdered(out bPriorValue));
 
+                //
+                // Added 6/10/2021 Thomas Downes
+                //
+                Color color_Piece1 = base.Piece1.GetColorOfFrontFace();
+                Color color_Piece2 = base.Piece2.GetColorOfFrontFace();
+                Color color_Piece3 = base.Piece3.GetColorOfFrontFace();
+                Color color_Piece4 = base.Piece4.GetColorOfFrontFace();
 
+                bool bAllFrontFaceColorsMatch =
+                    (color_Piece1 == color_Piece2) &&
+                    (color_Piece2 == color_Piece3) &&
+                    (color_Piece3 == color_Piece4);
 
+                bool boolIsSolved = (bCorrectlyOrdered && bAllFrontFaceColorsMatch);
+                return boolIsSolved;
 
             }
 
@@ -773,7 +786,7 @@ namespace RubiksCube_2x2
                 bool priorOutput_BOY_BYR = false;
                 bool bPiecesInOrder_BOY_BYR = PiecesAreCorrectlyOrdered_BOY_BYR(out priorOutput_BOY_BYR);
 
-                bool priorOutput_BOY_GYO = false;
+                //bool priorOutput_BOY_GYO = false;
                 bool bPiecesInOrder_BOY_GYO = PiecesAreCorrectlyOrdered_BOY_GYO(); // out priorOutput_BOY_GYO);
 
                 //par_priorOutput = priorOutput_BOY_BYR;

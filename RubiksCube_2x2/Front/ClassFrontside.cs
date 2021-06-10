@@ -438,6 +438,37 @@ namespace RubiksCube_2x2
 
             }
 
+
+            public bool IsSolved()
+            {
+                //
+                // Added 6/10 and 6/3/2021 thomas downes  
+                //
+                //Added 12/1/2020 thomas
+                //bool bPriorValue = false; //Added 12/1/2020 thomas
+                //bool bCorrectlyOrdered = (this.PiecesAreCorrectlyOrdered(out bPriorValue));
+
+                ////
+                //// Added 6/10/2021 Thomas Downes
+                ////
+                //Color color_Piece1 = base.Piece1.GetColorOfFrontFace();
+                //Color color_Piece2 = base.Piece2.GetColorOfFrontFace();
+                //Color color_Piece3 = base.Piece3.GetColorOfFrontFace();
+                //Color color_Piece4 = base.Piece4.GetColorOfFrontFace();
+
+                //bool bAllFrontFaceColorsMatch =
+                //    (color_Piece1 == color_Piece2) &&
+                //    (color_Piece2 == color_Piece3) &&
+                //    (color_Piece3 == color_Piece4);
+
+                //bool boolIsSolved = (bCorrectlyOrdered && bAllFrontFaceColorsMatch);
+                //return boolIsSolved;
+
+                return base.IsSolved();
+
+            }
+
+
             public bool AdjacentPieces(RubiksPieceCorner par_piece1, RubiksPieceCorner par_piece2)
             {
                 //

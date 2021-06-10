@@ -253,7 +253,7 @@ namespace RubiksCube_2x2
                 //
                 // Added 1/31/2021 thomas downes
                 //
-                Exception a_exception; 
+                Exception a_exception;
 
                 par_piece1.PaintByGraphics(par_graphics, par_pointCenter, par_enumView, out a_exception);
                 par_piece2.PaintByGraphics(par_graphics, par_pointCenter, par_enumView, out a_exception);
@@ -312,10 +312,10 @@ namespace RubiksCube_2x2
             //Piece3.PaintByGraphics(par_graphics, par_pointCenter, par_view, out an_error);
             //Piece4.PaintByGraphics(par_graphics, par_pointCenter, par_view, out an_error);
 
-            Piece1.PaintByGraphics_IfVisible(par_graphics, par_pointCenter, par_view, out an_error);  
-            Piece2.PaintByGraphics_IfVisible(par_graphics, par_pointCenter, par_view, out an_error);  
-            Piece3.PaintByGraphics_IfVisible(par_graphics, par_pointCenter, par_view, out an_error);  
-            Piece4.PaintByGraphics_IfVisible(par_graphics, par_pointCenter, par_view, out an_error);  
+            Piece1.PaintByGraphics_IfVisible(par_graphics, par_pointCenter, par_view, out an_error);
+            Piece2.PaintByGraphics_IfVisible(par_graphics, par_pointCenter, par_view, out an_error);
+            Piece3.PaintByGraphics_IfVisible(par_graphics, par_pointCenter, par_view, out an_error);
+            Piece4.PaintByGraphics_IfVisible(par_graphics, par_pointCenter, par_view, out an_error);
 
         }
 
@@ -351,7 +351,7 @@ namespace RubiksCube_2x2
         }
 
 
-        public void Repaint(System.Windows.Forms.Panel par_panel, bool par_bIsASideView, 
+        public void Repaint(System.Windows.Forms.Panel par_panel, bool par_bIsASideView,
                             EnumPrimaryView par_enumView_Optional = EnumPrimaryView.Unassigned)
         {
             //
@@ -394,7 +394,56 @@ namespace RubiksCube_2x2
             this.Output_PanelHeight = par_panel.Height;
             this.Output_PanelWidth = par_panel.Width;
             this.Output_CenterX = pointCenter.X;
-            this.Output_CenterY = pointCenter.Y; 
+            this.Output_CenterY = pointCenter.Y;
+
+        }
+
+
+        public bool IsSolved()
+        {
+            //
+            // Added 6/10 and 6/3/2021 thomas downes  
+            //
+            //Added 12/1/2020 thomas
+            //bool bPriorValue = false; //Added 12/1/2020 thomas
+            //bool bCorrectlyOrdered = (this.PiecesAreCorrectlyOrdered(out bPriorValue));
+
+            //
+            // Added 6/10/2021 Thomas Downes
+            //
+            Color color_Piece1 = this.Piece1.GetColorOfFrontFace();
+            Color color_Piece2 = this.Piece2.GetColorOfFrontFace();
+            Color color_Piece3 = this.Piece3.GetColorOfFrontFace();
+            Color color_Piece4 = this.Piece4.GetColorOfFrontFace();
+
+            bool bAllFrontFaceColorsMatch =
+                (color_Piece1 == color_Piece2) &&
+                (color_Piece2 == color_Piece3) &&
+                (color_Piece3 == color_Piece4);
+
+            if (bAllFrontFaceColorsMatch)
+            {
+
+                RubiksPieceCorner piece_NE_one_thirty = this.GetPieceAtPosition(FrontClockFace.one_thirty);
+                RubiksPieceCorner piece_SE_four_thirty = this.GetPieceAtPosition(FrontClockFace.four_thirty);
+                RubiksPieceCorner piece_SW_seven_thirty = this.GetPieceAtPosition(FrontClockFace.seven_thirty);
+                RubiksPieceCorner piece_NW_ten_thirty = this.GetPieceAtPosition(FrontClockFace.ten_thirty);
+
+                bool boolColorsMatch_North = false;
+                bool boolColorsMatch__East = false;
+                bool boolColorsMatch_South = false;
+                bool boolColorsMatch__West = false;
+
+                Color colorNorth_NW = piece_NW_ten_thirty.GetColorOfSideFace_CounterClockwise();
+                Color colorNorth_NE = piece_NE_one_thirty.GetColorOfSideFace_ClockwiseFromFront();
+                boolColorsMatch_North = (colorNorth_NE == colorNorth_NW);
+
+
+
+                return (boolColorsMatch_North &&&&&&&&&&)
+
+            }
+            else return false;
 
         }
 
