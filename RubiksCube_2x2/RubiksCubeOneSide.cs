@@ -416,12 +416,12 @@ namespace RubiksCube_2x2
             Color color_Piece3 = this.Piece3.GetColorOfFrontFace();
             Color color_Piece4 = this.Piece4.GetColorOfFrontFace();
 
-            bool bAllFrontFaceColorsMatch =
+            bool boolColorsMatch_FrontFace =
                 (color_Piece1 == color_Piece2) &&
                 (color_Piece2 == color_Piece3) &&
                 (color_Piece3 == color_Piece4);
 
-            if (bAllFrontFaceColorsMatch)
+            if (boolColorsMatch_FrontFace)
             {
 
                 RubiksPieceCorner piece_NE_one_thirty = this.GetPieceAtPosition(FrontClockFace.one_thirty);
@@ -434,13 +434,40 @@ namespace RubiksCube_2x2
                 bool boolColorsMatch_South = false;
                 bool boolColorsMatch__West = false;
 
+                // North side NW = North-West;  NE = North-East      
                 Color colorNorth_NW = piece_NW_ten_thirty.GetColorOfSideFace_CounterClockwise();
                 Color colorNorth_NE = piece_NE_one_thirty.GetColorOfSideFace_ClockwiseFromFront();
                 boolColorsMatch_North = (colorNorth_NE == colorNorth_NW);
+                if (!boolColorsMatch_North) return false;
 
+                // East side EN = East-North; ES = East-South. 
+                Color colorEast__EN = piece_NE_one_thirty.GetColorOfSideFace_CounterClockwise();
+                Color colorEast__ES = piece_SE_four_thirty.GetColorOfSideFace_ClockwiseFromFront();
+                boolColorsMatch__East = (colorEast__EN == colorEast__ES);
+                if (!boolColorsMatch__East) return false;
 
+                // South side  
+                Color colorSouth_SE = piece_SE_four_thirty.GetColorOfSideFace_CounterClockwise();
+                Color colorSouth_SW = piece_SW_seven_thirty.GetColorOfSideFace_ClockwiseFromFront();
+                boolColorsMatch_South = (colorSouth_SE == colorSouth_SW);
+                if (!boolColorsMatch_South) return false;
 
-                return (boolColorsMatch_North &&&&&&&&&&)
+                // West side WS = West-South;  WN = West-North  
+                Color colorWest__WS = piece_SW_seven_thirty.GetColorOfSideFace_CounterClockwise();
+                Color colorWest__WN = piece_NW_ten_thirty.GetColorOfSideFace_ClockwiseFromFront();
+                boolColorsMatch__West = (colorWest__WN == colorWest__WS);
+                if (!boolColorsMatch__West) return false;
+
+                //
+                // Summarize.
+                //
+                bool boolColorsMatch_AllSides =
+                     (boolColorsMatch_North &&
+                      boolColorsMatch_South &&
+                      boolColorsMatch__East &&
+                      boolColorsMatch__West);
+
+                return boolColorsMatch_AllSides;
 
             }
             else return false;
