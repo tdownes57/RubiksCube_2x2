@@ -403,6 +403,10 @@ namespace RubiksCube_2x2
 
                         cubeSide.GodlikeSwitch_Piece(_rubiksPiece_Dragged, _rubiksPiece_Replaced);
 
+                        // Added 6/13/2021 thomas downes
+                        cubeSide.Remove_DrawWithEmphasis();
+                        _rubiksPiece_Dragged.DrawWithEmphasis_JustMoved = true;
+
                         // Condition (& function call) added 12/06/2020 thomas downes
                         //if (bClickedFrontside) mod_cubeFrontside
                         //    .GodlikeSwitch(_rubiksPiece_Dragged, _rubiksPiece_Replaced);

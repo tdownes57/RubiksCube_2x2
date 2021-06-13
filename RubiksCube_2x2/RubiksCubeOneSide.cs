@@ -475,5 +475,20 @@ namespace RubiksCube_2x2
         }
 
 
+        public void Remove_DrawWithEmphasis()
+        {
+            //
+            // Added 6/13/2021 thomas downes 
+            //
+            this.Piece1.DrawWithEmphasis_JustMoved = false;
+            this.Piece2.DrawWithEmphasis_JustMoved = false;
+            this.Piece3.DrawWithEmphasis_JustMoved = false;
+            this.Piece4.DrawWithEmphasis_JustMoved = false;
+
+
+
+        }
+
+
     }
 }

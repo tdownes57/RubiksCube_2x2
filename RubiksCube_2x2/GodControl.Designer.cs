@@ -36,7 +36,6 @@ namespace RubiksCube_2x2
             this.labelPanelHeight = new System.Windows.Forms.Label();
             this.labelCenterX = new System.Windows.Forms.Label();
             this.labelCenterY = new System.Windows.Forms.Label();
-            this.panelBack.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,7 +44,6 @@ namespace RubiksCube_2x2
             this.panelBack.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panelBack.BackColor = System.Drawing.Color.Gray;
-            this.panelBack.Controls.Add(this.pictureBox1);
             this.panelBack.Location = new System.Drawing.Point(0, 31);
             this.panelBack.Name = "panelBack";
             this.panelBack.Size = new System.Drawing.Size(312, 260);
@@ -58,7 +56,7 @@ namespace RubiksCube_2x2
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Location = new System.Drawing.Point(106, 80);
+            this.pictureBox1.Location = new System.Drawing.Point(322, 197);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(97, 94);
             this.pictureBox1.TabIndex = 0;
@@ -118,6 +116,7 @@ namespace RubiksCube_2x2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelCenterY);
             this.Controls.Add(this.labelCenterX);
             this.Controls.Add(this.labelPanelHeight);
@@ -130,7 +129,6 @@ namespace RubiksCube_2x2
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.GodControl_Paint);
             this.MouseEnter += new System.EventHandler(this.GodControl_MouseEnter);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.GodControl_MouseMove);
-            this.panelBack.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

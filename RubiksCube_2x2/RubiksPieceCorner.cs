@@ -82,6 +82,9 @@ namespace RubiksCube_2x2
         // Added 4/2/2021 thomas downes
         public EnumFrontOrBack FrontOrBackOfCube;
 
+        // Added 6/13/2021 thomas downes
+        public bool DrawWithEmphasis_JustMoved;
+
         //public FacePositionNSWE FaceColor1Position_NotInUse;
         //public FacePositionNSWE FaceColor2Position_NotInUse;
         //public FacePositionNSWE FaceColor3Position_NotInUse;
@@ -302,6 +305,16 @@ namespace RubiksCube_2x2
 
             if (bHasTemporaryTextMarker && p_boolDoPaintTheFront)
             {
+                //
+                // Added 6/13/2021 Thomas downes
+                //
+                if (this.DrawWithEmphasis_JustMoved)
+                {
+                    // Added 6/13/2021 Thomas Downes
+                    Brush a_brush = new SolidBrush(Color.LightCyan);
+                    par_graph.FillRectangle(a_brush, frontFace);
+                }
+
                 //
                 // Added 1/11/2021 
                 //
