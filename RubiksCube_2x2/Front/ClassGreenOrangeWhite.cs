@@ -49,7 +49,7 @@ namespace RubiksCube_2x2
             }
 
 
-            public GreenOrangeWhite()
+            public GreenOrangeWhite(RubiksCubeOneSide par_parent)
             {
                 //
                 //  Clock position:
@@ -89,6 +89,8 @@ namespace RubiksCube_2x2
 
                 LoadInitialState_NotInUse();
 
+                // Added 6/j14/2021 td
+                base.ParentSide = par_parent;
 
             }
 

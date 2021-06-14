@@ -64,6 +64,10 @@ namespace RubiksCube_2x2
         internal int Output_CenterX;
         internal int Output_CenterY;
 
+        //Added 6/14/2021 td
+        private Color mod_colorEmphasisFace = Color.LightCyan;
+
+
         public RubiksPieceCorner GetPieceAtPosition(FrontClockFace par_enum)
         {
             //
@@ -475,6 +479,44 @@ namespace RubiksCube_2x2
         }
 
 
+        public Color Color_DrawWithEmphasis_Next()
+        {
+            //
+            // Added 6/13/2021 thomas downes 
+            //
+            if (mod_colorEmphasisFace == Color.LightCyan)
+            {
+                mod_colorEmphasisFace = Color.LightYellow;
+                return mod_colorEmphasisFace;
+            }
+            else if (mod_colorEmphasisFace == Color.LightYellow)
+            {
+                mod_colorEmphasisFace = Color.LightCyan;
+                return mod_colorEmphasisFace;
+            }
+            else 
+            {
+                //
+                // Should not be used.  If you see Red, it's a logic error. 
+                //
+                mod_colorEmphasisFace = Color.Red;
+                return mod_colorEmphasisFace;
+            }
+
+        }
+
+
+        public Color Color_DrawWithEmphasis_Current()
+        {
+            //
+            // Added 6/13/2021 thomas downes 
+            //
+            return mod_colorEmphasisFace;
+
+        }
+
+
+
         public void Remove_DrawWithEmphasis()
         {
             //
@@ -485,6 +527,11 @@ namespace RubiksCube_2x2
             this.Piece3.DrawWithEmphasis_JustMoved = false;
             this.Piece4.DrawWithEmphasis_JustMoved = false;
 
+            // Added 6/13/2021 thomas downes 
+            this.Piece1.DrawWithEmphasis_JustClicked = false;
+            this.Piece2.DrawWithEmphasis_JustClicked = false;
+            this.Piece3.DrawWithEmphasis_JustClicked = false;
+            this.Piece4.DrawWithEmphasis_JustClicked = false;
 
 
         }

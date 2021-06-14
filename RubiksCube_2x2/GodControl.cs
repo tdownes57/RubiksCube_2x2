@@ -350,7 +350,17 @@ namespace RubiksCube_2x2
                 //if (sender == panelBack) // Added 1/29/2021 thomas downes
                 if (sender == panelBack) // Added 1/29/2021 thomas downes
                         piece_clicked = mod_cubeBackside.WhichPieceIsClicked(e.X, e.Y);
-                if (piece_clicked != null) bClickedBackside = true;
+
+                if (piece_clicked != null)
+                {
+                    bClickedBackside = true;
+
+                    // Added 6/13/2021 thomas downes
+                    mod_cubeBackside.Remove_DrawWithEmphasis();
+                    piece_clicked.DrawWithEmphasis_JustClicked = true;
+                    panelBack.Refresh();  // Added 3/31/2021 td
+
+                }
             }
 
             if (piece_clicked == null)
@@ -503,6 +513,11 @@ namespace RubiksCube_2x2
                         labelHowToMoveAPiece.Visible = true;
                         labelHowToMoveAPiece.ForeColor = Color.Black;  // Added 1/29/2021 td 
                         labelHowToMoveAPiece.Text = labelHowToMoveAPiece.Tag.ToString();  //Added 1/29/2021
+
+                        // Added 6/13/2021 thomas downes
+                        //mod_cubeBackside.Remove_DrawWithEmphasis();
+                        //_rubiksPiece_Dragged.DrawWithEmphasis_JustClicked = true;
+
                     }
                 }
 

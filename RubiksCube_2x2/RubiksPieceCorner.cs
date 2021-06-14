@@ -84,6 +84,11 @@ namespace RubiksCube_2x2
 
         // Added 6/13/2021 thomas downes
         public bool DrawWithEmphasis_JustMoved;
+        public bool DrawWithEmphasis_JustClicked;
+        public RubiksCubeOneSide ParentSide;  /// <summary>
+        /// This will help track the location of the corner piece, 
+        /// i.e. which side of the Rubiks Cube (Whole) does it belong to. 
+        /// </summary>
 
         //public FacePositionNSWE FaceColor1Position_NotInUse;
         //public FacePositionNSWE FaceColor2Position_NotInUse;
@@ -111,6 +116,18 @@ namespace RubiksCube_2x2
 
         //Added 12/4/2020 thomas downes
         public abstract string GetColorAbbreviationXYZ();
+
+        public RubiksPieceCorner(RubiksCubeOneSide par_parent)
+        {
+            //
+            // The constructor, requires a reference to the Parent side.
+            //   ----6/13/2021 tcd
+            //
+            this.ParentSide = par_parent;  
+
+        }
+
+
 
         public Color GetColorOfFrontFace()
         {
@@ -311,7 +328,15 @@ namespace RubiksCube_2x2
                 if (this.DrawWithEmphasis_JustMoved)
                 {
                     // Added 6/13/2021 Thomas Downes
-                    Brush a_brush = new SolidBrush(Color.LightCyan);
+                    //Brush a_brush = new SolidBrush(Color.LightCyan);
+                    Brush a_brush = new SolidBrush(this.ParentSide.Color_DrawWithEmphasis_Current());
+                    par_graph.FillRectangle(a_brush, frontFace);
+                }
+                if (this.DrawWithEmphasis_JustClicked)
+                {
+                    // Added 6/13/2021 Thomas Downes
+                    //Brush a_brush = new SolidBrush(Color.LightCyan);
+                    Brush a_brush = new SolidBrush(this.ParentSide.Color_DrawWithEmphasis_Next());
                     par_graph.FillRectangle(a_brush, frontFace);
                 }
 
