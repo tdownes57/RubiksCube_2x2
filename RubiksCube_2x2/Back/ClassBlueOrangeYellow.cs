@@ -54,7 +54,7 @@ namespace RubiksCube_2x2
             }
 
 
-            public BlueOrangeYellow(RubiksCubeOneSide par_parent)
+            public BlueOrangeYellow(RubiksCubeOneSide par_sideParent = null) : base(par_sideParent)
             {
                 //
                 // Colors must be expressed in partial-alphabetical order,
@@ -88,11 +88,14 @@ namespace RubiksCube_2x2
                 if (EnumStaticClass.PiecesLoadTheirInitialState) LoadInitialState_NotInUse();
 
                 // Added 6/14/2021 td
-                base.ParentSide = par_parent; 
+                //----base.ParentSide = par_sideParent; 
 
             }
 
 
+            //public BlueOrangeYellow(string par_strBriefDescription) //, ClassBackside par_parentSide)
+            //public BlueOrangeYellow(RubiksCubeOneSide par_sideParent, string par_strBriefDescription)
+            //           : base(par_sideParent)  //, ClassBackside par_parentSide)
             public BlueOrangeYellow(string par_strBriefDescription) //, ClassBackside par_parentSide)
             {
                 //---public BlueOrangeYellow(string par_strBriefDescription

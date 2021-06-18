@@ -816,6 +816,33 @@ namespace RubiksCube_2x2
         }
 
 
+        public void SpecifyParentSideToAllPieces()
+        {
+            //
+            // Added 6/14/2021 thomas downes 
+            //
+            mod_mainside_back.SpecifyParentSideToAllPieces();
+            mod_mainside_front.SpecifyParentSideToAllPieces();
+
+        }
+
+        public void Load_GodControlColors()
+        {
+            //
+            // Added 6/18/2021 thomas downes 
+            //
+            //  This will serve to emphasis/highlight the front faces of the
+            //    pieces which are recently selected or moved. 
+            //
+            mod_mainside_back.Load_GodControlColors();
+            mod_mainside_front.Load_GodControlColors();
+
+        }
+
+
+
+
+
     }
 
 }

@@ -71,6 +71,17 @@ namespace RubiksCube_2x2
             godControlFrontAfter.ThisCubeEntire = mod_cubeBothSides_FrontAfter;
             godControlBackAfter.ThisCubeEntire = mod_cubeBothSides_BackAfter;
 
+            // Added 6/14/2021  
+            mod_cubeBothSides_FrontAfter.SpecifyParentSideToAllPieces();
+            mod_cubeBothSides_BackAfter.SpecifyParentSideToAllPieces();
+
+            // Added 6/18/2021  
+            //  This will serve to emphasis/highlight the front faces of the
+            //    pieces which are recently selected or moved. 
+            //
+            mod_cubeBothSides_FrontAfter.Load_GodControlColors();
+            mod_cubeBothSides_BackAfter.Load_GodControlColors();
+
         }
 
         private void panelFrontAfter_Paint(object sender, PaintEventArgs e)

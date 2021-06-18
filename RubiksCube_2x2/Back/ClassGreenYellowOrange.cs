@@ -40,7 +40,8 @@ namespace RubiksCube_2x2
             public override System.Drawing.Color FaceColor2of3 { get { return Color.Yellow; } }
             public override System.Drawing.Color FaceColor3of3 { get { return Color.Orange; } }
 
-            public GreenYellowOrange()
+            //public GreenYellowOrange()
+            public GreenYellowOrange(RubiksCubeOneSide par_side_Parent = null) : base(par_side_Parent)
             {
                 //
                 // Colors must be expressed in partial-alphabetical order,

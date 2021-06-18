@@ -72,6 +72,11 @@ namespace RubiksCube_2x2
                 char[] separators = new char[] { ' ' };
                 string[] parsedByFour = par_stringBriefToBeParsed.Split(separators, 4);
 
+                // _pieceBOY = new BlueOrangeYellow(this, parsedByFour[0]);
+                // _pieceBYR = new BlueYellowRed(this, parsedByFour[1]);
+                // _pieceGRY = new GreenRedYellow(this, parsedByFour[2]);
+                // _pieceGYO = new GreenYellowOrange(this, parsedByFour[3]);
+
                 _pieceBOY = new BlueOrangeYellow(parsedByFour[0]);
                 _pieceBYR = new BlueYellowRed(parsedByFour[1]);
                 _pieceGRY = new GreenRedYellow(parsedByFour[2]);
@@ -132,6 +137,16 @@ namespace RubiksCube_2x2
                 //
                 // Added 1/13/2021 thomas downes  
                 //
+                //_pieceBOY = new Back.BlueOrangeYellow(); base.Piece1 = _pieceBOY;
+                //_pieceBYR = new Back.BlueYellowRed(); base.Piece2 = _pieceBYR;
+                //_pieceGRY = new Back.GreenRedYellow(); base.Piece3 = _pieceGRY;
+                //_pieceGYO = new Back.GreenYellowOrange(); base.Piece4 = _pieceGYO;
+
+                //_pieceBOY = new Back.BlueOrangeYellow(this); base.Piece1 = _pieceBOY;
+                //_pieceBYR = new Back.BlueYellowRed(this); base.Piece2 = _pieceBYR;
+                //_pieceGRY = new Back.GreenRedYellow(this); base.Piece3 = _pieceGRY;
+                //_pieceGYO = new Back.GreenYellowOrange(this); base.Piece4 = _pieceGYO;
+
                 _pieceBOY = new Back.BlueOrangeYellow(); base.Piece1 = _pieceBOY;
                 _pieceBYR = new Back.BlueYellowRed(); base.Piece2 = _pieceBYR;
                 _pieceGRY = new Back.GreenRedYellow(); base.Piece3 = _pieceGRY;

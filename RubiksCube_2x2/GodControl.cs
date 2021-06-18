@@ -357,7 +357,7 @@ namespace RubiksCube_2x2
 
                     // Added 6/13/2021 thomas downes
                     mod_cubeBackside.Remove_DrawWithEmphasis();
-                    piece_clicked.DrawWithEmphasis_JustClicked = true;
+                    piece_clicked.GodControl_DrawWithEmphasis_JustClicked = true;
                     panelBack.Refresh();  // Added 3/31/2021 td
 
                 }
@@ -415,7 +415,7 @@ namespace RubiksCube_2x2
 
                         // Added 6/13/2021 thomas downes
                         cubeSide.Remove_DrawWithEmphasis();
-                        _rubiksPiece_Dragged.DrawWithEmphasis_JustMoved = true;
+                        _rubiksPiece_Dragged.GodControl_DrawWithEmphasis_JustMoved = true;
 
                         // Condition (& function call) added 12/06/2020 thomas downes
                         //if (bClickedFrontside) mod_cubeFrontside
@@ -472,7 +472,7 @@ namespace RubiksCube_2x2
                     this.Cursor = Cursors.Default;
                     //----this.Refresh();
                     panelBack.Refresh();  // Added 3/31/2021 td
-                    panelBack.Refresh();  // Added 3/31/2021 td
+                    //panelBack.Refresh();  // Added 3/31/2021 td
                     //panelSideLeft.Refresh();     // Added 3/31/2021 td
                     //panelSideRight.Refresh();    // Added 3/31/2021 td
 

@@ -49,8 +49,10 @@ namespace RubiksCube_2x2
             }
 
 
-            public GreenOrangeWhite(RubiksCubeOneSide par_parent)
+            public GreenOrangeWhite(RubiksCubeOneSide par_parent = null) : base(par_parent)
             {
+                //----public GreenOrangeWhite()
+                //----public GreenOrangeWhite(RubiksCubeOneSide par_parent)
                 //
                 //  Clock position:
                 //

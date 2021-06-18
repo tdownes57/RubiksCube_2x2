@@ -58,6 +58,16 @@ namespace RubiksCube_2x2.Back
             char[] separators = new char[] { ' ' };
             string[] parsedByFour = par_stringToBeParsed.Split(separators, 4);
 
+            // BlueOrangeYellow outputBOY = new BlueOrangeYellow(parsedByFour[0]);
+            // BlueYellowRed outputBYR = new BlueYellowRed(parsedByFour[1]);
+            // GreenRedYellow outputGRY = new GreenRedYellow(parsedByFour[2]);
+            // GreenYellowOrange outputGYO = new GreenYellowOrange(parsedByFour[3]);
+
+            //BlueOrangeYellow outputBOY = new BlueOrangeYellow(this, parsedByFour[0]);
+            //BlueYellowRed outputBYR = new BlueYellowRed(this, parsedByFour[1]);
+            //GreenRedYellow outputGRY = new GreenRedYellow(this, parsedByFour[2]);
+            //GreenYellowOrange outputGYO = new GreenYellowOrange(this, parsedByFour[3]);
+
             BlueOrangeYellow outputBOY = new BlueOrangeYellow(parsedByFour[0]);
             BlueYellowRed outputBYR = new BlueYellowRed(parsedByFour[1]);
             GreenRedYellow outputGRY = new GreenRedYellow(parsedByFour[2]);
