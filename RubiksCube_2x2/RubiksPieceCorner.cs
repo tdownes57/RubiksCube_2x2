@@ -1024,6 +1024,35 @@ namespace RubiksCube_2x2
         }
 
 
+        // Added 6/18/2021 td 
+        public RubiksFaceTile WhichTileWasClicked(Point par_point)
+        {
+            //
+            // Added 6/18/2021 Thomas Downes 
+            //
+            var new_tile = new RubiksFaceTile(this);
+            bool bFrontFace = FrontFaceWasClicked(par_point);
+
+            if (bFrontFace) new_tile.Enum_FacePositionNSWE = EnumFacePositionNSWE.FrontFacing;
+            if (bFrontFace) new_tile.Enum_CubeRotation = EnumCubeRotation_NorthPole.None_MainFace;  // No rotation. 
+            if (bFrontFace) return new_tile;
+
+            //EnumFacePositionNSWE enum_sideface = EnumFacePositionNSWE.NotSpecified;  
+            //bool bSideFace = SideFaceWasClicked(par_point, ref enum_sideface);
+            //if (bSideFace) new_tile.Enum_FacePositionNSWE = ref enum_sideface;
+            EnumCubeRotation_NorthPole enum_rotation = EnumCubeRotation_NorthPole.Unassigned;
+            bool bSideFace = SideFaceWasClicked(par_point, ref enum_rotation);
+            if (bSideFace) new_tile.Enum_CubeRotation = enum_rotation;
+            if (bSideFace) return new_tile;
+
+            //
+            // It's definitely possible, perhaps even probable, that nothing associated
+            //    with this RubiksPieceCorner was clicked.  Return the null pointer.
+            //
+            return null;
+
+        }
+
 
         //Added 11/17/2020 thomas downes
         //
@@ -1071,6 +1100,42 @@ namespace RubiksCube_2x2
                     if (par_point.Y < _rectangleSideFace_CCW.Y + _rectangleSideFace_CCW.Height)
                         if (par_point.Y > _rectangleSideFace_CCW.Y)
                             return true;
+
+            return false;
+
+        }
+
+
+        public bool SideFaceWasClicked(Point par_point, ref EnumCubeRotation_NorthPole par_enum)
+        {
+            //
+            //Added 11/17/2020 thomas downes 
+            //
+            //return null;
+
+            //
+            //Step 1 of 2:  Check Side Face #CW (Clockwise from front-face).  
+            //
+            if (par_point.X < _rectangleSideFace_CW.X + _rectangleSideFace_CW.Width)
+                if (par_point.X > _rectangleSideFace_CW.X)
+                    if (par_point.Y < _rectangleSideFace_CW.Y + _rectangleSideFace_CW.Height)
+                        if (par_point.Y > _rectangleSideFace_CW.Y) // return true; 
+                        {
+                            par_enum = EnumCubeRotation_NorthPole.Clockwise;
+                            return true;
+                        }
+
+            //
+            //Step 2 of 2:  Check Side Face #CCW (Counter-Clockwise from front-face).  
+            //
+            if (par_point.X < _rectangleSideFace_CCW.X + _rectangleSideFace_CCW.Width)
+                if (par_point.X > _rectangleSideFace_CCW.X)
+                    if (par_point.Y < _rectangleSideFace_CCW.Y + _rectangleSideFace_CCW.Height)
+                        if (par_point.Y > _rectangleSideFace_CCW.Y) //---return true;
+                            {
+                                par_enum = EnumCubeRotation_NorthPole.Counterclock;
+                                return true;
+                            }
 
             return false;
 

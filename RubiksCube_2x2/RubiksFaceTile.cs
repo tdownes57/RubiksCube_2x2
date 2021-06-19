@@ -17,5 +17,24 @@ namespace RubiksCube_2x2
         public EnumFaceNum Enum_FaceNum;
         public Color Enum_Color;
 
+        // Added 6/18/2021 thomas downes
+        public EnumFacePositionNSWE Enum_FacePositionNSWE;
+        public EnumCubeRotation_NorthPole Enum_CubeRotation;
+
+        // Added 6/18/2021 thomas downes
+        public RubiksFaceTile()
+        {
+            // Added 6/18/2021 thomas downes
+            //ThisCorner = par_corner;
+        }
+
+        // Added 6/18/2021 thomas downes
+        public RubiksFaceTile(RubiksPieceCorner par_corner)
+        {
+            // Added 6/18/2021 thomas downes
+            ThisCorner = par_corner;
+        }
+
+
     }
 }

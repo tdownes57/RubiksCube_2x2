@@ -327,6 +327,7 @@ namespace RubiksCube_2x2
 
 
             RubiksPieceCorner piece_clicked = null;
+            RubiksFaceTile faceTile_clicked = null;  // Added 6/18/2021 td 
 
             //Front Side
             //  Check the Front Side for a clicked piece. 
@@ -349,7 +350,9 @@ namespace RubiksCube_2x2
             {
                 //if (sender == panelBack) // Added 1/29/2021 thomas downes
                 if (sender == panelBack) // Added 1/29/2021 thomas downes
-                        piece_clicked = mod_cubeBackside.WhichPieceIsClicked(e.X, e.Y);
+                        //piece_clicked = mod_cubeBackside.WhichPieceIsClicked(e.X, e.Y);
+                        piece_clicked = mod_cubeBackside.WhichPieceIsClicked_FaceTile(e.X, e.Y, 
+                            ref faceTile_clicked);
 
                 if (piece_clicked != null)
                 {
@@ -416,6 +419,7 @@ namespace RubiksCube_2x2
                         // Added 6/13/2021 thomas downes
                         cubeSide.Remove_DrawWithEmphasis();
                         _rubiksPiece_Dragged.GodControl_DrawWithEmphasis_JustMoved = true;
+                        piece_clicked.GodControl_DrawWithEmphasis_JustClicked = true;  // Added 6/18/2021 td
 
                         // Condition (& function call) added 12/06/2020 thomas downes
                         //if (bClickedFrontside) mod_cubeFrontside

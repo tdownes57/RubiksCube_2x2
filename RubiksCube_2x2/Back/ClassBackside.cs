@@ -563,6 +563,56 @@ namespace RubiksCube_2x2
 
             }
 
+
+            //Added 6/18/2021 thomas downes
+            //
+            public RubiksPieceCorner WhichPieceIsClicked_FaceTile(int par_pointX, int par_pointY, ref RubiksFaceTile output_tile)
+            {
+                //
+                // Added 11/17/2020 thomas downes
+                //
+                //return WhichPieceHasMouseHover(new Point(par_pointX, par_pointY), ref par_tile);
+
+                var new_point_from_param = new Point(par_pointX, par_pointY);
+
+                const bool c_boolHardWay = false;
+
+                if (c_boolHardWay)
+                {
+                    //
+                    // -----Obselete code-----
+                    //
+                    // The following code is obselete. 
+                    //
+                    var new_tile = new RubiksFaceTile();
+                    new_tile.Enum_FacePositionNSWE = EnumFacePositionNSWE.FrontFacing;
+                    if (_pieceBOY.FrontFaceWasClicked(new_point_from_param)) new_tile.ThisCorner = _pieceBOY;
+                    if (_pieceBYR.FrontFaceWasClicked(new_point_from_param)) new_tile.ThisCorner = _pieceBYR; //new_tile.Enum_FaceNum = EnumFaceNum.Face1; }
+                    if (_pieceGRY.FrontFaceWasClicked(new_point_from_param)) new_tile.ThisCorner = _pieceGRY; //new_tile.Enum_FaceNum = EnumFaceNum.Face1; }
+                    if (_pieceGYO.FrontFaceWasClicked(new_point_from_param)) new_tile.ThisCorner = _pieceGYO; //new_tile.Enum_FaceNum = EnumFaceNum.Face1; }
+                    //return null
+                    output_tile = new_tile;  // Added 6/18/2021 td
+
+                    //Let's check to see if perhaps a Side Face was clicked. ----5/6/2021 Thomas Downes
+                    return WhichPiece_SideFaceClicked(new_point_from_param.X, new_point_from_param.Y);
+                }
+                else
+                {
+                    //
+                    // Smarter code. 
+                    //
+                    RubiksFaceTile new_tile = null;
+                    if (new_tile == null) new_tile = this.Piece1.WhichTileWasClicked(new_point_from_param);
+                    if (new_tile == null) new_tile = this.Piece2.WhichTileWasClicked(new_point_from_param);
+                    if (new_tile == null) new_tile = this.Piece3.WhichTileWasClicked(new_point_from_param);
+                    if (new_tile == null) new_tile = this.Piece4.WhichTileWasClicked(new_point_from_param);
+                    output_tile = new_tile;
+                    return new_tile.ThisCorner;
+                }
+
+            }
+
+
             //Added 11/17/2020 thomas downes
             //
             public override RubiksPieceCorner WhichPieceHasMouseHover(Point par_point)

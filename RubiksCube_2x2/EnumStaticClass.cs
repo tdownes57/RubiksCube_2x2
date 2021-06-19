@@ -35,7 +35,8 @@ namespace RubiksCube_2x2
 
     //Added 4/02/2021 thomas downes
     public enum EnumFrontOrBack { Unassigned, Front, Back };
-    public enum EnumCubeRotation_NorthPole { Unassigned, Clockwise, Counterclock };
+    //public enum EnumCubeRotation_NorthPole { Unassigned, Clockwise, Counterclock };
+    public enum EnumCubeRotation_NorthPole { Unassigned, Clockwise, Counterclock, None_MainFace };
 
 
     //Added 1/28/2021 thomas downes
@@ -61,7 +62,7 @@ namespace RubiksCube_2x2
     //   [.W.]  [ 7:30] [3:30]  [.E.]
     //           [.S.]   [.S.]
     //
-    public enum FacePositionNSWE { NotSpecified, FrontFacing, N_side_of_front, S_side_of_front, E_side_of_front, W_side_of_front };
+    public enum EnumFacePositionNSWE { NotSpecified, FrontFacing, N_side_of_front, S_side_of_front, E_side_of_front, W_side_of_front };
 
     public enum EnumFaceNum { NotSpecified, NotApplicable_DifferentPiece, Face1, Face2, Face3 };
 
