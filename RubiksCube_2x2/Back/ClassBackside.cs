@@ -564,6 +564,24 @@ namespace RubiksCube_2x2
             }
 
 
+            //Added 6/20/2021 thomas downes
+            //
+            public RubiksFaceTile WhichFaceTileIsClicked(int par_pointX, int par_pointY)
+            {
+                //
+                // Added 6/20/2020 thomas downes
+                //
+                var new_point_from_param = new Point(par_pointX, par_pointY);
+                RubiksFaceTile new_tile = null;
+                if (new_tile == null) new_tile = this.Piece1.WhichTileWasClicked(new_point_from_param);
+                if (new_tile == null) new_tile = this.Piece2.WhichTileWasClicked(new_point_from_param);
+                if (new_tile == null) new_tile = this.Piece3.WhichTileWasClicked(new_point_from_param);
+                if (new_tile == null) new_tile = this.Piece4.WhichTileWasClicked(new_point_from_param);
+                //output_tile = new_tile;
+                return new_tile;
+
+            }
+
             //Added 6/18/2021 thomas downes
             //
             public RubiksPieceCorner WhichPieceIsClicked_FaceTile(int par_pointX, int par_pointY, ref RubiksFaceTile output_tile)
