@@ -698,7 +698,35 @@ namespace RubiksCube_2x2
                 // Added 5/12/2021 thomas downes
                 //
                 //  www ww,w,,,,,w,w,w,w,,
-                throw new NotImplementedException();
+                //---throw new NotImplementedException();
+
+                //
+                // Added 6/22/2021 thomas downes 
+                //
+                EnumAll12Faces enum_12 = par_replaced.Enum_All12Faces;
+                EnumFacePositionNSWE enum_facepositionReplaced = par_replaced.Enum_FacePositionNSWE;
+                Color color_dragged = par_dragged.Enum_Color;
+                bool bSameCorner = (par_dragged.ThisCorner == par_replaced.ThisCorner);
+
+                if (!bSameCorner)
+                { 
+                    //Switch the corners.
+                    GodlikeSwitch_Piece(par_dragged.ThisCorner, par_replaced.ThisCorner);
+                }
+
+                bool bNeedToRotate = true; // Added 6/22/2021 thomas downes
+                //bNeedToRotate = (par_replaced.GetFacePositionOfColor(color_dragged) != enum_facepositionReplaced);
+
+                while (bNeedToRotate) {
+
+                    bNeedToRotate = (par_replaced.GetFacePositionOfColor(color_dragged) != enum_facepositionReplaced);
+                    if (bNeedToRotate) par_replaced.ThisCorner.RotateInPlace_PivotPiece120degrees();
+
+                } //while (bNeedToRotate);
+
+                //
+                // Completed.
+                //
 
             }
 
