@@ -123,16 +123,6 @@ namespace RubiksCube_2x2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap RubiksCube2x2_promo {
-            get {
-                object obj = ResourceManager.GetObject("RubiksCube2x2_promo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap RubiksCube2x2_promo2 {
             get {
                 object obj = ResourceManager.GetObject("RubiksCube2x2_promo2", resourceCulture);

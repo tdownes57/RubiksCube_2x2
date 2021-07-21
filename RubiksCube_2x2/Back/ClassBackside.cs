@@ -604,10 +604,10 @@ namespace RubiksCube_2x2
                     //
                     var new_tile = new RubiksFaceTile();
                     new_tile.Enum_FacePositionNSWE = EnumFacePositionNSWE.FrontFacing;
-                    if (_pieceBOY.FrontFaceWasClicked(new_point_from_param)) new_tile.ThisCorner = _pieceBOY;
-                    if (_pieceBYR.FrontFaceWasClicked(new_point_from_param)) new_tile.ThisCorner = _pieceBYR; //new_tile.Enum_FaceNum = EnumFaceNum.Face1; }
-                    if (_pieceGRY.FrontFaceWasClicked(new_point_from_param)) new_tile.ThisCorner = _pieceGRY; //new_tile.Enum_FaceNum = EnumFaceNum.Face1; }
-                    if (_pieceGYO.FrontFaceWasClicked(new_point_from_param)) new_tile.ThisCorner = _pieceGYO; //new_tile.Enum_FaceNum = EnumFaceNum.Face1; }
+                    if (_pieceBOY.FrontFaceWasClicked(new_point_from_param)) new_tile.Corner = _pieceBOY;
+                    if (_pieceBYR.FrontFaceWasClicked(new_point_from_param)) new_tile.Corner = _pieceBYR; //new_tile.Enum_FaceNum = EnumFaceNum.Face1; }
+                    if (_pieceGRY.FrontFaceWasClicked(new_point_from_param)) new_tile.Corner = _pieceGRY; //new_tile.Enum_FaceNum = EnumFaceNum.Face1; }
+                    if (_pieceGYO.FrontFaceWasClicked(new_point_from_param)) new_tile.Corner = _pieceGYO; //new_tile.Enum_FaceNum = EnumFaceNum.Face1; }
                     //return null
                     output_tile = new_tile;  // Added 6/18/2021 td
 
@@ -625,7 +625,7 @@ namespace RubiksCube_2x2
                     if (new_tile == null) new_tile = this.Piece3.WhichTileWasClicked(new_point_from_param);
                     if (new_tile == null) new_tile = this.Piece4.WhichTileWasClicked(new_point_from_param);
                     output_tile = new_tile;
-                    return new_tile.ThisCorner;
+                    return new_tile.Corner;
                 }
 
             }
@@ -706,12 +706,12 @@ namespace RubiksCube_2x2
                 EnumAll12Faces enum_12 = par_replaced.Enum_All12Faces;
                 EnumFacePositionNSWE enum_facepositionReplaced = par_replaced.Enum_FacePositionNSWE;
                 Color color_dragged = par_dragged.Enum_Color;
-                bool bSameCorner = (par_dragged.ThisCorner == par_replaced.ThisCorner);
+                bool bSameCorner = (par_dragged.Corner == par_replaced.Corner);
 
                 if (!bSameCorner)
                 { 
                     //Switch the corners.
-                    GodlikeSwitch_Piece(par_dragged.ThisCorner, par_replaced.ThisCorner);
+                    GodlikeSwitch_Piece(par_dragged.Corner, par_replaced.Corner);
                 }
 
                 bool bNeedToRotate = true; // Added 6/22/2021 thomas downes
@@ -719,8 +719,10 @@ namespace RubiksCube_2x2
 
                 while (bNeedToRotate) {
 
-                    bNeedToRotate = (par_replaced.GetFacePositionOfColor(color_dragged) != enum_facepositionReplaced);
-                    if (bNeedToRotate) par_replaced.ThisCorner.RotateInPlace_PivotPiece120degrees();
+                    //--bNeedToRotate = (par_replaced.GetFacePositionOfColor(color_dragged) != enum_facepositionReplaced);
+                    var enum_facepositionDragged = par_dragged.Corner.GetFacePositionOfColor(color_dragged);
+                    bNeedToRotate = false; // (enum_facepositionDragged != enum_facepositionReplaced);
+                    if (bNeedToRotate) par_replaced.Corner.RotateInPlace_PivotPiece120degrees();
 
                 } //while (bNeedToRotate);
 
@@ -1074,6 +1076,20 @@ namespace RubiksCube_2x2
                 //
                 bool bAdjacentClockwise_1_2 = EnumStaticClass.AdjacentClockwise(par_piece1, par_piece2);
                 bool bAdjacentClockwise_2_1 = EnumStaticClass.AdjacentClockwise(par_piece2, par_piece1);
+
+                bool bEitherWay = (bAdjacentClockwise_1_2 || bAdjacentClockwise_2_1);
+                return bEitherWay;
+
+            }
+
+
+            public bool AdjacentPieces(RubiksFaceTile par_tile1, RubiksFaceTile par_tile2)
+            {
+                //
+                // Added 6/29/2021 thomas downes
+                //
+                bool bAdjacentClockwise_1_2 = EnumStaticClass.AdjacentClockwise(par_tile1.Corner, par_tile2.Corner);
+                bool bAdjacentClockwise_2_1 = EnumStaticClass.AdjacentClockwise(par_tile2.Corner, par_tile1.Corner);
 
                 bool bEitherWay = (bAdjacentClockwise_1_2 || bAdjacentClockwise_2_1);
                 return bEitherWay;

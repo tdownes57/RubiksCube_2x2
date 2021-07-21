@@ -12,7 +12,7 @@ namespace RubiksCube_2x2
         //
         // Added 5/8/2021 Thomas Downes  
         //
-        public RubiksPieceCorner ThisCorner;
+        public RubiksPieceCorner Corner;
         public EnumAll12Faces Enum_All12Faces;
         public EnumFaceNum Enum_FaceNum;
         public Color Enum_Color;
@@ -32,7 +32,7 @@ namespace RubiksCube_2x2
         public RubiksFaceTile(RubiksPieceCorner par_corner)
         {
             // Added 6/18/2021 thomas downes
-            ThisCorner = par_corner;
+            Corner = par_corner;
         }
 
 

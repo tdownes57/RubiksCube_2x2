@@ -61,7 +61,7 @@ namespace RubiksCube_2x2
                     //    ref tile_clicked);
                     tile_clicked = mod_cubeBackside.WhichFaceTileIsClicked(e.X, e.Y);
 
-                piece_clicked = tile_clicked.ThisCorner;  
+                piece_clicked = tile_clicked.Corner;  
 
                 //----if (piece_clicked != null)
                 if (tile_clicked != null)
@@ -111,7 +111,7 @@ namespace RubiksCube_2x2
                     //
                     this.Cursor = Cursors.Default;
                     //_rubiksPiece_Replaced = piece_clicked;
-                    _rubiksTile_Replaced = piece_clicked;
+                    _rubiksTile_Replaced.Corner = piece_clicked;
 
                     // Added 11/17/2020 thomas downes
                     if (bAllowGodlikeOperations) // Conditioned 12/7/2020 td
@@ -128,11 +128,14 @@ namespace RubiksCube_2x2
                         //if (bClickedSide) cubeSide = this.ThisCubeSide;
                         if (bClickedBackside) cubeSide = mod_cubeBackside;
 
-                        cubeSide.GodlikeSwitch_Piece(_rubiksPiece_Dragged, _rubiksPiece_Replaced);
+                        //cubeSide.GodlikeSwitch_Piece(_rubiksPiece_Dragged, _rubiksPiece_Replaced);
+                        cubeSide.GodlikeSwitch_Piece(_rubiksTile_Dragged.Corner, 
+                                                     _rubiksTile_Replaced.Corner); 
 
                         // Added 6/13/2021 thomas downes
                         cubeSide.Remove_DrawWithEmphasis();
-                        _rubiksPiece_Dragged.GodControl_DrawWithEmphasis_JustMoved = true;
+                        //---_rubiksPiece_Dragged.GodControl_DrawWithEmphasis_JustMoved = true;
+                        _rubiksTile_Dragged.Corner.GodControl_DrawWithEmphasis_JustMoved = true;
                         piece_clicked.GodControl_DrawWithEmphasis_JustClicked = true;  // Added 6/18/2021 td
 
                         // Condition (& function call) added 12/06/2020 thomas downes
@@ -144,12 +147,22 @@ namespace RubiksCube_2x2
                         //
                         // Allow only adjacent pieces to be swapped. 
                         //
-                        bool bPiecesAreAdjacent_Front = (bClickedFrontside_NotInUse
-                            && mod_cubeFrontside_NotInUse.AdjacentPieces(_rubiksPiece_Dragged, _rubiksPiece_Replaced));
-                        bool bPiecesAreAdjacent_Back = (bClickedBackside
-                            && mod_cubeBackside.AdjacentPieces(_rubiksPiece_Dragged, _rubiksPiece_Replaced));
+                        //bool bPiecesAreAdjacent_Front = (bClickedFrontside_NotInUse
+                        //    && mod_cubeFrontside_NotInUse.AdjacentPieces(_rubiksPiece_Dragged, _rubiksPiece_Replaced));
+                        //bool bPiecesAreAdjacent_Back = (bClickedBackside
+                        //    && mod_cubeBackside.AdjacentPieces(_rubiksPiece_Dragged, _rubiksPiece_Replaced));
 
-                        bool bAdjacentPieces = (bPiecesAreAdjacent_Front || bPiecesAreAdjacent_Back);
+                        bool bPiecesAreAdjacent_Back = false; 
+
+                        bPiecesAreAdjacent_Back =
+                            mod_cubeBackside.AdjacentPieces(_rubiksTile_Dragged, _rubiksTile_Replaced);
+
+                        //Let's double-check that the user clicked on the "correct" side.
+                        //  ----6/29/2021 Thomas
+                        bPiecesAreAdjacent_Back = (bClickedBackside && bPiecesAreAdjacent_Back);
+
+                        //bool bAdjacentPieces = (bPiecesAreAdjacent_Front || bPiecesAreAdjacent_Back);
+                        bool bAdjacentPieces = (bPiecesAreAdjacent_Back);
 
                         if (bAdjacentPieces)
                         {
@@ -157,14 +170,24 @@ namespace RubiksCube_2x2
                             MessageBox.Show("Great, the pieces are adjacent.  Okay to effect the consequences to the other side?");
 
                             //Added 12/9/2020 thomas downes  
+                            //if (bClickedFrontside_NotInUse)
+                            //    mod_cubeWholeBothSides.OrientCube_Step1Rotate(_rubiksPiece_Dragged,
+                            //     _rubiksTile_Replaced, true,
+                            //     mod_cubeFrontside_NotInUse, mod_cubeBackside);
+                            //if (bClickedBackside)
+                            //    mod_cubeWholeBothSides.OrientCube_Step1Rotate(_rubiksPiece_Dragged,
+                            //     _rubiksPiece_Replaced, true,
+                            //     mod_cubeBackside, mod_cubeFrontside_NotInUse);
                             if (bClickedFrontside_NotInUse)
-                                mod_cubeWholeBothSides.OrientCube_Step1Rotate(_rubiksPiece_Dragged,
-                                 _rubiksPiece_Replaced, true,
-                                 mod_cubeFrontside_NotInUse, mod_cubeBackside);
+                                mod_cubeWholeBothSides.OrientCube_Step1Rotate(_rubiksTile_Dragged.Corner,
+                                                                              _rubiksTile_Replaced.Corner, true,
+                                                                             mod_cubeFrontside_NotInUse, 
+                                                                             mod_cubeBackside);
                             if (bClickedBackside)
-                                mod_cubeWholeBothSides.OrientCube_Step1Rotate(_rubiksPiece_Dragged,
-                                 _rubiksPiece_Replaced, true,
-                                 mod_cubeBackside, mod_cubeFrontside_NotInUse);
+                                mod_cubeWholeBothSides.OrientCube_Step1Rotate(_rubiksTile_Dragged.Corner,
+                                                                              _rubiksTile_Replaced.Corner, true,
+                                                                              mod_cubeBackside, 
+                                                                              mod_cubeFrontside_NotInUse);
 
                             mod_cubeWholeBothSides.SwitchBottomPieces_Front();
                             mod_cubeWholeBothSides.OrientCube_Step2Restore();
@@ -184,8 +207,13 @@ namespace RubiksCube_2x2
                     //
                     // Clean up time!!
                     //
-                    _rubiksPiece_Dragged = null;
-                    _rubiksPiece_Replaced = null;
+                    //_rubiksPiece_Dragged = null;
+                    //_rubiksPiece_Replaced = null;
+                    _rubiksTile_Dragged.Corner = null;
+                    _rubiksTile_Replaced.Corner = null;
+                    _rubiksTile_Dragged = null;
+                    _rubiksTile_Replaced = null;
+
                     labelHowToMoveAPiece.Visible = false;
                     this.Cursor = Cursors.Default;
                     //----this.Refresh();
@@ -218,7 +246,9 @@ namespace RubiksCube_2x2
                 {
                     if (CheckForGodlikeBehavior_MovePiece())
                     {
-                        _rubiksPiece_Dragged = piece_clicked;
+                        //_rubiksPiece_Dragged = piece_clicked;
+                        _rubiksTile_Dragged.Corner = piece_clicked;
+
                         if (_customCursorPlus == null)
                         {
                             //var ms = new System.IO.MemoryStream(Properties.Resources.transparent2);  // (My.Resources.Cursor1)

@@ -205,9 +205,6 @@
     <EmbeddedResource Include="GodControl.resx">
       <DependentUpon>GodControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GodControl_Functions.resx">
-      <DependentUpon>GodControl_Functions.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GraphBuilding\FormGraphBuilder.resx">
       <DependentUpon>FormGraphBuilder.cs</DependentUpon>
     </EmbeddedResource>
