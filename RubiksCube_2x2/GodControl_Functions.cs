@@ -111,6 +111,7 @@ namespace RubiksCube_2x2
                     //
                     this.Cursor = Cursors.Default;
                     //_rubiksPiece_Replaced = piece_clicked;
+                    if (_rubiksTile_Replaced == null) _rubiksTile_Replaced = new RubiksFaceTile();
                     _rubiksTile_Replaced.Corner = piece_clicked;
 
                     // Added 11/17/2020 thomas downes
@@ -128,9 +129,20 @@ namespace RubiksCube_2x2
                         //if (bClickedSide) cubeSide = this.ThisCubeSide;
                         if (bClickedBackside) cubeSide = mod_cubeBackside;
 
-                        //cubeSide.GodlikeSwitch_Piece(_rubiksPiece_Dragged, _rubiksPiece_Replaced);
-                        cubeSide.GodlikeSwitch_Piece(_rubiksTile_Dragged.Corner, 
-                                                     _rubiksTile_Replaced.Corner); 
+                        //cubeSide.Godlike Switch_Piece(_rubiksPiece_Dragged, _rubiksPiece_Replaced);
+                        bool bProcessTiles = true;
+                        if (bProcessTiles)
+                        {
+                            // Added 7/21/2021 Thomas Downes  
+                            cubeSide.GodlikeSwitch_Tile(_rubiksTile_Dragged,
+                                                         _rubiksTile_Replaced);
+
+                        }
+                        else
+                        {
+                            cubeSide.GodlikeSwitch_Piece(_rubiksTile_Dragged.Corner,
+                                                         _rubiksTile_Replaced.Corner);
+                        }
 
                         // Added 6/13/2021 thomas downes
                         cubeSide.Remove_DrawWithEmphasis();
@@ -247,6 +259,7 @@ namespace RubiksCube_2x2
                     if (CheckForGodlikeBehavior_MovePiece())
                     {
                         //_rubiksPiece_Dragged = piece_clicked;
+                        if (_rubiksTile_Dragged == null) _rubiksTile_Dragged = new RubiksFaceTile();
                         _rubiksTile_Dragged.Corner = piece_clicked;
 
                         if (_customCursorPlus == null)

@@ -1035,14 +1035,19 @@ namespace RubiksCube_2x2
 
             if (bFrontFace) new_tile.Enum_FacePositionNSWE = EnumFacePositionNSWE.FrontFacing;
             if (bFrontFace) new_tile.Enum_CubeRotation = EnumCubeRotation_NorthPole.None_MainFace;  // No rotation. 
+            if (bFrontFace) new_tile.Enum_Color = this.GetColorOfFrontFace();
             if (bFrontFace) return new_tile;
 
             //EnumFacePositionNSWE enum_sideface = EnumFacePositionNSWE.NotSpecified;  
-            //bool bSideFace = SideFaceWasClicked(par_point, ref enum_sideface);
+            //bool bSideFace = SideFaceWasCli   QAASQ23Wcked(par_point, ref enum_sideface);
             //if (bSideFace) new_tile.Enum_FacePositionNSWE = ref enum_sideface;
             EnumCubeRotation_NorthPole enum_rotation = EnumCubeRotation_NorthPole.Unassigned;
             bool bSideFace = SideFaceWasClicked(par_point, ref enum_rotation);
             if (bSideFace) new_tile.Enum_CubeRotation = enum_rotation;
+            if (bSideFace) new_tile.Enum_Color = (enum_rotation == EnumCubeRotation_NorthPole.Clockwise ?
+                                                  this.GetColorOfSideFace_ClockwiseFromFront() :
+                                                  this.GetColorOfSideFace_CounterClockwise());
+            if (bSideFace) new_tile.Enum_FacePositionNSWE = GetFacePositionOfColor(new_tile.Enum_Color);
             if (bSideFace) return new_tile;
 
             //
@@ -1791,6 +1796,56 @@ namespace RubiksCube_2x2
 
 
         }
+
+
+        public EnumFacePositionNSWE GetFacePositionOfColor(Color par_colorOfTile)
+        {
+            //
+            // Added 7/21/2021 Thomas DOWNES
+            //
+            bool bFrontFaceHasSpecifiedColor = false;
+            //bool bMatches_SideFace_Clockwise = false;
+            //bool bMatches_SideFace_Counterwise = false;
+
+            bFrontFaceHasSpecifiedColor = (par_colorOfTile == GetColorOfFrontFace());
+            if (bFrontFaceHasSpecifiedColor) return EnumFacePositionNSWE.FrontFacing;
+
+            //bMatches_SideFace_Clockwise = (par_colorOfFace == GetColorOfSideFace_ClockwiseFromFront());
+            //bMatches_SideFace_Counterwise = (par_colorOfFace == GetColorOfSideFace_CounterClockwise());
+
+            //if (bMatches_SideFace_Clockwise)
+            //{
+            //    var eastFace = this.WhichFaceIsE_of_front;
+            //}
+
+            //EnumFaceNum faceNum_North = this.WhichFaceIsN_of_front;
+            //EnumFaceNum faceNum_South = this.WhichFaceIsS_of_front;
+            //EnumFaceNum faceNum_East = this.WhichFaceIsE_of_front;
+            //EnumFaceNum faceNum_West = this.WhichFaceIsW_of_front;
+
+            //bool boolMatchesTile1of3 = (this.FaceColor1of3 == par_colorOfTile);
+            //bool boolMatchesTile2of3 = (this.FaceColor2of3 == par_colorOfTile);
+            //bool boolMatchesTile3of3 = (this.FaceColor2of3 == par_colorOfTile);
+
+            EnumFaceNum enum_faceNumWithColor = (this.FaceColor1of3 == par_colorOfTile ? EnumFaceNum.Face1 :
+                                                  (this.FaceColor2of3 == par_colorOfTile ? EnumFaceNum.Face2 :
+                                                    (this.FaceColor3of3 == par_colorOfTile ? EnumFaceNum.Face3 :
+                                                      EnumFaceNum.NotApplicable_DifferentPiece)));
+
+            EnumFacePositionNSWE enum_facePosition = 
+                (this.WhichFaceIsN_of_front == enum_faceNumWithColor ? EnumFacePositionNSWE.N_side_of_front :
+                (this.WhichFaceIsS_of_front == enum_faceNumWithColor ? EnumFacePositionNSWE.S_side_of_front :
+                (this.WhichFaceIsE_of_front == enum_faceNumWithColor ? EnumFacePositionNSWE.E_side_of_front :
+                (this.WhichFaceIsW_of_front == enum_faceNumWithColor ? EnumFacePositionNSWE.W_side_of_front :
+                                                      EnumFacePositionNSWE.NotSpecified))));
+
+            return enum_facePosition;
+
+        }
+
+
+
+
 
 
     }

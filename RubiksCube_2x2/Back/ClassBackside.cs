@@ -715,13 +715,19 @@ namespace RubiksCube_2x2
                 }
 
                 bool bNeedToRotate = true; // Added 6/22/2021 thomas downes
-                //bNeedToRotate = (par_replaced.GetFacePositionOfColor(color_dragged) != enum_facepositionReplaced);
+                //--bNeedToRotate = (par_replaced.GetFacePositionOfColor(color_dragged) != enum_facepositionReplaced);
+                var enum_facepositionDragged = par_dragged.Corner.GetFacePositionOfColor(color_dragged);
+                bNeedToRotate = (enum_facepositionDragged != enum_facepositionReplaced);
 
                 while (bNeedToRotate) {
 
                     //--bNeedToRotate = (par_replaced.GetFacePositionOfColor(color_dragged) != enum_facepositionReplaced);
-                    var enum_facepositionDragged = par_dragged.Corner.GetFacePositionOfColor(color_dragged);
-                    bNeedToRotate = false; // (enum_facepositionDragged != enum_facepositionReplaced);
+                    //var enum_facepositionDragged = par_dragged.Corner.GetFacePositionOfColor(color_dragged);
+                    //---enum_facepositionDragged = EnumFacePositionNSWE.N_side_of_front;
+                    //bNeedToRotate = false; // (enum_facepositionDragged != enum_facepositionReplaced);
+                    enum_facepositionDragged = par_dragged.Corner.GetFacePositionOfColor(color_dragged);
+                    bNeedToRotate = (enum_facepositionDragged != enum_facepositionReplaced);
+
                     if (bNeedToRotate) par_replaced.Corner.RotateInPlace_PivotPiece120degrees();
 
                 } //while (bNeedToRotate);
