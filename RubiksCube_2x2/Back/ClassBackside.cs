@@ -705,7 +705,14 @@ namespace RubiksCube_2x2
                 //
                 EnumAll12Faces enum_12 = par_replaced.Enum_All12Faces;
                 EnumFacePositionNSWE enum_facepositionReplaced = par_replaced.Enum_FacePositionNSWE;
+
+                // Added 7/23/2021  
+                if (enum_facepositionReplaced == EnumFacePositionNSWE.NotSpecified) //System.Diagnostics.Debugger.Break():
+                    throw new NotImplementedException("Face Position is not specified.");
+
                 Color color_dragged = par_dragged.Enum_Color;
+                Color color_replaced = par_replaced.Enum_Color;   // Added 7/30/2021 Thomas Downes  
+
                 bool bSameCorner = (par_dragged.Corner == par_replaced.Corner);
 
                 if (!bSameCorner)
@@ -725,10 +732,28 @@ namespace RubiksCube_2x2
                     //var enum_facepositionDragged = par_dragged.Corner.GetFacePositionOfColor(color_dragged);
                     //---enum_facepositionDragged = EnumFacePositionNSWE.N_side_of_front;
                     //bNeedToRotate = false; // (enum_facepositionDragged != enum_facepositionReplaced);
+
+                    // Added 7/30/2021 
+                    //---if (color_dragged == Color.FromArgb(0, 0, 0, 0)) throw new NotImplementedException();
+                    //---if (color_replaced == Color.FromArgb(0, 0, 0, 0)) throw new NotImplementedException();
+                    //if (color_dragged == color_null) throw new NotImplementedException();
+                    //if (color_replaced == color_null) throw new NotImplementedException();
+                    //if (color_dragged.GetHashCode() == color_null.GetHashCode()) throw new NotImplementedException();
+                    //if (color_replaced.GetHashCode() == color_null.GetHashCode()) throw new NotImplementedException();
+                    if (color_dragged.IsEmpty) throw new NotImplementedException();
+                    if (color_replaced.IsEmpty) throw new NotImplementedException();
+
+                    Color color_null = Color.FromArgb(0, 0, 0, 0);
+                    if (color_dragged.ToArgb() == color_null.ToArgb()) throw new NotImplementedException();
+                    if (color_replaced.ToArgb() == color_null.ToArgb()) throw new NotImplementedException();
+
                     enum_facepositionDragged = par_dragged.Corner.GetFacePositionOfColor(color_dragged);
+                    //--==enum_facepositionReplaced = par_replaced.Corner.GetFacePositionOfColor(color_replaced);
+
                     bNeedToRotate = (enum_facepositionDragged != enum_facepositionReplaced);
 
-                    if (bNeedToRotate) par_replaced.Corner.RotateInPlace_PivotPiece120degrees();
+                    //--==if (bNeedToRotate) par_replaced.Corner.RotateInPlace_PivotPiece120degrees();
+                    if (bNeedToRotate) par_dragged.Corner.RotateInPlace_PivotPiece120degrees();
 
                 } //while (bNeedToRotate);
 

@@ -32,8 +32,8 @@ namespace RubiksCube_2x2
             }
 
 
-            RubiksPieceCorner piece_clicked = null;
-            RubiksFaceTile tile_clicked = null;  // Added 6/18/2021 td 
+            RubiksPieceCorner clicked_piece = null;
+            RubiksFaceTile clicked_tile = null;  // Added 6/18/2021 td 
 
             //Front Side
             //  Check the Front Side for a clicked piece. 
@@ -52,31 +52,32 @@ namespace RubiksCube_2x2
             //Back Side
             //  Check the Back Side for a clicked piece.
             //
-            if (piece_clicked == null)
+            if (clicked_piece == null)
             {
                 //if (sender == panelBack) // Added 1/29/2021 thomas downes
                 if (sender == panelBack) // Added 1/29/2021 thomas downes
                                          //piece_clicked = mod_cubeBackside.WhichPieceIsClicked(e.X, e.Y);
-                    //piece_clicked = mod_cubeBackside.WhichPieceIsClicked_FaceTile(e.X, e.Y,
-                    //    ref tile_clicked);
-                    tile_clicked = mod_cubeBackside.WhichFaceTileIsClicked(e.X, e.Y);
-
-                piece_clicked = tile_clicked.Corner;  
+                                         //piece_clicked = mod_cubeBackside.WhichPieceIsClicked_FaceTile(e.X, e.Y,
+                                         //    ref tile_clicked);
+                { 
+                    clicked_tile = mod_cubeBackside.WhichFaceTileIsClicked(e.X, e.Y);
+                    clicked_piece = clicked_tile.Corner;
+                }
 
                 //----if (piece_clicked != null)
-                if (tile_clicked != null)
+                if (clicked_tile != null)
                 {
                     bClickedBackside = true;
 
                     // Added 6/13/2021 thomas downes
                     mod_cubeBackside.Remove_DrawWithEmphasis();
-                    piece_clicked.GodControl_DrawWithEmphasis_JustClicked = true;
+                    clicked_piece.GodControl_DrawWithEmphasis_JustClicked = true;
                     panelBack.Refresh();  // Added 3/31/2021 td
 
                 }
             }
 
-            if (piece_clicked == null)
+            if (clicked_piece == null)
             {
                 //
                 // Clean up time!!   Then exit Sub.
@@ -99,7 +100,7 @@ namespace RubiksCube_2x2
                 return;
             }
 
-            else if (piece_clicked != null)
+            else if (clicked_piece != null)
             {
                 //----if (_rubiksPiece_Dragged != null)
                 if (_rubiksTile_Dragged != null)
@@ -111,8 +112,18 @@ namespace RubiksCube_2x2
                     //
                     this.Cursor = Cursors.Default;
                     //_rubiksPiece_Replaced = piece_clicked;
-                    if (_rubiksTile_Replaced == null) _rubiksTile_Replaced = new RubiksFaceTile();
-                    _rubiksTile_Replaced.Corner = piece_clicked;
+                    if (_rubiksTile_Replaced == null)
+                    {
+                        //_rubiksTile_Replaced = new RubiksFaceTile();
+                        //_rubiksTile_Replaced.Corner = clicked_piece;
+                        _rubiksTile_Replaced = clicked_tile;
+                    }
+
+                    // Added 7/23/2021 Thomas Downes  
+                    EnumFacePositionNSWE enum_FP_Rep1 = _rubiksTile_Replaced.Enum_FacePositionNSWE;
+                    if (enum_FP_Rep1 == EnumFacePositionNSWE.NotSpecified) //System.Diagnostics.Debugger.Break():
+                        throw new NotImplementedException("Face Position is not specified.");
+
 
                     // Added 11/17/2020 thomas downes
                     if (bAllowGodlikeOperations) // Conditioned 12/7/2020 td
@@ -133,6 +144,14 @@ namespace RubiksCube_2x2
                         bool bProcessTiles = true;
                         if (bProcessTiles)
                         {
+                            //
+                            // Added 7/23/2021 Thomas Downes  
+                            //
+                            EnumFacePositionNSWE enum_FP_Rep2; // = _rubiksTile_Replaced.Enum_FacePositionNSWE;
+                            enum_FP_Rep2 = _rubiksTile_Replaced.Enum_FacePositionNSWE;
+                            if (enum_FP_Rep2 == EnumFacePositionNSWE.NotSpecified) //System.Diagnostics.Debugger.Break():
+                                throw new NotImplementedException("Face Position is not specified.");
+
                             // Added 7/21/2021 Thomas Downes  
                             cubeSide.GodlikeSwitch_Tile(_rubiksTile_Dragged,
                                                          _rubiksTile_Replaced);
@@ -148,7 +167,7 @@ namespace RubiksCube_2x2
                         cubeSide.Remove_DrawWithEmphasis();
                         //---_rubiksPiece_Dragged.GodControl_DrawWithEmphasis_JustMoved = true;
                         _rubiksTile_Dragged.Corner.GodControl_DrawWithEmphasis_JustMoved = true;
-                        piece_clicked.GodControl_DrawWithEmphasis_JustClicked = true;  // Added 6/18/2021 td
+                        clicked_piece.GodControl_DrawWithEmphasis_JustClicked = true;  // Added 6/18/2021 td
 
                         // Condition (& function call) added 12/06/2020 thomas downes
                         //if (bClickedFrontside) mod_cubeFrontside
@@ -259,8 +278,9 @@ namespace RubiksCube_2x2
                     if (CheckForGodlikeBehavior_MovePiece())
                     {
                         //_rubiksPiece_Dragged = piece_clicked;
-                        if (_rubiksTile_Dragged == null) _rubiksTile_Dragged = new RubiksFaceTile();
-                        _rubiksTile_Dragged.Corner = piece_clicked;
+                        //+++if (_rubiksTile_Dragged == null) _rubiksTile_Dragged = new RubiksFaceTile();
+                        //+++_rubiksTile_Dragged.Corner = clicked_piece;
+                        if (_rubiksTile_Dragged == null) _rubiksTile_Dragged = clicked_tile;
 
                         if (_customCursorPlus == null)
                         {
