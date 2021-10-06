@@ -288,5 +288,15 @@ namespace RubiksCube_2x2
             godControlFrontAfter.Refresh(); 
 
         }
+
+        private void buttonOK_Click(object sender, EventArgs e)
+        {
+            //
+            // Added 10/4/2021 Thomas Downes
+            //
+
+
+
+        }
     }
 }

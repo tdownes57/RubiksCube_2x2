@@ -32,7 +32,7 @@ namespace RubiksCube_2x2
         public static ComplexPieceMove move4_from1030;
         public static ComplexPieceMove move5_clockwise90;
 
-        public static void BuildComplexRotationRules()
+        public static void BuildComplexRotationRules_Nov2020()
         {
             //
             // Added 11/13/2020 thomas downes

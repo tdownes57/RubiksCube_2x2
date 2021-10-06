@@ -328,7 +328,7 @@ namespace RubiksCube_2x2
                     // New way, encapsulation of rules into a static class.
                     //      ----Added 11/15/2020 thomas
                     //
-                    Rules_FrontPieceRotation.BuildComplexRotationRules();
+                    Rules_FrontPieceRotation.BuildComplexRotationRules_Nov2020();
                     move1_from130 = Rules_FrontPieceRotation.move1_from130;
                     move2_from430 = Rules_FrontPieceRotation.move2_from430;
                     move3_from730 = Rules_FrontPieceRotation.move3_from730;

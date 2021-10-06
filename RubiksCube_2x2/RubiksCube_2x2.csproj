@@ -148,6 +148,7 @@
     </Compile>
     <Compile Include="GraphBuilding\GraphNode.cs" />
     <Compile Include="GraphBuilding\GraphOfSolution.cs" />
+    <Compile Include="Maneuvers\__Definitions.cs" />
     <Compile Include="Maneuvers\Maneuver.cs" />
     <Compile Include="Maneuvers\ManeuversList.cs" />
     <Compile Include="MongoDB_Load.cs" />

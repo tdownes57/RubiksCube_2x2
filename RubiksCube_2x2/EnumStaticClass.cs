@@ -70,7 +70,8 @@ namespace RubiksCube_2x2
     public enum EnumWhatToPaint { NotSpecified, FrontAndSides, JustFront, JustSides }
 
     // Added 11/14/2020 thomas downes 
-    public enum EnumAll12Faces { NotSpecified, 
+    // Original code moved to Maneuvers\_Definitions.cs on 10/6/2021 td
+    public enum EnumAll12Faces_BACKUP { NotSpecified, 
                    F0130, F0430, F0730, F1030, 
                     _130_NNE, _130_ENE, 
                     _430_ESE, _430_SSE, 
@@ -78,7 +79,8 @@ namespace RubiksCube_2x2
                     _1030_WNW, _1030_NNW }
 
     // Added 11/14/2020 thomas downes 
-    public struct ComplexPieceMove
+    // Original code moved to Maneuvers\_Definitions.cs on 10/6/2021 td
+    public struct ComplexPieceMove_DEPRECATED
     {
         public FrontClockFace StartingPoint;
         public EnumAll12Faces EndingPoint;
@@ -89,12 +91,13 @@ namespace RubiksCube_2x2
     }
 
     // Added 12/09/2020 thomas downes 
-    public struct ComplexPieceMoves_Five
+    // Original code moved to Maneuvers\_Definitions.cs on 10/6/2021 td
+    public struct ComplexPieceMoves_Five_DEPRECATED
     {
-        public ComplexPieceMove move1_from130; // = new ComplexPieceMove();
-        public ComplexPieceMove move2_from430;
-        public ComplexPieceMove move3_from730;
-        public ComplexPieceMove move4_from1030;
+        public ComplexPieceMove_DEPRECATED move1_from130; // = new ComplexPieceMove();
+        public ComplexPieceMove_DEPRECATED move2_from430;
+        public ComplexPieceMove_DEPRECATED move3_from730;
+        public ComplexPieceMove_DEPRECATED move4_from1030;
         public bool move5_Clockwise90;
     }
 
