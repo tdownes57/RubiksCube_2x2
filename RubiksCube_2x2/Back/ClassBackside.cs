@@ -566,13 +566,13 @@ namespace RubiksCube_2x2
 
             //Added 6/20/2021 thomas downes
             //
-            public RubiksFaceTile WhichFaceTileIsClicked(int par_pointX, int par_pointY)
+            public RubiksFaceTile_Struct WhichFaceTileIsClicked(int par_pointX, int par_pointY)
             {
                 //
                 // Added 6/20/2020 thomas downes
                 //
                 var new_point_from_param = new Point(par_pointX, par_pointY);
-                RubiksFaceTile new_tile = null;
+                RubiksFaceTile_Struct new_tile = null;
                 if (new_tile == null) new_tile = this.Piece1.WhichTileWasClicked(new_point_from_param);
                 if (new_tile == null) new_tile = this.Piece2.WhichTileWasClicked(new_point_from_param);
                 if (new_tile == null) new_tile = this.Piece3.WhichTileWasClicked(new_point_from_param);
@@ -584,7 +584,7 @@ namespace RubiksCube_2x2
 
             //Added 6/18/2021 thomas downes
             //
-            public RubiksPieceCorner WhichPieceIsClicked_FaceTile(int par_pointX, int par_pointY, ref RubiksFaceTile output_tile)
+            public RubiksPieceCorner WhichPieceIsClicked_FaceTile(int par_pointX, int par_pointY, ref RubiksFaceTile_Struct output_tile)
             {
                 //
                 // Added 11/17/2020 thomas downes
@@ -602,7 +602,7 @@ namespace RubiksCube_2x2
                     //
                     // The following code is obselete. 
                     //
-                    var new_tile = new RubiksFaceTile();
+                    var new_tile = new RubiksFaceTile_Struct();
                     new_tile.Enum_FacePositionNSWE = EnumFacePositionNSWE.FrontFacing;
                     if (_pieceBOY.FrontFaceWasClicked(new_point_from_param)) new_tile.Corner = _pieceBOY;
                     if (_pieceBYR.FrontFaceWasClicked(new_point_from_param)) new_tile.Corner = _pieceBYR; //new_tile.Enum_FaceNum = EnumFaceNum.Face1; }
@@ -619,7 +619,7 @@ namespace RubiksCube_2x2
                     //
                     // Smarter code. 
                     //
-                    RubiksFaceTile new_tile = null;
+                    RubiksFaceTile_Struct new_tile = null;
                     if (new_tile == null) new_tile = this.Piece1.WhichTileWasClicked(new_point_from_param);
                     if (new_tile == null) new_tile = this.Piece2.WhichTileWasClicked(new_point_from_param);
                     if (new_tile == null) new_tile = this.Piece3.WhichTileWasClicked(new_point_from_param);
@@ -692,7 +692,7 @@ namespace RubiksCube_2x2
             }
 
 
-            public override void GodlikeSwitch_Tile(RubiksFaceTile par_dragged, RubiksFaceTile par_replaced)
+            public override void GodlikeSwitch_Tile(RubiksFaceTile_Struct par_dragged, RubiksFaceTile_Struct par_replaced)
             {
                 //
                 // Added 5/12/2021 thomas downes
@@ -1114,7 +1114,7 @@ namespace RubiksCube_2x2
             }
 
 
-            public bool AdjacentPieces(RubiksFaceTile par_tile1, RubiksFaceTile par_tile2)
+            public bool AdjacentPieces(RubiksFaceTile_Struct par_tile1, RubiksFaceTile_Struct par_tile2)
             {
                 //
                 // Added 6/29/2021 thomas downes

@@ -182,10 +182,12 @@
     <Compile Include="JsonStaticClass_Save.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RubiksPieceCorner.cs" />
+    <Compile Include="TilesAndPieces\RubiksFaceTile_Class.cs" />
+    <Compile Include="TilesAndPieces\RubiksPieceCorner_3Tiles.cs" />
+    <Compile Include="TilesAndPieces\RubiksPieceCorner_Denigrated.cs" />
     <Compile Include="Back\ClassBacksideBrief.cs" />
     <Compile Include="RubiksCubeBothSides.cs" />
-    <Compile Include="RubiksFaceTile.cs" />
+    <Compile Include="TilesAndPieces\RubiksFaceTile_Struct.cs" />
     <Compile Include="SideViews\ClassSideViewSide.cs" />
     <Compile Include="SideViews\ClassSideViewsCube.cs" />
     <Compile Include="SideViews\RubikPieceSideView.cs" />

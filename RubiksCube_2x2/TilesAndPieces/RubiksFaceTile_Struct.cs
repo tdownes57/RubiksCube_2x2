@@ -7,7 +7,7 @@ using System.Drawing;  // Added 5/8/2021 thomas d.
 
 namespace RubiksCube_2x2
 {
-    class RubiksFaceTile
+    class RubiksFaceTile_Struct
     {
         //
         // Added 5/8/2021 Thomas Downes  
@@ -22,14 +22,14 @@ namespace RubiksCube_2x2
         public EnumCubeRotation_NorthPole Enum_CubeRotation;
 
         // Added 6/18/2021 thomas downes
-        public RubiksFaceTile()
+        public RubiksFaceTile_Struct()
         {
             // Added 6/18/2021 thomas downes
             //ThisCorner = par_corner;
         }
 
         // Added 6/18/2021 thomas downes
-        public RubiksFaceTile(RubiksPieceCorner par_corner)
+        public RubiksFaceTile_Struct(RubiksPieceCorner par_corner)
         {
             // Added 6/18/2021 thomas downes
             Corner = par_corner;

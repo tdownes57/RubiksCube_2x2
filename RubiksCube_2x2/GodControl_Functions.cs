@@ -33,7 +33,7 @@ namespace RubiksCube_2x2
 
 
             RubiksPieceCorner clicked_piece = null;
-            RubiksFaceTile clicked_tile = null;  // Added 6/18/2021 td 
+            RubiksFaceTile_Struct clicked_tile = null;  // Added 6/18/2021 td 
 
             //Front Side
             //  Check the Front Side for a clicked piece. 

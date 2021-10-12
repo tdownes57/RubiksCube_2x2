@@ -54,7 +54,7 @@ namespace RubiksCube_2x2
         public abstract void GodlikeSwitch_Piece(RubiksPieceCorner par_dragged, RubiksPieceCorner par_replaced);
 
         // Added 5/8/2021 Thomas Downes  
-        public abstract void GodlikeSwitch_Tile(RubiksFaceTile par_dragged, RubiksFaceTile par_replaced);
+        public abstract void GodlikeSwitch_Tile(RubiksFaceTile_Struct par_dragged, RubiksFaceTile_Struct par_replaced);
 
         public abstract RubiksPieceCorner GetPiece(FrontClockFace par_enum);
 
@@ -139,7 +139,7 @@ namespace RubiksCube_2x2
         }
 
 
-        public void GodlikeSwitch_Base(RubiksFaceTile par_dragged, RubiksFaceTile par_replaced)
+        public void GodlikeSwitch_Base(RubiksFaceTile_Struct par_dragged, RubiksFaceTile_Struct par_replaced)
         {
             //
             // Added 5/9/2021 thomas downes

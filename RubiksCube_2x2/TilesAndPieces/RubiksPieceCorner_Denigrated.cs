@@ -1025,12 +1025,12 @@ namespace RubiksCube_2x2
 
 
         // Added 6/18/2021 td 
-        public RubiksFaceTile WhichTileWasClicked(Point par_point)
+        public RubiksFaceTile_Struct WhichTileWasClicked(Point par_point)
         {
             //
             // Added 6/18/2021 Thomas Downes 
             //
-            var new_tile = new RubiksFaceTile(this);
+            var new_tile = new RubiksFaceTile_Struct(this);
             bool bFrontFace = FrontFaceWasClicked(par_point);
 
             if (bFrontFace) new_tile.Enum_FacePositionNSWE = EnumFacePositionNSWE.FrontFacing;
@@ -1844,8 +1844,32 @@ namespace RubiksCube_2x2
         }
 
 
+        public string GetSerialization_Maneuver()
+        {
+            //
+            // Added 10/11/2021 Thomas Downes 
+            //
+            //  Serialization of maneuver, one side only:
+            //
+            //       [Current location of originally-1:30 piece's front face, e.g. SE or SE-S], 
+            //         [Current location of originally-4:30 piece's front face, e.g. NE or NE-N], 
+            //           [Current location of originally-7:30 piece's front face, e.g. SW or SW-W], 
+            //              [Current location of originally-10:30 piece's front face, e.g. NW or NW-E] 
+            //
+            // Examples of serialization-of-maneuver, one side only: 
+            //
+            //       NE-N, SE, SW-S, NW-W      The originally-1:30 piece's front face is now NE-N (north side face of the NE position)
+            //       SW-W, SE-S, NE-N, NW-W     The originally-1:30 piece's front face is now SW-W (west side face of the SW position)
+            //       NE-N, NW-W, SW-S, SE-E     The originally-1:30 piece's front face is now NE-N (north side face of the NE position)
+            //       SE-E, NW, SW-W, NW-W     The originally-1:30 piece's front face is now SE-E (east side face of the SE position)
+            //  
+            //    //  ---10/11/2021 thomas c. downes
+            //
+            if (false  +++++ =====) return this.TemporaryTextMarker;
 
 
+
+        }
 
 
     }

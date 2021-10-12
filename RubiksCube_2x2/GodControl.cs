@@ -26,8 +26,8 @@ namespace RubiksCube_2x2
 
         //private RubiksPieceCorner _rubiksPiece_Dragged = null;
         //private RubiksPieceCorner _rubiksPiece_Replaced = null;
-        private RubiksFaceTile _rubiksTile_Dragged = null;
-        private RubiksFaceTile _rubiksTile_Replaced = null;
+        private RubiksFaceTile_Struct _rubiksTile_Dragged = null;
+        private RubiksFaceTile_Struct _rubiksTile_Replaced = null;
 
 
         internal RubiksCubeOneSide ThisCubeSide_Deprecated

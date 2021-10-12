@@ -380,7 +380,7 @@ namespace RubiksCube_2x2
             }
 
 
-            public override void GodlikeSwitch_Tile(RubiksFaceTile par_dragged, RubiksFaceTile par_replaced)
+            public override void GodlikeSwitch_Tile(RubiksFaceTile_Struct par_dragged, RubiksFaceTile_Struct par_replaced)
             {
                 //
                 // Added 5/11/2021 thomas downes
