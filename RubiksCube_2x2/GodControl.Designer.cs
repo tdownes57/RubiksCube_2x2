@@ -36,6 +36,7 @@ namespace RubiksCube_2x2
             this.labelPanelHeight = new System.Windows.Forms.Label();
             this.labelCenterX = new System.Windows.Forms.Label();
             this.labelCenterY = new System.Windows.Forms.Label();
+            this.checkboxRotateCW = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,10 +113,21 @@ namespace RubiksCube_2x2
             this.labelCenterY.TabIndex = 41;
             this.labelCenterY.Text = "label4";
             // 
+            // checkboxRotateCW
+            // 
+            this.checkboxRotateCW.AutoSize = true;
+            this.checkboxRotateCW.Location = new System.Drawing.Point(318, 139);
+            this.checkboxRotateCW.Name = "checkboxRotateCW";
+            this.checkboxRotateCW.Size = new System.Drawing.Size(211, 21);
+            this.checkboxRotateCW.TabIndex = 42;
+            this.checkboxRotateCW.Text = "Rotate clockwise 90 degrees";
+            this.checkboxRotateCW.UseVisualStyleBackColor = true;
+            // 
             // GodControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.checkboxRotateCW);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelCenterY);
             this.Controls.Add(this.labelCenterX);
@@ -144,5 +156,6 @@ namespace RubiksCube_2x2
         private System.Windows.Forms.Label labelCenterX;
         private System.Windows.Forms.Label labelCenterY;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.CheckBox checkboxRotateCW;
     }
 }

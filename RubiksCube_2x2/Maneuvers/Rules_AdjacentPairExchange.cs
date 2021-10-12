@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RubiksCube_2x2; // Added 10/11/2021 thomas downes 
 
 namespace RubiksCube_2x2.Back
 {
@@ -39,14 +40,16 @@ namespace RubiksCube_2x2.Back
         }
 
 
-        public static ComplexPieceMoves_Five GetBacksideRules()
+        //  10-11-2021 td // public static ComplexPieceMoves_Five GetBacksideRules()
+        public static ComplexPieceMoves_OneSide GetBacksideRules()
         {
             //
             // Added 12/5/2020 thomas downes  
             //
             BuildBacksideRules();
 
-            var new_rules = new ComplexPieceMoves_Five();
+            //----var new_rules = new ComplexPieceMoves_Five();
+            var new_rules = new ComplexPieceMoves_OneSide();
 
             new_rules.move1_from130 = backside_move1_from130;
             new_rules.move2_from430 = backside_move2_from430;

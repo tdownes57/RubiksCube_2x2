@@ -51,7 +51,12 @@ namespace RubiksCube_2x2
             this.label9 = new System.Windows.Forms.Label();
             this.panelBeforeZ = new System.Windows.Forms.Panel();
             this.labelManeuverID = new System.Windows.Forms.Label();
+            this.groupboxSerialization = new System.Windows.Forms.GroupBox();
+            this.buttonDeserialize = new System.Windows.Forms.Button();
+            this.buttonSerialize = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
+            this.groupboxSerialization.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -266,7 +271,7 @@ namespace RubiksCube_2x2
             // 
             this.panelBeforeZ.BackgroundImage = global::RubiksCube_2x2.Properties.Resources.manuever_1030;
             this.panelBeforeZ.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelBeforeZ.Location = new System.Drawing.Point(1042, 109);
+            this.panelBeforeZ.Location = new System.Drawing.Point(1087, 237);
             this.panelBeforeZ.Name = "panelBeforeZ";
             this.panelBeforeZ.Size = new System.Drawing.Size(377, 270);
             this.panelBeforeZ.TabIndex = 10;
@@ -280,11 +285,50 @@ namespace RubiksCube_2x2
             this.labelManeuverID.TabIndex = 11;
             this.labelManeuverID.Text = "ID # of maneuver";
             // 
+            // groupboxSerialization
+            // 
+            this.groupboxSerialization.Controls.Add(this.buttonDeserialize);
+            this.groupboxSerialization.Controls.Add(this.buttonSerialize);
+            this.groupboxSerialization.Controls.Add(this.textBox1);
+            this.groupboxSerialization.Location = new System.Drawing.Point(1087, 574);
+            this.groupboxSerialization.Name = "groupboxSerialization";
+            this.groupboxSerialization.Size = new System.Drawing.Size(377, 253);
+            this.groupboxSerialization.TabIndex = 12;
+            this.groupboxSerialization.TabStop = false;
+            this.groupboxSerialization.Text = "Serialization";
+            // 
+            // buttonDeserialize
+            // 
+            this.buttonDeserialize.Enabled = false;
+            this.buttonDeserialize.Location = new System.Drawing.Point(20, 143);
+            this.buttonDeserialize.Name = "buttonDeserialize";
+            this.buttonDeserialize.Size = new System.Drawing.Size(298, 39);
+            this.buttonDeserialize.TabIndex = 10;
+            this.buttonDeserialize.Text = "Implement Text Edit (Deserialize)";
+            this.buttonDeserialize.UseVisualStyleBackColor = true;
+            // 
+            // buttonSerialize
+            // 
+            this.buttonSerialize.Location = new System.Drawing.Point(20, 65);
+            this.buttonSerialize.Name = "buttonSerialize";
+            this.buttonSerialize.Size = new System.Drawing.Size(298, 39);
+            this.buttonSerialize.TabIndex = 9;
+            this.buttonSerialize.Text = "Serialize from Graphic";
+            this.buttonSerialize.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(20, 115);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(340, 22);
+            this.textBox1.TabIndex = 8;
+            // 
             // FormManeuvers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1694, 842);
+            this.Controls.Add(this.groupboxSerialization);
             this.Controls.Add(this.labelManeuverID);
             this.Controls.Add(this.panelBeforeZ);
             this.Controls.Add(this.label9);
@@ -303,6 +347,8 @@ namespace RubiksCube_2x2
             this.Resize += new System.EventHandler(this.FormManeuvers_Resize);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.groupboxSerialization.ResumeLayout(false);
+            this.groupboxSerialization.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -332,5 +378,9 @@ namespace RubiksCube_2x2
         private GodControl godControlBackAfter;
         private GodControl godControlFrontAfter;
         private System.Windows.Forms.Label labelManeuverID;
+        private System.Windows.Forms.GroupBox groupboxSerialization;
+        private System.Windows.Forms.Button buttonDeserialize;
+        private System.Windows.Forms.Button buttonSerialize;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

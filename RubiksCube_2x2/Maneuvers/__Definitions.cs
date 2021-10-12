@@ -32,7 +32,7 @@ namespace RubiksCube_2x2  //.Maneuvers
     }
 
     // Added 12/09/2020 thomas downes 
-    //Renamed from ComplexPieceMoves_OneSide 10/6/2021
+    //Renamed from ComplexPieceMoves_Five 10/6/2021
     public struct ComplexPieceMoves_OneSide //Renamed from ComplexPieceMoves_Five 10/6/2021
     {
         public ComplexPieceMove move1_from130; // = new ComplexPieceMove();
@@ -54,6 +54,23 @@ namespace RubiksCube_2x2  //.Maneuvers
         public ComplexPieceMoves_OneSide moves_back;
     }
 
+    //
+    //  Serialization of maneuver, one side only:
+    //
+    //       [Current location of originally-1:30 piece's front face, e.g. SE or SE-S], 
+    //         [Current location of originally-4:30 piece's front face, e.g. NE or NE-N], 
+    //           [Current location of originally-7:30 piece's front face, e.g. SW or SW-W], 
+    //              [Current location of originally-10:30 piece's front face, e.g. NW or NW-E] 
+    //
+    // Examples of serialization-of-maneuver, one side only: 
+    //
+    //       NE-N, SE, SW-S, NW-W      The originally-1:30 piece's front face is now NE-N (north side face of the NE position)
+    //       SW-W, SE-S, NE-N, NW-W     The originally-1:30 piece's front face is now SW-W (west side face of the SW position)
+    //       NE-N, NW-W, SW-S, SE-E     The originally-1:30 piece's front face is now NE-N (north side face of the NE position)
+    //       SE-E, NW, SW-W, NW-W     The originally-1:30 piece's front face is now SE-E (east side face of the SE position)
+    //
+    //  ---10/11/2021 thomas c. downes
+    //
 
 
 

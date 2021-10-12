@@ -154,7 +154,7 @@ namespace RubiksCube_2x2
 
 
 
-        public void ComplexRules_Perform(ComplexPieceMoves_Five par_rules)
+        public void ComplexRules_Perform(ComplexPieceMoves_OneSide par_rules)  //----(ComplexPieceMoves_Five par_rules)
         {
             //
             // Added 12/9/2020 thomas downes 
