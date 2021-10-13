@@ -358,6 +358,7 @@ namespace RubiksCube_2x2
 
         }
 
+
         public static bool AdjacentClockwise(FrontClockFace p_ClockFirst, FrontClockFace p_ClockNext)
         {
             //
@@ -389,6 +390,7 @@ namespace RubiksCube_2x2
             return false;
 
         }
+
 
         internal static void SwitchFrontAndBack_IfNeeded(RubiksPieceCorner par_piece, bool p_bClockwise, bool p_bCounterclock)
         {
@@ -429,6 +431,44 @@ namespace RubiksCube_2x2
             if (par_piece.FrontOrBackOfCube == EnumFrontOrBack.Front) par_piece.FrontOrBackOfCube = EnumFrontOrBack.Back;
 
         }
+
+
+        public static FrontClockFace NextPositionClockwise(FrontClockFace p_Clock)
+        {
+            //
+            // Added 10/12/2021 thomas d. 
+            //
+            switch (p_Clock)
+            {
+                case FrontClockFace.one_thirty:
+                    //if (p_ClockNext == FrontClockFace.four_thirty) return true;
+                    //break;
+                    return FrontClockFace.four_thirty;
+
+                case FrontClockFace.four_thirty:
+                    //if (p_ClockNext == FrontClockFace.seven_thirty) return true;
+                    //break;
+                    return FrontClockFace.seven_thirty;
+
+                case FrontClockFace.seven_thirty:
+                    //if (p_ClockNext == FrontClockFace.ten_thirty) return true;
+                    //break;
+                    return FrontClockFace.ten_thirty;
+
+                case FrontClockFace.ten_thirty:
+                    //if (p_ClockNext == FrontClockFace.one_thirty) return true;
+                    //break;
+                    return FrontClockFace.one_thirty;
+
+                default:
+                    //return false;
+                    throw new NotImplementedException();
+            }
+
+            return false;
+
+        }
+
 
 
 

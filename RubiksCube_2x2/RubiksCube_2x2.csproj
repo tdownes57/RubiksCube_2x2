@@ -131,13 +131,13 @@
       <DependentUpon>FormTestingUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Front\ClassFrontsideBrief.cs" />
-    <Compile Include="GodControl.cs">
+    <Compile Include="Maneuvers\GodControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GodControl.Designer.cs">
+    <Compile Include="Maneuvers\GodControl.Designer.cs">
       <DependentUpon>GodControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="GodControl_Functions.cs">
+    <Compile Include="Maneuvers\GodControl_Functions.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="GraphBuilding\FormGraphBuilder.cs">
@@ -182,16 +182,23 @@
     <Compile Include="JsonStaticClass_Save.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TilesAndPieces\RubiksFaceTile_Class.cs" />
-    <Compile Include="TilesAndPieces\RubiksPieceCorner_3Tiles.cs" />
-    <Compile Include="TilesAndPieces\RubiksPieceCorner_Denigrated.cs" />
+    <Compile Include="TilesAndPieces_Refactoring\GodControl_Refactored.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TilesAndPieces_Refactoring\GodControl_Refactored.Designer.cs">
+      <DependentUpon>GodControl_Refactored.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TilesAndPieces_Refactoring\RubiksFaceTile_Class.cs" />
+    <Compile Include="TilesAndPieces_Refactoring\RubiksPieceCorner_3Tiles.cs" />
+    <Compile Include="TilesAndPieces_Refactoring\RubiksPieceCorner_Denigrated.cs" />
     <Compile Include="Back\ClassBacksideBrief.cs" />
     <Compile Include="RubiksCubeBothSides.cs" />
-    <Compile Include="TilesAndPieces\RubiksFaceTile_Struct.cs" />
+    <Compile Include="TilesAndPieces_Refactoring\RubiksFaceTile_Denigrated.cs" />
     <Compile Include="SideViews\ClassSideViewSide.cs" />
     <Compile Include="SideViews\ClassSideViewsCube.cs" />
     <Compile Include="SideViews\RubikPieceSideView.cs" />
     <Compile Include="TestMongoDB.cs" />
+    <Compile Include="TilesAndPieces_Refactoring\RubiksSide_4Pieces.cs" />
     <Compile Include="Uniqueness.cs" />
     <EmbeddedResource Include="FormManeuvers.resx">
       <DependentUpon>FormManeuvers.cs</DependentUpon>
@@ -205,7 +212,7 @@
     <EmbeddedResource Include="FormTestingUserControl.resx">
       <DependentUpon>FormTestingUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GodControl.resx">
+    <EmbeddedResource Include="Maneuvers\GodControl.resx">
       <DependentUpon>GodControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GraphBuilding\FormGraphBuilder.resx">
@@ -221,6 +228,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TilesAndPieces_Refactoring\GodControl_Refactored.resx">
+      <DependentUpon>GodControl_Refactored.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -239,7 +249,7 @@
     <Content Include="20201110_140906_1.jpg" />
     <Content Include="20201110_140914.jpg" />
     <Content Include="20201110_140918.jpg" />
-    <Content Include="GodContol_Notes.txt" />
+    <Content Include="Maneuvers\GodContol_Notes.txt" />
     <None Include="Resources\RubiksCube2x2_promo2.PNG" />
     <None Include="Resources\RubiksCube2x2_promo.PNG" />
     <None Include="Resources\manuever_1030.bmp" />

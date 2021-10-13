@@ -58,7 +58,7 @@ namespace RubiksCube_2x2 //.TilesAndPieces
             mod_colorOfTile = par_color;
             mod_nextTileCW = par_nextTileCW;
             //mod_nextTileCCW = par_nextTileCCW;
-            mod_isLoadingComplete = false;  // true;
+            mod_isLoadingComplete = false;  // False. We haven't received both neighboring tiles, just one. 
 
         }
 
@@ -73,7 +73,33 @@ namespace RubiksCube_2x2 //.TilesAndPieces
             //mod_nextTileCW = par_nextTileCW;
             //mod_nextTileCCW = par_nextTileCCW;
             //mod_isLoadingComplete = true;
-            mod_isLoadingComplete = false;
+            mod_isLoadingComplete = false; // False. We haven't received any neighboring tiles.
+
+        }
+
+
+        public void Load_LastTile_NotInUse(RubiksFaceTile_Class par_tileRemaining)
+        {
+            //
+            // Added 10/12/2021 td 
+            //
+            if (mod_isLoadingComplete) throw new Exception("We cannot load any more tiles, we are already done.");
+            if (mod_nextTileCW == null) mod_nextTileCW = par_tileRemaining;
+            if (mod_nextTileCCW == null) mod_nextTileCCW = par_tileRemaining;
+            mod_isLoadingComplete = true;  // True. The last remaining tile has been supplied. 
+
+        }
+
+
+        public void Load_NeighborTiles(RubiksFaceTile_Class par_tileNextCW, RubiksFaceTile_Class par_tileNextCCW)
+        {
+            //
+            // Added 10/12/2021 td 
+            //
+            if (mod_isLoadingComplete) throw new Exception("We cannot load any more tiles, we are already done.");
+            mod_nextTileCW = par_tileNextCW;
+            mod_nextTileCCW = par_tileNextCCW;
+            mod_isLoadingComplete = true;  // True. The last remaining tile has been supplied. 
 
         }
 
