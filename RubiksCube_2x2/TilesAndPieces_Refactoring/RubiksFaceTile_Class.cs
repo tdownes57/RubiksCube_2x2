@@ -23,7 +23,11 @@ namespace RubiksCube_2x2 //.TilesAndPieces
         public int OrdinalPositionAmongPieces1234_Mutable = 0;  // The function RubiksPiece_4Pieces.ToString() will refer to this. Added 10/15/2021 td  
 
         private Color mod_colorOfTile = Color.Transparent;
-        private bool mod_isLoadingComplete = false;  
+        private bool mod_isLoadingComplete = false;
+
+        public Color ManueverText_IsMarked = false;  // Added 10/20/2021.
+        public string ManueverTextMarker = "";  // Default to "". E.g. "10:30".   Added 10/20/2021. 
+        public Color ManueverTextMarker_Color = Color.Black;  // Added 10/20/2021.
 
         public RubiksFaceTile_Class mod_nextTileCW_Immutable;  // This is "_Immutable" because its determined at "Load" time and cannot be changed.
         public RubiksFaceTile_Class mod_nextTileCCW_Immutable; // This is "_Immutable" because its determined at "Load" time and cannot be changed.
@@ -162,8 +166,9 @@ namespace RubiksCube_2x2 //.TilesAndPieces
 
         }
 
-        public string SerializeLocation()
+        public string SerializeManeuver()
         {
+            //{{{{ public string SerializeLocation()
             //
             // Added 10/12/2021  
             //
@@ -172,9 +177,25 @@ namespace RubiksCube_2x2 //.TilesAndPieces
             //       SW-W    The originally-1:30 piece's front face is now SW-W (west side face of the SW position)
             //       NE-N    The originally-1:30 piece's front face is now NE-N (north side face of the NE position)
             //       SE-E    The originally-1:30 piece's front face is now SE-E (east side face of the SE position)
+            //       SE      The originally-1:30 piece's front face is now SE (front face of the SE position)
+            //       SW      The originally-1:30 piece's front face is now SW (front face of the SW position)
             //
-            //
+            string strTextMarker = this.ManueverTextMarker;
+            string twoChars = (strTextMarker == "1:30" ? "NE" :
+                               (strTextMarker == "4:30" ? "SE" :
+                               (strTextMarker == "7:30" ? "SW" :
+                               (strTextMarker == "10:30" ? "NW" : ""))));
 
+            string oneChar = (FacePositionNSWE()  == EnumFacePositionNSWE.N_side_of_front ? "N" :
+                               (FacePositionNSWE() == EnumFacePositionNSWE.S_side_of_front ? "S" :
+                               (FacePositionNSWE() == EnumFacePositionNSWE.E_side_of_front ? "E" :
+                               (FacePositionNSWE() == EnumFacePositionNSWE.W_side_of_front ? "W" : ""))));
+
+            if (oneChar == "") return twoChars;
+            //else return (twoChars + "-" + oneChar);
+
+            // https://www.c-sharpcorner.com/article/6-effective-ways-to-concatenate-strings-in-c-sharp-and-net-core/
+            else return ($"{twoChars}-{oneChar}");
 
         }
 

@@ -1865,9 +1865,8 @@ namespace RubiksCube_2x2
             //  
             //    //  ---10/11/2021 thomas c. downes
             //
-            if (false  +++++ =====) return this.TemporaryTextMarker;
-
-
+            //if (false  +++++ =====) 
+            return this.TemporaryTextMarker;
 
         }
 
