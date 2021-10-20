@@ -17,7 +17,11 @@ namespace RubiksCube_2x2
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new FormSolvingTool());
-            Application.Run(new FormPickMode());
+            // Oct. 19 //Application.Run(new FormPickMode());
+
+            const bool c_bTestingControls = true; 
+            if (c_bTestingControls) Application.Run(new FormTestingUserControl());
+            else Application.Run(new FormPickMode());
         }
     }
 }

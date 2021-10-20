@@ -38,7 +38,9 @@ namespace RubiksCube_2x2 //.TilesAndPieces
         public FrontClockFace FrontClockFacePosition;
         public FrontClockFace FrontClockFacePosition_Prior;
         public RubiksSide_4Pieces ParentSide;
-        public RubiksPieceCorner_3Tiles NextPieceCW;  // The adjacent piece when considering the clockwise (CW) motion of a hand which is at the centerpoint of the four pieces.
+
+        public RubiksPieceCorner_3Tiles NextPieceCW_Immutable;  // The adjacent piece when considering the clockwise (CW) motion of a hand which is at the centerpoint of the four pieces.
+        public RubiksPieceCorner_3Tiles NextPieceCW_Mutable_Denigrated;  // The adjacent piece when considering the clockwise (CW) motion of a hand which is at the centerpoint of the four pieces.
 
 
         public RubiksPieceCorner_3Tiles(RubiksSide_4Pieces par_sideParent, 

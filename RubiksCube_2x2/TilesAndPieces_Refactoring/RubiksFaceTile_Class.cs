@@ -17,11 +17,16 @@ namespace RubiksCube_2x2 //.TilesAndPieces
         //
         public RubiksPieceCorner_3Tiles ParentPiece;
 
+        //
+        // Suffixed "_Mutable" per https://www.lexico.com/en/definition/mutable?locale=en
+        //
+        public int OrdinalPositionAmongPieces1234_Mutable = 0;  // The function RubiksPiece_4Pieces.ToString() will refer to this. Added 10/15/2021 td  
+
         private Color mod_colorOfTile = Color.Transparent;
         private bool mod_isLoadingComplete = false;  
 
-        public RubiksFaceTile_Class mod_nextTileCW;
-        public RubiksFaceTile_Class mod_nextTileCCW;
+        public RubiksFaceTile_Class mod_nextTileCW_Immutable;  // This is "_Immutable" because its determined at "Load" time and cannot be changed.
+        public RubiksFaceTile_Class mod_nextTileCCW_Immutable; // This is "_Immutable" because its determined at "Load" time and cannot be changed.
 
         public Color ColorOfTile {
             get
@@ -84,8 +89,14 @@ namespace RubiksCube_2x2 //.TilesAndPieces
             // Added 10/12/2021 td 
             //
             if (mod_isLoadingComplete) throw new Exception("We cannot load any more tiles, we are already done.");
-            if (mod_nextTileCW == null) mod_nextTileCW = par_tileRemaining;
-            if (mod_nextTileCCW == null) mod_nextTileCCW = par_tileRemaining;
+            //if (mod_nextTileCW == null) mod_nextTileCW = par_tileRemaining;
+            //if (mod_nextTileCCW == null) mod_nextTileCCW = par_tileRemaining;
+            //
+            // During "Load" time, it's fine to set _Immutable properties. ---10/15/2021 td 
+            //
+            if (mod_nextTileCW_Immutable == null) mod_nextTileCW_Immutable = par_tileRemaining;
+            if (mod_nextTileCCW_Immutable == null) mod_nextTileCCW_Immutable = par_tileRemaining;
+
             mod_isLoadingComplete = true;  // True. The last remaining tile has been supplied. 
 
         }
@@ -97,28 +108,57 @@ namespace RubiksCube_2x2 //.TilesAndPieces
             // Added 10/12/2021 td 
             //
             if (mod_isLoadingComplete) throw new Exception("We cannot load any more tiles, we are already done.");
-            mod_nextTileCW = par_tileNextCW;
-            mod_nextTileCCW = par_tileNextCCW;
+
+            //
+            // During "Load" time, it's fine to set _Immutable properties. ---10/15/2021 td 
+            //
+            mod_nextTileCW_Immutable = par_tileNextCW;   // mod_nextTileCW = par_tileNextCW;
+            mod_nextTileCCW_Immutable = par_tileNextCCW;  // mod_nextTileCCW = par_tileNextCCW;
+
             mod_isLoadingComplete = true;  // True. The last remaining tile has been supplied. 
 
         }
 
 
-        public RubiksFaceTile_Class NextFaceTile_CW()
+        public RubiksFaceTile_Class NextFaceTile_CW_Immutable()
         {
+            //---public RubiksFaceTile_Class NextFaceTile_CW()
             //
             // Added 10/12/2021  
             //
-            return mod_nextTileCW;
+            //  Suffixed "_Immutable" on 10/15/2021 thomas d.
+            // // This is "_Immutable" because its determined at "Load" time and cannot be changed.
+            //
+            //return mod_nextTileCW;
+            return mod_nextTileCW_Immutable;
 
         }
 
-        public RubiksFaceTile_Class NextFaceTile_CCW()
+        public RubiksFaceTile_Class NextFaceTile_CCW_Immutable()
         {
+            //---public RubiksFaceTile_Class NextFaceTile_CCW()
+            //
+            //  Suffixed "_Immutable" on 10/15/2021 thomas d.
+            // // This is "_Immutable" because its determined at "Load" time and cannot be changed.
             //
             // Added 10/12/2021  
             //
-            return mod_nextTileCCW;
+            //return mod_nextTileCW;
+            //return mod_nextTileCCW;
+            return mod_nextTileCCW_Immutable;
+
+        }
+
+
+        public void RenumberOrdinalPosition1234_Mutable(int par_newOrdinalPosition1234)
+        {
+            // Added 10/15/2021 td 
+            //
+            // Give it a new position among its sister RubiksPieces--1, 2, 3, or 4. 
+            //
+            // This obviously changes the "_Mutable" property this.OrdinalPositionAmongPieces1234_Mutable 
+            //
+            this.OrdinalPositionAmongPieces1234_Mutable = par_newOrdinalPosition1234_Mutable;
 
         }
 
