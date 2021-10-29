@@ -28,7 +28,8 @@ namespace RubiksCube_2x2
     //           [.S.]   [.S.]
     // (The [. .] faces are _side_ faces.) 
     //
-    public enum FrontClockFace { unassigned, one_thirty, four_thirty, seven_thirty, ten_thirty};
+    public enum FrontClockFace_Enum { unassigned, one_thirty, four_thirty, seven_thirty, ten_thirty};
+
 
     //Added 1/23/2021 thomas downes
     public enum EnumLeftOrRight { Unassigned, Left, Right };
@@ -125,9 +126,10 @@ namespace RubiksCube_2x2
             //const int mod_face_half_wdth = 30;
             //const int mod_face_half_hght = 30;
 
-            switch (p_face_position) // (par_FrontFace)
+            //switch (p_face_position) // (par_FrontFace)
+            switch (p_face_position.EnumValue()) // (par_FrontFace)
             {
-                case FrontClockFace.one_thirty:
+                case FrontClockFace_Enum.one_thirty:
                     //return new Rectangle(0, 0, 100, 100);
                     center_point_rect = new Point(center_point_form.X + FaceSize.Front_Half_wdth + p_margin,
                                                   center_point_form.Y - FaceSize.Front_Half_hght);
@@ -136,7 +138,7 @@ namespace RubiksCube_2x2
                                                     FaceSize.Front_Half_wdth, 
                                                     FaceSize.Front_Half_hght);
 
-                case FrontClockFace.four_thirty:
+                case FrontClockFace_Enum.four_thirty:
                     //return new Rectangle(0, 0, 100, 100);
                     center_point_rect = new Point(center_point_form.X + FaceSize.Front_Half_wdth + p_margin,
                                                   center_point_form.Y + FaceSize.Front_Half_hght + p_margin);
@@ -145,7 +147,7 @@ namespace RubiksCube_2x2
                                                     FaceSize.Front_Half_wdth, 
                                                     FaceSize.Front_Half_hght);
 
-                case FrontClockFace.seven_thirty:
+                case FrontClockFace_Enum.seven_thirty:
                     //return new Rectangle(0, 0, 100, 100);
                     center_point_rect = new Point(center_point_form.X - FaceSize.Front_Half_wdth,
                                                   center_point_form.Y + FaceSize.Front_Half_hght + p_margin);
@@ -154,7 +156,7 @@ namespace RubiksCube_2x2
                                                     FaceSize.Front_Half_wdth, 
                                                     FaceSize.Front_Half_hght);
 
-                case FrontClockFace.ten_thirty:
+                case FrontClockFace_Enum.ten_thirty:
                     //return new Rectangle(0, 0, 100, 100);
                     center_point_rect = new Point(center_point_form.X - FaceSize.Front_Half_wdth,
                                                   center_point_form.Y - FaceSize.Front_Half_hght);
@@ -202,9 +204,10 @@ namespace RubiksCube_2x2
             //const int mod_face_half_wdth = 30;
             //const int mod_face_half_hght = 30;
 
-            switch (p_face_position) // (par_FrontFace)
+            //switch (p_face_position) // (par_FrontFace)
+            switch (p_face_position.EnumValue()) // (par_FrontFace)
             {
-                case FrontClockFace.one_thirty:
+                case FrontClockFace_Enum.one_thirty:
                     //return new Rectangle(0, 0, 100, 100);
                     //center_point_rect = new Point(center_point_form.X + FaceSize.Front_Half_wdth,
                     //                              center_point_form.Y - FaceSize.Front_Half_hght);
@@ -215,7 +218,7 @@ namespace RubiksCube_2x2
                                FaceSize.Side_Half_wdth_VERT * 2,
                                FaceSize.Side_Half_hght_VERT * 2);
 
-                case FrontClockFace.four_thirty:
+                case FrontClockFace_Enum.four_thirty:
                     //return new Rectangle(0, 0, 100, 100);
                     //center_point_rect = new Point(center_point_form.X + FaceSize.Front_Half_wdth,
                     //                              center_point_form.Y + FaceSize.Front_Half_hght);
@@ -227,7 +230,7 @@ namespace RubiksCube_2x2
                                FaceSize.Side_Half_wdth_HORI * 2,
                                FaceSize.Side_Half_hght_HORI * 2);
 
-                case FrontClockFace.seven_thirty:
+                case FrontClockFace_Enum.seven_thirty:
                     //return new Rectangle(0, 0, 100, 100);
                     //center_point_rect = new Point(center_point_form.X - FaceSize.Front_Half_wdth,
                     //                              center_point_form.Y + FaceSize.Front_Half_hght);
@@ -239,7 +242,7 @@ namespace RubiksCube_2x2
                                FaceSize.Side_Half_wdth_VERT * 2,
                                FaceSize.Side_Half_hght_VERT * 2);
 
-                case FrontClockFace.ten_thirty:
+                case FrontClockFace_Enum.ten_thirty:
                     //return new Rectangle(0, 0, 100, 100);
                     //center_point_rect = new Point(center_point_form.X - FaceSize.Front_Half_wdth,
                     //                              center_point_form.Y - FaceSize.Front_Half_hght);
@@ -275,30 +278,31 @@ namespace RubiksCube_2x2
             Point center_point_form = p_centerOfForm;
             Point corner_point;
 
-            switch (p_face_position) // (par_FrontFace)
+            //switch (p_face_position) // (par_FrontFace)
+            switch (p_face_position.EnumValue()) // (par_FrontFace)
             {
-                case FrontClockFace.one_thirty:
+                case FrontClockFace_Enum.one_thirty:
                     corner_point = par_pointNE;
                     //--return GetRectangle_byTopLeft(corner_point, par_margin, 25, 20);
                     return GetRectangle_byTopLeft(corner_point, par_margin,
                                FaceSize.Side_Half_wdth_HORI * 2,
                                FaceSize.Side_Half_hght_HORI * 2);
 
-                case FrontClockFace.four_thirty:
+                case FrontClockFace_Enum.four_thirty:
                     corner_point = par_pointSE;
                     //--return GetRectangle_byTopRight(corner_point, par_margin, 20, 25);
                     return GetRectangle_byTopRight(corner_point, par_margin,
                                FaceSize.Side_Half_wdth_VERT * 2,
                                FaceSize.Side_Half_hght_VERT * 2);
 
-                case FrontClockFace.seven_thirty:
+                case FrontClockFace_Enum.seven_thirty:
                     corner_point = par_pointSW;
                     //--return GetRectangle_byBottomRight(corner_point, par_margin, 25, 20);
                     return GetRectangle_byBottomRight(corner_point, par_margin,
                                FaceSize.Side_Half_wdth_HORI * 2,
                                FaceSize.Side_Half_hght_HORI * 2);
 
-                case FrontClockFace.ten_thirty:
+                case FrontClockFace_Enum.ten_thirty:
                     corner_point = par_pointNW;
                     //--return GetRectangle_byBottomLeft(corner_point, par_margin, 20, 25);
                     return GetRectangle_byBottomLeft(corner_point, par_margin,

@@ -12,7 +12,7 @@ namespace RubiksCube_2x2 //.TilesAndPieces
         //
         // I am refactoring the PieceCorner & FaceTile classes, so that the 
         //     FaceTile class is given ample responsibilities, e.g. the 
-        //     drawing of itself. 
+        //     drawing of itself. ----10/12/2021 
         //
         // Added 10/12/2021  
         //
@@ -154,6 +154,20 @@ namespace RubiksCube_2x2 //.TilesAndPieces
 
         }
 
+        public FrontClockFace FrontClockFacePosition_NextCW()
+        {
+            //
+            // Added 10/29/2021 Thomas downes
+            //
+            //if (FrontClockFacePosition == FrontClockFace.one_thirty) return FrontClockFace.four_thirty;
+            //if (FrontClockFacePosition == FrontClockFace.four_thirty) return FrontClockFace.seven_thirty;
+            //if (FrontClockFacePosition == FrontClockFace.seven_thirty) return FrontClockFace.ten_thirty;
+            //if (FrontClockFacePosition == FrontClockFace.ten_thirty) return FrontClockFace.one_thirty;
+            return FrontClockFacePosition.NextCW();
+            //return FrontClockFace.unassigned;
+            throw new Exception("The value of FrontClockFacePosition_NextCW cannot be determined.");
+
+        }
 
 
     }

@@ -13,6 +13,10 @@ namespace RubiksCube_2x2 //.TilesAndPieces
     class RubiksSide_4Pieces
     {
         //
+        // I am refactoring the PieceCorner & FaceTile classes (et al.), so that the 
+        //     FaceTile class is given ample responsibilities, e.g. the 
+        //     drawing of itself. ----10/12/2021 
+        //
         // Added 10/12/2021  
         //
         private RubiksPieceCorner_3Tiles mod_pieceCW1_Immutable;  // Suffixed _Immutable to indicate that these don't change after "Load" is complete.
@@ -20,7 +24,7 @@ namespace RubiksCube_2x2 //.TilesAndPieces
         private RubiksPieceCorner_3Tiles mod_pieceCW3_Immutable; // Suffixed _Immutable to indicate that these don't change after "Load" is complete.
         private RubiksPieceCorner_3Tiles mod_pieceCW4_Immutable; // Suffixed _Immutable to indicate that these don't change after "Load" is complete.
 
-        private RubiksPieceCorner_3Tiles CurrentEnumeratedPiece; // Used by FirstPiece() & NextPiece().  Added 10/15/2021  
+        private RubiksPieceCorner_3Tiles CurrentEnumeratedPiece; // Used by FirstPiece_Mutable() & NextPiece_Mutable().  Added 10/15/2021  
 
         // The following does _NOT_ initiate the string to "NE-E, SE-S, SW-W, NW-N".
         //    However, the string literal is providing a possible example of the 
@@ -66,20 +70,20 @@ namespace RubiksCube_2x2 //.TilesAndPieces
             //
             // Constructor added 10/12/2021  
             //
-            mod_pieceCW1 = par_pieceFirst;  //par_pieceAny;
-            mod_pieceCW2 = par_pieceNext1CW;
-            mod_pieceCW3 = par_pieceNext2CW;
-            mod_pieceCW4 = par_pieceNext3CW;
+            mod_pieceCW1_Immutable = par_pieceFirst;  //par_pieceAny;
+            mod_pieceCW2_Immutable = par_pieceNext1CW;
+            mod_pieceCW3_Immutable = par_pieceNext2CW;
+            mod_pieceCW4_Immutable = par_pieceNext3CW;
 
-            mod_pieceCW1.FrontClockFacePosition = par_positionOfFirstPiece;
-            mod_pieceCW2.FrontClockFacePosition = EnumStaticClass.NextPositionClockwise(mod_pieceCW1.FrontClockFacePosition);
-            mod_pieceCW3.FrontClockFacePosition = EnumStaticClass.NextPositionClockwise(mod_pieceCW2.FrontClockFacePosition);
-            mod_pieceCW4.FrontClockFacePosition = EnumStaticClass.NextPositionClockwise(mod_pieceCW3.FrontClockFacePosition);
+            mod_pieceCW1_Immutable.FrontClockFacePosition = par_positionOfFirstPiece;
+            mod_pieceCW2_Immutable.FrontClockFacePosition = EnumStaticClass.NextPositionClockwise(mod_pieceCW1_Immutable.FrontClockFacePosition);
+            mod_pieceCW3_Immutable.FrontClockFacePosition = EnumStaticClass.NextPositionClockwise(mod_pieceCW2_Immutable.FrontClockFacePosition);
+            mod_pieceCW4_Immutable.FrontClockFacePosition = EnumStaticClass.NextPositionClockwise(mod_pieceCW3_Immutable.FrontClockFacePosition);
 
-            mod_pieceCW1.NextPieceCW = mod_pieceCW2;
-            mod_pieceCW2.NextPieceCW = mod_pieceCW3;
-            mod_pieceCW3.NextPieceCW = mod_pieceCW4;
-            mod_pieceCW4.NextPieceCW = mod_pieceCW1;
+            mod_pieceCW1_Immutable.NextPieceCW_Immutable = mod_pieceCW2_Immutable;
+            mod_pieceCW2_Immutable.NextPieceCW_Immutable = mod_pieceCW3_Immutable;
+            mod_pieceCW3_Immutable.NextPieceCW_Immutable = mod_pieceCW4_Immutable;
+            mod_pieceCW4_Immutable.NextPieceCW_Immutable = mod_pieceCW1_Immutable;
         }
 
         public RubiksPieceCorner_3Tiles GetPieceAtPosition(FrontClockFace par_enum)
@@ -87,11 +91,62 @@ namespace RubiksCube_2x2 //.TilesAndPieces
             //
             // Added 1/16/2020 thomas downes   
             //
-            if (mod_pieceCW1.FrontClockFacePosition == par_enum) return mod_pieceCW1;
-            else if (mod_pieceCW2.FrontClockFacePosition == par_enum) return mod_pieceCW2;
-            else if (mod_pieceCW3.FrontClockFacePosition == par_enum) return mod_pieceCW3;
-            else if (mod_pieceCW4.FrontClockFacePosition == par_enum) return mod_pieceCW4;
+            if (mod_pieceCW1_Immutable.FrontClockFacePosition == par_enum) return mod_pieceCW1_Immutable;
+            else if (mod_pieceCW2_Immutable.FrontClockFacePosition == par_enum) return mod_pieceCW2_Immutable;
+            else if (mod_pieceCW3_Immutable.FrontClockFacePosition == par_enum) return mod_pieceCW3_Immutable;
+            else if (mod_pieceCW4_Immutable.FrontClockFacePosition == par_enum) return mod_pieceCW4_Immutable;
             else return null;
+
+        }
+
+
+        public RubiksPieceCorner_3Tiles FirstPiece_Mutable()
+        {
+            //
+            // Added 10/29/2021 thomas downes
+            //
+            //if (CurrentEnumeratedPiece == null)
+            //{
+                CurrentEnumeratedPiece = GetPieceAtPosition(FrontClockFace.one_thirty);
+                return CurrentEnumeratedPiece;
+            //}
+            //else
+            //{
+            //    // CW = Clockwise (rotation) 
+            //    FrontClockFace nextClockPositionCW = CurrentEnumeratedPiece
+            //        .FrontClockFacePosition_NextCW();
+            //    CurrentEnumeratedPiece = GetPieceAtPosition(nextClockPositionCW);
+            //    return CurrentEnumeratedPiece; 
+            //}
+
+        }
+
+
+        public RubiksPieceCorner_3Tiles NextPiece_Mutable()
+        {
+            //
+            // Added 10/29/2021 thomas downes
+            //
+            if (CurrentEnumeratedPiece == null)
+            {
+                //CurrentEnumeratedPiece = GetPieceAtPosition(FrontClockFace.one_thirty);
+                //return CurrentEnumeratedPiece;
+                throw new Exception("First call FirstPiece_Mutable, then call the present function!!");
+            }
+            else
+            {
+                // This function should only be called three(3) times, so
+                //   let's run an error check.  ---10/29/2021 td  
+                var currentClock = CurrentEnumeratedPiece.FrontClockFacePosition;
+                if (currentClock == FrontClockFace.ten_thirty) 
+                    throw new Exception("I think you have already asked for four(4) pieces.");
+
+                // CW = Clockwise (rotation) 
+                FrontClockFace nextClockPositionCW = CurrentEnumeratedPiece.FrontClockFacePosition_NextCW();
+                CurrentEnumeratedPiece = GetPieceAtPosition(nextClockPositionCW);
+                return CurrentEnumeratedPiece;
+
+            }
 
         }
 
