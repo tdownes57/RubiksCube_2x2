@@ -136,7 +136,7 @@ namespace RubiksCube_2x2
                 //
                 // Encapsulated 11/13/2020 td
                 //
-                base.FrontClockFacePosition = FrontClockFace.one_thirty; // Top-Right, or NorthEast.
+                base.FrontClockFacePosition = FrontClockFace.one_thirty(); // Top-Right, or NorthEast.
 
                 //base.FaceColor1Position_NotInUse = FacePositionNSWE.E_side_of_front;
                 //base.FaceColor2Position_NotInUse = FacePositionNSWE.FrontFacing;

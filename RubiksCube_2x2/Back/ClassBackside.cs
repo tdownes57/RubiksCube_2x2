@@ -209,16 +209,16 @@ namespace RubiksCube_2x2
                 _pieceBOY.FrontClockFacePosition = FrontClockFace.ten_thirty;
                 _pieceBOY.ReorientPiece_FrontFaceIsFace3(FrontClockFace.ten_thirty);
 
-                _pieceBYR.FrontClockFacePosition = FrontClockFace.seven_thirty;
-                _pieceBYR.ReorientPiece_FrontFaceIsFace3(FrontClockFace.seven_thirty);
+                _pieceBYR.FrontClockFacePosition = FrontClockFace_Enum.seven_thirty;
+                _pieceBYR.ReorientPiece_FrontFaceIsFace3(FrontClockFace_Enum.seven_thirty);
 
                 //throw new NotImplementedException();
 
-                _pieceGRY.FrontClockFacePosition = FrontClockFace.four_thirty;
-                _pieceGRY.ReorientPiece_FrontFaceIsFace2(FrontClockFace.four_thirty);
+                _pieceGRY.FrontClockFacePosition = FrontClockFace.four_thirty();
+                _pieceGRY.ReorientPiece_FrontFaceIsFace2(FrontClockFace.four_thirty());
 
-                _pieceGYO.FrontClockFacePosition = FrontClockFace.one_thirty;
-                _pieceGYO.ReorientPiece_FrontFaceIsFace2(FrontClockFace.one_thirty);
+                _pieceGYO.FrontClockFacePosition = FrontClockFace.one_thirty();
+                _pieceGYO.ReorientPiece_FrontFaceIsFace2(FrontClockFace.one_thirty());
 
             }
 
@@ -271,7 +271,7 @@ namespace RubiksCube_2x2
                 //
                 // Testing, before. 
                 //
-                beforePiece430 = this.GetPiece(FrontClockFace.four_thirty);
+                beforePiece430 = this.GetPiece(FrontClockFace.four_thirty());
                 beforePiece1030 = this.GetPiece(FrontClockFace.ten_thirty);
 
                 test_position430_Before = beforePiece430.FrontClockFacePosition;
@@ -342,13 +342,13 @@ namespace RubiksCube_2x2
                     //
                     // Old way, without encapsulation of rules. 
                     //
-                    move1_from130.StartingPoint = FrontClockFace.one_thirty;
+                    move1_from130.StartingPoint = FrontClockFace.one_thirty();
                     move1_from130.EndingPoint = EnumAll12Faces.F0430;
 
-                    move2_from430.StartingPoint = FrontClockFace.four_thirty;
+                    move2_from430.StartingPoint = FrontClockFace.four_thirty();
                     move2_from430.EndingPoint = EnumAll12Faces._730_SSW;
 
-                    move3_from730.StartingPoint = FrontClockFace.seven_thirty;
+                    move3_from730.StartingPoint = FrontClockFace_Enum.seven_thirty;
                     move3_from730.EndingPoint = EnumAll12Faces._1030_NNW;
 
                     move4_from1030.StartingPoint = FrontClockFace.ten_thirty;
@@ -360,9 +360,9 @@ namespace RubiksCube_2x2
                 //
                 // Implementing the movements described above, as follows: 
                 //
-                RubiksPieceCorner piece_starting_at_130 = GetPieceAtPosition(FrontClockFace.one_thirty);
-                RubiksPieceCorner piece_starting_at_430 = GetPieceAtPosition(FrontClockFace.four_thirty);
-                RubiksPieceCorner piece_starting_at_730 = GetPieceAtPosition(FrontClockFace.seven_thirty);
+                RubiksPieceCorner piece_starting_at_130 = GetPieceAtPosition(FrontClockFace.one_thirty());
+                RubiksPieceCorner piece_starting_at_430 = GetPieceAtPosition(FrontClockFace.four_thirty());
+                RubiksPieceCorner piece_starting_at_730 = GetPieceAtPosition(FrontClockFace_Enum.seven_thirty);
                 RubiksPieceCorner piece_starting_at_1030 = GetPieceAtPosition(FrontClockFace.ten_thirty);
 
                 //piece_starting_at_130.ReorientPiece_Complex(move1.EndingPoint);
@@ -684,8 +684,8 @@ namespace RubiksCube_2x2
                 //       [ NW ] [ NE ]  
                 //       [ SW ] [ SE ]   
                 //
-                RubiksPieceCorner pieceSW = this.GetPiece(FrontClockFace.seven_thirty);
-                RubiksPieceCorner pieceSE = this.GetPiece(FrontClockFace.four_thirty);
+                RubiksPieceCorner pieceSW = this.GetPiece(FrontClockFace_Enum.seven_thirty);
+                RubiksPieceCorner pieceSE = this.GetPiece(FrontClockFace.four_thirty());
 
                 GodlikeSwitch_Piece(pieceSW, pieceSE);
 
@@ -1197,10 +1197,10 @@ namespace RubiksCube_2x2
                 //FrontClockFace position1 = par_piece1.FrontClockFacePosition;
                 //FrontClockFace position2 = par_piece2.FrontClockFacePosition;
 
-                //bool bPosition1_SW = (position1 == FrontClockFace.seven_thirty);
-                //bool bPosition1_SE = (position1 == FrontClockFace.four_thirty);
-                //bool bPosition2_SW = (position2 == FrontClockFace.seven_thirty);
-                //bool bPosition2_SE = (position2 == FrontClockFace.four_thirty);
+                //bool bPosition1_SW = (position1 == FrontClockFace_Enum.seven_thirty);
+                //bool bPosition1_SE = (position1 == FrontClockFace.four_thirty());
+                //bool bPosition2_SW = (position2 == FrontClockFace_Enum.seven_thirty);
+                //bool bPosition2_SE = (position2 == FrontClockFace.four_thirty());
 
                 //bool b_1SW_2SE = (bPosition1_SW && bPosition2_SE);
                 //bool b_1SE_2SW = (bPosition1_SE && bPosition2_SW);

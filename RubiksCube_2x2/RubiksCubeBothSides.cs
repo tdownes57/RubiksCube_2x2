@@ -143,8 +143,8 @@ namespace RubiksCube_2x2
             //if (false) mod_mainside_front.GodlikeSwitch(null, null);
             if (false) mod_mainside_front.GodlikeSwitch_Piece(null, null);
 
-            //var pieceSW = mod_frontside.GetPiece(FrontClockFace.seven_thirty);
-            //var pieceSE = mod_frontside.GetPiece(FrontClockFace.four_thirty);
+            //var pieceSW = mod_frontside.GetPiece(FrontClockFace_Enum.seven_thirty);
+            //var pieceSE = mod_frontside.GetPiece(FrontClockFace.four_thirty());
             //mod_frontside.GodlikeSwitch_BottomPieces(pieceSE, pieceSW);
 
             //

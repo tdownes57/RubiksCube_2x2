@@ -135,7 +135,7 @@ namespace RubiksCube_2x2
                 //
                 // Encapsulated 11/13/2020 td
                 //
-                base.FrontClockFacePosition = FrontClockFace.seven_thirty;  // Bottom-Left, South-West [ 7:30]  in   [.W.] [ 7:30] [3:30]  [.E.] 
+                base.FrontClockFacePosition = FrontClockFace_Enum.seven_thirty;  // Bottom-Left, South-West [ 7:30]  in   [.W.] [ 7:30] [3:30]  [.E.] 
 
                 //base.FaceColor1Position_NotInUse = FacePositionNSWE.W_side_of_front;
                 //base.FaceColor2Position_NotInUse = FacePositionNSWE.FrontFacing;

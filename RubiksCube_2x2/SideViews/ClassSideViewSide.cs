@@ -26,22 +26,22 @@ namespace RubiksCube_2x2.SideViews
             {
                 //Copy 2 of 4 pieces from the front side. 
                 base.Piece1 = par_cubeFrontAndBack.FrontSide.GetPiece(FrontClockFace.ten_thirty);
-                base.Piece2 = par_cubeFrontAndBack.FrontSide.GetPiece(FrontClockFace.seven_thirty);
+                base.Piece2 = par_cubeFrontAndBack.FrontSide.GetPiece(FrontClockFace_Enum.seven_thirty);
 
                 //Copy 2 of 4 pieces from the back side. 
-                base.Piece3 = par_cubeFrontAndBack.BackSide.GetPiece(FrontClockFace.one_thirty);
-                base.Piece4 = par_cubeFrontAndBack.BackSide.GetPiece(FrontClockFace.four_thirty);
+                base.Piece3 = par_cubeFrontAndBack.BackSide.GetPiece(FrontClockFace.one_thirty());
+                base.Piece4 = par_cubeFrontAndBack.BackSide.GetPiece(FrontClockFace.four_thirty());
 
             }
             else if (par_enum == EnumLeftOrRight.Right)
             {
                 //Copy 2 of 4 pieces from the front side. 
-                base.Piece1 = par_cubeFrontAndBack.FrontSide.GetPiece(FrontClockFace.one_thirty);
-                base.Piece2 = par_cubeFrontAndBack.FrontSide.GetPiece(FrontClockFace.four_thirty);
+                base.Piece1 = par_cubeFrontAndBack.FrontSide.GetPiece(FrontClockFace.one_thirty());
+                base.Piece2 = par_cubeFrontAndBack.FrontSide.GetPiece(FrontClockFace.four_thirty());
 
                 //Copy 2 of 4 pieces from the back side. 
                 base.Piece3 = par_cubeFrontAndBack.BackSide.GetPiece(FrontClockFace.ten_thirty);
-                base.Piece4 = par_cubeFrontAndBack.BackSide.GetPiece(FrontClockFace.seven_thirty);
+                base.Piece4 = par_cubeFrontAndBack.BackSide.GetPiece(FrontClockFace_Enum.seven_thirty);
 
             }
 
@@ -61,12 +61,12 @@ namespace RubiksCube_2x2.SideViews
             const bool boolUseKeywordBase = false;
             if (boolUseKeywordBase)
             {
-                base.Piece1 = par_cubeSideToCopy.GetPiece(FrontClockFace.one_thirty);
-                base.Piece2 = par_cubeSideToCopy.GetPiece(FrontClockFace.four_thirty);
+                base.Piece1 = par_cubeSideToCopy.GetPiece(FrontClockFace.one_thirty());
+                base.Piece2 = par_cubeSideToCopy.GetPiece(FrontClockFace.four_thirty());
 
                 //Copy 2 of 4 pieces from the back side. 
                 base.Piece3 = par_cubeSideToCopy.GetPiece(FrontClockFace.ten_thirty);
-                base.Piece4 = par_cubeSideToCopy.GetPiece(FrontClockFace.seven_thirty);
+                base.Piece4 = par_cubeSideToCopy.GetPiece(FrontClockFace_Enum.seven_thirty);
             }
 
             //Added 4/1/2021 thomas downes
@@ -75,11 +75,11 @@ namespace RubiksCube_2x2.SideViews
             const bool boolUseKeywordThis = (!boolUseKeywordBase);
             if (boolUseKeywordThis)
             {
-                 this.Piece1 = par_cubeSideToCopy.GetPiece(FrontClockFace.one_thirty);
-                this.Piece2 = par_cubeSideToCopy.GetPiece(FrontClockFace.four_thirty);
+                 this.Piece1 = par_cubeSideToCopy.GetPiece(FrontClockFace.one_thirty());
+                this.Piece2 = par_cubeSideToCopy.GetPiece(FrontClockFace.four_thirty());
                 //Copy 2 of 4 pieces from the back side. 
                 this.Piece3 = par_cubeSideToCopy.GetPiece(FrontClockFace.ten_thirty);
-                this.Piece4 = par_cubeSideToCopy.GetPiece(FrontClockFace.seven_thirty);
+                this.Piece4 = par_cubeSideToCopy.GetPiece(FrontClockFace_Enum.seven_thirty);
             }
 
             //Added 4/2/2021 thomas downes

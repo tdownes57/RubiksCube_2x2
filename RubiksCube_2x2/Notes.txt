@@ -58,21 +58,21 @@
                 if (Color.Blue == par_frontfacecolor) // Blue
                     switch (par_enum)
                     {
-                        case (FrontClockFace.one_thirty):
+                        case (FrontClockFace.one_thirty()):
                             base.WhichFaceIsN_of_front = EnumFaceNum.Face2;
                             base.WhichFaceIsE_of_front = EnumFaceNum.Face3;
                             base.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                             base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                             break;
 
-                        case (FrontClockFace.four_thirty):
+                        case (FrontClockFace.four_thirty()):
                             base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                             base.WhichFaceIsE_of_front = EnumFaceNum.Face2;
                             base.WhichFaceIsS_of_front = EnumFaceNum.Face3;
                             base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                             break;
 
-                        case (FrontClockFace.seven_thirty):
+                        case (FrontClockFace_Enum.seven_thirty):
                             base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                             base.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                             base.WhichFaceIsS_of_front = EnumFaceNum.Face2;
@@ -95,21 +95,21 @@
                 if (Color.Yellow == par_frontfacecolor) // Yellow 
                     switch (par_enum)
                     {
-                        case (FrontClockFace.one_thirty):
+                        case (FrontClockFace.one_thirty()):
                             base.WhichFaceIsN_of_front = EnumFaceNum.Face3;
                             base.WhichFaceIsE_of_front = EnumFaceNum.Face1;
                             base.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                             base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                             break;
 
-                        case (FrontClockFace.four_thirty):
+                        case (FrontClockFace.four_thirty()):
                             base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                             base.WhichFaceIsE_of_front = EnumFaceNum.Face3;
                             base.WhichFaceIsS_of_front = EnumFaceNum.Face1;
                             base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                             break;
 
-                        case (FrontClockFace.seven_thirty):
+                        case (FrontClockFace_Enum.seven_thirty):
                             base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                             base.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                             base.WhichFaceIsS_of_front = EnumFaceNum.Face3;
@@ -132,21 +132,21 @@
                 if (Color.Red == par_frontfacecolor)  // Red
                     switch (par_enum)
                     {
-                        case (FrontClockFace.one_thirty):
+                        case (FrontClockFace.one_thirty()):
                             base.WhichFaceIsN_of_front = EnumFaceNum.Face1;
                             base.WhichFaceIsE_of_front = EnumFaceNum.Face2;
                             base.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                             base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                             break;
 
-                        case (FrontClockFace.four_thirty):
+                        case (FrontClockFace.four_thirty()):
                             base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                             base.WhichFaceIsE_of_front = EnumFaceNum.Face1;
                             base.WhichFaceIsS_of_front = EnumFaceNum.Face2;
                             base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                             break;
 
-                        case (FrontClockFace.seven_thirty):
+                        case (FrontClockFace_Enum.seven_thirty):
                             base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                             base.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                             base.WhichFaceIsS_of_front = EnumFaceNum.Face1;
@@ -191,9 +191,9 @@
                 //
                 switch (strNE_SE_SW_NW)
                 {
-                    case ("NE"): base.FrontClockFacePosition = FrontClockFace.one_thirty; break;
-                    case ("SE"): base.FrontClockFacePosition = FrontClockFace.four_thirty; break;
-                    case ("SW"): base.FrontClockFacePosition = FrontClockFace.seven_thirty; break; 
+                    case ("NE"): base.FrontClockFacePosition = FrontClockFace.one_thirty(); break;
+                    case ("SE"): base.FrontClockFacePosition = FrontClockFace.four_thirty(); break;
+                    case ("SW"): base.FrontClockFacePosition = FrontClockFace_Enum.seven_thirty; break; 
                     case ("NW"): base.FrontClockFacePosition = FrontClockFace.ten_thirty; break; 
                     default: throw new NotImplementedException("Should be NE or SE or SW or NW.");
                 }
@@ -259,29 +259,29 @@
 
                                 //switch (_pieceBOY.FrontClockFacePosition)
                 //{
-                //    case FrontClockFace.one_thirty:
+                //    case FrontClockFace.one_thirty():
                 //        // BOY 1:30 pm
                 //        // BOY is at 1:30 am, so let's check BYR is at 10:30 p.m.
-                //        //----if (_pieceBYR.FrontClockFacePosition == FrontClockFace.four_thirty) return true;
+                //        //----if (_pieceBYR.FrontClockFacePosition == FrontClockFace.four_thirty()) return true;
                 //        if (_pieceBYR.FrontClockFacePosition == FrontClockFace.ten_thirty) return true;
                 //        break;
 
-                //    case FrontClockFace.four_thirty:
+                //    case FrontClockFace.four_thirty():
                 //        // BOY 4:30 pm
                 //        // BOY is at 4:30 pm, so let's check BYR is at 1:30 p.m.
-                //        if (_pieceBYR.FrontClockFacePosition == FrontClockFace.one_thirty) return true;
+                //        if (_pieceBYR.FrontClockFacePosition == FrontClockFace.one_thirty()) return true;
                 //        break;
 
-                //    case FrontClockFace.seven_thirty:
+                //    case FrontClockFace_Enum.seven_thirty:
                 //        // BOY 7:30 pm.
                 //        // BOY is at 7:30 pm, so let's check BYR is at 4:30 p.m.
-                //        if (_pieceBYR.FrontClockFacePosition == FrontClockFace.four_thirty) return true;
+                //        if (_pieceBYR.FrontClockFacePosition == FrontClockFace.four_thirty()) return true;
                 //        break;
 
                 //    case FrontClockFace.ten_thirty:
                 //        // BOY 10:30 pm
                 //        // BOY is at 10:30 pm, so let's check BYR is at 7:30 p.m.
-                //        if (_pieceBYR.FrontClockFacePosition == FrontClockFace.seven_thirty) return true;
+                //        if (_pieceBYR.FrontClockFacePosition == FrontClockFace_Enum.seven_thirty) return true;
                 //        break;
 
                 //    default:

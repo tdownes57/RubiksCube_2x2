@@ -13,6 +13,17 @@ namespace RubiksCube_2x2
     public class FrontClockFace
     {
         //Added 10/29/2021 thomas downes
+        public static FrontClockFace one_thirty_obj => new FrontClockFace(FrontClockFace_Enum.one_thirty);
+        public static FrontClockFace four_thirty_obj => new FrontClockFace(FrontClockFace_Enum.four_thirty);
+        public static FrontClockFace seven_thirty_obj => new FrontClockFace(FrontClockFace_Enum.seven_thirty);
+        public static FrontClockFace ten_thirty_obj => new FrontClockFace(FrontClockFace_Enum.ten_thirty);
+
+        public static FrontClockFace_Enum one_thirty => FrontClockFace_Enum.one_thirty;
+        public static FrontClockFace_Enum four_thirty => FrontClockFace_Enum.four_thirty;
+        public static FrontClockFace_Enum seven_thirty => FrontClockFace_Enum.seven_thirty;
+        public static FrontClockFace_Enum ten_thirty => FrontClockFace_Enum.ten_thirty;
+
+        //Added 10/29/2021 thomas downes
         private FrontClockFace_Enum mod_enumClockPosition = FrontClockFace_Enum.unassigned;
         //Added 10/29/2021 thomas downes
         public FrontClockFace()

@@ -107,7 +107,7 @@ namespace RubiksCube_2x2 //.TilesAndPieces
             //
             //if (CurrentEnumeratedPiece == null)
             //{
-                CurrentEnumeratedPiece = GetPieceAtPosition(FrontClockFace.one_thirty);
+                CurrentEnumeratedPiece = GetPieceAtPosition(FrontClockFace.one_thirty());
                 return CurrentEnumeratedPiece;
             //}
             //else
@@ -129,7 +129,7 @@ namespace RubiksCube_2x2 //.TilesAndPieces
             //
             if (CurrentEnumeratedPiece == null)
             {
-                //CurrentEnumeratedPiece = GetPieceAtPosition(FrontClockFace.one_thirty);
+                //CurrentEnumeratedPiece = GetPieceAtPosition(FrontClockFace.one_thirty());
                 //return CurrentEnumeratedPiece;
                 throw new Exception("First call FirstPiece_Mutable, then call the present function!!");
             }

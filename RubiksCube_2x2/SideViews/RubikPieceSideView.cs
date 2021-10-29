@@ -47,13 +47,19 @@ namespace RubiksCube_2x2.SideViews
             //
             // Create a Side-View version of the parameter-passed Rubik 2x2 Piece (Corner). 
             //
-            switch (par_piece.FrontClockFacePosition) 
+            //switch (par_piece.FrontClockFacePosition)
+            switch (par_piece.FrontClockFacePosition.EnumValue())
             {
-                case FrontClockFace.four_thirty: this.FrontClockFacePosition = FrontClockFace.seven_thirty; break;
-                case FrontClockFace.one_thirty: this.FrontClockFacePosition = FrontClockFace.ten_thirty; break;
-                case FrontClockFace.seven_thirty: this.FrontClockFacePosition = FrontClockFace.four_thirty; break;
-                //case FrontClockFace.ten_thirty: par_piece.FrontClockFacePosition = FrontClockFace.one_thirty; break;
-                case FrontClockFace.ten_thirty: this.FrontClockFacePosition = FrontClockFace.one_thirty; break;
+                //
+                // Exchange the clock positions by a left-and-right switch;
+                //   e.g. the 1:30 position becomes the 10:30 position, and vice-versa.
+                //   e.g. the 4:30 position becomes the 7:30 position, and vice-versa.
+                //
+                case FrontClockFace_Enum.four_thirty: this.FrontClockFacePosition = FrontClockFace.seven_thirty_obj; break;
+                case FrontClockFace_Enum.one_thirty: this.FrontClockFacePosition = FrontClockFace.ten_thirty_obj; break;
+                case FrontClockFace_Enum.seven_thirty: this.FrontClockFacePosition = FrontClockFace.four_thirty_obj; break;
+                //case FrontClockFace.ten_thirty: par_piece.FrontClockFacePosition = FrontClockFace.one_thirty(); break;
+                case FrontClockFace_Enum.ten_thirty: this.FrontClockFacePosition = FrontClockFace.one_thirty_obj; break;
             }
 
             //---bool bValidFace_East = (EnumFaceNum.NotApplicable_DifferentPiece != this.WhichFaceIsE_of_front);

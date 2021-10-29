@@ -159,10 +159,10 @@ namespace RubiksCube_2x2 //.TilesAndPieces
             //
             // Added 10/29/2021 Thomas downes
             //
-            //if (FrontClockFacePosition == FrontClockFace.one_thirty) return FrontClockFace.four_thirty;
-            //if (FrontClockFacePosition == FrontClockFace.four_thirty) return FrontClockFace.seven_thirty;
-            //if (FrontClockFacePosition == FrontClockFace.seven_thirty) return FrontClockFace.ten_thirty;
-            //if (FrontClockFacePosition == FrontClockFace.ten_thirty) return FrontClockFace.one_thirty;
+            //if (FrontClockFacePosition == FrontClockFace.one_thirty()) return FrontClockFace.four_thirty();
+            //if (FrontClockFacePosition == FrontClockFace.four_thirty()) return FrontClockFace_Enum.seven_thirty;
+            //if (FrontClockFacePosition == FrontClockFace_Enum.seven_thirty) return FrontClockFace.ten_thirty;
+            //if (FrontClockFacePosition == FrontClockFace.ten_thirty) return FrontClockFace.one_thirty();
             return FrontClockFacePosition.NextCW();
             //return FrontClockFace.unassigned;
             throw new Exception("The value of FrontClockFacePosition_NextCW cannot be determined.");

@@ -46,9 +46,9 @@ namespace RubiksCube_2x2.Maneuvers
             ComplexPieceMove move4_from1030 = backside_move4_from1030;
             ComplexPieceMove move5_Clockwise90 = backside_move5_Clockwise90;
 
-            RubiksPieceCorner piece_starting_at_130 = par_oneSide.GetPieceAtPosition(FrontClockFace.one_thirty);
-            RubiksPieceCorner piece_starting_at_430 = par_oneSide.GetPieceAtPosition(FrontClockFace.four_thirty);
-            RubiksPieceCorner piece_starting_at_730 = par_oneSide.GetPieceAtPosition(FrontClockFace.seven_thirty);
+            RubiksPieceCorner piece_starting_at_130 = par_oneSide.GetPieceAtPosition(FrontClockFace.one_thirty());
+            RubiksPieceCorner piece_starting_at_430 = par_oneSide.GetPieceAtPosition(FrontClockFace.four_thirty());
+            RubiksPieceCorner piece_starting_at_730 = par_oneSide.GetPieceAtPosition(FrontClockFace_Enum.seven_thirty);
             RubiksPieceCorner piece_starting_at_1030 = par_oneSide.GetPieceAtPosition(FrontClockFace.ten_thirty);
 
             const bool c_boolOnlySetClockPosition = true;

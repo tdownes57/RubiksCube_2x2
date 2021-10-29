@@ -25,13 +25,13 @@ namespace RubiksCube_2x2.Back
             //
             // Added 12/5/2020 thomas downes  
             //
-            backside_move1_from130.StartingPoint = FrontClockFace.one_thirty;
+            backside_move1_from130.StartingPoint = FrontClockFace.one_thirty();
             backside_move1_from130.EndingPoint = EnumAll12Faces.F0130;
 
-            backside_move2_from430.StartingPoint = FrontClockFace.four_thirty;
+            backside_move2_from430.StartingPoint = FrontClockFace.four_thirty();
             backside_move2_from430.EndingPoint = EnumAll12Faces._1030_WNW;
 
-            backside_move3_from730.StartingPoint = FrontClockFace.seven_thirty;
+            backside_move3_from730.StartingPoint = FrontClockFace_Enum.seven_thirty;
             backside_move3_from730.EndingPoint = EnumAll12Faces.F0730;
 
             backside_move4_from1030.StartingPoint = FrontClockFace.ten_thirty;

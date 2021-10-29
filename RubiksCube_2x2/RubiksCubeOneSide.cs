@@ -92,10 +92,10 @@ namespace RubiksCube_2x2
             FrontClockFace position1 = par_piece1.FrontClockFacePosition;
             FrontClockFace position2 = par_piece2.FrontClockFacePosition;
 
-            bool bPosition1_SW = (position1 == FrontClockFace.seven_thirty);
-            bool bPosition1_SE = (position1 == FrontClockFace.four_thirty);
-            bool bPosition2_SW = (position2 == FrontClockFace.seven_thirty);
-            bool bPosition2_SE = (position2 == FrontClockFace.four_thirty);
+            bool bPosition1_SW = (position1 == FrontClockFace_Enum.seven_thirty);
+            bool bPosition1_SE = (position1 == FrontClockFace.four_thirty());
+            bool bPosition2_SW = (position2 == FrontClockFace_Enum.seven_thirty);
+            bool bPosition2_SE = (position2 == FrontClockFace.four_thirty());
 
             bool b_1SW_2SE = (bPosition1_SW && bPosition2_SE);
             bool b_1SE_2SW = (bPosition1_SE && bPosition2_SW);
@@ -163,9 +163,9 @@ namespace RubiksCube_2x2
             //
             // Implementing the movements described above, as follows: 
             //
-            RubiksPieceCorner piece_starting_at_130 = GetPiece(FrontClockFace.one_thirty);
-            RubiksPieceCorner piece_starting_at_430 = GetPiece(FrontClockFace.four_thirty);
-            RubiksPieceCorner piece_starting_at_730 = GetPiece(FrontClockFace.seven_thirty);
+            RubiksPieceCorner piece_starting_at_130 = GetPiece(FrontClockFace.one_thirty());
+            RubiksPieceCorner piece_starting_at_430 = GetPiece(FrontClockFace.four_thirty());
+            RubiksPieceCorner piece_starting_at_730 = GetPiece(FrontClockFace_Enum.seven_thirty);
             RubiksPieceCorner piece_starting_at_1030 = GetPiece(FrontClockFace.ten_thirty);
 
             //First, set the clock position of the piece.   
@@ -429,9 +429,9 @@ namespace RubiksCube_2x2
             if (boolColorsMatch_FrontFace)
             {
 
-                RubiksPieceCorner piece_NE_one_thirty = this.GetPieceAtPosition(FrontClockFace.one_thirty);
-                RubiksPieceCorner piece_SE_four_thirty = this.GetPieceAtPosition(FrontClockFace.four_thirty);
-                RubiksPieceCorner piece_SW_seven_thirty = this.GetPieceAtPosition(FrontClockFace.seven_thirty);
+                RubiksPieceCorner piece_NE_one_thirty = this.GetPieceAtPosition(FrontClockFace.one_thirty());
+                RubiksPieceCorner piece_SE_four_thirty = this.GetPieceAtPosition(FrontClockFace.four_thirty());
+                RubiksPieceCorner piece_SW_seven_thirty = this.GetPieceAtPosition(FrontClockFace_Enum.seven_thirty);
                 RubiksPieceCorner piece_NW_ten_thirty = this.GetPieceAtPosition(FrontClockFace.ten_thirty);
 
                 bool boolColorsMatch_North = false;

@@ -53,13 +53,13 @@ namespace RubiksCube_2x2
             //ComplexPieceMove move3_from730;
             //ComplexPieceMove move4_from1030;
 
-            move1_from130.StartingPoint = FrontClockFace.one_thirty;
+            move1_from130.StartingPoint = FrontClockFace.one_thirty();
             move1_from130.EndingPoint = EnumAll12Faces.F0430;
 
-            move2_from430.StartingPoint = FrontClockFace.four_thirty;
+            move2_from430.StartingPoint = FrontClockFace.four_thirty();
             move2_from430.EndingPoint = EnumAll12Faces._730_SSW;
 
-            move3_from730.StartingPoint = FrontClockFace.seven_thirty;
+            move3_from730.StartingPoint = FrontClockFace_Enum.seven_thirty;
             move3_from730.EndingPoint = EnumAll12Faces._1030_NNW;
 
             move4_from1030.StartingPoint = FrontClockFace.ten_thirty;

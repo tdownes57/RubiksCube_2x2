@@ -262,21 +262,21 @@ namespace RubiksCube_2x2
                 //if (Color.Blue == par_frontfacecolor) // Blue
                 //    switch (par_enum)
                 //    {
-                //        case (FrontClockFace.one_thirty):
+                //        case (FrontClockFace.one_thirty()):
                 //            base.WhichFaceIsN_of_front = EnumFaceNum.Face2;
                 //            base.WhichFaceIsE_of_front = EnumFaceNum.Face3;
                 //            base.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                 //            base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                 //            break;
 
-                //        case (FrontClockFace.four_thirty):
+                //        case (FrontClockFace.four_thirty()):
                 //            base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                 //            base.WhichFaceIsE_of_front = EnumFaceNum.Face2;
                 //            base.WhichFaceIsS_of_front = EnumFaceNum.Face3;
                 //            base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                 //            break;
 
-                //        case (FrontClockFace.seven_thirty):
+                //        case (FrontClockFace_Enum.seven_thirty):
                 //            base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                 //            base.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                 //            base.WhichFaceIsS_of_front = EnumFaceNum.Face2;
@@ -299,21 +299,21 @@ namespace RubiksCube_2x2
                 //if (Color.Yellow == par_frontfacecolor) // Yellow 
                 //    switch (par_enum)
                 //    {
-                //        case (FrontClockFace.one_thirty):
+                //        case (FrontClockFace.one_thirty()):
                 //            base.WhichFaceIsN_of_front = EnumFaceNum.Face3;
                 //            base.WhichFaceIsE_of_front = EnumFaceNum.Face1;
                 //            base.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                 //            base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                 //            break;
 
-                //        case (FrontClockFace.four_thirty):
+                //        case (FrontClockFace.four_thirty()):
                 //            base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                 //            base.WhichFaceIsE_of_front = EnumFaceNum.Face3;
                 //            base.WhichFaceIsS_of_front = EnumFaceNum.Face1;
                 //            base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                 //            break;
 
-                //        case (FrontClockFace.seven_thirty):
+                //        case (FrontClockFace_Enum.seven_thirty):
                 //            base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                 //            base.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                 //            base.WhichFaceIsS_of_front = EnumFaceNum.Face3;
@@ -336,21 +336,21 @@ namespace RubiksCube_2x2
                 //if (Color.Red == par_frontfacecolor)  // Red
                 //    switch (par_enum)
                 //    {
-                //        case (FrontClockFace.one_thirty):
+                //        case (FrontClockFace.one_thirty()):
                 //            base.WhichFaceIsN_of_front = EnumFaceNum.Face1;
                 //            base.WhichFaceIsE_of_front = EnumFaceNum.Face2;
                 //            base.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                 //            base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                 //            break;
 
-                //        case (FrontClockFace.four_thirty):
+                //        case (FrontClockFace.four_thirty()):
                 //            base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                 //            base.WhichFaceIsE_of_front = EnumFaceNum.Face1;
                 //            base.WhichFaceIsS_of_front = EnumFaceNum.Face2;
                 //            base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                 //            break;
 
-                //        case (FrontClockFace.seven_thirty):
+                //        case (FrontClockFace_Enum.seven_thirty):
                 //            base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                 //            base.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                 //            base.WhichFaceIsS_of_front = EnumFaceNum.Face1;

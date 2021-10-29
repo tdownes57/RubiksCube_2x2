@@ -173,17 +173,17 @@ namespace RubiksCube_2x2.Maneuvers  //---- .Back
         //    //
         //    switch (par_enum)
         //    {
-        //        case EnumAll12Faces.F0130: this_piece.FrontClockFacePosition = FrontClockFace.one_thirty; break;
-        //        case EnumAll12Faces._130_ENE: this_piece.FrontClockFacePosition = FrontClockFace.one_thirty; break;
-        //        case EnumAll12Faces._130_NNE: this_piece.FrontClockFacePosition = FrontClockFace.one_thirty; break;
+        //        case EnumAll12Faces.F0130: this_piece.FrontClockFacePosition = FrontClockFace.one_thirty(); break;
+        //        case EnumAll12Faces._130_ENE: this_piece.FrontClockFacePosition = FrontClockFace.one_thirty(); break;
+        //        case EnumAll12Faces._130_NNE: this_piece.FrontClockFacePosition = FrontClockFace.one_thirty(); break;
 
-        //        case EnumAll12Faces.F0430: this_piece.FrontClockFacePosition = FrontClockFace.four_thirty; break;
-        //        case EnumAll12Faces._430_ESE: this_piece.FrontClockFacePosition = FrontClockFace.four_thirty; break;
-        //        case EnumAll12Faces._430_SSE: this_piece.FrontClockFacePosition = FrontClockFace.four_thirty; break;
+        //        case EnumAll12Faces.F0430: this_piece.FrontClockFacePosition = FrontClockFace.four_thirty(); break;
+        //        case EnumAll12Faces._430_ESE: this_piece.FrontClockFacePosition = FrontClockFace.four_thirty(); break;
+        //        case EnumAll12Faces._430_SSE: this_piece.FrontClockFacePosition = FrontClockFace.four_thirty(); break;
 
-        //        case EnumAll12Faces.F0730: this_piece.FrontClockFacePosition = FrontClockFace.seven_thirty; break;
-        //        case EnumAll12Faces._730_SSW: this_piece.FrontClockFacePosition = FrontClockFace.seven_thirty; break;
-        //        case EnumAll12Faces._730_WSW: this_piece.FrontClockFacePosition = FrontClockFace.seven_thirty; break;
+        //        case EnumAll12Faces.F0730: this_piece.FrontClockFacePosition = FrontClockFace_Enum.seven_thirty; break;
+        //        case EnumAll12Faces._730_SSW: this_piece.FrontClockFacePosition = FrontClockFace_Enum.seven_thirty; break;
+        //        case EnumAll12Faces._730_WSW: this_piece.FrontClockFacePosition = FrontClockFace_Enum.seven_thirty; break;
 
         //        case EnumAll12Faces.F1030: this_piece.FrontClockFacePosition = FrontClockFace.ten_thirty; break;
         //        case EnumAll12Faces._1030_NNW: this_piece.FrontClockFacePosition = FrontClockFace.ten_thirty; break;
@@ -199,9 +199,9 @@ namespace RubiksCube_2x2.Maneuvers  //---- .Back
         //    switch (par_clockPosition_Start)
         //    {
         //        case FrontClockFace.ten_thirty: ReorientPiece_Complex_From1030(par_enum); break;
-        //        case FrontClockFace.one_thirty: ReorientPiece_Complex_From130(par_enum); break;
-        //        case FrontClockFace.four_thirty: ReorientPiece_Complex_From430(par_enum); break;
-        //        case FrontClockFace.seven_thirty: ReorientPiece_Complex_From730(par_enum); break;
+        //        case FrontClockFace.one_thirty(): ReorientPiece_Complex_From130(par_enum); break;
+        //        case FrontClockFace.four_thirty(): ReorientPiece_Complex_From430(par_enum); break;
+        //        case FrontClockFace_Enum.seven_thirty: ReorientPiece_Complex_From730(par_enum); break;
         //        default:
         //            throw new Exception("Parameter par_clockPosition_Start is not specified.");
         //    }

@@ -109,7 +109,7 @@ namespace RubiksCube_2x2
         // Added 11/14/2020 thomas downes
         //
         public const bool PiecesLoadTheirInitialState = true;  // 4 April 2021 // false;  // true; 
-        public const bool Sides_BackOrFront_LoadInitialState = true; 
+        public const bool Sides_BackOrFront_LoadInitialState = true;
 
         public static Rectangle GetRectangle_Front(Point p_centerOfForm, FrontClockFace p_face_position, int p_margin)
         {
@@ -134,8 +134,8 @@ namespace RubiksCube_2x2
                     center_point_rect = new Point(center_point_form.X + FaceSize.Front_Half_wdth + p_margin,
                                                   center_point_form.Y - FaceSize.Front_Half_hght);
                     //---return GetRectangle_byCenter(center_point_rect, 25, 25);
-                    return GetRectangle_byCenter(center_point_rect, 
-                                                    FaceSize.Front_Half_wdth, 
+                    return GetRectangle_byCenter(center_point_rect,
+                                                    FaceSize.Front_Half_wdth,
                                                     FaceSize.Front_Half_hght);
 
                 case FrontClockFace_Enum.four_thirty:
@@ -143,8 +143,8 @@ namespace RubiksCube_2x2
                     center_point_rect = new Point(center_point_form.X + FaceSize.Front_Half_wdth + p_margin,
                                                   center_point_form.Y + FaceSize.Front_Half_hght + p_margin);
                     //---return GetRectangle_byCenter(center_point_rect, 25, 25);
-                    return GetRectangle_byCenter(center_point_rect, 
-                                                    FaceSize.Front_Half_wdth, 
+                    return GetRectangle_byCenter(center_point_rect,
+                                                    FaceSize.Front_Half_wdth,
                                                     FaceSize.Front_Half_hght);
 
                 case FrontClockFace_Enum.seven_thirty:
@@ -152,8 +152,8 @@ namespace RubiksCube_2x2
                     center_point_rect = new Point(center_point_form.X - FaceSize.Front_Half_wdth,
                                                   center_point_form.Y + FaceSize.Front_Half_hght + p_margin);
                     //---return GetRectangle_byCenter(center_point_rect, 25, 25);
-                    return GetRectangle_byCenter(center_point_rect, 
-                                                    FaceSize.Front_Half_wdth, 
+                    return GetRectangle_byCenter(center_point_rect,
+                                                    FaceSize.Front_Half_wdth,
                                                     FaceSize.Front_Half_hght);
 
                 case FrontClockFace_Enum.ten_thirty:
@@ -161,8 +161,8 @@ namespace RubiksCube_2x2
                     center_point_rect = new Point(center_point_form.X - FaceSize.Front_Half_wdth,
                                                   center_point_form.Y - FaceSize.Front_Half_hght);
                     //---return GetRectangle_byCenter(center_point_rect, 25, 25);
-                    return GetRectangle_byCenter(center_point_rect, 
-                                                    FaceSize.Front_Half_wdth, 
+                    return GetRectangle_byCenter(center_point_rect,
+                                                    FaceSize.Front_Half_wdth,
                                                     FaceSize.Front_Half_hght);
 
                 //
@@ -186,7 +186,7 @@ namespace RubiksCube_2x2
 
 
         public static Rectangle GetRectangle_Side_ClockwiseFromFront(Point p_centerOfForm,
-                          FrontClockFace p_face_position, int par_margin, 
+                          FrontClockFace p_face_position, int par_margin,
                           in Point par_pointNW, in Point par_pointSW,
                           in Point par_pointNE, in Point par_pointSE)
         {
@@ -214,7 +214,7 @@ namespace RubiksCube_2x2
                     //return GetRectangle_byBottomLeft(par_pointNW, 20, 25);
                     corner_point = par_pointNE;
                     //---return GetRectangle_byBottomRight(corner_point, par_margin, 20, 25);
-                    return GetRectangle_byBottomRight(corner_point, par_margin, 
+                    return GetRectangle_byBottomRight(corner_point, par_margin,
                                FaceSize.Side_Half_wdth_VERT * 2,
                                FaceSize.Side_Half_hght_VERT * 2);
 
@@ -355,7 +355,7 @@ namespace RubiksCube_2x2
             //
             // Added 12/1/2020 
             //
-            if (p_PieceFirst == p_PieceNext) return false; 
+            if (p_PieceFirst == p_PieceNext) return false;
 
             return AdjacentClockwise(p_PieceFirst.FrontClockFacePosition,
                                      p_PieceNext.FrontClockFacePosition);
@@ -363,27 +363,38 @@ namespace RubiksCube_2x2
         }
 
 
+
         public static bool AdjacentClockwise(FrontClockFace p_ClockFirst, FrontClockFace p_ClockNext)
+        {
+            //
+            // Refactored 10/29/2021 thomas d. 
+            //
+            return (p_ClockFirst.NextCW_Enum() == p_ClockNext.EnumValue());
+
+        }
+
+        public static bool AdjacentClockwise_Deprecated(FrontClockFace p_ClockFirst, FrontClockFace p_ClockNext)
         {
             //
             // Added 12/1/2020 thomas d. 
             //
-            switch (p_ClockFirst)
+            //switch (p_ClockFirst)
+            switch (p_ClockFirst.EnumValue())
             {
-                case FrontClockFace.one_thirty:
-                    if (p_ClockNext == FrontClockFace.four_thirty) return true;
+                case FrontClockFace_Enum.one_thirty:
+                    if (p_ClockNext.EnumValue() == FrontClockFace_Enum.four_thirty) return true;
                     break;
 
-                case FrontClockFace.four_thirty:
-                    if (p_ClockNext == FrontClockFace.seven_thirty) return true;
+                case FrontClockFace_Enum.four_thirty:
+                    if (p_ClockNext.EnumValue() == FrontClockFace_Enum.seven_thirty) return true;
                     break;
 
-                case FrontClockFace.seven_thirty:
-                    if (p_ClockNext == FrontClockFace.ten_thirty) return true;
+                case FrontClockFace_Enum.seven_thirty:
+                    if (p_ClockNext.EnumValue() == FrontClockFace_Enum.ten_thirty) return true;
                     break;
 
-                case FrontClockFace.ten_thirty:
-                    if (p_ClockNext == FrontClockFace.one_thirty) return true;
+                case FrontClockFace_Enum.ten_thirty:
+                    if (p_ClockNext.EnumValue() == FrontClockFace_Enum.one_thirty) return true;
                     break;
 
                 default:
@@ -404,10 +415,22 @@ namespace RubiksCube_2x2
             //Added 4/2/2021 td
             EnumLeftOrRight temp_FrontClock_LeftOrRight = EnumLeftOrRight.Unassigned;
 
-            if (par_piece.FrontClockFacePosition == FrontClockFace.one_thirty) temp_FrontClock_LeftOrRight = EnumLeftOrRight.Right;
-            if (par_piece.FrontClockFacePosition == FrontClockFace.four_thirty) temp_FrontClock_LeftOrRight = EnumLeftOrRight.Right;
-            if (par_piece.FrontClockFacePosition == FrontClockFace.seven_thirty) temp_FrontClock_LeftOrRight = EnumLeftOrRight.Left;
-            if (par_piece.FrontClockFacePosition == FrontClockFace.ten_thirty) temp_FrontClock_LeftOrRight = EnumLeftOrRight.Left;
+            //
+            // Right-Hand side 
+            //
+            if (par_piece.FrontClockFacePosition.EnumValue() == FrontClockFace.one_thirty) 
+                temp_FrontClock_LeftOrRight = EnumLeftOrRight.Right;
+
+            if (par_piece.FrontClockFacePosition.EnumValue() == FrontClockFace.four_thirty) 
+                temp_FrontClock_LeftOrRight = EnumLeftOrRight.Right;
+
+            //
+            // Left-Hand side
+            //
+            if (par_piece.FrontClockFacePosition.EnumValue() == FrontClockFace.seven_thirty) 
+                temp_FrontClock_LeftOrRight = EnumLeftOrRight.Left;
+            if (par_piece.FrontClockFacePosition.EnumValue() == FrontClockFace.ten_thirty) 
+                temp_FrontClock_LeftOrRight = EnumLeftOrRight.Left;
 
             bool bSide_Left = (temp_FrontClock_LeftOrRight == EnumLeftOrRight.Left);
             bool bSide_Right = (temp_FrontClock_LeftOrRight == EnumLeftOrRight.Right);
@@ -444,25 +467,25 @@ namespace RubiksCube_2x2
             //
             switch (p_Clock)
             {
-                case FrontClockFace.one_thirty:
-                    //if (p_ClockNext == FrontClockFace.four_thirty) return true;
+                case FrontClockFace.one_thirty():
+                    //if (p_ClockNext == FrontClockFace.four_thirty()) return true;
                     //break;
-                    return FrontClockFace.four_thirty;
+                    return FrontClockFace.four_thirty();
 
-                case FrontClockFace.four_thirty:
-                    //if (p_ClockNext == FrontClockFace.seven_thirty) return true;
+                case FrontClockFace.four_thirty():
+                    //if (p_ClockNext == FrontClockFace_Enum.seven_thirty) return true;
                     //break;
-                    return FrontClockFace.seven_thirty;
+                    return FrontClockFace_Enum.seven_thirty;
 
-                case FrontClockFace.seven_thirty:
+                case FrontClockFace_Enum.seven_thirty:
                     //if (p_ClockNext == FrontClockFace.ten_thirty) return true;
                     //break;
                     return FrontClockFace.ten_thirty;
 
                 case FrontClockFace.ten_thirty:
-                    //if (p_ClockNext == FrontClockFace.one_thirty) return true;
+                    //if (p_ClockNext == FrontClockFace.one_thirty()) return true;
                     //break;
-                    return FrontClockFace.one_thirty;
+                    return FrontClockFace.one_thirty();
 
                 default:
                     //return false;

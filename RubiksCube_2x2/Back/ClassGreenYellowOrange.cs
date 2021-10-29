@@ -132,7 +132,7 @@ namespace RubiksCube_2x2
                 //
                 //   (The [. .] faces are _side_ faces.) 
                 //
-                base.FrontClockFacePosition = FrontClockFace.four_thirty;
+                base.FrontClockFacePosition = FrontClockFace.four_thirty();
 
                 //base.FaceColor1Position_NotInUse = FacePositionNSWE.W_side_of_front;
                 //base.FaceColor2Position_NotInUse = FacePositionNSWE.FrontFacing;
@@ -238,21 +238,21 @@ namespace RubiksCube_2x2
 
                 switch (par_enum)
                 {
-                    case (FrontClockFace.one_thirty):
+                    case (FrontClockFace.one_thirty()):
                         base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                         base.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                         base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                         base.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                         break;
 
-                    case (FrontClockFace.four_thirty):
+                    case (FrontClockFace.four_thirty()):
                         base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                         base.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                         base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                         base.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                         break;
 
-                    case (FrontClockFace.seven_thirty):
+                    case (FrontClockFace_Enum.seven_thirty):
                         base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                         base.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                         base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;

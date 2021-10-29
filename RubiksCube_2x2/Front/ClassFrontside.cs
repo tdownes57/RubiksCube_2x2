@@ -226,8 +226,8 @@ namespace RubiksCube_2x2
                 _pieceGOW.FrontClockFacePosition = FrontClockFace.four_thirty;
                 _pieceGOW.ReorientPiece_FrontFaceIsFace3(FrontClockFace.four_thirty);
 
-                _pieceGWR.FrontClockFacePosition = FrontClockFace.one_thirty;
-                _pieceGWR.ReorientPiece_FrontFaceIsFace2(FrontClockFace.one_thirty);
+                _pieceGWR.FrontClockFacePosition = FrontClockFace.one_thirty();
+                _pieceGWR.ReorientPiece_FrontFaceIsFace2(FrontClockFace.one_thirty());
 
                 //throw new NotImplementedException();
 
@@ -266,7 +266,7 @@ namespace RubiksCube_2x2
                 //
                 // Added 1/4/2021
                 //
-                var bottomRight = this.GetPiece(FrontClockFace.four_thirty);
+                var bottomRight = this.GetPiece(FrontClockFace.four_thirty());
                 bottomRight.RotateInPlace_PivotPiece120degrees();
 
             }
@@ -372,8 +372,8 @@ namespace RubiksCube_2x2
                 //       [ NW ] [ NE ]  
                 //       [ SW ] [ SE ]   
                 //
-                RubiksPieceCorner pieceSW = this.GetPiece(FrontClockFace.seven_thirty);
-                RubiksPieceCorner pieceSE = this.GetPiece(FrontClockFace.four_thirty);
+                RubiksPieceCorner pieceSW = this.GetPiece(FrontClockFace_Enum.seven_thirty);
+                RubiksPieceCorner pieceSE = this.GetPiece(FrontClockFace.four_thirty());
 
                 GodlikeSwitch_Piece(pieceSW, pieceSE);
 
