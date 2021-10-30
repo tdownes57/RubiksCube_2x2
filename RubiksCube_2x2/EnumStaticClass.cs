@@ -399,7 +399,7 @@ namespace RubiksCube_2x2
 
                 default:
                     //return false;
-                    throw new NotImplementedException(); 
+                    throw new NotImplementedException();
             }
 
             return false;
@@ -418,18 +418,18 @@ namespace RubiksCube_2x2
             //
             // Right-Hand side 
             //
-            if (par_piece.FrontClockFacePosition.EnumValue() == FrontClockFace.one_thirty) 
+            if (par_piece.FrontClockFacePosition.EnumValue() == FrontClockFace.one_thirty)
                 temp_FrontClock_LeftOrRight = EnumLeftOrRight.Right;
 
-            if (par_piece.FrontClockFacePosition.EnumValue() == FrontClockFace.four_thirty) 
+            if (par_piece.FrontClockFacePosition.EnumValue() == FrontClockFace.four_thirty)
                 temp_FrontClock_LeftOrRight = EnumLeftOrRight.Right;
 
             //
             // Left-Hand side
             //
-            if (par_piece.FrontClockFacePosition.EnumValue() == FrontClockFace.seven_thirty) 
+            if (par_piece.FrontClockFacePosition.EnumValue() == FrontClockFace.seven_thirty)
                 temp_FrontClock_LeftOrRight = EnumLeftOrRight.Left;
-            if (par_piece.FrontClockFacePosition.EnumValue() == FrontClockFace.ten_thirty) 
+            if (par_piece.FrontClockFacePosition.EnumValue() == FrontClockFace.ten_thirty)
                 temp_FrontClock_LeftOrRight = EnumLeftOrRight.Left;
 
             bool bSide_Left = (temp_FrontClock_LeftOrRight == EnumLeftOrRight.Left);
@@ -460,39 +460,51 @@ namespace RubiksCube_2x2
         }
 
 
+
         public static FrontClockFace NextPositionClockwise(FrontClockFace p_Clock)
+        {
+            //
+            // Refactored 10/29/2021 thomas d. 
+            //
+            return p_Clock.NextPositionCW();
+
+        }
+
+
+        public static FrontClockFace NextPositionClockwise_Deprecated(FrontClockFace p_Clock)
         {
             //
             // Added 10/12/2021 thomas d. 
             //
-            switch (p_Clock)
+            //-----switch (p_Clock)
+            switch (p_Clock.EnumValue())
             {
-                case FrontClockFace.one_thirty():
+                case FrontClockFace_Enum.one_thirty:
                     //if (p_ClockNext == FrontClockFace.four_thirty()) return true;
                     //break;
-                    return FrontClockFace.four_thirty();
+                    return FrontClockFace.four_thirty_obj;
 
-                case FrontClockFace.four_thirty():
+                case FrontClockFace_Enum.four_thirty:
                     //if (p_ClockNext == FrontClockFace_Enum.seven_thirty) return true;
                     //break;
-                    return FrontClockFace_Enum.seven_thirty;
+                    return FrontClockFace.seven_thirty_obj;
 
                 case FrontClockFace_Enum.seven_thirty:
                     //if (p_ClockNext == FrontClockFace.ten_thirty) return true;
                     //break;
-                    return FrontClockFace.ten_thirty;
+                    return FrontClockFace.ten_thirty_obj;
 
-                case FrontClockFace.ten_thirty:
+                case FrontClockFace_Enum.ten_thirty:
                     //if (p_ClockNext == FrontClockFace.one_thirty()) return true;
                     //break;
-                    return FrontClockFace.one_thirty();
+                    return FrontClockFace.one_thirty_obj;
 
                 default:
                     //return false;
                     throw new NotImplementedException();
             }
 
-            return false;
+            //return false;
 
         }
 

@@ -132,7 +132,8 @@ namespace RubiksCube_2x2
                 //
                 //   (The [. .] faces are _side_ faces.) 
                 //
-                base.FrontClockFacePosition = FrontClockFace.four_thirty();
+                //---base.FrontClockFacePosition = FrontClockFace.four_thirty();
+                base.FrontClockFacePosition = FrontClockFace.four_thirty_obj;
 
                 //base.FaceColor1Position_NotInUse = FacePositionNSWE.W_side_of_front;
                 //base.FaceColor2Position_NotInUse = FacePositionNSWE.FrontFacing;
@@ -215,14 +216,14 @@ namespace RubiksCube_2x2
             }
 
 
-            public override void ReorientPiece(FrontClockFace par_enum, Color par_frontfacecolor)
+            public override void ReorientPiece(FrontClockFace par_clock, Color par_frontfacecolor)
             {
                 //
                 // Added 11/14/2020 thomas downes
                 //
                 //throw new NotImplementedException();
 
-                base.FrontClockFacePosition = par_enum;
+                base.FrontClockFacePosition = par_clock;  // par_enum;
 
                 //switch (par_frontfacecolor.ToArgb())
                 //{
@@ -236,16 +237,16 @@ namespace RubiksCube_2x2
                 //Added 11/14/2020 td
                 else throw new Exception("The color parameter is not recognized as one of the face colors of this piece.");
 
-                switch (par_enum)
+                switch (par_clock.EnumValue()) //----(par_enum)
                 {
-                    case (FrontClockFace.one_thirty()):
+                    case (FrontClockFace_Enum.one_thirty):
                         base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                         base.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                         base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                         base.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                         break;
 
-                    case (FrontClockFace.four_thirty()):
+                    case (FrontClockFace_Enum.four_thirty):
                         base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                         base.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                         base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
@@ -259,7 +260,7 @@ namespace RubiksCube_2x2
                         base.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                         break;
 
-                    case (FrontClockFace.ten_thirty):
+                    case (FrontClockFace_Enum.ten_thirty):
                         base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                         base.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                         base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
@@ -271,14 +272,12 @@ namespace RubiksCube_2x2
                 //
                 // Take care of the side faces. 
                 //
-                if (Color.Green == par_frontfacecolor) base.ReorientPiece_FrontFaceIsFace1(par_enum);
+                if (Color.Green == par_frontfacecolor) base.ReorientPiece_FrontFaceIsFace1(par_clock);
                 // Lime = Green. 
-                if (Color.LimeGreen == par_frontfacecolor) base.ReorientPiece_FrontFaceIsFace1(par_enum);
-                if (Color.Lime == par_frontfacecolor) base.ReorientPiece_FrontFaceIsFace1(par_enum);
-                if (Color.Yellow == par_frontfacecolor) base.ReorientPiece_FrontFaceIsFace2(par_enum);
-                if (Color.Orange == par_frontfacecolor) base.ReorientPiece_FrontFaceIsFace3(par_enum);
-
-
+                if (Color.LimeGreen == par_frontfacecolor) base.ReorientPiece_FrontFaceIsFace1(par_clock);
+                if (Color.Lime == par_frontfacecolor) base.ReorientPiece_FrontFaceIsFace1(par_clock);
+                if (Color.Yellow == par_frontfacecolor) base.ReorientPiece_FrontFaceIsFace2(par_clock);
+                if (Color.Orange == par_frontfacecolor) base.ReorientPiece_FrontFaceIsFace3(par_clock);
 
 
             }

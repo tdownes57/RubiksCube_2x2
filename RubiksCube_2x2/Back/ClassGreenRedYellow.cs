@@ -131,7 +131,8 @@ namespace RubiksCube_2x2
                 //
                 // (The [. .] faces are _side_ faces.) 
                 //
-                base.FrontClockFacePosition = FrontClockFace.one_thirty();
+                //-----base.FrontClockFacePosition = FrontClockFace.one_thirty();
+                base.FrontClockFacePosition = FrontClockFace.one_thirty_obj;
 
                 //base.FaceColor1Position_NotInUse = FacePositionNSWE.W_side_of_front;
                 //base.FaceColor2Position_NotInUse = FacePositionNSWE.FrontFacing;
@@ -275,16 +276,18 @@ namespace RubiksCube_2x2
                 // Front Face is ___Red____
                 //
                 if (Color.Red == par_frontfacecolor) // Red 
-                    switch (par_clockpos)
+                    switch (par_clockpos.EnumValue())
                     {
-                        case (FrontClockFace.one_thirty()):
+                        case (FrontClockFace_Enum.one_thirty):
+                            // 1:30 pm
                             base.WhichFaceIsN_of_front = EnumFaceNum.Face3;
                             base.WhichFaceIsE_of_front = EnumFaceNum.Face1;
                             base.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                             base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                             break;
 
-                        case (FrontClockFace.four_thirty()):
+                        case (FrontClockFace_Enum.four_thirty):
+                            // 4:30 pm
                             base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                             base.WhichFaceIsE_of_front = EnumFaceNum.Face3;
                             base.WhichFaceIsS_of_front = EnumFaceNum.Face1;
@@ -292,13 +295,15 @@ namespace RubiksCube_2x2
                             break;
 
                         case (FrontClockFace_Enum.seven_thirty):
+                            // 7:30 pm
                             base.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                             base.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                             base.WhichFaceIsS_of_front = EnumFaceNum.Face3;
                             base.WhichFaceIsW_of_front = EnumFaceNum.Face1;
                             break;
 
-                        case (FrontClockFace.ten_thirty):
+                        case (FrontClockFace_Enum.ten_thirty):
+                            // 10:30 pm
                             base.WhichFaceIsN_of_front = EnumFaceNum.Face1;
                             base.WhichFaceIsS_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                             base.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;

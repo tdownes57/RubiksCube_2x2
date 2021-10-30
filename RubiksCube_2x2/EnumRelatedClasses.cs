@@ -63,6 +63,71 @@ namespace RubiksCube_2x2
             throw new System.Exception("The NextPositionCW() is not determinable.");
 
         }
+
+
+        //
+        //  https://dotnettutorials.net/lesson/why-we-should-override-equals-method/
+        //
+        public override bool Equals(object par_object)
+        {
+            //
+            //  https://dotnettutorials.net/lesson/why-we-should-override-equals-method/
+            //
+            // If the passed object is null
+            if (par_object == null)
+            {
+                return false;
+            }
+
+            //---if (!(obj is Customer))
+            //---++if (!(par_object is FrontClockFace))
+            //---++{
+            //---++    return false;
+            //---++}
+
+            if (par_object is FrontClockFace)
+            {
+                // Added 10/29/2021 thomas d. 
+                bool bEqualValue = (mod_enumClockPosition == ((FrontClockFace)par_object).EnumValue());
+                return bEqualValue;
+            }
+            else if (par_object is FrontClockFace_Enum)
+            {
+                // Added 10/29/2021 thomas d. 
+                return (mod_enumClockPosition == (FrontClockFace_Enum)par_object);
+            }
+            else return false;
+
+            //return (this.FirstName == ((Customer)obj).FirstName)
+            //    && (this.LastName == ((Customer)obj).LastName);
+
+                //---++bool bEqualValue = (mod_enumClockPosition == ((FrontClockFace)par_object).EnumValue());
+                //---++return bEqualValue;
+
+        }
+
+        public override int GetHashCode()
+        {
+            //
+            //  https://dotnettutorials.net/lesson/why-we-should-override-equals-method/
+            //
+            //----return FirstName.GetHashCode() ^ LastName.GetHashCode();
+            return mod_enumClockPosition.GetHashCode();
+
+        }
+
+
+        public EnumLeftOrRight LeftOrRight()
+        {
+            // Added 10/29/2021 thomas downes
+            if (mod_enumClockPosition.Equals(FrontClockFace.one_thirty)) return EnumLeftOrRight.Right;
+            if (mod_enumClockPosition.Equals(FrontClockFace.four_thirty)) return EnumLeftOrRight.Right;
+            if (mod_enumClockPosition.Equals(FrontClockFace.seven_thirty)) return EnumLeftOrRight.Left;
+            if (mod_enumClockPosition.Equals(FrontClockFace.ten_thirty)) return EnumLeftOrRight.Left;
+            return EnumLeftOrRight.Unassigned;
+
+        }
+
     }
 
 
