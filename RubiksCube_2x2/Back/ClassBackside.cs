@@ -466,7 +466,8 @@ namespace RubiksCube_2x2
                     //
                     // More checks. 
                     //
-                    if (_pieceBOY.FrontClockFacePosition == FrontClockFace.ten_thirty)
+                    //0000 if (_pieceBOY.FrontClockFacePosition == FrontClockFace.ten_thirty)
+                    if (_pieceBOY.FrontClockFacePosition.Equals(FrontClockFace.ten_thirty))
                     {
                         if (_pieceBOY.WhichFaceIsW_of_front == EnumFaceNum.NotApplicable_DifferentPiece)
                         {
@@ -486,7 +487,7 @@ namespace RubiksCube_2x2
 
             }
 
-            private RubiksPieceCorner GetPieceAtPosition(FrontClockFace par_enum)
+            private new RubiksPieceCorner GetPieceAtPosition(FrontClockFace par_enum)
             {
                 //
                 // Added 11/14/2020 thomas downes   

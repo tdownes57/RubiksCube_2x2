@@ -418,9 +418,11 @@ namespace RubiksCube_2x2
                 //
                 //---if (this.FrontClockFacePosition == FrontClockFace.one_thirty()) return;
                 //--if (this.FrontClockFacePosition == FrontClockFace.four_thirty()) return;
-                if (this.FrontClockFacePosition == FrontClockFace.one_thirty()) bFarSoPerhapsNotVisible = true;
-                if (this.FrontClockFacePosition == FrontClockFace.four_thirty()) bFarSoPerhapsNotVisible = true;
-
+                //if (this.FrontClockFacePosition == FrontClockFace.one_thirty()) bFarSoPerhapsNotVisible = true;
+                //if (this.FrontClockFacePosition == FrontClockFace.four_thirty()) bFarSoPerhapsNotVisible = true;
+                if (this.FrontClockFacePosition.Equals(FrontClockFace.one_thirty)) bFarSoPerhapsNotVisible = true;
+                if (this.FrontClockFacePosition.Equals(FrontClockFace.four_thirty)) bFarSoPerhapsNotVisible = true;
+                  
                 //Check to see if the piece is "ready" to be painted. 
                 //bool boolNotYetReady;
                 bMaybeNotYetReady = (this.WhichFaceIsW_of_front == EnumFaceNum.NotSpecified);
@@ -841,7 +843,7 @@ namespace RubiksCube_2x2
         }
 
 
-        internal void ReorientPiece_FrontFaceIsFace3(FrontClockFace par_enum)
+        internal void ReorientPiece_FrontFaceIsFace3(FrontClockFace par_clock)  // par_enum)
         {
             //
             //Added 11/14/2020 thomas downes
@@ -852,9 +854,9 @@ namespace RubiksCube_2x2
             //
             //Determine the two(2) side faces. 
             //
-            switch (par_enum)
+            switch (par_clock.EnumValue())  //  (par_enum)
             {
-                case (FrontClockFace.one_thirty()):
+                case (FrontClockFace_Enum.one_thirty):
                     // The current piece being oriented is the 1:30 face, top-right. 
                     this.WhichFaceIsN_of_front = EnumFaceNum.Face1;
                     this.WhichFaceIsE_of_front = EnumFaceNum.Face2;
@@ -862,7 +864,7 @@ namespace RubiksCube_2x2
                     this.WhichFaceIsW_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                     break;
 
-                case (FrontClockFace.four_thirty()):
+                case (FrontClockFace_Enum.four_thirty):
                     // The current piece being oriented is the 4:30 face, bottom-right. 
                     this.WhichFaceIsN_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
                     this.WhichFaceIsE_of_front = EnumFaceNum.Face1;
@@ -878,7 +880,7 @@ namespace RubiksCube_2x2
                     this.WhichFaceIsW_of_front = EnumFaceNum.Face2;
                     break;
 
-                case (FrontClockFace.ten_thirty):
+                case (FrontClockFace_Enum.ten_thirty):
                     // The current piece being oriented is the 10:30 face, top-left. 
                     this.WhichFaceIsN_of_front = EnumFaceNum.Face2;
                     this.WhichFaceIsE_of_front = EnumFaceNum.NotApplicable_DifferentPiece;
@@ -925,16 +927,16 @@ namespace RubiksCube_2x2
                 //
                 // The piece has moved to the 7:30 position, lower-left / southwest. 
                 //
-                case EnumAll12Faces.F0730: this.FrontClockFacePosition = FrontClockFace_Enum.seven_thirty; break;
-                case EnumAll12Faces._730_SSW: this.FrontClockFacePosition = FrontClockFace_Enum.seven_thirty; break;
-                case EnumAll12Faces._730_WSW: this.FrontClockFacePosition = FrontClockFace_Enum.seven_thirty; break;
+                case EnumAll12Faces.F0730: this.FrontClockFacePosition = FrontClockFace.seven_thirty_obj; break;
+                case EnumAll12Faces._730_SSW: this.FrontClockFacePosition = FrontClockFace.seven_thirty_obj; break;
+                case EnumAll12Faces._730_WSW: this.FrontClockFacePosition = FrontClockFace.seven_thirty_obj; break;
 
                 //
                 // The piece has moved to the 10:30 position, upper-left / northwest. 
                 //
-                case EnumAll12Faces.F1030: this.FrontClockFacePosition = FrontClockFace.ten_thirty; break;
-                case EnumAll12Faces._1030_NNW: this.FrontClockFacePosition = FrontClockFace.ten_thirty; break;
-                case EnumAll12Faces._1030_WNW: this.FrontClockFacePosition = FrontClockFace.ten_thirty; break;
+                case EnumAll12Faces.F1030: this.FrontClockFacePosition = FrontClockFace.ten_thirty_obj; break;
+                case EnumAll12Faces._1030_NNW: this.FrontClockFacePosition = FrontClockFace.ten_thirty_obj; break;
+                case EnumAll12Faces._1030_WNW: this.FrontClockFacePosition = FrontClockFace.ten_thirty_obj; break;
 
                 default: throw new Exception("EnumAll12Faces par_enum value is not recognized.");
             }
@@ -1572,10 +1574,10 @@ namespace RubiksCube_2x2
             //
             switch (strNE_SE_SW_NW)
             {
-                case ("NE"): this.FrontClockFacePosition = FrontClockFace.one_thirty(); break;
-                case ("SE"): this.FrontClockFacePosition = FrontClockFace.four_thirty(); break;
-                case ("SW"): this.FrontClockFacePosition = FrontClockFace_Enum.seven_thirty; break;
-                case ("NW"): this.FrontClockFacePosition = FrontClockFace.ten_thirty; break;
+                case ("NE"): this.FrontClockFacePosition = FrontClockFace.one_thirty_obj; break;
+                case ("SE"): this.FrontClockFacePosition = FrontClockFace.four_thirty_obj; break;
+                case ("SW"): this.FrontClockFacePosition = FrontClockFace.seven_thirty_obj; break;
+                case ("NW"): this.FrontClockFacePosition = FrontClockFace.ten_thirty_obj; break;
                 default: throw new NotImplementedException("Should be NE or SE or SW or NW.");
             }
 
@@ -1789,8 +1791,10 @@ namespace RubiksCube_2x2
             //
             if (boolSide_Right)
             {
-                if (this.FrontClockFacePosition == FrontClockFace.one_thirty()) this.FrontClockFacePosition = FrontClockFace.ten_thirty;
-                if (this.FrontClockFacePosition == FrontClockFace.four_thirty()) this.FrontClockFacePosition = FrontClockFace_Enum.seven_thirty;
+                //--if (this.FrontClockFacePosition == FrontClockFace.one_thirty()) this.FrontClockFacePosition = FrontClockFace.ten_thirty;
+                //--if (this.FrontClockFacePosition == FrontClockFace.four_thirty()) this.FrontClockFacePosition = FrontClockFace_Enum.seven_thirty;
+                if (this.FrontClockFacePosition.Equals(FrontClockFace.one_thirty)) this.FrontClockFacePosition = FrontClockFace.ten_thirty_obj;
+                if (this.FrontClockFacePosition.Equals(FrontClockFace.four_thirty)) this.FrontClockFacePosition = FrontClockFace.seven_thirty_obj;
 
                 //Almost forgot the following....
                 this.WhichFaceIsFront = this.WhichFaceIsE_of_front;
@@ -1804,10 +1808,13 @@ namespace RubiksCube_2x2
             //
             if (boolSide_Left)
             {
-                //if (this.FrontClockFacePosition == FrontClockFace_Enum.seven_thirty) this.FrontClockFacePosition = FrontClockFace.four_thirty();
-                //if (this.FrontClockFacePosition == FrontClockFace.ten_thirty) this.FrontClockFacePosition = FrontClockFace.one_thirty();
-                if (this.FrontClockFacePosition.Equals(FrontClockFace.seven_thirty)) this.FrontClockFacePosition = FrontClockFace.four_thirty();
-                if (this.FrontClockFacePosition.Equals(FrontClockFace.ten_thirty)) this.FrontClockFacePosition = FrontClockFace.one_thirty();
+                //==if (this.FrontClockFacePosition == FrontClockFace_Enum.seven_thirty) this.FrontClockFacePosition = FrontClockFace.four_thirty();
+                //==if (this.FrontClockFacePosition == FrontClockFace.ten_thirty) this.FrontClockFacePosition = FrontClockFace.one_thirty();
+
+                if (this.FrontClockFacePosition.Equals(FrontClockFace.seven_thirty)) 
+                    this.FrontClockFacePosition = FrontClockFace.four_thirty_obj;
+                if (this.FrontClockFacePosition.Equals(FrontClockFace.ten_thirty)) 
+                    this.FrontClockFacePosition = FrontClockFace.one_thirty_obj;
 
                 //Almost forgot the following....
                 this.WhichFaceIsFront = this.WhichFaceIsW_of_front;
