@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30503.244
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RubiksCube_2x2", "RubiksCube_2x2\RubiksCube_2x2.csproj", "{901B1C9B-676E-4019-992D-EC2DD6F6D2D8}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLayerNoSQL_Core", "DataLayerNoSQL_Core\DataLayerNoSQL_Core.csproj", "{2EAAAD86-3156-45BF-8F56-D3B4D46E8485}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HorizontalScroller", "HorizontalScroller\HorizontalScroller.csproj", "{13563209-5BB9-4F63-B1F6-98941550A6DF}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Rubiks_Python", "Rubiks_Python\Rubiks_Python.pyproj", "{507576DE-9994-437A-A716-816CFDE4A3F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,8 @@ Global
 		{13563209-5BB9-4F63-B1F6-98941550A6DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13563209-5BB9-4F63-B1F6-98941550A6DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13563209-5BB9-4F63-B1F6-98941550A6DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{507576DE-9994-437A-A716-816CFDE4A3F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{507576DE-9994-437A-A716-816CFDE4A3F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
