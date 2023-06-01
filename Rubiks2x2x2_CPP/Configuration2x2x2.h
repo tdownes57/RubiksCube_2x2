@@ -39,5 +39,11 @@ public:
 	Piece2x2x2* GetAdjacentPiece(const TwoColorEdge* par_edgeCommon);
 	ConfigRing2x2* GetAdjacentConfigRing(const TwoColorEdge* par_edgeCommon);
 
+	//
+	// The following will run a check of the configuration using a X-Y-Z 
+	//   coordinate system. 
+	//
+	bool TestConfigUsingXYZCoordinates();
+
 };
 

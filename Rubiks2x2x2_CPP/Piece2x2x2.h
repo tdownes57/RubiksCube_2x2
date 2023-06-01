@@ -1,5 +1,6 @@
 #pragma once
 #include "TwoColorEdge.h"
+#include "Face1x1.h"
 
 class Piece2x2x2
 {
