@@ -21,61 +21,51 @@ private:
     //ConfigEdgePair cep1;
     //ConfigEdgePair cep2;
     //ConfigEdgePair cep3;
-   std::map<Piece2x2x2, Piece2x2x2> _mapNextPieceClockwise;
-   std::map<Piece2x2x2, Piece2x2x2> _mapToExternalPiecesAdjacent;
+    // 6/5/2023 std::map<Piece2x2x2, Piece2x2x2> _mapNextPieceClockwise;
+    // 6/5/2023 std::map<Piece2x2x2, Piece2x2x2> _mapToExternalPiecesAdjacent;
+    std::map<Piece2x2x2*, Piece2x2x2*> _mapNextPieceClockwise;
+   std::map<Piece2x2x2*, Piece2x2x2*> _mapToExternalPiecesAdjacent;
    ConfigRing2x2* _adjacentRing;    
 
 public: 
+    ConfigRing2x2(const ConfigRing2x2& par_copy);
+
+    ConfigRing2x2(const ConfigRing2x2& par_copy, 
+                  const ConfigRing2x2& par_adjacent);
+
     ConfigRing2x2(const Piece2x2x2& clockwise0,
-        const Piece2x2x2& clockwise1,
-        const Piece2x2x2& clockwise2,
-        const Piece2x2x2& clockwise3)
+            const Piece2x2x2& clockwise1,
+            const Piece2x2x2& clockwise2,
+            const Piece2x2x2& clockwise3);
+    //   {
+    //       _mapNextPieceClockwise.insert(clockwise0, clockwise1);
+    //        _mapNextPieceClockwise.insert(clockwise1, clockwise2);
+    //        _mapNextPieceClockwise.insert(clockwise2, clockwise3);
+    //        _mapNextPieceClockwise.insert(clockwise3, clockwise0);
+    //   }
+
+    void SetAdjacentRing(ConfigRing2x2* par_otherRing,
+        Piece2x2x2* par_pieceInternalToBeginLinkToOtherRing,
+        Piece2x2x2* par_pieceExternalOfOtherRing);
+
+    void RefreshLinksToOtherRing(Piece2x2x2* par_pieceInternalToBeginLinkToOtherRing,
+        Piece2x2x2* par_pieceExternalOfOtherRing);
+
+
+
+    Piece2x2x2* GetAnyPiece() const
     {
-        _mapNextPieceClockwise.insert(clockwise0, clockwise1);
-        _mapNextPieceClockwise.insert(clockwise1, clockwise2);
-        _mapNextPieceClockwise.insert(clockwise2, clockwise3);
-        _mapNextPieceClockwise.insert(clockwise3, clockwise0);
 
-    }
-
-    void SetOtherRing(ConfigRing2x2* par_otherRing,
-                      Piece2x2x2* par_pieceOfOtherRing,
-                      Piece2x2x2* par_pieceToBeginLinkToOtherRing)
-    {
-        _adjacentRing = par_otherRing;
-
-        _mapToExternalPiecesAdjacent.clear();
-        
-        //Insert #1 of 3.
-        _mapToExternalPiecesAdjacent.insert(par_pieceToBeginLinkToOtherRing,
-            par_pieceOfOtherRing);
-
-        //Insert #2 of 3.
-        Piece2x2x2* tempPieceInternal = par_pieceToBeginLinkToOtherRing;
-        Piece2x2x2* tempPieceOtherRing = par_pieceOfOtherRing;
-
-        //Get next external piece, but COUNTER-clockwise!!   
-        tempPieceOtherRing = par_otherRing->GetNextPieceCounterCW(tempPieceExternal);
-        tempPieceInternal = & _mapNextPieceClockwise.at(*tempPieceInternal);
-        _mapToExternalPiecesAdjacent.insert(tempPieceInternal,
-                                           tempPieceOtherRing);
-
-        //Insert #2 of 3.
-        tempPieceInternal = &_mapNextPieceClockwise.at(*tempPieceInternal);
-
-        //Get next external piece, but COUNTER-clockwise!!   
-        tempPieceOtherRing = par_otherRing->GetNextPieceCounterCW(tempPieceOtherRing);
-        _mapToExternalPiecesAdjacent.insert(tempPieceInternal,
-            tempPieceOtherRing);
+        return (*(_mapNextPieceClockwise.begin())).first;
 
     }
 
 
-    Piece2x2x2* GetNextPieceClockwise(Piece2x2x2* par_piece)
+    Piece2x2x2* GetNextPieceClockwise(Piece2x2x2* par_piece) const
     {
 
         Piece2x2x2* tempPiece = par_piece;
-        tempPiece = &_mapNextPieceClockwise.at(*tempPiece);
+        tempPiece = _mapNextPieceClockwise.at(tempPiece);
         return tempPiece;
 
     }
@@ -85,17 +75,28 @@ public:
     {
 
         Piece2x2x2* tempPiece = par_piece;
-        tempPiece = &_mapNextPieceClockwise.at(*tempPiece);
-        tempPiece = &_mapNextPieceClockwise.at(*tempPiece);
-        tempPiece = &_mapNextPieceClockwise.at(*tempPiece);
+        tempPiece = _mapNextPieceClockwise.at(tempPiece);
+        tempPiece = _mapNextPieceClockwise.at(tempPiece);
+        tempPiece = _mapNextPieceClockwise.at(tempPiece);
 
         // We need to make sure we've come full circle, so that
         //   the next piece is 
-        Piece2x2x2* tempPieceChecking = &_mapNextPieceClockwise.at(*tempPiece);
+        Piece2x2x2* tempPieceChecking = _mapNextPieceClockwise.at(tempPiece);
         bool bChecksOkay = (tempPieceChecking == par_piece);
         if (bChecksOkay) return tempPiece;
 
     }
+
+
+    //
+    //  In a particular configuration, for a particular 2x2 set of four(4) 
+    //    pieces, each piece is linked to a piece in a parallel 2x2 set of four(4)
+    //    pieces (w/ no pieces overlapping, but existing in a parallel plane).
+    //
+    Piece2x2x2* GetLinkedPieceFromOtherRing(Piece2x2x2* par_pieceOfRingToBeRotated);
+
+
+
 
 
     //ConfigRing2x2(ConfigEdgePair p0, ConfigEdgePair p1,

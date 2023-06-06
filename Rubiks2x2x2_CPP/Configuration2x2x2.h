@@ -21,12 +21,12 @@ private:
 	//Piece2x2x2* p5;
 	//Piece2x2x2* p6;
 	//Piece2x2x2* p7;
-	ConfigRing2x2* crLeft;
-	ConfigRing2x2* crRight;
-	ConfigRing2x2* crTop;
-	ConfigRing2x2* crBottom;
-	ConfigRing2x2* crFront;
-	ConfigRing2x2* crBack;
+	ConfigRing2x2 crLeft;
+	ConfigRing2x2 crRight;
+	ConfigRing2x2 crTop;
+	ConfigRing2x2 crBottom;
+	ConfigRing2x2 crFront;
+	ConfigRing2x2 crBack;
 
 public:
 	// Class copy construction can't have parameter of type of the class
@@ -38,6 +38,8 @@ public:
 
 	Piece2x2x2* GetAdjacentPiece(const TwoColorEdge* par_edgeCommon);
 	ConfigRing2x2* GetAdjacentConfigRing(const TwoColorEdge* par_edgeCommon);
+
+	void RotateConfigRing2x2_Clockwise(ConfigRing2x2& par_ringToRotateCW);
 
 	//
 	// The following will run a check of the configuration using a X-Y-Z 
