@@ -28,6 +28,8 @@ private:
    ConfigRing2x2* _adjacentRing;    
 
 public: 
+    ConfigRing2x2();  // We need a default constructor. ---6/23/2023 thomas downes
+
     ConfigRing2x2(const ConfigRing2x2& par_copy);
 
     ConfigRing2x2(const ConfigRing2x2& par_copy, 

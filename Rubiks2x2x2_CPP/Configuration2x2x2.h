@@ -33,8 +33,8 @@ public:
 	// https://stackoverflow.com/questions/17207898/class-copy-construction-cant-have-parameter-of-type-of-the-class/17207936#17207936
 	// ---Configuration2x2x2(Configuration2x2x2 par_copy);
 	//
-    Configuration2x2x2(const Configuration2x2x2& par_copy);
 	Configuration2x2x2();
+	Configuration2x2x2(const Configuration2x2x2& par_copy);
 
 	Piece2x2x2* GetAdjacentPiece(const TwoColorEdge* par_edgeCommon);
 	ConfigRing2x2* GetAdjacentConfigRing(const TwoColorEdge* par_edgeCommon);

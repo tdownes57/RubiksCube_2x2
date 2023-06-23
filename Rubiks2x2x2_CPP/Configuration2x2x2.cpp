@@ -3,6 +3,19 @@
 //
 // Added 6/05/2023 Thomas Downes 
 //
+Configuration2x2x2::Configuration2x2x2()
+{
+	//
+	// Default constructor.  ---6/23/2023 
+	//
+	crLeft = ConfigRing2x2();  //ConfigRing2x2 crLeft;
+	crRight = ConfigRing2x2();  //ConfigRing2x2 crRight;
+	crTop = ConfigRing2x2();  //ConfigRing2x2 crTop;
+	crBottom = ConfigRing2x2();  //ConfigRing2x2 crBottom;
+	crFront = ConfigRing2x2();  //ConfigRing2x2 crFront;
+	crBack = ConfigRing2x2();  //ConfigRing2x2 crBack;
+
+}
 
 Configuration2x2x2::Configuration2x2x2(const Configuration2x2x2& par_copy)
 {
@@ -19,10 +32,10 @@ Configuration2x2x2::Configuration2x2x2(const Configuration2x2x2& par_copy)
 	//this->crTop = new ConfigRing2x2(par_copy.crTop);
 	//this->crBottom = new ConfigRing2x2(par_copy.crBottom);
 
-	this->crLeft = new ConfigRing2x2(par_copy.crLeft);
-	this->crRight = new ConfigRing2x2(par_copy.crRight);
-	this->crTop = new ConfigRing2x2(par_copy.crTop);
-	this->crBottom = new ConfigRing2x2(par_copy.crBottom);
+	this->crLeft = ConfigRing2x2(par_copy.crLeft);
+	this->crRight = ConfigRing2x2(par_copy.crRight);
+	this->crTop = ConfigRing2x2(par_copy.crTop);
+	this->crBottom = ConfigRing2x2(par_copy.crBottom);
 
 
 

@@ -1,6 +1,25 @@
 #include "ConfigRing2x2.h"
 
 
+ConfigRing2x2::ConfigRing2x2()  
+{
+    //
+    // We need a default constructor. ---6/23/2023 thomas downes
+    //
+    _mapNextPieceClockwise = std::map<Piece2x2x2*, Piece2x2x2*>(); // Empty map. 
+    _mapToExternalPiecesAdjacent = std::map<Piece2x2x2*, Piece2x2x2*>(); // Empty map. 
+    _adjacentRing = nullptr;  // ConfigRing2x2();
+
+}
+
+
+ConfigRing2x2::ConfigRing2x2(const ConfigRing2x2& par_copy,
+              const ConfigRing2x2& par_adjacent)
+{
+
+}
+
+
 ConfigRing2x2::ConfigRing2x2(const Piece2x2x2& clockwise0,
     const Piece2x2x2& clockwise1,
     const Piece2x2x2& clockwise2,
