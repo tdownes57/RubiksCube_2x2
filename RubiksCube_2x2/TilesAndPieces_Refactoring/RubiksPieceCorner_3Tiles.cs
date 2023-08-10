@@ -13,6 +13,8 @@ namespace RubiksCube_2x2 //.TilesAndPieces
         // I am refactoring the PieceCorner & FaceTile classes, so that the 
         //     FaceTile class is given ample responsibilities, e.g. the 
         //     drawing of itself. ----10/12/2021 
+        // Consider the overloading of the cout << operator in C++.
+        //     --8/9/2023 thomas downes
         //
         // Added 10/12/2021  
         //
@@ -154,6 +156,15 @@ namespace RubiksCube_2x2 //.TilesAndPieces
 
         }
 
+        public string SerializeLocation()
+        {
+            //
+            // Added 8/9/2023 td 
+            //
+            throw new NotImplementedException(); 
+
+        }
+
         public FrontClockFace FrontClockFacePosition_NextCW()
         {
             //
@@ -163,7 +174,9 @@ namespace RubiksCube_2x2 //.TilesAndPieces
             //if (FrontClockFacePosition == FrontClockFace.four_thirty()) return FrontClockFace_Enum.seven_thirty;
             //if (FrontClockFacePosition == FrontClockFace_Enum.seven_thirty) return FrontClockFace.ten_thirty;
             //if (FrontClockFacePosition == FrontClockFace.ten_thirty) return FrontClockFace.one_thirty();
-            return FrontClockFacePosition.NextCW();
+            //Aug9 2023 td//return FrontClockFacePosition.NextCW_Enum();
+            return FrontClockFacePosition.NextPositionCW();
+
             //return FrontClockFace.unassigned;
             throw new Exception("The value of FrontClockFacePosition_NextCW cannot be determined.");
 

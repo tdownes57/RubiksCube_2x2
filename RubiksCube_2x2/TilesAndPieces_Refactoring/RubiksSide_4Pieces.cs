@@ -86,15 +86,29 @@ namespace RubiksCube_2x2 //.TilesAndPieces
             mod_pieceCW4_Immutable.NextPieceCW_Immutable = mod_pieceCW1_Immutable;
         }
 
-        public RubiksPieceCorner_3Tiles GetPieceAtPosition(FrontClockFace par_enum)
+        //public RubiksPieceCorner_3Tiles GetPieceAtPosition(FrontClockFace par_clockFace)
+        //{
+        //    //
+        //    // Added 1/16/2020 thomas downes   
+        //    //
+        //    if (mod_pieceCW1_Immutable.FrontClockFacePosition == par_clockFace) return mod_pieceCW1_Immutable;
+        //    else if (mod_pieceCW2_Immutable.FrontClockFacePosition == par_clockFace) return mod_pieceCW2_Immutable;
+        //    else if (mod_pieceCW3_Immutable.FrontClockFacePosition == par_clockFace) return mod_pieceCW3_Immutable;
+        //    else if (mod_pieceCW4_Immutable.FrontClockFacePosition == par_clockFace) return mod_pieceCW4_Immutable;
+        //    else return null;
+
+        //}
+
+
+        public RubiksPieceCorner_3Tiles GetPieceAtPosition(FrontClockFace_Enum par_enum)
         {
             //
-            // Added 1/16/2020 thomas downes   
+            // Added 8/09/2023 thomas downes   
             //
-            if (mod_pieceCW1_Immutable.FrontClockFacePosition == par_enum) return mod_pieceCW1_Immutable;
-            else if (mod_pieceCW2_Immutable.FrontClockFacePosition == par_enum) return mod_pieceCW2_Immutable;
-            else if (mod_pieceCW3_Immutable.FrontClockFacePosition == par_enum) return mod_pieceCW3_Immutable;
-            else if (mod_pieceCW4_Immutable.FrontClockFacePosition == par_enum) return mod_pieceCW4_Immutable;
+            if (mod_pieceCW1_Immutable.FrontClockFacePosition.EnumValue() == par_enum) return mod_pieceCW1_Immutable;
+            else if (mod_pieceCW2_Immutable.FrontClockFacePosition.EnumValue() == par_enum) return mod_pieceCW2_Immutable;
+            else if (mod_pieceCW3_Immutable.FrontClockFacePosition.EnumValue() == par_enum) return mod_pieceCW3_Immutable;
+            else if (mod_pieceCW4_Immutable.FrontClockFacePosition.EnumValue() == par_enum) return mod_pieceCW4_Immutable;
             else return null;
 
         }
@@ -107,7 +121,7 @@ namespace RubiksCube_2x2 //.TilesAndPieces
             //
             //if (CurrentEnumeratedPiece == null)
             //{
-                CurrentEnumeratedPiece = GetPieceAtPosition(FrontClockFace.one_thirty());
+                CurrentEnumeratedPiece = GetPieceAtPosition(FrontClockFace.one_thirty);
                 return CurrentEnumeratedPiece;
             //}
             //else
@@ -137,7 +151,7 @@ namespace RubiksCube_2x2 //.TilesAndPieces
             {
                 // This function should only be called three(3) times, so
                 //   let's run an error check.  ---10/29/2021 td  
-                var currentClock = CurrentEnumeratedPiece.FrontClockFacePosition;
+                var currentClock = CurrentEnumeratedPiece.FrontClockFacePosition.EnumValue();
                 if (currentClock == FrontClockFace.ten_thirty) 
                     throw new Exception("I think you have already asked for four(4) pieces.");
 

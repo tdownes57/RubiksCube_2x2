@@ -56,7 +56,8 @@ namespace RubiksCube_2x2
         // Added 5/8/2021 Thomas Downes  
         public abstract void GodlikeSwitch_Tile(RubiksFaceTile_Struct par_dragged, RubiksFaceTile_Struct par_replaced);
 
-        public abstract RubiksPieceCorner GetPiece(FrontClockFace par_enum);
+        // Aug9 2023 public abstract RubiksPieceCorner GetPiece(FrontClockFace par_enum);
+        public abstract RubiksPieceCorner GetPiece(FrontClockFace_Enum par_enum);
 
         // Added 5/6/2021 td 
         internal int Output_PanelWidth;
@@ -69,15 +70,21 @@ namespace RubiksCube_2x2
         private Color mod_colorEmphasisFace = Color.White;
 
 
-        public RubiksPieceCorner GetPieceAtPosition(FrontClockFace par_enum)
+        public RubiksPieceCorner GetPieceAtPosition(FrontClockFace_Enum par_enum) // (FrontClockFace)
         {
             //
             // Added 1/16/2020 thomas downes   
             //
-            if (this.Piece1.FrontClockFacePosition == par_enum) return this.Piece1;
-            else if (this.Piece2.FrontClockFacePosition == par_enum) return this.Piece2;
-            else if (this.Piece3.FrontClockFacePosition == par_enum) return this.Piece3;
-            else if (this.Piece4.FrontClockFacePosition == par_enum) return this.Piece4;
+            //Aug9 2023  if (this.Piece1.FrontClockFacePosition == par_enum) return this.Piece1;
+            //Aug9 2023  else if (this.Piece2.FrontClockFacePosition == par_enum) return this.Piece2;
+            //Aug9 2023  else if (this.Piece3.FrontClockFacePosition == par_enum) return this.Piece3;
+            //Aug9 2023  else if (this.Piece4.FrontClockFacePosition == par_enum) return this.Piece4;
+
+            if (this.Piece1.FrontClockFacePosition.EnumValue() == par_enum) return this.Piece1;
+            else if (this.Piece2.FrontClockFacePosition.EnumValue() == par_enum) return this.Piece2;
+            else if (this.Piece3.FrontClockFacePosition.EnumValue() == par_enum) return this.Piece3;
+            else if (this.Piece4.FrontClockFacePosition.EnumValue() == par_enum) return this.Piece4;
+
             else return null;
 
         }
@@ -92,10 +99,10 @@ namespace RubiksCube_2x2
             FrontClockFace position1 = par_piece1.FrontClockFacePosition;
             FrontClockFace position2 = par_piece2.FrontClockFacePosition;
 
-            bool bPosition1_SW = (position1 == FrontClockFace_Enum.seven_thirty);
-            bool bPosition1_SE = (position1 == FrontClockFace.four_thirty());
-            bool bPosition2_SW = (position2 == FrontClockFace_Enum.seven_thirty);
-            bool bPosition2_SE = (position2 == FrontClockFace.four_thirty());
+            bool bPosition1_SW = (position1.EnumValue() == FrontClockFace_Enum.seven_thirty);
+            bool bPosition1_SE = (position1.EnumValue() == FrontClockFace.four_thirty);
+            bool bPosition2_SW = (position2.EnumValue() == FrontClockFace_Enum.seven_thirty);
+            bool bPosition2_SE = (position2.EnumValue() == FrontClockFace.four_thirty);
 
             bool b_1SW_2SE = (bPosition1_SW && bPosition2_SE);
             bool b_1SE_2SW = (bPosition1_SE && bPosition2_SW);
@@ -163,8 +170,8 @@ namespace RubiksCube_2x2
             //
             // Implementing the movements described above, as follows: 
             //
-            RubiksPieceCorner piece_starting_at_130 = GetPiece(FrontClockFace.one_thirty());
-            RubiksPieceCorner piece_starting_at_430 = GetPiece(FrontClockFace.four_thirty());
+            RubiksPieceCorner piece_starting_at_130 = GetPiece(FrontClockFace.one_thirty);
+            RubiksPieceCorner piece_starting_at_430 = GetPiece(FrontClockFace.four_thirty);
             RubiksPieceCorner piece_starting_at_730 = GetPiece(FrontClockFace_Enum.seven_thirty);
             RubiksPieceCorner piece_starting_at_1030 = GetPiece(FrontClockFace.ten_thirty);
 
@@ -429,8 +436,8 @@ namespace RubiksCube_2x2
             if (boolColorsMatch_FrontFace)
             {
 
-                RubiksPieceCorner piece_NE_one_thirty = this.GetPieceAtPosition(FrontClockFace.one_thirty());
-                RubiksPieceCorner piece_SE_four_thirty = this.GetPieceAtPosition(FrontClockFace.four_thirty());
+                RubiksPieceCorner piece_NE_one_thirty = this.GetPieceAtPosition(FrontClockFace.one_thirty);
+                RubiksPieceCorner piece_SE_four_thirty = this.GetPieceAtPosition(FrontClockFace.four_thirty);
                 RubiksPieceCorner piece_SW_seven_thirty = this.GetPieceAtPosition(FrontClockFace_Enum.seven_thirty);
                 RubiksPieceCorner piece_NW_ten_thirty = this.GetPieceAtPosition(FrontClockFace.ten_thirty);
 

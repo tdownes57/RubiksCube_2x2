@@ -41,6 +41,13 @@ namespace RubiksCube_2x2
             // Simple & substantive constructor. 
             mod_enumClockPosition = par_enumClockPosition;
         }
+
+        public void SetFrontClockPosition(FrontClockFace_Enum par_enum)
+        {
+            // Set the Enum value.----8/09/2023
+            mod_enumClockPosition = par_enum;
+        }
+
         public FrontClockFace_Enum NextCW_Enum()
         {
             //Added 10/29/2021 thomas downes

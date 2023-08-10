@@ -25,7 +25,11 @@ namespace RubiksCube_2x2 //.TilesAndPieces
         private Color mod_colorOfTile = Color.Transparent;
         private bool mod_isLoadingComplete = false;
 
-        public Color ManueverText_IsMarked = false;  // Added 10/20/2021.
+        //
+        // Too many public properties!!  See C++ at Orange Coast College.
+        //   ---8/9/2023
+        //
+        public Boolean ManueverText_IsMarked = false;  // Added 10/20/2021.
         public string ManueverTextMarker = "";  // Default to "". E.g. "10:30".   Added 10/20/2021. 
         public Color ManueverTextMarker_Color = Color.Black;  // Added 10/20/2021.
 
@@ -42,16 +46,18 @@ namespace RubiksCube_2x2 //.TilesAndPieces
 
 
         public RubiksFaceTile_Class(Color par_color, RubiksPieceCorner_3Tiles par_pieceParent,
-               RubiksFaceTile_Class par_nextTileCW, 
-               RubiksFaceTile_Class par_nextTileCCW)
+                 RubiksFaceTile_Class par_nextTileCW, 
+                 RubiksFaceTile_Class par_nextTileCCW)
         {
+            //
+            // Working constructor...
             //
             // Added 10/12/2021 td 
             //
             this.ParentPiece = par_pieceParent;
             mod_colorOfTile = par_color;
-            mod_nextTileCW = par_nextTileCW;
-            mod_nextTileCCW = par_nextTileCCW;
+            mod_nextTileCW_Immutable = par_nextTileCW;
+            mod_nextTileCCW_Immutable = par_nextTileCCW;
             mod_isLoadingComplete = true; 
 
         }
@@ -61,11 +67,13 @@ namespace RubiksCube_2x2 //.TilesAndPieces
                                      RubiksFaceTile_Class par_nextTileCW)
         {
             //
+            // Another working constructor. 
+            //
             // Added 10/12/2021 td 
             //
             this.ParentPiece = par_pieceParent;
             mod_colorOfTile = par_color;
-            mod_nextTileCW = par_nextTileCW;
+            mod_nextTileCW_Immutable = par_nextTileCW;
             //mod_nextTileCCW = par_nextTileCCW;
             mod_isLoadingComplete = false;  // False. We haven't received both neighboring tiles, just one. 
 
@@ -162,7 +170,7 @@ namespace RubiksCube_2x2 //.TilesAndPieces
             //
             // This obviously changes the "_Mutable" property this.OrdinalPositionAmongPieces1234_Mutable 
             //
-            this.OrdinalPositionAmongPieces1234_Mutable = par_newOrdinalPosition1234_Mutable;
+            this.OrdinalPositionAmongPieces1234_Mutable = par_newOrdinalPosition1234;
 
         }
 

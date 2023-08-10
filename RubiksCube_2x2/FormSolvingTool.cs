@@ -633,24 +633,24 @@ namespace RubiksCube_2x2
                 //
                 // Fill the front faces. 
                 //
-                a_graphics.FillRectangle(a_brush_whi, GetRectangle_FrontFace(FrontClockFace.one_thirty(), center_point_form_FRONT));  // 1:30 pm, or 13h30  (top right)
-                a_graphics.FillRectangle(a_brush_orange, GetRectangle_FrontFace(FrontClockFace.four_thirty(), center_point_form_FRONT)); // 3:30 pm, or 15h30   (bottom right) 
-                a_graphics.FillRectangle(a_brush_orange, GetRectangle_FrontFace(FrontClockFace_Enum.seven_thirty, center_point_form_FRONT)); // 7:30 pm, or 19h30  (bottom left) 
-                a_graphics.FillRectangle(a_brush_whi, GetRectangle_FrontFace(FrontClockFace.ten_thirty, center_point_form_FRONT));   // 10:30 pm, or 22h30  (top left)  
+                a_graphics.FillRectangle(a_brush_whi, GetRectangle_FrontFace((int)FrontClockFace.one_thirty, center_point_form_FRONT));  // 1:30 pm, or 13h30  (top right)
+                a_graphics.FillRectangle(a_brush_orange, GetRectangle_FrontFace((int)FrontClockFace.four_thirty, center_point_form_FRONT)); // 3:30 pm, or 15h30   (bottom right) 
+                a_graphics.FillRectangle(a_brush_orange, GetRectangle_FrontFace((int)FrontClockFace_Enum.seven_thirty, center_point_form_FRONT)); // 7:30 pm, or 19h30  (bottom left) 
+                a_graphics.FillRectangle(a_brush_whi, GetRectangle_FrontFace((int)FrontClockFace.ten_thirty, center_point_form_FRONT));   // 10:30 pm, or 22h30  (top left)  
 
                 //
                 // Fill the side faces. 
                 //
-                a_graphics.FillRectangle(a_brush_green, GetRectangle_SideFace(FrontClockFace.one_thirty(), center_point_form_FRONT, true, false)); // 1:30 pm, or 13h30  (top right)
-                a_graphics.FillRectangle(a_brush_red, GetRectangle_SideFace(FrontClockFace.one_thirty(), center_point_form_FRONT, false, true));
+                a_graphics.FillRectangle(a_brush_green, GetRectangle_SideFace((int)FrontClockFace.one_thirty, center_point_form_FRONT, true, false)); // 1:30 pm, or 13h30  (top right)
+                a_graphics.FillRectangle(a_brush_red, GetRectangle_SideFace((int)FrontClockFace.one_thirty, center_point_form_FRONT, false, true));
 
-                a_graphics.FillRectangle(a_brush_green, GetRectangle_SideFace(FrontClockFace.four_thirty(), center_point_form_FRONT, true, false)); // 3:30 pm, or 15h30   (bottom right) 
-                a_graphics.FillRectangle(a_brush_whi, GetRectangle_SideFace(FrontClockFace.four_thirty(), center_point_form_FRONT, false, true));
+                a_graphics.FillRectangle(a_brush_green, GetRectangle_SideFace((int)FrontClockFace.four_thirty, center_point_form_FRONT, true, false)); // 3:30 pm, or 15h30   (bottom right) 
+                a_graphics.FillRectangle(a_brush_whi, GetRectangle_SideFace((int)FrontClockFace.four_thirty, center_point_form_FRONT, false, true));
 
-                a_graphics.FillRectangle(a_brush_whi, GetRectangle_SideFace(FrontClockFace_Enum.seven_thirty, center_point_form_FRONT, true, false)); // 7:30 pm, or 19h30  (bottom left) 
-                a_graphics.FillRectangle(a_brush_blu, GetRectangle_SideFace(FrontClockFace_Enum.seven_thirty, center_point_form_FRONT, false, true));
+                a_graphics.FillRectangle(a_brush_whi, GetRectangle_SideFace((int)FrontClockFace_Enum.seven_thirty, center_point_form_FRONT, true, false)); // 7:30 pm, or 19h30  (bottom left) 
+                a_graphics.FillRectangle(a_brush_blu, GetRectangle_SideFace((int)FrontClockFace_Enum.seven_thirty, center_point_form_FRONT, false, true));
 
-                a_graphics.FillRectangle(a_brush_red, GetRectangle_SideFace(FrontClockFace.ten_thirty, center_point_form_FRONT, true, false));  // 10:30 pm, or 22h30  (top left)  
+                a_graphics.FillRectangle(a_brush_red, GetRectangle_SideFace((int)FrontClockFace.ten_thirty, center_point_form_FRONT, true, false));  // 10:30 pm, or 22h30  (top left)  
                 a_graphics.FillRectangle(a_brush_blu, GetRectangle_SideFace(FrontClockFace.ten_thirty, center_point_form_FRONT, false, true));
             }
         }
@@ -1277,7 +1277,7 @@ namespace RubiksCube_2x2
             //
             // Testing, before. 
             //
-            beforePiece430 = mod_cubeBackside.GetPiece(FrontClockFace.four_thirty());
+            beforePiece430 = mod_cubeBackside.GetPiece(FrontClockFace.four_thirty);
             beforePiece1030 = mod_cubeBackside.GetPiece(FrontClockFace.ten_thirty);
 
             test_position430_Before = beforePiece430.FrontClockFacePosition;

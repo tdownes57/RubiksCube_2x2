@@ -266,7 +266,7 @@ namespace RubiksCube_2x2
                 //
                 // Added 1/4/2021
                 //
-                var bottomRight = this.GetPiece(FrontClockFace.four_thirty());
+                var bottomRight = this.GetPiece(FrontClockFace.four_thirty);
                 bottomRight.RotateInPlace_PivotPiece120degrees();
 
             }
@@ -373,7 +373,7 @@ namespace RubiksCube_2x2
                 //       [ SW ] [ SE ]   
                 //
                 RubiksPieceCorner pieceSW = this.GetPiece(FrontClockFace_Enum.seven_thirty);
-                RubiksPieceCorner pieceSE = this.GetPiece(FrontClockFace.four_thirty());
+                RubiksPieceCorner pieceSE = this.GetPiece(FrontClockFace.four_thirty);
 
                 GodlikeSwitch_Piece(pieceSW, pieceSE);
 
