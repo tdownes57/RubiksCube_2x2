@@ -133,7 +133,9 @@ namespace RubiksCube_2x2
 
             public override void LoadInitialState_NotInUse()
             {
-                base.FrontClockFacePosition = FrontClockFace.four_thirty(); // i.e. Bottom-Right, or SouthEast.
+
+                //Aug2023 base.FrontClockFacePosition = FrontClockFace.four_thirty(); // i.e. Bottom-Right, or SouthEast.
+                base.FrontClockFacePosition.SetFrontClockPosition(FrontClockFace.four_thirty); // i.e. Bottom-Right, or SouthEast.
 
                 //base.FaceColor1Position_NotInUse = FacePositionNSWE.E_side_of_front;
                 //base.FaceColor2Position_NotInUse = FacePositionNSWE.S_side_of_front;

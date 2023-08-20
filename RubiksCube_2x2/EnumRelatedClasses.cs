@@ -30,11 +30,13 @@ namespace RubiksCube_2x2
         {
             // Default constructor. 
         }
+
         public FrontClockFace_Enum EnumValue()
         {
             // Convert to Enum value.----10/29/2021
             return mod_enumClockPosition;
         }
+        
         //Added 10/29/2021 thomas downes
         public FrontClockFace(FrontClockFace_Enum par_enumClockPosition)
         {

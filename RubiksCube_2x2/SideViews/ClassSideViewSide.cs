@@ -29,15 +29,15 @@ namespace RubiksCube_2x2.SideViews
                 base.Piece2 = par_cubeFrontAndBack.FrontSide.GetPiece(FrontClockFace_Enum.seven_thirty);
 
                 //Copy 2 of 4 pieces from the back side. 
-                base.Piece3 = par_cubeFrontAndBack.BackSide.GetPiece(FrontClockFace.one_thirty());
-                base.Piece4 = par_cubeFrontAndBack.BackSide.GetPiece(FrontClockFace.four_thirty());
+                base.Piece3 = par_cubeFrontAndBack.BackSide.GetPiece(FrontClockFace.one_thirty);
+                base.Piece4 = par_cubeFrontAndBack.BackSide.GetPiece(FrontClockFace.four_thirty);
 
             }
             else if (par_enum == EnumLeftOrRight.Right)
             {
                 //Copy 2 of 4 pieces from the front side. 
-                base.Piece1 = par_cubeFrontAndBack.FrontSide.GetPiece(FrontClockFace.one_thirty());
-                base.Piece2 = par_cubeFrontAndBack.FrontSide.GetPiece(FrontClockFace.four_thirty());
+                base.Piece1 = par_cubeFrontAndBack.FrontSide.GetPiece(FrontClockFace.one_thirty);
+                base.Piece2 = par_cubeFrontAndBack.FrontSide.GetPiece(FrontClockFace.four_thirty);
 
                 //Copy 2 of 4 pieces from the back side. 
                 base.Piece3 = par_cubeFrontAndBack.BackSide.GetPiece(FrontClockFace.ten_thirty);
@@ -61,8 +61,8 @@ namespace RubiksCube_2x2.SideViews
             const bool boolUseKeywordBase = false;
             if (boolUseKeywordBase)
             {
-                base.Piece1 = par_cubeSideToCopy.GetPiece(FrontClockFace.one_thirty());
-                base.Piece2 = par_cubeSideToCopy.GetPiece(FrontClockFace.four_thirty());
+                base.Piece1 = par_cubeSideToCopy.GetPiece(FrontClockFace.one_thirty);
+                base.Piece2 = par_cubeSideToCopy.GetPiece(FrontClockFace.four_thirty);
 
                 //Copy 2 of 4 pieces from the back side. 
                 base.Piece3 = par_cubeSideToCopy.GetPiece(FrontClockFace.ten_thirty);
@@ -75,8 +75,8 @@ namespace RubiksCube_2x2.SideViews
             const bool boolUseKeywordThis = (!boolUseKeywordBase);
             if (boolUseKeywordThis)
             {
-                 this.Piece1 = par_cubeSideToCopy.GetPiece(FrontClockFace.one_thirty());
-                this.Piece2 = par_cubeSideToCopy.GetPiece(FrontClockFace.four_thirty());
+                 this.Piece1 = par_cubeSideToCopy.GetPiece(FrontClockFace.one_thirty);
+                this.Piece2 = par_cubeSideToCopy.GetPiece(FrontClockFace.four_thirty);
                 //Copy 2 of 4 pieces from the back side. 
                 this.Piece3 = par_cubeSideToCopy.GetPiece(FrontClockFace.ten_thirty);
                 this.Piece4 = par_cubeSideToCopy.GetPiece(FrontClockFace_Enum.seven_thirty);
@@ -103,19 +103,26 @@ namespace RubiksCube_2x2.SideViews
             throw new NotImplementedException();
         }
 
-        public override RubiksPieceCorner GetPiece(FrontClockFace par_enum)
+        public override RubiksPieceCorner GetPiece(FrontClockFace_Enum par_enum)
         {
+            //Aug 2023 public override RubiksPieceCorner GetPiece(FrontClockFace par_enum)
             //throw new NotImplementedException();
             //
             // Added 4/1/2020 thomas d. 
             //
-            if (par_enum == Piece1.FrontClockFacePosition) return Piece1;
-            if (par_enum == Piece2.FrontClockFacePosition) return Piece2;
-            if (par_enum == Piece3.FrontClockFacePosition) return Piece3;
-            if (par_enum == Piece4.FrontClockFacePosition) return Piece4;
+            //if (par_enum == Piece1.FrontClockFacePosition) return Piece1;
+            //if (par_enum == Piece2.FrontClockFacePosition) return Piece2;
+            //if (par_enum == Piece3.FrontClockFacePosition) return Piece3;
+            //if (par_enum == Piece4.FrontClockFacePosition) return Piece4;
+            if (par_enum == Piece1.FrontClockFacePosition.EnumValue()) return Piece1;
+            if (par_enum == Piece2.FrontClockFacePosition.EnumValue()) return Piece2;
+            if (par_enum == Piece3.FrontClockFacePosition.EnumValue()) return Piece3;
+            if (par_enum == Piece4.FrontClockFacePosition.EnumValue()) return Piece4;
+
             throw new ArgumentOutOfRangeException(); //return null; 
 
         }
+
 
         public override void GodlikeSwitch_Piece(RubiksPieceCorner par_dragged, RubiksPieceCorner par_replaced)
         {
@@ -182,6 +189,6 @@ namespace RubiksCube_2x2.SideViews
 
         }
 
-
+   
     }
 }

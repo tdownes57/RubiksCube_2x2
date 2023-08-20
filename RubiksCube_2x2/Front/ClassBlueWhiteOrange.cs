@@ -115,7 +115,7 @@ namespace RubiksCube_2x2
                 //
                 //     (F = Front Face) 
                 //
-                if (par_strBriefDescription.StartsWith("BWO") == false) 
+                if (par_strBriefDescription.StartsWith("BWO") == false)
                     throw new ArgumentOutOfRangeException("Brief string must begin with BWO.");
 
                 //
@@ -129,13 +129,22 @@ namespace RubiksCube_2x2
             }
 
 
+            public BlueWhiteOrange(FrontClockFace_Enum par_enum) //Added 8/20/2023
+            {
+                //Added 8/20/2023 td
+                base.FrontClockFacePosition
+                    .SetFrontClockPosition(par_enum);
+
+            }
 
             public override void LoadInitialState_NotInUse()
             {
                 //
                 // Encapsulated 11/13/2020 td
                 //
-                base.FrontClockFacePosition = FrontClockFace_Enum.seven_thirty;  // Bottom-Left, South-West [ 7:30]  in   [.W.] [ 7:30] [3:30]  [.E.] 
+                //Aug2023  base.FrontClockFacePosition = FrontClockFace_Enum.seven_thirty;  // Bottom-Left, South-West [ 7:30]  in   [.W.] [ 7:30] [3:30]  [.E.] 
+                base.FrontClockFacePosition
+                    .SetFrontClockPosition(FrontClockFace_Enum.seven_thirty);  // Bottom-Left, South-West [ 7:30]  in   [.W.] [ 7:30] [3:30]  [.E.] 
 
                 //base.FaceColor1Position_NotInUse = FacePositionNSWE.W_side_of_front;
                 //base.FaceColor2Position_NotInUse = FacePositionNSWE.FrontFacing;

@@ -217,10 +217,12 @@ namespace RubiksCube_2x2
             {
                 //throw new NotImplementedException();
 
-                _pieceBWO.FrontClockFacePosition = FrontClockFace.seven_thirty;
+                //8-2023 _pieceBWO.FrontClockFacePosition = FrontClockFace.seven_thirty;
+                _pieceBWO = new BlueWhiteOrange(FrontClockFace.seven_thirty);
                 _pieceBWO.ReorientPiece_FrontFaceIsFace2(FrontClockFace.seven_thirty);
 
-                _pieceBRW.FrontClockFacePosition = FrontClockFace.ten_thirty;
+                //8-2023 _pieceBRW.FrontClockFacePosition = FrontClockFace.ten_thirty;
+                _pieceBRW = new BlueRedWhite(FrontClockFace.ten_thirty);
                 _pieceBRW.ReorientPiece_FrontFaceIsFace3(FrontClockFace.ten_thirty);
 
                 _pieceGOW.FrontClockFacePosition = FrontClockFace.four_thirty;
@@ -425,15 +427,15 @@ namespace RubiksCube_2x2
             }
 
 
-            public override RubiksPieceCorner GetPiece(FrontClockFace par_enum)
+            public override RubiksPieceCorner GetPiece(FrontClockFace_Enum par_enum)
             {
                 //
                 // Added 12/9/2020 thomas d. 
                 //
-                if (par_enum == _pieceBRW.FrontClockFacePosition) return _pieceBRW;
-                if (par_enum == _pieceBWO.FrontClockFacePosition) return _pieceBWO;
-                if (par_enum == _pieceGOW.FrontClockFacePosition) return _pieceGOW;
-                if (par_enum == _pieceGWR.FrontClockFacePosition) return _pieceGWR;
+                if (par_enum == _pieceBRW.FrontClockFacePosition.EnumValue()) return _pieceBRW;
+                if (par_enum == _pieceBWO.FrontClockFacePosition.EnumValue()) return _pieceBWO;
+                if (par_enum == _pieceGOW.FrontClockFacePosition.EnumValue()) return _pieceGOW;
+                if (par_enum == _pieceGWR.FrontClockFacePosition.EnumValue()) return _pieceGWR;
                 throw new ArgumentOutOfRangeException(); //return null; 
 
             }

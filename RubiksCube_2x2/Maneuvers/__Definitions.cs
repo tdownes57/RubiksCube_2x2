@@ -29,6 +29,21 @@ namespace RubiksCube_2x2  //.Maneuvers
         public bool ClockwiseRevolution90_Deprecated;
         //public bool FrontFaceMovement; //Added 12/9/2020 td
         public bool NothingHappens;  // Added 1/13/2021 thomas downes
+
+        //Added 8/17/2023
+        public void SetStartingPoint(FrontClockFace_Enum par_enum)
+        {
+            //Added 8/17/2023
+            StartingPoint.SetFrontClockPosition(par_enum);
+        }
+
+        //Added 8/17/2023
+        public void SetEndingPoint(EnumAll12Faces par_enum)
+        {
+            //Added 8/17/2023
+            EndingPoint = par_enum;
+        }
+
     }
 
     // Added 12/09/2020 thomas downes 

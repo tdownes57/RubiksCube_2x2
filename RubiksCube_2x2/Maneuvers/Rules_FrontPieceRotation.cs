@@ -41,7 +41,7 @@ namespace RubiksCube_2x2
             //_pieceBOY.FrontClockFacePosition = _pieceBYR.FrontClockFacePosition;
             //_pieceBYR.FrontClockFacePosition = _pieceGRY.FrontClockFacePosition;
             //_pieceGRY.FrontClockFacePosition = _pieceGYO.FrontClockFacePosition;
-            //_pieceGYO.FrontClockFacePosition = temp;
+            //_pie ceGYO.FrontClockFacePosition = temp;
 
             //_pieceBOY.ReorientPiece(_pieceBYR.FrontClockFacePosition, Color.Orange);
             //_pieceBYR.ReorientPiece( _pieceGRY.FrontClockFacePosition, Color.Yellow);
@@ -53,17 +53,21 @@ namespace RubiksCube_2x2
             //ComplexPieceMove move3_from730;
             //ComplexPieceMove move4_from1030;
 
-            move1_from130.StartingPoint = FrontClockFace.one_thirty();
+            //Aug2023 move1_from130.StartingPoint = FrontClockFace.one_thirty;
+            move1_from130.StartingPoint.SetFrontClockPosition(FrontClockFace_Enum.one_thirty);
             move1_from130.EndingPoint = EnumAll12Faces.F0430;
 
-            move2_from430.StartingPoint = FrontClockFace.four_thirty();
-            move2_from430.EndingPoint = EnumAll12Faces._730_SSW;
+            //Aug17 2023 move2_from430.StartingPoint = FrontClockFace_Enum.four_thirty;
+            move2_from430.SetStartingPoint(FrontClockFace_Enum.four_thirty);
+            move2_from430.SetEndingPoint(EnumAll12Faces._730_SSW);
 
-            move3_from730.StartingPoint = FrontClockFace_Enum.seven_thirty;
+            //Aug17 2023 move3_from730.StartingPoint = FrontClockFace_Enum.seven_thirty;
+            move3_from730.SetStartingPoint(FrontClockFace_Enum.seven_thirty);
             move3_from730.EndingPoint = EnumAll12Faces._1030_NNW;
 
-            move4_from1030.StartingPoint = FrontClockFace.ten_thirty;
+            //Aug2023 move4_from1030.StartingPoint = FrontClockFace_Enum.ten_thirty;
             //move4.StartingPoint = FrontClockFace.ten_thirty;
+            move4_from1030.SetStartingPoint(FrontClockFace_Enum.ten_thirty);
             move4_from1030.EndingPoint = EnumAll12Faces._130_ENE;
 
             //Added 11/18/2020 thomas downes
