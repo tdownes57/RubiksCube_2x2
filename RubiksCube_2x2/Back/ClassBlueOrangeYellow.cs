@@ -54,6 +54,7 @@ namespace RubiksCube_2x2
             }
 
 
+
             public BlueOrangeYellow(RubiksCubeOneSide par_sideParent = null) : base(par_sideParent)
             {
                 //
@@ -89,6 +90,15 @@ namespace RubiksCube_2x2
 
                 // Added 6/14/2021 td
                 //----base.ParentSide = par_sideParent; 
+
+            }
+
+
+            public BlueOrangeYellow(FrontClockFace_Enum par_enum) //Added 8/20/2023
+            {
+                //Added 8/20/2023 td
+                base.FrontClockFacePosition
+                    .SetFrontClockPosition(par_enum);
 
             }
 
@@ -149,7 +159,9 @@ namespace RubiksCube_2x2
                 //
                 // (The [. .] faces are _side_ faces.) 
                 //
-                base.FrontClockFacePosition = FrontClockFace_Enum.seven_thirty;  // [ 7:30]  in   [.W.] [ 7:30] [3:30]  [.E.] 
+                //Aug2023 base.FrontClockFacePosition = FrontClockFace_Enum.seven_thirty;  // [ 7:30]  in   [.W.] [ 7:30] [3:30]  [.E.] 
+                base.FrontClockFacePosition
+                    .SetFrontClockPosition(FrontClockFace_Enum.seven_thirty);
 
                 //base.FaceColor1Position_NotInUse = FacePositionNSWE.W_side_of_front;
                 //base.FaceColor2Position_NotInUse = FacePositionNSWE.FrontFacing;

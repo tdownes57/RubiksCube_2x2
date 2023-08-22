@@ -41,6 +41,16 @@ namespace RubiksCube_2x2
             public override System.Drawing.Color FaceColor2of3 { get { return Color.Yellow; } }
             public override System.Drawing.Color FaceColor3of3 { get { return Color.Red; } }
 
+
+            public BlueYellowRed(FrontClockFace_Enum par_enum) //Added 8/20/2023
+            {
+                //Added 8/20/2023 td
+                base.FrontClockFacePosition
+                    .SetFrontClockPosition(par_enum);
+
+            }
+
+
             public BlueYellowRed(RubiksCubeOneSide par_sideParent = null) : base(par_sideParent)
             {
                 //----public BlueYellowRed()
@@ -129,7 +139,8 @@ namespace RubiksCube_2x2
                 // (The [. .] faces are _side_ faces.) 
                 //
                 // Clock position 10:30 pm 
-                base.FrontClockFacePosition = FrontClockFace.ten_thirty;
+                //----Aug 2023 base.FrontClockFacePosition = FrontClockFace.ten_thirty;
+                base.FrontClockFacePosition.SetFrontClockPosition(FrontClockFace.ten_thirty);
 
                 //base.FaceColor1Position_NotInUse  = FacePositionNSWE.N_side_of_front;
                 //base.FaceColor2Position_NotInUse = FacePositionNSWE.FrontFacing;

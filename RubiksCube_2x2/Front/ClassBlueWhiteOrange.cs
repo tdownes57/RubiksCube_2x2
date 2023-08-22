@@ -137,6 +137,7 @@ namespace RubiksCube_2x2
 
             }
 
+
             public override void LoadInitialState_NotInUse()
             {
                 //

@@ -737,7 +737,19 @@ namespace RubiksCube_2x2
         }
 
 
+
         internal void ReorientPiece_FrontFaceIsFace1(FrontClockFace par_clock)  // par_enum)
+        {
+            //---internal void ReorientPiece_FrontFaceIsFace1(FrontClockFace_enum par_enum)  // par_enum)
+            //
+            //Added 8/21/2023 thomas downes
+            //
+            ReorientPiece_FrontFaceIsFace1(par_clock.EnumValue());
+
+        }
+
+
+        internal void ReorientPiece_FrontFaceIsFace1(FrontClockFace_Enum par_enum)  // par_enum)
         {
             //
             //Added 11/14/2020 thomas downes
@@ -749,7 +761,8 @@ namespace RubiksCube_2x2
             //Determine the two(2) side faces. 
             //
             //----switch (par_enum)
-            switch (par_clock.EnumValue())
+            // Aug2023  switch (par_clock.EnumValue())
+            switch (par_enum)
             {
                 case (FrontClockFace_Enum.one_thirty):
                     //  1:30 
@@ -790,7 +803,23 @@ namespace RubiksCube_2x2
         }
 
 
-        internal void ReorientPiece_FrontFaceIsFace2(FrontClockFace par_clock) //  par_enum)
+        internal void ReorientPiece_FrontFaceIsFace2(FrontClockFace par_clock)  // par_enum)
+        {
+            //---internal void ReorientPiece_FrontFaceIsFace1(FrontClockFace_enum par_enum)  // par_enum)
+            //
+            //Added 8/21/2023 thomas downes
+            //
+            ReorientPiece_FrontFaceIsFace2(par_clock.EnumValue());
+
+        }
+
+
+        /// <summary>
+        /// What does this do? 
+        /// </summary>
+        /// <param name="par_clock"></param>
+        /// <exception cref="Exception"></exception>
+        internal void ReorientPiece_FrontFaceIsFace2(FrontClockFace_Enum par_clock) //  par_enum)
         {
             //
             //Added 11/14/2020 thomas downes
@@ -801,8 +830,9 @@ namespace RubiksCube_2x2
             //
             //Determine the two(2) side faces. 
             //
-            //----switch (par_enum)
-            switch (par_clock.EnumValue()) //---enum)
+            //#1 Aug2023  switch (par_enum)
+            //#2 Aug2023  switch (par_clock.EnumValue()) //---enum)
+            switch (par_clock) //Aug 2023
             {
                 case (FrontClockFace_Enum.one_thirty):
                     // 1:30 
@@ -843,7 +873,17 @@ namespace RubiksCube_2x2
         }
 
 
-        internal void ReorientPiece_FrontFaceIsFace3(FrontClockFace par_clock)  // par_enum)
+        internal void ReorientPiece_FrontFaceIsFace3(FrontClockFace par_clockFace)  // par_enum)
+        {
+            //
+            //Added 8/20/2023 thomas downes
+            //
+            ReorientPiece_FrontFaceIsFace3(par_clockFace.EnumValue());
+
+        }
+
+
+        internal void ReorientPiece_FrontFaceIsFace3(FrontClockFace_Enum par_enum)  // par_enum)
         {
             //
             //Added 11/14/2020 thomas downes
@@ -854,7 +894,8 @@ namespace RubiksCube_2x2
             //
             //Determine the two(2) side faces. 
             //
-            switch (par_clock.EnumValue())  //  (par_enum)
+            //Aug 2023 switch (par_clock.EnumValue())  //  (par_enum)
+            switch (par_enum)  //  (par_enum)
             {
                 case (FrontClockFace_Enum.one_thirty):
                     // The current piece being oriented is the 1:30 face, top-right. 
@@ -1658,6 +1699,13 @@ namespace RubiksCube_2x2
 
         }
 
+
+        public void Set_FrontFacePosition(FrontClockFace_Enum par_enum)
+        {
+            // Added 8/21/2023 
+            FrontClockFacePosition.SetFrontClockPosition(par_enum);
+
+        }
 
         public void SetTemporaryTextMarker_ClockPosition()
         {

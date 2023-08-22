@@ -65,9 +65,15 @@ namespace RubiksCube_2x2
     //
     public enum EnumFacePositionNSWE { NotSpecified, FrontFacing, N_side_of_front, S_side_of_front, E_side_of_front, W_side_of_front };
 
+    /// <summary>
+    /// These are enumerated values designating the three(3) flat surfaces of a corner piece. 
+    /// </summary>
     public enum EnumFaceNum { NotSpecified, NotApplicable_DifferentPiece, Face1, Face2, Face3 };
 
     //Added 11/17/2020 thomas downes.
+    /// <summary>
+    /// 
+    /// </summary>
     public enum EnumWhatToPaint { NotSpecified, FrontAndSides, JustFront, JustSides }
 
     // Added 11/14/2020 thomas downes 

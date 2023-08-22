@@ -97,6 +97,15 @@ namespace RubiksCube_2x2
             }
 
 
+            public GreenOrangeWhite(FrontClockFace_Enum par_enum) //Added 8/20/2023
+            {
+                //Added 8/20/2023 td
+                base.FrontClockFacePosition
+                    .SetFrontClockPosition(par_enum);
+
+            }
+
+
             public GreenOrangeWhite(string par_strBriefDescription) //, ClassBackside par_parentSide)
             {
                 //---public BlueOrangeYellow(string par_strBriefDescription

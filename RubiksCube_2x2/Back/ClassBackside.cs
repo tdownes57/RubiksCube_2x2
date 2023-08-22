@@ -206,19 +206,23 @@ namespace RubiksCube_2x2
             {
                 //throw new NotImplementedException();
 
-                _pieceBOY.FrontClockFacePosition = FrontClockFace.ten_thirty;
+                //Aug 2023 _pieceBOY.FrontClockFacePosition = FrontClockFace.ten_thirty;
+                _pieceBOY = new BlueOrangeYellow(FrontClockFace.ten_thirty);
                 _pieceBOY.ReorientPiece_FrontFaceIsFace3(FrontClockFace.ten_thirty);
 
-                _pieceBYR.FrontClockFacePosition = FrontClockFace_Enum.seven_thirty;
+                //Aug 2023 _pieceBYR.FrontClockFacePosition = FrontClockFace_Enum.seven_thirty;
+                _pieceBYR = new BlueYellowRed(FrontClockFace.seven_thirty);
                 _pieceBYR.ReorientPiece_FrontFaceIsFace3(FrontClockFace_Enum.seven_thirty);
 
                 //throw new NotImplementedException();
 
-                _pieceGRY.FrontClockFacePosition = FrontClockFace.four_thirty();
-                _pieceGRY.ReorientPiece_FrontFaceIsFace2(FrontClockFace.four_thirty());
+                //Aug 2023 _pieceGRY.FrontClockFacePosition = FrontClockFace.four_thirty();
+                _pieceGRY = new GreenRedYellow(FrontClockFace.four_thirty);
+                _pieceGRY.ReorientPiece_FrontFaceIsFace2(FrontClockFace.four_thirty);
 
-                _pieceGYO.FrontClockFacePosition = FrontClockFace.one_thirty();
-                _pieceGYO.ReorientPiece_FrontFaceIsFace2(FrontClockFace.one_thirty());
+                //Aug 2023 _pieceGYO.FrontClockFacePosition = FrontClockFace.one_thirty();
+                _pieceGYO = new GreenYellowOrange(FrontClockFace.one_thirty);
+                _pieceGYO.ReorientPiece_FrontFaceIsFace2(FrontClockFace.one_thirty);
 
             }
 
@@ -271,7 +275,7 @@ namespace RubiksCube_2x2
                 //
                 // Testing, before. 
                 //
-                beforePiece430 = this.GetPiece(FrontClockFace.four_thirty());
+                beforePiece430 = this.GetPiece(FrontClockFace.four_thirty);
                 beforePiece1030 = this.GetPiece(FrontClockFace.ten_thirty);
 
                 test_position430_Before = beforePiece430.FrontClockFacePosition;
@@ -342,16 +346,20 @@ namespace RubiksCube_2x2
                     //
                     // Old way, without encapsulation of rules. 
                     //
-                    move1_from130.StartingPoint = FrontClockFace.one_thirty();
+                    //move1_from130.StartingPoint = FrontClockFace.one_thirty;
+                    move1_from130.SetStartingPoint(FrontClockFace.one_thirty);
                     move1_from130.EndingPoint = EnumAll12Faces.F0430;
 
-                    move2_from430.StartingPoint = FrontClockFace.four_thirty();
+                    //move2_from430.StartingPoint = FrontClockFace.four_thirty;
+                    move2_from430.SetStartingPoint(FrontClockFace.four_thirty);
                     move2_from430.EndingPoint = EnumAll12Faces._730_SSW;
 
-                    move3_from730.StartingPoint = FrontClockFace_Enum.seven_thirty;
+                    //move3_from730.StartingPoint = FrontClockFace_Enum.seven_thirty;
+                    move3_from730.SetStartingPoint (FrontClockFace_Enum.seven_thirty);
                     move3_from730.EndingPoint = EnumAll12Faces._1030_NNW;
 
-                    move4_from1030.StartingPoint = FrontClockFace.ten_thirty;
+                    //move4_from1030.StartingPoint = FrontClockFace.ten_thirty;
+                    move4_from1030.SetStartingPoint (FrontClockFace.ten_thirty);
                     //move4.StartingPoint = FrontClockFace.ten_thirty;
                     move4_from1030.EndingPoint = EnumAll12Faces._130_ENE;
                 }
@@ -360,9 +368,9 @@ namespace RubiksCube_2x2
                 //
                 // Implementing the movements described above, as follows: 
                 //
-                RubiksPieceCorner piece_starting_at_130 = GetPieceAtPosition(FrontClockFace.one_thirty());
-                RubiksPieceCorner piece_starting_at_430 = GetPieceAtPosition(FrontClockFace.four_thirty());
-                RubiksPieceCorner piece_starting_at_730 = GetPieceAtPosition(FrontClockFace_Enum.seven_thirty);
+                RubiksPieceCorner piece_starting_at_130 = GetPieceAtPosition(FrontClockFace.one_thirty);
+                RubiksPieceCorner piece_starting_at_430 = GetPieceAtPosition(FrontClockFace.four_thirty);
+                RubiksPieceCorner piece_starting_at_730 = GetPieceAtPosition(FrontClockFace.seven_thirty);
                 RubiksPieceCorner piece_starting_at_1030 = GetPieceAtPosition(FrontClockFace.ten_thirty);
 
                 //piece_starting_at_130.ReorientPiece_Complex(move1.EndingPoint);
@@ -686,7 +694,7 @@ namespace RubiksCube_2x2
                 //       [ SW ] [ SE ]   
                 //
                 RubiksPieceCorner pieceSW = this.GetPiece(FrontClockFace_Enum.seven_thirty);
-                RubiksPieceCorner pieceSE = this.GetPiece(FrontClockFace.four_thirty());
+                RubiksPieceCorner pieceSE = this.GetPiece(FrontClockFace.four_thirty);
 
                 GodlikeSwitch_Piece(pieceSW, pieceSE);
 
@@ -1233,15 +1241,19 @@ namespace RubiksCube_2x2
             }
 
 
-            public override RubiksPieceCorner GetPiece(FrontClockFace par_enum)
+            public override RubiksPieceCorner GetPiece(FrontClockFace_Enum par_enum)
             {
                 //
                 // Added 12/9/2020 thomas d. 
                 //
-                if (par_enum == _pieceBOY.FrontClockFacePosition) return _pieceBOY;
-                if (par_enum == _pieceBYR.FrontClockFacePosition) return _pieceBYR;
-                if (par_enum == _pieceGRY.FrontClockFacePosition) return _pieceGRY;
-                if (par_enum == _pieceGYO.FrontClockFacePosition) return _pieceGYO;
+                //if (par_enum == _pieceBOY.FrontClockFacePosition) return _pieceBOY;
+                //if (par_enum == _pieceBYR.FrontClockFacePosition) return _pieceBYR;
+                //if (par_enum == _pieceGRY.FrontClockFacePosition) return _pieceGRY;
+                //if (par_enum == _pieceGYO.FrontClockFacePosition) return _pieceGYO;
+                if (_pieceBOY.FrontClockFacePosition.Equals(par_enum)) return _pieceBOY;
+                if (_pieceBYR.FrontClockFacePosition.Equals(par_enum)) return _pieceBYR;
+                if (_pieceGRY.FrontClockFacePosition.Equals(par_enum)) return _pieceGRY;
+                if (_pieceGYO.FrontClockFacePosition.Equals(par_enum)) return _pieceGYO;
                 throw new ArgumentOutOfRangeException(); //return null; 
 
             }

@@ -40,6 +40,15 @@ namespace RubiksCube_2x2
             public override System.Drawing.Color FaceColor2of3 { get { return Color.Red; } }
             public override System.Drawing.Color FaceColor3of3 { get { return Color.Yellow; } }
 
+            public GreenRedYellow(FrontClockFace_Enum par_enum) //Added 8/20/2023
+            {
+                //Added 8/20/2023 td
+                base.FrontClockFacePosition
+                    .SetFrontClockPosition(par_enum);
+
+            }
+
+
             public GreenRedYellow(RubiksCubeOneSide par_side_Parent = null) : base(par_side_Parent)
             {
                 //---public GreenRedYellow()
