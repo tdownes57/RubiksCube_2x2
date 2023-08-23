@@ -81,6 +81,16 @@ namespace RubiksCube_2x2
 
             }
 
+
+            public BlueRedWhite(FrontClockFace_Enum par_enum) //Added 8/20/2023
+            {
+                //Added 8/20/2023 td
+                base.FrontClockFacePosition
+                    .SetFrontClockPosition(par_enum);
+
+            }
+
+
             public BlueRedWhite(string par_strBriefDescription) //, ClassBackside par_parentSide)
             {
                 //---public BlueOrangeYellow(string par_strBriefDescription
@@ -127,7 +137,8 @@ namespace RubiksCube_2x2
                 // (The [. .] faces are _side_ faces.) 
                 //
                 // Clock position 10:30 pm 
-                base.FrontClockFacePosition = FrontClockFace.ten_thirty;  // i.e. the TopLeft piece, or NorthWest.
+                // Aug2023 base.FrontClockFacePosition = FrontClockFace.ten_thirty;  // i.e. the TopLeft piece, or NorthWest.
+                base.Set_FrontFacePosition(FrontClockFace.ten_thirty);  // i.e. the TopLeft piece, or NorthWest.
 
                 //base.FaceColor1Position_NotInUse = FacePositionNSWE.W_side_of_front;
                 //base.FaceColor2Position_NotInUse = FacePositionNSWE.N_side_of_front;

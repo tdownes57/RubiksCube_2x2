@@ -225,11 +225,13 @@ namespace RubiksCube_2x2
                 _pieceBRW = new BlueRedWhite(FrontClockFace.ten_thirty);
                 _pieceBRW.ReorientPiece_FrontFaceIsFace3(FrontClockFace.ten_thirty);
 
-                _pieceGOW.FrontClockFacePosition = FrontClockFace.four_thirty;
+                //8-2023 _pieceGOW.FrontClockFacePosition = FrontClockFace.four_thirty;
+                _pieceGOW = new GreenOrangeWhite(FrontClockFace.four_thirty);
                 _pieceGOW.ReorientPiece_FrontFaceIsFace3(FrontClockFace.four_thirty);
 
-                _pieceGWR.FrontClockFacePosition = FrontClockFace.one_thirty();
-                _pieceGWR.ReorientPiece_FrontFaceIsFace2(FrontClockFace.one_thirty());
+                //8-2023 _pieceGWR.FrontClockFacePosition = FrontClockFace.one_thirty();
+                _pieceGWR = new GreenWhiteRed(FrontClockFace.one_thirty);
+                _pieceGWR.ReorientPiece_FrontFaceIsFace2(FrontClockFace.one_thirty);
 
                 //throw new NotImplementedException();
 
