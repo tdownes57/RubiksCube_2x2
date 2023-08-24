@@ -840,6 +840,39 @@ namespace RubiksCube_2x2
         }
 
 
+        public int EntropyLevel()
+        {
+            //
+            // Count how many extraneous colors exist 
+            //    on each face:  ec1, ..., ec6.
+            //
+            // Return the sum [ec1 + ... + ec6].
+            //
+            // ---8/23/2023
+            //
+            //--List<RubiksSide_4Pieces> listOfTwoSides;
+            //--List<RubiksFace_4Tiles> listOfSixFaces;
+
+            RubiksFace_4Tiles faceFront = mod_mainside_front.GetFrontFace();
+            RubiksFace_4Tiles faceBack = mod_mainside_back.GetFrontFace();
+            RubiksFace_4Tiles faceUpper = BuildFace_UpperOrTop();
+            RubiksFace_4Tiles faceBottom = BuildFace_BottomOrLower();
+            RubiksFace_4Tiles faceSideLeft = BuildFace_LeftSide();
+            RubiksFace_4Tiles faceSideRight = BuildFace_RightSide();
+
+            int intResult = 0;
+
+            intResult += faceFront.EntropyLevel();
+            intResult += faceBack.EntropyLevel();
+            intResult += faceUpper.EntropyLevel();
+            intResult += faceBottom.EntropyLevel();
+            intResult += faceSideLeft.EntropyLevel();
+            intResult += faceSideRight.EntropyLevel();
+
+            return 0;  
+
+        }
+
 
 
 

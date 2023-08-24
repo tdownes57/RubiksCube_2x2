@@ -200,6 +200,7 @@
     <Compile Include="SideViews\RubikPieceSideView.cs" />
     <Compile Include="TestMongoDB.cs" />
     <Compile Include="TilesAndPieces_Refactoring\RubiksSide_4Pieces.cs" />
+    <Compile Include="TilesAndPieces_Refactoring\RubiksFace_4Tiles.cs" />
     <Compile Include="Uniqueness.cs" />
     <EmbeddedResource Include="FormManeuvers.resx">
       <DependentUpon>FormManeuvers.cs</DependentUpon>
