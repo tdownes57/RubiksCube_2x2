@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;  // Added 10/12/2021  
+using System.Runtime.InteropServices;
+
 namespace RubiksCube_2x2 //.TilesAndPieces
 {
     class RubiksFaceTile_Class
@@ -32,9 +34,148 @@ namespace RubiksCube_2x2 //.TilesAndPieces
         public Boolean ManueverText_IsMarked = false;  // Added 10/20/2021.
         public string ManueverTextMarker = "";  // Default to "". E.g. "10:30".   Added 10/20/2021. 
         public Color ManueverTextMarker_Color = Color.Black;  // Added 10/20/2021.
-
+         
         public RubiksFaceTile_Class mod_nextTileCW_Immutable;  // This is "_Immutable" because its determined at "Load" time and cannot be changed.
         public RubiksFaceTile_Class mod_nextTileCCW_Immutable; // This is "_Immutable" because its determined at "Load" time and cannot be changed.
+
+        // Red tiles
+        //
+        //     if (par_enum == EnumAll8Pieces.BlueRedWhite) return mod_tileRedBRW;
+        //     else if (par_enum == EnumAll8Pieces.BlueYellowRed) return mod_tileRedBYR;
+        //     else if (par_enum == EnumAll8Pieces.GreenRedYellow) return mod_tileRedGRY;
+        //     else if (par_enum == EnumAll8Pieces.GreenWhiteRed) return mod_tileRedGWR;
+        //
+        private static RubiksFaceTile_Class mod_tileRedBRW = new RubiksFaceTile_Class(Color.Red);
+        private static RubiksFaceTile_Class mod_tileRedBYR = new RubiksFaceTile_Class(Color.Red);
+        private static RubiksFaceTile_Class mod_tileRedGRY = new RubiksFaceTile_Class(Color.Red);
+        private static RubiksFaceTile_Class mod_tileRedGWR = new RubiksFaceTile_Class(Color.Red);
+
+        // Blue tiles
+        //
+        //    //if (par_enum == EnumAll8Pieces.BlueOrangeYellow)      return mod_tileBlueBOY;
+        //    //else if (par_enum == EnumAll8Pieces.BlueRedWhite)     return mod_tileBlueBRW;
+        //    //else if (par_enum == EnumAll8Pieces.BlueWhiteOrange)  return mod_tileBlueBWO;
+        //    //else if (par_enum == EnumAll8Pieces.BlueYellowRed)    return mod_tileBlueBYR;
+        //
+        private static RubiksFaceTile_Class mod_tileBlueBOY = new RubiksFaceTile_Class(Color.Blue);
+        private static RubiksFaceTile_Class mod_tileBlueBRW = new RubiksFaceTile_Class(Color.Blue);
+        private static RubiksFaceTile_Class mod_tileBlueBWO = new RubiksFaceTile_Class(Color.Blue);
+        private static RubiksFaceTile_Class mod_tileBlueBYR = new RubiksFaceTile_Class(Color.Blue);
+
+
+        //    Green tiles  
+        //
+        //    //Added 8/25/2023 td
+        //    //if (par_enum == EnumAll8Pieces.GreenOrangeWhite) return mod_tileGreenGOW;
+        //    //else if (par_enum == EnumAll8Pieces.GreenRedYellow) return mod_tileGreenGRY;
+        //    //else if (par_enum == EnumAll8Pieces.GreenWhiteRed) return mod_tileGreenGWR;
+        //    //else if (par_enum == EnumAll8Pieces.GreenYellowOrange) return mod_tileGreenGYO;
+        //
+        private static RubiksFaceTile_Class mod_tileGreenGOW = new RubiksFaceTile_Class(Color.Lime); // Limegreen
+        private static RubiksFaceTile_Class mod_tileGreenGRY = new RubiksFaceTile_Class(Color.Lime); // Limegreen
+        private static RubiksFaceTile_Class mod_tileGreenGWR = new RubiksFaceTile_Class(Color.Lime); // Limegreen
+        private static RubiksFaceTile_Class mod_tileGreenGYO = new RubiksFaceTile_Class(Color.Lime); // Limegreen
+
+
+        //    //Yellow tiles
+        //    ////Added 8/25/2023 td
+        //    //if (par_enum == EnumAll8Pieces.BlueOrangeYellow) return mod_tileYellowBOY;
+        //    //else if (par_enum == EnumAll8Pieces.BlueYellowRed) return mod_tileYelloBYR;
+        //    //else if (par_enum == EnumAll8Pieces.GreenRedYellow) return mod_tileYellowGRY;
+        //    //else if (par_enum == EnumAll8Pieces.GreenYellowOrange) return mod_tileYellowGYO;
+        //
+        private static RubiksFaceTile_Class mod_tileYellowBOY = new RubiksFaceTile_Class(Color.Yellow);
+        private static RubiksFaceTile_Class mod_tileYellowBYR = new RubiksFaceTile_Class(Color.Yellow);
+        private static RubiksFaceTile_Class mod_tileYellowGRY = new RubiksFaceTile_Class(Color.Yellow);
+        private static RubiksFaceTile_Class mod_tileYellowGYO = new RubiksFaceTile_Class(Color.Yellow);
+
+
+        private static RubiksFaceTile_Class mod_tileWhite1 = new RubiksFaceTile_Class(Color.White);
+        private static RubiksFaceTile_Class mod_tileWhite2 = new RubiksFaceTile_Class(Color.White);
+        private static RubiksFaceTile_Class mod_tileWhite3 = new RubiksFaceTile_Class(Color.White);
+        private static RubiksFaceTile_Class mod_tileWhite4 = new RubiksFaceTile_Class(Color.White);
+
+
+        private static RubiksFaceTile_Class mod_tileOrange1 = new RubiksFaceTile_Class(Color.Orange);
+        private static RubiksFaceTile_Class mod_tileOrange2 = new RubiksFaceTile_Class(Color.Orange);
+        private static RubiksFaceTile_Class mod_tileOrange3 = new RubiksFaceTile_Class(Color.Orange);
+        private static RubiksFaceTile_Class mod_tileOrange4 = new RubiksFaceTile_Class(Color.Orange);
+
+
+        public static RubiksFaceTile_Class GetRed(EnumAll8Pieces par_enum)
+        {
+            // Red tiles
+            //Added 8/25/2023 td
+            if (par_enum == EnumAll8Pieces.BlueRedWhite) return mod_tileRedBRW;
+            else if (par_enum == EnumAll8Pieces.BlueYellowRed) return mod_tileRedBYR;
+            else if (par_enum == EnumAll8Pieces.GreenRedYellow) return mod_tileRedGRY;
+            else if (par_enum == EnumAll8Pieces.GreenWhiteRed) return mod_tileRedGWR;
+            else return null; 
+        }
+
+
+        public static RubiksFaceTile_Class GetBlue(EnumAll8Pieces par_enum)
+        {
+            // Blue tiles
+            //Added 8/25/2023 td
+            if (     par_enum == EnumAll8Pieces.BlueOrangeYellow) return mod_tileBlueBOY;
+            else if (par_enum == EnumAll8Pieces.BlueRedWhite)     return mod_tileBlueBRW;
+            else if (par_enum == EnumAll8Pieces.BlueWhiteOrange)  return mod_tileBlueBWO;
+            else if (par_enum == EnumAll8Pieces.BlueYellowRed)    return mod_tileBlueBYR;
+            else return null;
+        }
+
+
+        public static RubiksFaceTile_Class GetGreen(EnumAll8Pieces par_enum)
+        {
+            // Green tiles
+            //Added 8/25/2023 td
+            if (par_enum == EnumAll8Pieces.GreenOrangeWhite) return mod_tileGreenGOW;
+            else if (par_enum == EnumAll8Pieces.GreenRedYellow) return mod_tileGreenGRY;
+            else if (par_enum == EnumAll8Pieces.GreenWhiteRed) return mod_tileGreenGWR;
+            else if (par_enum == EnumAll8Pieces.GreenYellowOrange) return mod_tileGreenGYO;
+            else return null;
+        }
+
+        public static RubiksFaceTile_Class GetYellow(EnumAll8Pieces par_enum)
+        {
+            // Yellow tiles
+            //Added 8/25/2023 td
+            if (par_enum == EnumAll8Pieces.BlueOrangeYellow) return mod_tileYellowBOY;
+            else if (par_enum == EnumAll8Pieces.BlueYellowRed) return mod_tileYellowBYR;
+            else if (par_enum == EnumAll8Pieces.GreenRedYellow) return mod_tileYellowGRY;
+            else if (par_enum == EnumAll8Pieces.GreenYellowOrange) return mod_tileYellowGYO;
+            else return null;
+        }
+
+        public static RubiksFaceTile_Class GetWhite(EnumAll8Pieces par_enum)
+        {
+            // White tiles
+            //     ----Added 8/25/2023 td
+            //
+            if (par_enum == EnumAll8Pieces.BlueRedWhite) return mod_tileWhiteBOY;
+            else if (par_enum == EnumAll8Pieces.BlueYellowRed) return mod_tileWhiteBYR;
+            else if (par_enum == EnumAll8Pieces.GreenRedYellow) return mod_tileWhiteGRY;
+            else if (par_enum == EnumAll8Pieces.GreenYellowOrange) return mod_tileWhiteGYO;
+            else return null;
+        }
+
+
+        public static RubiksFaceTile_Class GetOrange(EnumAll8Pieces par_enum)
+        {
+            // Orange Tiles 
+            if (par_enum == EnumAll8Pieces.BlueRedWhite) return mod_tileWhiteBOY;
+            else if (par_enum == EnumAll8Pieces.BlueYellowRed) return mod_tileWhiteBYR;
+            else if (par_enum == EnumAll8Pieces.GreenRedYellow) return mod_tileWhiteGRY;
+            else if (par_enum == EnumAll8Pieces.GreenYellowOrange) return mod_tileWhiteGYO;
+            else return null;
+        }
+
+        //
+        /// <summary>
+        /// Done with the static section. 
+        /// </summary>
+
 
         public Color ColorOfTile {
             get
@@ -42,6 +183,14 @@ namespace RubiksCube_2x2 //.TilesAndPieces
                 // Added 10/12/2021 td 
                 return mod_colorOfTile;
             }
+        }
+
+
+        public RubiksFaceTile_Class(Color par_color)
+        {
+            //Added 8/25/2023  
+            mod_colorOfTile = par_color;
+
         }
 
 

@@ -49,6 +49,24 @@ namespace RubiksCube_2x2
             }
 
 
+            //
+            //Added 8/25/2023 thomas downes
+            //
+            private static BlueRedWhite mod_pieceBRW;
+            public static BlueRedWhite GetPiece()
+            { 
+                //Added 8/25/2023 thomas downes
+                if (mod_pieceBRW == null)
+                {
+                    mod_pieceBRW = new BlueRedWhite(RubiksFaceTile_Class.GetBlue(EnumAll8Pieces.BlueRedWhite),
+                                                        RubiksFaceTile_Class.GetRed(EnumAll8Pieces.BlueRedWhite),
+                                                        RubiksFaceTile_Class.GetWhite(EnumAll8Pieces.BlueRedWhite));
+                }
+                return mod_pieceBRW;
+
+            }
+
+
             public BlueRedWhite()
             {
                 //
@@ -77,7 +95,14 @@ namespace RubiksCube_2x2
                 //base.FaceColor2of3 = Color.Red; // White;  // Yellow. 
                 //base.FaceColor3of3 = Color.White; // Red;
 
+                
+
+
+                // Keep this??? --8/25/2023
                 LoadInitialState_NotInUse();
+
+
+
 
             }
 

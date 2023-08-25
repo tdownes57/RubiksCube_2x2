@@ -16,8 +16,28 @@ namespace RubiksCube_2x2
         _730_SSW, _730_WSW,
         _1030_WNW, _1030_NNW
     }
+
+    // Added 8/25/2023 
+    public enum EnumAll8Pieces
+    {
+        // Added 8/25/2023 
+        NotSpecified,
+        //Front
+        BlueRedWhite, 
+        BlueWhiteOrange,
+        GreenOrangeWhite,
+        GreenWhiteRed,
+
+        //Back
+        BlueOrangeYellow,
+        BlueYellowRed,
+        GreenRedYellow,
+        GreenYellowOrange,
+
+    }
+
 }
- 
+
 namespace RubiksCube_2x2  //.Maneuvers
 {
     // Added 11/14/2020 thomas downes 

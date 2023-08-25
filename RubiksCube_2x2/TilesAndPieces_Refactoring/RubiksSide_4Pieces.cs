@@ -26,6 +26,11 @@ namespace RubiksCube_2x2 //.TilesAndPieces
 
         private RubiksPieceCorner_3Tiles CurrentEnumeratedPiece; // Used by FirstPiece_Mutable() & NextPiece_Mutable().  Added 10/15/2021  
 
+        //
+        // Keep track of Front-facing tiles!  ---8/25/2023 td
+        //
+        private RubiksFaceTile_Class[] mod_array_frontFacingTiles = new RubiksFaceTile_Class[4]; 
+
         // The following does _NOT_ initiate the string to "NE-E, SE-S, SW-W, NW-N".
         //    However, the string literal is providing a possible example of the 
         //    eventual string value, and calculates the number of bytes to 
@@ -53,6 +58,14 @@ namespace RubiksCube_2x2 //.TilesAndPieces
                 mod_pieceCW2_Immutable.NextPieceCW_Immutable = mod_pieceCW3_Immutable;
                 mod_pieceCW3_Immutable.NextPieceCW_Immutable = mod_pieceCW4_Immutable;
                 mod_pieceCW4_Immutable.NextPieceCW_Immutable = mod_pieceCW1_Immutable;
+
+                //
+                // Added 8/25/2023 
+                //
+                mod_array_frontFacingTiles[0] = RubiksFaceTile_Class.GetBlue();
+                mod_array_frontFacingTiles[1] = RubiksFaceTile_Class.GetLime();
+                mod_array_frontFacingTiles[2] = RubiksFaceTile_Class.GetYellow();
+                mod_array_frontFacingTiles[3] = RubiksFaceTile_Class.GetOrange();
 
             }
 
@@ -109,6 +122,32 @@ namespace RubiksCube_2x2 //.TilesAndPieces
             else if (mod_pieceCW2_Immutable.FrontClockFacePosition.EnumValue() == par_enum) return mod_pieceCW2_Immutable;
             else if (mod_pieceCW3_Immutable.FrontClockFacePosition.EnumValue() == par_enum) return mod_pieceCW3_Immutable;
             else if (mod_pieceCW4_Immutable.FrontClockFacePosition.EnumValue() == par_enum) return mod_pieceCW4_Immutable;
+            else return null;
+
+        }
+
+
+        public RubiksFaceTile_Class GetFaceTileAtPosition(FrontClockFace_Enum par_enum)
+        {
+            //
+            // Added 8/25/2023 thomas downes   
+            //
+            if (mod_pieceCW1_Immutable.FrontClockFacePosition.EnumValue() == par_enum)
+            {
+                return mod_pieceCW1_Immutable.GetFrontFaceTile();
+            }
+            else if (mod_pieceCW2_Immutable.FrontClockFacePosition.EnumValue() == par_enum)
+            {
+                return mod_pieceCW2_Immutable.GetFrontFaceTile();
+            }
+            else if (mod_pieceCW3_Immutable.FrontClockFacePosition.EnumValue() == par_enum)
+            {
+                return mod_pieceCW3_Immutable.GetFrontFaceTile();
+            }
+            else if (mod_pieceCW4_Immutable.FrontClockFacePosition.EnumValue() == par_enum)
+            {
+                return mod_pieceCW4_Immutable.GetFrontFaceTile();
+            }
             else return null;
 
         }
