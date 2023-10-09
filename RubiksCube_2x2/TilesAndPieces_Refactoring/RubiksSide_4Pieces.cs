@@ -39,7 +39,7 @@ namespace RubiksCube_2x2 //.TilesAndPieces
         private StringBuilder ToString_Builder = new StringBuilder("NE-E, SE-S, SW-W, NW-N".Length);
 
 
-        public RubiksSide_4Pieces(bool bBackside_BOY_BYR_GRY_GYO)
+        public void RubiksSide_4Pieces_NotInUse(bool bBackside_BOY_BYR_GRY_GYO)
         {
             //
             // Constructor added 10/12/2021  
@@ -62,12 +62,18 @@ namespace RubiksCube_2x2 //.TilesAndPieces
                 //
                 // Added 8/25/2023 
                 //
-                mod_array_frontFacingTiles[0] = RubiksFaceTile_Class.GetBlue();
-                mod_array_frontFacingTiles[1] = RubiksFaceTile_Class.GetLime();
-                mod_array_frontFacingTiles[2] = RubiksFaceTile_Class.GetYellow();
-                mod_array_frontFacingTiles[3] = RubiksFaceTile_Class.GetOrange();
+                //Why?  10/2023 mod_array_frontFacingTiles[0] = RubiksFaceTile_Class.GetBlue();
+                //Why?  10/2023 mod_array_frontFacingTiles[1] = RubiksFaceTile_Class.GetLime();
+                //Why?  10/2023 mod_array_frontFacingTiles[2] = RubiksFaceTile_Class.GetYellow();
+                //Why?  10/2023 mod_array_frontFacingTiles[3] = RubiksFaceTile_Class.GetOrange();
 
             }
+            else
+            {
+
+
+            }    
+
 
 
 

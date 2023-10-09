@@ -90,20 +90,37 @@ namespace RubiksCube_2x2 //.TilesAndPieces
         private static RubiksFaceTile_Class mod_tileYellowGYO = new RubiksFaceTile_Class(Color.Yellow);
 
 
-        private static RubiksFaceTile_Class mod_tileWhite1 = new RubiksFaceTile_Class(Color.White);
-        private static RubiksFaceTile_Class mod_tileWhite2 = new RubiksFaceTile_Class(Color.White);
-        private static RubiksFaceTile_Class mod_tileWhite3 = new RubiksFaceTile_Class(Color.White);
-        private static RubiksFaceTile_Class mod_tileWhite4 = new RubiksFaceTile_Class(Color.White);
+        //    Orange tiles
+        //    ////Added 8/25/2023 td
+        //    if (par_enum == EnumAll8Pieces.BlueRedWhite) return mod_tileWhiteBRW;
+        //    else if (par_enum == EnumAll8Pieces.BlueWhiteOrange) return mod_tileWhiteBWO;
+        //    else if (par_enum == EnumAll8Pieces.GreenOrangeWhite) return mod_tileWhiteGOW;
+        //    else if (par_enum == EnumAll8Pieces.GreenWhiteRed) return mod_tileWhiteGWR;
+        /
+        private static RubiksFaceTile_Class mod_tileWhiteBRW = new RubiksFaceTile_Class(Color.White);
+        private static RubiksFaceTile_Class mod_tileWhiteBWO = new RubiksFaceTile_Class(Color.White);
+        private static RubiksFaceTile_Class mod_tileWhiteGOW = new RubiksFaceTile_Class(Color.White);
+        private static RubiksFaceTile_Class mod_tileWhiteGWR = new RubiksFaceTile_Class(Color.White);
 
 
-        private static RubiksFaceTile_Class mod_tileOrange1 = new RubiksFaceTile_Class(Color.Orange);
-        private static RubiksFaceTile_Class mod_tileOrange2 = new RubiksFaceTile_Class(Color.Orange);
-        private static RubiksFaceTile_Class mod_tileOrange3 = new RubiksFaceTile_Class(Color.Orange);
-        private static RubiksFaceTile_Class mod_tileOrange4 = new RubiksFaceTile_Class(Color.Orange);
+        //    White tiles
+        //    Added 8/25/2023 td
+        //    /if (par_enum == EnumAll8Pieces.BlueOrangeYellow) return mod_tileoOrangeBOY;
+        //    /else if (par_enum == EnumAll8Pieces.BlueWhiteOrange) return mod_tileOrangeBWO;
+        //    /else if (par_enum == EnumAll8Pieces.GreenOrangeWhite) return mod_tileOrangeGOW;
+        //    /else if (par_enum == EnumAll8Pieces.GreenYellowOrange) return mod_tileOrangeGYO;
+        //
+        private static RubiksFaceTile_Class mod_tileOrangeBOY = new RubiksFaceTile_Class(Color.Orange);
+        private static RubiksFaceTile_Class mod_tileOrangeBWO = new RubiksFaceTile_Class(Color.Orange);
+        private static RubiksFaceTile_Class mod_tileOrangeGOW = new RubiksFaceTile_Class(Color.Orange);
+        private static RubiksFaceTile_Class mod_tileOrangeGYO = new RubiksFaceTile_Class(Color.Orange);
 
 
         public static RubiksFaceTile_Class GetRed(EnumAll8Pieces par_enum)
         {
+            //
+            // -----SINGLETON PATTERN----- (vs. CACHE PATTERN) 
+            //
             // Red tiles
             //Added 8/25/2023 td
             if (par_enum == EnumAll8Pieces.BlueRedWhite) return mod_tileRedBRW;
@@ -116,6 +133,9 @@ namespace RubiksCube_2x2 //.TilesAndPieces
 
         public static RubiksFaceTile_Class GetBlue(EnumAll8Pieces par_enum)
         {
+            //
+            // -----SINGLETON PATTERN----- (vs. CACHE PATTERN) 
+            //
             // Blue tiles
             //Added 8/25/2023 td
             if (     par_enum == EnumAll8Pieces.BlueOrangeYellow) return mod_tileBlueBOY;
@@ -128,6 +148,13 @@ namespace RubiksCube_2x2 //.TilesAndPieces
 
         public static RubiksFaceTile_Class GetGreen(EnumAll8Pieces par_enum)
         {
+            //
+            // -----SINGLETON PATTERN----- (vs. CACHE PATTERN) 
+            //
+            // This static function is useful if we are using a "Singleton" 
+            //  software-design pattern for the Rubik's 4X4X4 cube... but NOT if we
+            //  deviate from the Singleton design pattern.  ---10/2023 td
+            //
             // Green tiles
             //Added 8/25/2023 td
             if (par_enum == EnumAll8Pieces.GreenOrangeWhite) return mod_tileGreenGOW;
@@ -139,6 +166,13 @@ namespace RubiksCube_2x2 //.TilesAndPieces
 
         public static RubiksFaceTile_Class GetYellow(EnumAll8Pieces par_enum)
         {
+            //
+            // -----SINGLETON PATTERN----- (vs. CACHE PATTERN) 
+            //
+            // This static function is useful if we are using a "Singleton" 
+            //  software-design pattern for the Rubik's 4X4X4 cube... but NOT if we
+            //  deviate from the Singleton design pattern.  ---10/2023 td 
+            //
             // Yellow tiles
             //Added 8/25/2023 td
             if (par_enum == EnumAll8Pieces.BlueOrangeYellow) return mod_tileYellowBOY;
@@ -150,24 +184,40 @@ namespace RubiksCube_2x2 //.TilesAndPieces
 
         public static RubiksFaceTile_Class GetWhite(EnumAll8Pieces par_enum)
         {
+            //
+            // -----SINGLETON PATTERN----- (vs. CACHE PATTERN) 
+            //
+            // This static function is useful if we are using a "Singleton" 
+            //  software-design pattern for the Rubik's 4X4X4 cube... but NOT if we
+            //  deviate from the Singleton design pattern.   ---10/2023 td
+            //
             // White tiles
             //     ----Added 8/25/2023 td
             //
-            if (par_enum == EnumAll8Pieces.BlueRedWhite) return mod_tileWhiteBOY;
-            else if (par_enum == EnumAll8Pieces.BlueYellowRed) return mod_tileWhiteBYR;
-            else if (par_enum == EnumAll8Pieces.GreenRedYellow) return mod_tileWhiteGRY;
-            else if (par_enum == EnumAll8Pieces.GreenYellowOrange) return mod_tileWhiteGYO;
+            if (par_enum == EnumAll8Pieces.BlueRedWhite) return mod_tileWhiteBRW;
+            else if (par_enum == EnumAll8Pieces.BlueWhiteOrange) return mod_tileWhiteBWO;
+            else if (par_enum == EnumAll8Pieces.GreenOrangeWhite) return mod_tileWhiteGOW;
+            else if (par_enum == EnumAll8Pieces.GreenWhiteRed) return mod_tileWhiteGWR;
             else return null;
         }
 
 
         public static RubiksFaceTile_Class GetOrange(EnumAll8Pieces par_enum)
         {
-            // Orange Tiles 
-            if (par_enum == EnumAll8Pieces.BlueRedWhite) return mod_tileWhiteBOY;
-            else if (par_enum == EnumAll8Pieces.BlueYellowRed) return mod_tileWhiteBYR;
-            else if (par_enum == EnumAll8Pieces.GreenRedYellow) return mod_tileWhiteGRY;
-            else if (par_enum == EnumAll8Pieces.GreenYellowOrange) return mod_tileWhiteGYO;
+            //
+            // -----SINGLETON PATTERN----- (vs. CACHE PATTERN) 
+            //
+            // This static function is useful if we are using a "Singleton" 
+            //  software-design pattern for the Rubik's 4X4X4 cube... but NOT if we
+            //  deviate from the Singleton design pattern.  ---10/2023 td 
+            //
+            // Orange Tile 
+            //     ----Added 8/25/2023 td
+            //
+            if (par_enum == EnumAll8Pieces.BlueOrangeYellow) return mod_tileOrangeBOY;
+            else if (par_enum == EnumAll8Pieces.BlueWhiteOrange) return mod_tileOrangeBWO;
+            else if (par_enum == EnumAll8Pieces.GreenOrangeWhite) return mod_tileOrangeGOW;
+            else if (par_enum == EnumAll8Pieces.GreenYellowOrange) return mod_tileOrangeGYO;
             else return null;
         }
 

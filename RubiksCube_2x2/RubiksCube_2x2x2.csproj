@@ -112,6 +112,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CubeCache\CacheRubiks4x4Cube.cs" />
     <Compile Include="EnumRelatedClasses.cs" />
     <Compile Include="FormManeuvers.cs">
       <SubType>Form</SubType>

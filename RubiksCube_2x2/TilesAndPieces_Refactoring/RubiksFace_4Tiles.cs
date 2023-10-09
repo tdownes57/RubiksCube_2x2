@@ -50,6 +50,13 @@ namespace RubiksCube_2x2 //.TilesAndPieces_Refactoring
 
         }
 
+        public int EntropyLevel()
+        {
+            //
+            // Added 10/09/2023 
+            //
+            return Get_EntropyLevel();
+        }
 
         public int Get_EntropyLevel()
         {

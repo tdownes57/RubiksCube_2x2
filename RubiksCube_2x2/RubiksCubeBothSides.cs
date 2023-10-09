@@ -853,8 +853,8 @@ namespace RubiksCube_2x2
             //--List<RubiksSide_4Pieces> listOfTwoSides;
             //--List<RubiksFace_4Tiles> listOfSixFaces;
 
-            RubiksFace_4Tiles faceFront = mod_mainside_front.GetFrontFace();
-            RubiksFace_4Tiles faceBack = mod_mainside_back.GetFrontFace();
+            RubiksFace_4Tiles faceFront = mod_mainside_front.Get4Tiles_FrontFace();
+            RubiksFace_4Tiles faceBack = mod_mainside_back.Get4Tiles_FrontFace();
             RubiksFace_4Tiles faceUpper = BuildFace_UpperOrTop();
             RubiksFace_4Tiles faceBottom = BuildFace_BottomOrLower();
             RubiksFace_4Tiles faceSideLeft = BuildFace_LeftSide();

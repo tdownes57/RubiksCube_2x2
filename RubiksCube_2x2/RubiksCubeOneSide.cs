@@ -59,6 +59,10 @@ namespace RubiksCube_2x2
         // Aug9 2023 public abstract RubiksPieceCorner GetPiece(FrontClockFace par_enum);
         public abstract RubiksPieceCorner GetPiece(FrontClockFace_Enum par_enum);
 
+        //Added 10/09/2023 thomas downes
+        public abstract RubiksFace_4Tiles Get4tiles_FrontFace();
+
+
         // Added 5/6/2021 td 
         internal int Output_PanelWidth;
         internal int Output_PanelHeight;

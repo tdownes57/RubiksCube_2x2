@@ -190,6 +190,19 @@ namespace RubiksCube_2x2
 
             }
 
+
+            public override RubiksFace_4Tiles Get4tiles_FrontFace()
+            {
+                //
+                // Added 10/09/2023  
+                //
+                //      public override RubiksFace_4Tiles Get4tiles_FrontFace()
+                //
+
+            }
+
+
+
             private void CommonConstructorWork()
             {
                 // Encapsulated 6/3/2021 thomas downes
@@ -680,8 +693,10 @@ namespace RubiksCube_2x2
 
             }
 
-
-
+            //public override RubiksFace_4Tiles Get4tiles_FrontFace()
+            //{
+            //    throw new NotImplementedException();
+            //}
 
 
         }
